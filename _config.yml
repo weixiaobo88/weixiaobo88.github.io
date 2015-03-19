@@ -1,6 +1,6 @@
 # Dependencies
 markdown:         redcarpet
-pygments:         true
+highlighter:         pygments
 
 # Permalinks
 permalink:        pretty
@@ -10,7 +10,7 @@ title:            weixiaobo88.github.io
 tagline:          Blog
 url:              http://weixiaobo88.github.io/
 paginate:         1
-baseurl:          /
+baseurl:
 author:
   name:           
   url:            
@@ -18,5 +18,5 @@ author:
 
 # Custom vars
 version:          1.0.0
-github:
-  repo:           
+github:           https://github.com/weixiaobo88/
+  repo:           https://github.com/weixiaobo88/weixiaobo88.github.io
