@@ -3,33 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>database | weixiaobo88.github.io</title>
+  <title>Database | weixiaobo88.github.io</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="#Database 
-##Spring 4 Data Access
-许多开发人员将应用程序中的持久化对象称为仓库（repository），有时候也将其称为数据访问对象 DAO （Data access object）。DAO提供了数据读取和写入到数据库中的一种方式。
-###设计数据访问层的好处
-
-使得服务对象易于测试，因为它们不再与特定的数据访问实现绑定在一起。可以为这些数据访问接口创建mock实">
+  <meta name="description" content="Spring 4 Data Access许多开发人员将应用程序中的持久化对象称为仓库（repository），有时候也将其称为数据访问对象 DAO （Data access object）。DAO提供了数据读取和写入到数据库中的一种方式。
+设计数据访问层的好处
+使得服务对象易于测试，因为它们不再与特定的数据访问实现绑定在一起。可以为这些数据访问接口创建mock实现，可以让你无需连接数据库就能测试服">
 <meta property="og:type" content="article">
-<meta property="og:title" content="database">
+<meta property="og:title" content="Database">
 <meta property="og:url" content="http://weixiaobo88.github.io/2015/07/29/2015-07-29-spring-004-database/index.html">
 <meta property="og:site_name" content="weixiaobo88.github.io">
-<meta property="og:description" content="#Database 
-##Spring 4 Data Access
-许多开发人员将应用程序中的持久化对象称为仓库（repository），有时候也将其称为数据访问对象 DAO （Data access object）。DAO提供了数据读取和写入到数据库中的一种方式。
-###设计数据访问层的好处
-
-使得服务对象易于测试，因为它们不再与特定的数据访问实现绑定在一起。可以为这些数据访问接口创建mock实">
-<meta property="og:updated_time" content="2015-08-03T10:13:13.000Z">
+<meta property="og:description" content="Spring 4 Data Access许多开发人员将应用程序中的持久化对象称为仓库（repository），有时候也将其称为数据访问对象 DAO （Data access object）。DAO提供了数据读取和写入到数据库中的一种方式。
+设计数据访问层的好处
+使得服务对象易于测试，因为它们不再与特定的数据访问实现绑定在一起。可以为这些数据访问接口创建mock实现，可以让你无需连接数据库就能测试服">
+<meta property="og:updated_time" content="2015-08-03T12:33:08.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="database">
-<meta name="twitter:description" content="#Database 
-##Spring 4 Data Access
-许多开发人员将应用程序中的持久化对象称为仓库（repository），有时候也将其称为数据访问对象 DAO （Data access object）。DAO提供了数据读取和写入到数据库中的一种方式。
-###设计数据访问层的好处
-
-使得服务对象易于测试，因为它们不再与特定的数据访问实现绑定在一起。可以为这些数据访问接口创建mock实">
+<meta name="twitter:title" content="Database">
+<meta name="twitter:description" content="Spring 4 Data Access许多开发人员将应用程序中的持久化对象称为仓库（repository），有时候也将其称为数据访问对象 DAO （Data access object）。DAO提供了数据读取和写入到数据库中的一种方式。
+设计数据访问层的好处
+使得服务对象易于测试，因为它们不再与特定的数据访问实现绑定在一起。可以为这些数据访问接口创建mock实现，可以让你无需连接数据库就能测试服">
   
     <link rel="alternative" href="/atom.xml" title="weixiaobo88.github.io" type="application/atom+xml">
   
@@ -93,7 +84,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      database
+      Database
     </h1>
   
 
@@ -101,28 +92,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#Database </p>
-<p>##Spring 4 Data Access</p>
-<p>许多开发人员将应用程序中的持久化对象称为仓库（repository），有时候也将其称为数据访问对象 DAO （Data access object）。<br>DAO提供了数据读取和写入到数据库中的一种方式。</p>
-<p>###设计数据访问层的好处</p>
-<ul>
+        <h2 id="Spring_4_Data_Access">Spring 4 Data Access</h2><p>许多开发人员将应用程序中的持久化对象称为仓库（repository），有时候也将其称为数据访问对象 DAO （Data access object）。<br>DAO提供了数据读取和写入到数据库中的一种方式。</p>
+<h3 id="设计数据访问层的好处">设计数据访问层的好处</h3><ul>
 <li>使得服务对象易于测试，因为它们不再与特定的数据访问实现绑定在一起。可以为这些数据访问接口创建mock实现，可以让你无需连接数据库就能测试服务对象，这会显示提升单元测试的效率并排除因数据不一致所造成的测试失败。</li>
 <li>数据访问层是以持久化技术无关的方式来进行访问的。持久化方式的选择对于DAO，只有相关的数据访问方法通过接口来进行发布。这可以实现灵活的设计并使得切换持久化框架对应用程序其他部分带来的影响最小。</li>
 </ul>
-<p>###可能导致抛出 SQLException 的常见问题</p>
-<ul>
+<h3 id="可能导致抛出_SQLException_的常见问题">可能导致抛出 SQLException 的常见问题</h3><ul>
 <li>应用程序无法连接数据库</li>
 <li>要执行的查询语法有语法错误</li>
 <li>查询中所使用的表或列不存在</li>
 <li>视图插入或更新的数据违反了数据库的完整性约束</li>
 </ul>
-<p>###捕获的时候面临的两个问题</p>
-<ul>
+<h3 id="捕获的时候面临的两个问题">捕获的时候面临的两个问题</h3><ul>
 <li>JDBC 的 SQLException 是通用异常，而且不会提示异常类型。</li>
 <li>一些持久化框架提供了相对丰富的异常体现，比如 Hibernate，但是 Hibernate 的异常是其本身特有的，这种持久化机制不能独立于数据访问层。</li>
 </ul>
-<p>###Spring JDBC</p>
-<p>Spring JDBC 解决了上述两个问题， 它提供了多种类型，都继承自 DataAccessException，是一个非检查型异常。</p>
+<h3 id="Spring_JDBC">Spring JDBC</h3><p>Spring JDBC 解决了上述两个问题， 它提供了多种类型，都继承自 DataAccessException，是一个非检查型异常。</p>
 <p>为了使用 Spring 的数据访问异常，需要使用 Spring 提供的数据访问模板。</p>
 <p>Spring 将数据访问过程中固定的和可变的部分明确划分为两个不同的类：</p>
 <ul>
@@ -130,14 +115,16 @@
 <li>回调，处理自定义的数据访问代码，应用程序相关的数据访问（创建语句、绑定参数以及整理结果集）在回调的实现中处理</li>
 </ul>
 <p>不同的持久化平台有不同的模板，JDBC 对于 JdbcTemplate，Hibernate 对应 HibernateTemplate。</p>
-<p>##参考资料<br>《Spring in Action》</p>
+<h2 id="参考资料">参考资料</h2><p>《Spring in Action》</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/29/2015-07-29-spring-004-database/" data-id="cicvw21np000229fy49bjoh7t" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/29/2015-07-29-spring-004-database/" data-id="cicvwcfqi00027nfy3j3jeaea" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li></ul>
+
     </footer>
   </div>
   
@@ -171,14 +158,28 @@
     
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/">gradle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/servlet/">servlet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">3</span></li></ul>
+    </div>
+  </div>
+
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/servlet/" style="font-size: 15px;">servlet</a> <a href="/tags/spring/" style="font-size: 20px;">spring</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -198,7 +199,7 @@
           </li>
         
           <li>
-            <a href="/2015/07/29/2015-07-29-spring-004-database/">database</a>
+            <a href="/2015/07/29/2015-07-29-spring-004-database/">Database</a>
           </li>
         
           <li>

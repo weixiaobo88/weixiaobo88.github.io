@@ -5,28 +5,22 @@
   
   <title>开始学习Spring | weixiaobo88.github.io</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="#开始学习Spring 
-##Spring 4 IoC
-Spring 4.0.2 有20个modules，打包成20个jar文件
+  <meta name="description" content="Spring 4 IoCSpring 4.0.2 有20个modules，打包成20个jar文件
 任何一个有实际意义的应用都是由两个或者更多的类组成，这些类相互之间进行协作来完成特定的业务逻辑。通常，每个对象负责管理与自己相互协作的对象（即它所以来的对象）的引用，这将会导致高度耦合和难以测试的代码。
-通过依赖注入，对象的依赖关系将由负责协调系统中各个对象的第三方组件">
+通过依赖注入，对象的依赖关系将由负责协调系统中各个对象的第三方组件在创建对象时设定。对象无需自行创">
 <meta property="og:type" content="article">
 <meta property="og:title" content="开始学习Spring">
 <meta property="og:url" content="http://weixiaobo88.github.io/2015/07/12/2015-07-12-spring-002-ioc/index.html">
 <meta property="og:site_name" content="weixiaobo88.github.io">
-<meta property="og:description" content="#开始学习Spring 
-##Spring 4 IoC
-Spring 4.0.2 有20个modules，打包成20个jar文件
+<meta property="og:description" content="Spring 4 IoCSpring 4.0.2 有20个modules，打包成20个jar文件
 任何一个有实际意义的应用都是由两个或者更多的类组成，这些类相互之间进行协作来完成特定的业务逻辑。通常，每个对象负责管理与自己相互协作的对象（即它所以来的对象）的引用，这将会导致高度耦合和难以测试的代码。
-通过依赖注入，对象的依赖关系将由负责协调系统中各个对象的第三方组件">
-<meta property="og:updated_time" content="2015-08-03T10:13:13.000Z">
+通过依赖注入，对象的依赖关系将由负责协调系统中各个对象的第三方组件在创建对象时设定。对象无需自行创">
+<meta property="og:updated_time" content="2015-08-03T12:36:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开始学习Spring">
-<meta name="twitter:description" content="#开始学习Spring 
-##Spring 4 IoC
-Spring 4.0.2 有20个modules，打包成20个jar文件
+<meta name="twitter:description" content="Spring 4 IoCSpring 4.0.2 有20个modules，打包成20个jar文件
 任何一个有实际意义的应用都是由两个或者更多的类组成，这些类相互之间进行协作来完成特定的业务逻辑。通常，每个对象负责管理与自己相互协作的对象（即它所以来的对象）的引用，这将会导致高度耦合和难以测试的代码。
-通过依赖注入，对象的依赖关系将由负责协调系统中各个对象的第三方组件">
+通过依赖注入，对象的依赖关系将由负责协调系统中各个对象的第三方组件在创建对象时设定。对象无需自行创">
   
     <link rel="alternative" href="/atom.xml" title="weixiaobo88.github.io" type="application/atom+xml">
   
@@ -98,12 +92,10 @@ Spring 4.0.2 有20个modules，打包成20个jar文件
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#开始学习Spring </p>
-<p>##Spring 4 IoC</p>
-<p>Spring 4.0.2 有20个modules，打包成20个jar文件</p>
+        <h2 id="Spring_4_IoC">Spring 4 IoC</h2><p>Spring 4.0.2 有20个modules，打包成20个jar文件</p>
 <p>任何一个有实际意义的应用都是由两个或者更多的类组成，这些类相互之间进行协作来完成特定的业务逻辑。通常，每个对象负责管理与自己相互协作的对象（即它所以来的对象）的引用，这将会导致高度耦合和难以测试的代码。</p>
 <p>通过依赖注入，对象的依赖关系将由负责协调系统中各个对象的第三方组件在创建对象时设定。对象无需自行创建或管理它们的依赖关系——依赖关系将被自动注入到需要它们的对象中去。</p>
-<p>##控制反转<br>一个需要特定依赖的组件，我们称为依赖对象dependent object，或者在IoC中称为目标target。</p>
+<h2 id="控制反转">控制反转</h2><p>一个需要特定依赖的组件，我们称为依赖对象dependent object，或者在IoC中称为目标target。</p>
 <p>通常来讲， IoC有两种类型：</p>
 <ul>
 <li>Dependency Lookup <ul>
@@ -126,7 +118,7 @@ Spring 4.0.2 有20个modules，打包成20个jar文件
 <li>构造函数注入，应用在要使用组件之前就必须要实例化被依赖的组件的情况下。</li>
 <li>setter注入，应用在组件本身对容器暴露自身的依赖关系，并且愿意提供一个默认的依赖关系的情况下。</li>
 </ul>
-<p>##Spring中的IoC<br>在基于Spring的应用中，偏向使用依赖注入而不是查找，但是对于独立对象的访问，怡然需要通过查找来获取合作关系。<br>Spring还不能自动将应用程序组件通过依赖注入连接起来，因此必须通过依赖查找来初始化组件集合。</p>
+<h2 id="Spring中的IoC">Spring中的IoC</h2><p>在基于Spring的应用中，偏向使用依赖注入而不是查找，但是对于独立对象的访问，怡然需要通过查找来获取合作关系。<br>Spring还不能自动将应用程序组件通过依赖注入连接起来，因此必须通过依赖查找来初始化组件集合。</p>
 <p>使用Spring MVC来构建Web应用的时候，反而不会遇到这种麻烦事，Spring此时就像一个粘合剂，很好的粘合了应用的各个部分。</p>
 <p>Spring IoC体现在：</p>
 <ul>
@@ -136,8 +128,7 @@ Spring 4.0.2 有20个modules，打包成20个jar文件
 <li>autowiring</li>
 <li>bean inheritance</li>
 </ul>
-<p>##Spring中的DI</p>
-<p>Spring DI 容器的核心是 BeanFactory 接口</p>
+<h2 id="Spring中的DI">Spring中的DI</h2><p>Spring DI 容器的核心是 BeanFactory 接口</p>
 <p>要做两件事：</p>
 <ul>
 <li>在程序中使用BeanFactory</li>
@@ -145,8 +136,7 @@ Spring 4.0.2 有20个modules，打包成20个jar文件
 </ul>
 <p>在Spring中，ApplicationContext接口是BeanFactory的扩展，ApplicationContext除了提供DI服务之外，还有其他，比如事务、AOP、事件处理等。</p>
 <p>在开发过程中，推荐使用ApplicationContext与Spring进行交互。</p>
-<p>###配置ApplicationContext</p>
-<p>定义beans的方式：</p>
+<h3 id="配置ApplicationContext">配置ApplicationContext</h3><p>定义beans的方式：</p>
 <ul>
 <li>properties</li>
 <li>XML文件<ul>
@@ -159,35 +149,33 @@ Spring 4.0.2 有20个modules，打包成20个jar文件
 </li>
 </ul>
 <p>Spring也支持在同一个ApplicationContext中采用XML文件和annotation的混合配置方式。<br>一种通用的方式是在XML文件中定义应用的基础设施（比如，data source，transaction manager，JMS connection factory，JMX），<br>使用annotation来定义DI配置（注入的bean和bean的依赖）</p>
-<p>####XML文件配置方式<br>需要声明所需要的Spring命名空间beans</p>
-<figure class="highlight"><figcaption><span>app-context-xml.xml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#10;&#60;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&#62;&#10;&#60;beans xmlns=&#34;http://www.springframework.org/schema/beans&#34;&#10;    xmlns:xsi=&#34;http://www.w3.org/2001/XMLSchema-instance&#34;&#10;    xsi:schemaLocation=&#34;http://www.springframework.org/schema/beans&#10;        http://www.springframework.org/schema/beans/spring-beans.xsd&#34;&#62;&#10;    &#60;bean id=&#34;messageProvider&#34;&#10;          class=&#34;com.apress.prospring4.ch3.xml.HelloWorldMessageProvider&#34;/&#62;&#10;&#60;/beans&#62;</span><br></pre></td></tr></table></figure>
-<p>####annotation配置方式</p>
-<p>需要在XML文件中声明tags</p>
-<figure class="highlight"><figcaption><span>app-context-annotation.xml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#10;&#60;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&#62;&#10;&#60;beans xmlns=&#34;http://www.springframework.org/schema/beans&#34;&#10;    xmlns:xsi=&#34;http://www.w3.org/2001/XMLSchema-instance&#34;&#10;    xmlns:context=&#34;http://www.springframework.org/schema/context&#34;&#10;    xsi:schemaLocation=&#34;http://www.springframework.org/schema/beans&#10;        http://www.springframework.org/schema/beans/spring-beans.xsd&#10;        http://www.springframework.org/schema/context&#10;        http://www.springframework.org/schema/context/spring-context.xsd&#34;&#62;&#10;    &#60;context:component-scan base-package=&#34;com.apress.prospring4.ch3.annotation&#34; /&#62;&#10;&#60;/beans&#62;</span><br></pre></td></tr></table></figure>
+<h4 id="XML文件配置方式">XML文件配置方式</h4><p>需要声明所需要的Spring命名空间beans</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">样例 app-context-xml.xml</span><br><span class="line"></span><br><span class="line">    <span class="pi">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">beans</span> <span class="attribute">xmlns</span>=<span class="value">"http://www.springframework.org/schema/beans"</span></span><br><span class="line">        <span class="attribute">xmlns:xsi</span>=<span class="value">"http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="line">        <span class="attribute">xsi:schemaLocation</span>=<span class="value">"http://www.springframework.org/schema/beans</span><br><span class="line">            http://www.springframework.org/schema/beans/spring-beans.xsd"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"messageProvider"</span></span><br><span class="line">              <span class="attribute">class</span>=<span class="value">"com.apress.prospring4.ch3.xml.HelloWorldMessageProvider"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="annotation配置方式">annotation配置方式</h4><p>需要在XML文件中声明tags</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">样例 app-context-annotation.xml</span><br><span class="line"></span><br><span class="line">    <span class="pi">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">beans</span> <span class="attribute">xmlns</span>=<span class="value">"http://www.springframework.org/schema/beans"</span></span><br><span class="line">        <span class="attribute">xmlns:xsi</span>=<span class="value">"http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="line">        <span class="attribute">xmlns:context</span>=<span class="value">"http://www.springframework.org/schema/context"</span></span><br><span class="line">        <span class="attribute">xsi:schemaLocation</span>=<span class="value">"http://www.springframework.org/schema/beans</span><br><span class="line">            http://www.springframework.org/schema/beans/spring-beans.xsd</span><br><span class="line">            http://www.springframework.org/schema/context</span><br><span class="line">            http://www.springframework.org/schema/context/spring-context.xsd"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">context:component-scan</span> <span class="attribute">base-package</span>=<span class="value">"com.apress.prospring4.ch3.annotation"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p><context:component-scan> 标签告诉Spring在所配置的包中扫描注入的beans，这些bean通过注解 @Component, @Controller, @Repository, and @Service， @Autowired and @Inject标明。<br>在<context:component-scan> 标签中可以定义多个packages，使用逗号、分号或空格来分隔开。该标签还可以指定包含或排除某个component。</context:component-scan></context:component-scan></p>
-<p>###使用XML实现Setter注入<br>使用XML来配置Setter注入，需要在<bean>下配置一个<property>的标签，每个<property>表示一个要注入的依赖。</property></property></bean></p>
+<h3 id="使用XML实现Setter注入">使用XML实现Setter注入</h3><p>使用XML来配置Setter注入，需要在<bean>下配置一个<property>的标签，每个<property>表示一个要注入的依赖。</property></property></bean></p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="pi">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">beans</span> <span class="attribute">xmlns</span>=<span class="value">"http://www.springframework.org/schema/beans"</span></span><br><span class="line">       <span class="attribute">xmlns:xsi</span>=<span class="value">"http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="line">       <span class="attribute">xsi:schemaLocation</span>=<span class="value">"http://www.springframework.org/schema/beans</span><br><span class="line">          http://www.springframework.org/schema/beans/spring-beans.xsd"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"messageRenderer"</span></span><br><span class="line">        <span class="attribute">class</span>=<span class="value">"com.apress.prospring4.ch3.xml.StandardOutMessageRenderer"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"messageProvider"</span> <span class="attribute">ref</span>=<span class="value">"messageProvider"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">bean</span>&gt;</span></span><br><span class="line">    或者可以用“p”的命名空间</span><br><span class="line">    <span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"messageRenderer"</span></span><br><span class="line">        <span class="attribute">class</span>=<span class="value">"com.apress.prospring4.ch3.xml.StandardOutMessageRenderer"</span></span><br><span class="line">        <span class="attribute">p:messageProvider-ref</span>=<span class="value">"messageProvider"</span>/&gt;</span></span><br><span class="line">        </span><br><span class="line">    <span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"messageProvider"</span></span><br><span class="line">        <span class="attribute">class</span>=<span class="value">"com.apress.prospring4.ch3.xml.HelloWorldMessageProvider"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>命名空间“p”没有定义在XSD文件中，只存在于Spring core中，所以在schemaLocation属性中没有对于的XSD。</p>
-<p>###使用annotation实现setter注入<br>只需要添加@Autowired</p>
+<h3 id="使用annotation实现setter注入">使用annotation实现setter注入</h3><p>只需要添加@Autowired</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="annotation">@Service</span>(<span class="string">"messageRenderer"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StandardOutMessageRenderer</span> <span class="keyword">implements</span> <span class="title">MessageRenderer</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> MessageProvider messageProvider;</span><br><span class="line">    </span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="annotation">@Autowired</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMessageProvider</span><span class="params">(MessageProvider provider)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.messageProvider = provider;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>在XMl文件中配置了 <context:component-scan> ，在Spring的ApplicationContext初始化的时候，会找到所有的@Autowired的annotation，并注入所需的依赖。</context:component-scan></p>
-<p>###使用XML来配置构造函数注入</p>
-<p>在XML文件中使用<constructor-arg>，同时采用value的属性为构造函数传递参数。如果参数多于一个，可以使用index属性来指定参数的顺序。<br>同时也可以使用命名空间“c”来代替。“c”也是只存在于Spring core中。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="pi">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">beans</span> <span class="attribute">xmlns</span>=<span class="value">"http://www.springframework.org/schema/beans"</span></span><br><span class="line">       <span class="attribute">xmlns:xsi</span>=<span class="value">"http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="line">       <span class="attribute">xsi:schemaLocation</span>=<span class="value">"http://www.springframework.org/schema/beans</span><br><span class="line">          http://www.springframework.org/schema/beans/spring-beans.xsd"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"messageProvider"</span></span><br><span class="line">        <span class="attribute">class</span>=<span class="value">"com.apress.prospring4.ch3.xml.ConfigurableMessageProvider"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">constructor-arg</span> <span class="attribute">value</span>=<span class="value">"Configurable message"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">bean</span>&gt;</span></span><br><span class="line">    或者</span><br><span class="line">    <span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"messageProvider"</span></span><br><span class="line">        <span class="attribute">class</span>=<span class="value">"com.apress.prospring4.ch3.xml.ConfigurableMessageProvider"</span></span><br><span class="line">        <span class="attribute">c:message</span>=<span class="value">"This is a configurable message"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">beans</span>&gt;</span></span><br></pre></td></tr></table></figure></constructor-arg></p>
+<h3 id="使用XML来配置构造函数注入">使用XML来配置构造函数注入</h3><p>在XML文件中使用<constructor-arg>，同时采用value的属性为构造函数传递参数。如果参数多于一个，可以使用index属性来指定参数的顺序。<br>同时也可以使用命名空间“c”来代替。“c”也是只存在于Spring core中。</constructor-arg></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="pi">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">beans</span> <span class="attribute">xmlns</span>=<span class="value">"http://www.springframework.org/schema/beans"</span></span><br><span class="line">       <span class="attribute">xmlns:xsi</span>=<span class="value">"http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="line">       <span class="attribute">xsi:schemaLocation</span>=<span class="value">"http://www.springframework.org/schema/beans</span><br><span class="line">          http://www.springframework.org/schema/beans/spring-beans.xsd"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"messageProvider"</span></span><br><span class="line">        <span class="attribute">class</span>=<span class="value">"com.apress.prospring4.ch3.xml.ConfigurableMessageProvider"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">constructor-arg</span> <span class="attribute">value</span>=<span class="value">"Configurable message"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">bean</span>&gt;</span></span><br><span class="line">    或者</span><br><span class="line">    <span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"messageProvider"</span></span><br><span class="line">        <span class="attribute">class</span>=<span class="value">"com.apress.prospring4.ch3.xml.ConfigurableMessageProvider"</span></span><br><span class="line">        <span class="attribute">c:message</span>=<span class="value">"This is a configurable message"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>如果需要传递的参数是整型的话，需要指明类型：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"constructorConfusion"</span></span><br><span class="line">        <span class="attribute">class</span>=<span class="value">"com.apress.prospring4.ch3.xml.ConstructorConfusion"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">constructor-arg</span> <span class="attribute">type</span>=<span class="value">”int”</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">value</span>&gt;</span>90<span class="tag">&lt;/<span class="title">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">constructor-arg</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>###使用annotation来配置构造函数注入<br>在构造函数上声明@Autowired。</p>
+<h3 id="使用annotation来配置构造函数注入">使用annotation来配置构造函数注入</h3><p>在构造函数上声明@Autowired。</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="pi">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">beans</span> <span class="attribute">xmlns</span>=<span class="value">"http://www.springframework.org/schema/beans"</span></span><br><span class="line">       <span class="attribute">xmlns:xsi</span>=<span class="value">"http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="line">       <span class="attribute">xmlns:context</span>=<span class="value">"http://www.springframework.org/schema/context"</span></span><br><span class="line">       <span class="attribute">xmlns:c</span>=<span class="value">"http://www.springframework.org/schema/c"</span></span><br><span class="line">       <span class="attribute">xsi:schemaLocation</span>=<span class="value">"http://www.springframework.org/schema/beans</span><br><span class="line">          http://www.springframework.org/schema/beans/spring-beans.xsd</span><br><span class="line">          http://www.springframework.org/schema/context</span><br><span class="line">          http://www.springframework.org/schema/context/spring-context.xsd"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="title">context:component-scan</span></span><br><span class="line">          <span class="attribute">base-package</span>=<span class="value">"com.apress.prospring4.ch3.annotation"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"message"</span> <span class="attribute">class</span>=<span class="value">"java.lang.String"</span> <span class="attribute">c:_0</span>=<span class="value">"This is a configurable message"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>###参数注入</p>
-<p>####简单类型的值</p>
-<p>###方法注入</p>
-<p>##参考资料<br>《Pro Spring 4 Edition》</p>
+<h3 id="参数注入">参数注入</h3><h4 id="简单类型的值">简单类型的值</h4><h3 id="方法注入">方法注入</h3><h2 id="参考资料">参考资料</h2><p>《Pro Spring 4 Edition》</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/12/2015-07-12-spring-002-ioc/" data-id="cicvw21nr000429fyqndbucka" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/12/2015-07-12-spring-002-ioc/" data-id="cicvwcfqm00067nfyjbql47sy" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li></ul>
+
     </footer>
   </div>
   
@@ -221,14 +209,28 @@ Spring 4.0.2 有20个modules，打包成20个jar文件
     
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/">gradle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/servlet/">servlet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">3</span></li></ul>
+    </div>
+  </div>
+
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/servlet/" style="font-size: 15px;">servlet</a> <a href="/tags/spring/" style="font-size: 20px;">spring</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -248,7 +250,7 @@ Spring 4.0.2 有20个modules，打包成20个jar文件
           </li>
         
           <li>
-            <a href="/2015/07/29/2015-07-29-spring-004-database/">database</a>
+            <a href="/2015/07/29/2015-07-29-spring-004-database/">Database</a>
           </li>
         
           <li>

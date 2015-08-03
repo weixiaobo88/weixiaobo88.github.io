@@ -5,8 +5,7 @@
   
   <title>开始学习Spring | weixiaobo88.github.io</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="#开始学习Spring 
-##Spring 4 ConfigurationSpring中核心IoC功能的补充：
+  <meta name="description" content="开始学习SpringSpring 4 ConfigurationSpring中核心IoC功能的补充：
 
 管理bean的生命周期
 使bean能够“Spring aware”
@@ -16,14 +15,14 @@ JavaBeans PropertyEditors
 进阶配置
 使用Groovy配置
 
-##参考资料《Pro Spring 4 Edition》
-#《Spring in">
+参考资料《Pro Spring 4 Edition》
+
+《Spring in Action">
 <meta property="og:type" content="article">
 <meta property="og:title" content="开始学习Spring">
 <meta property="og:url" content="http://weixiaobo88.github.io/2015/07/14/2015-07-14-spring-003-config/index.html">
 <meta property="og:site_name" content="weixiaobo88.github.io">
-<meta property="og:description" content="#开始学习Spring 
-##Spring 4 ConfigurationSpring中核心IoC功能的补充：
+<meta property="og:description" content="开始学习SpringSpring 4 ConfigurationSpring中核心IoC功能的补充：
 
 管理bean的生命周期
 使bean能够“Spring aware”
@@ -33,13 +32,13 @@ JavaBeans PropertyEditors
 进阶配置
 使用Groovy配置
 
-##参考资料《Pro Spring 4 Edition》
-#《Spring in">
-<meta property="og:updated_time" content="2015-08-03T10:13:13.000Z">
+参考资料《Pro Spring 4 Edition》
+
+《Spring in Action">
+<meta property="og:updated_time" content="2015-08-03T12:35:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开始学习Spring">
-<meta name="twitter:description" content="#开始学习Spring 
-##Spring 4 ConfigurationSpring中核心IoC功能的补充：
+<meta name="twitter:description" content="开始学习SpringSpring 4 ConfigurationSpring中核心IoC功能的补充：
 
 管理bean的生命周期
 使bean能够“Spring aware”
@@ -49,8 +48,9 @@ JavaBeans PropertyEditors
 进阶配置
 使用Groovy配置
 
-##参考资料《Pro Spring 4 Edition》
-#《Spring in">
+参考资料《Pro Spring 4 Edition》
+
+《Spring in Action">
   
     <link rel="alternative" href="/atom.xml" title="weixiaobo88.github.io" type="application/atom+xml">
   
@@ -122,8 +122,7 @@ JavaBeans PropertyEditors
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#开始学习Spring </p>
-<p>##Spring 4 Configuration<br>Spring中核心IoC功能的补充：</p>
+        <h1 id="开始学习Spring">开始学习Spring</h1><h2 id="Spring_4_Configuration">Spring 4 Configuration</h2><p>Spring中核心IoC功能的补充：</p>
 <ul>
 <li>管理bean的生命周期</li>
 <li>使bean能够“Spring aware”</li>
@@ -133,10 +132,10 @@ JavaBeans PropertyEditors
 <li>进阶配置</li>
 <li>使用Groovy配置</li>
 </ul>
-<p>##参考资料<br>《Pro Spring 4 Edition》</p>
-<p>#《Spring in Action》<br>如何创建容器 -》 有了容器，如何装配Bean -》知道装配Bean，如果Bean很多，XML文件就很复杂 -》如何减少XML的配置</p>
-<p>##Spring 应用上下文</p>
-<ul>
+<h2 id="参考资料">参考资料</h2><p>《Pro Spring 4 Edition》</p>
+<hr>
+<h2 id="《Spring_in_Action》">《Spring in Action》</h2><p>如何创建容器 -》 有了容器，如何装配Bean -》知道装配Bean，如果Bean很多，XML文件就很复杂 -》如何减少XML的配置</p>
+<h2 id="Spring_应用上下文">Spring 应用上下文</h2><ul>
 <li>Spring 容器是什么，有什么用</li>
 <li>如何创建 Spring 容器</li>
 </ul>
@@ -156,12 +155,11 @@ JavaBeans PropertyEditors
 </ul>
 <p>在Spring应用中，Spring容器会创建相互协作的组件之间的关联。负责创建对象、装配（Wiring）对象、配置对象，管理对象的整个生命周期。</p>
 <pre><code>创建应用组件之间协作的行为通常称为装配。在Spring中装配Bean最常见的方式是使用<span class="built_in">XML</span>文件。
-</code></pre><p>##Bean的实例化<br>在Spring中，默认情况下，所有的bean都是单例。ApplicationContext.getBean()总是返回同一个实例。</p>
-<p>###Bean 的作用域<br>如果需要每次请求时都获得唯一的Bean实例，可以通过配置Bean的作用域 scope属性。<br>Spring有关单例的概念限于Spring上下文的范围内，不像真正的单例，在每个类加载器中保证只有一个实例。</p>
-<p>###Bean 的生命周期<br>初始化和销毁，可以配置 init-method 和 destory-method，虽然Spring API也提供相应的接口，但会与其产生耦合。</p>
+</code></pre><h2 id="Bean的实例化">Bean的实例化</h2><p>在Spring中，默认情况下，所有的bean都是单例。ApplicationContext.getBean()总是返回同一个实例。</p>
+<h3 id="Bean_的作用域">Bean 的作用域</h3><p>如果需要每次请求时都获得唯一的Bean实例，可以通过配置Bean的作用域 scope属性。<br>Spring有关单例的概念限于Spring上下文的范围内，不像真正的单例，在每个类加载器中保证只有一个实例。</p>
+<h3 id="Bean_的生命周期">Bean 的生命周期</h3><p>初始化和销毁，可以配置 init-method 和 destory-method，虽然Spring API也提供相应的接口，但会与其产生耦合。</p>
 <p>在Java中singleton包含两个概念：单个实例的对象，单例模式。前者用singleton表示，后者用Singleton表示。<br>可以通过配置文件中的配置来修改“单例”的属性。<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">package com.apress.prospring4.ch3;&#10;public class Singleton &#123;&#10;    private static Singleton instance;&#10;    static &#123;&#10;        instance = new Singleton();&#10;&#125;&#10;    public static Singleton getInstance() &#123;&#10;        return instance;&#10;&#125; &#125;</span><br></pre></td></tr></table></figure></p>
-<p>##为Bean的属性和构造器参数装配多种类型的值</p>
-<ul>
+<h2 id="为Bean的属性和构造器参数装配多种类型的值">为Bean的属性和构造器参数装配多种类型的值</h2><ul>
 <li>简单属性值，使用value属性</li>
 <li>引用其他Bean的属性，使用ref属性</li>
 <li>Bean的属性是复数，比如集合，使用list set map props属性<ul>
@@ -169,14 +167,14 @@ JavaBeans PropertyEditors
 </ul>
 </li>
 </ul>
-<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;bean id=<span class="string">"hank"</span></span><br><span class="line">            class=<span class="string">"com.springinaction.springido1.OneManBand"</span>&gt;</span><br><span class="line">    &lt;property name=<span class="string">"instruments"</span>&gt;</span><br><span class="line">        &lt;list&gt;</span><br><span class="line">            &lt;<span class="keyword">ref</span> bean=<span class="string">"guitar"</span> /&gt;</span><br><span class="line">            &lt;<span class="keyword">ref</span> bean=<span class="string">"cymbal"</span> /&gt;</span><br><span class="line">            &lt;<span class="keyword">ref</span> bean=<span class="string">"harmonica"</span> /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
-<p>##疑问？<br>从《Spring in Action》中可以看到注入Bean属性实则就是setter方法注入，这种方式在setter方法上有@Autowired注解。那在属性上直接写@Autowired又是什么注入方式呢。</p>
-<p>##如何减少XML的配置数量<br>Spring提供了以下方式：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"hank"</span></span><br><span class="line">            <span class="attribute">class</span>=<span class="value">"com.springinaction.springido1.OneManBand"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"instruments"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">list</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">ref</span> <span class="attribute">bean</span>=<span class="value">"guitar"</span> /&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">ref</span> <span class="attribute">bean</span>=<span class="value">"cymbal"</span> /&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">ref</span> <span class="attribute">bean</span>=<span class="value">"harmonica"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="疑问？">疑问？</h2><p>从《Spring in Action》中可以看到注入Bean属性实则就是setter方法注入，这种方式在setter方法上有@Autowired注解。那在属性上直接写@Autowired又是什么注入方式呢。</p>
+<h2 id="如何减少XML的配置数量">如何减少XML的配置数量</h2><p>Spring提供了以下方式：</p>
 <ul>
 <li>自动装配 autowiring，减少甚至消除配置<property> <constructor-arg>元素，让Spring自动识别并装配Bean的依赖关系</constructor-arg></property></li>
 <li>自动检测 autodiscovery，比自动装配更进一步，让Spring自动识别哪些类需要被配置成Spring Bean，减少对<bean>元素的使用。</bean></li>
 </ul>
-<p>###自动装配Autowiring Bean 属性<br>Spring提供了4种自动装配策略：</p>
+<h3 id="自动装配Autowiring_Bean_属性">自动装配Autowiring Bean 属性</h3><p>Spring提供了4种自动装配策略：</p>
 <ul>
 <li>byName，把与Bean的属性具有相同名字的其他Bean自动装配到Bean的对应属性中</li>
 <li>byType，把与Bean的属性具有相同类型的其他Bean自动装配到Bean的对应属性中</li>
@@ -205,7 +203,7 @@ JavaBeans PropertyEditors
 </li>
 <li>JSR-250 的 @Resource 注解</li>
 </ul>
-<p>###自动检测 Bean<br>我们希望使用<context:annotation-config>之后，Spring能对待我们定义的注解，并指导Bean的装配。<br>即使<context:annotation-config>有助于完全消除Spring配置中的<property> <constructor-arg>元素，我们仍需要使用<bean>元素显示定义Bean。</bean></constructor-arg></property></context:annotation-config></context:annotation-config></p>
+<h3 id="自动检测_Bean">自动检测 Bean</h3><p>我们希望使用<context:annotation-config>之后，Spring能对待我们定义的注解，并指导Bean的装配。<br>即使<context:annotation-config>有助于完全消除Spring配置中的<property> <constructor-arg>元素，我们仍需要使用<bean>元素显示定义Bean。</bean></constructor-arg></property></context:annotation-config></context:annotation-config></p>
 <p>在Spring中<context:component-scan>除了完成<context:annotation-config>的工作，还允许Spring自动检测Bean和定义Bean。</context:annotation-config></context:component-scan></p>
 <p>为了配置Spring自动检测，需要使用<context:component-scan>元素来代替<context:annotation-config>元素。</context:annotation-config></context:component-scan></p>
 <h4 id="如何知道哪些类需要注册为Spring_Bean？"><context:component-scan> 如何知道哪些类需要注册为Spring Bean？</context:component-scan></h4><p>默认情况下，<context:component-scan> 查找使用构造型（stereotype）注解所标注的类：</context:component-scan></p>
@@ -220,16 +218,15 @@ JavaBeans PropertyEditors
 <ul>
 <li>过滤组件扫描，比如 <context:include-filter></context:include-filter></li>
 </ul>
-<p>##如果不喜欢XML，可以使用Spring创建基于Java的配置</p>
-<p>仍然需要少量的XML来启用Java配置，在下面代码中，base-package告诉Spring在哪个包中查找使用@Configuration注解所标注的所有类：</p>
+<h2 id="如果不喜欢XML，可以使用Spring创建基于Java的配置">如果不喜欢XML，可以使用Spring创建基于Java的配置</h2><p>仍然需要少量的XML来启用Java配置，在下面代码中，base-package告诉Spring在哪个包中查找使用@Configuration注解所标注的所有类：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="pi">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">beans</span> <span class="attribute">xmlns</span>=<span class="value">"http://www.springframework.org/schema/beans"</span></span><br><span class="line">       <span class="attribute">xmlns:xsi</span>=<span class="value">"http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="line">       <span class="attribute">xmlns:context</span>=<span class="value">"http://www.springframework.org/schema/context"</span></span><br><span class="line">       <span class="attribute">xsi:schemaLocation</span>=<span class="value">"http://www.springframework.org/schema/beans</span><br><span class="line">          http://www.springframework.org/schema/beans/spring-beans.xsd</span><br><span class="line">          http://www.springframework.org/schema/context</span><br><span class="line">          http://www.springframework.org/schema/context/spring-context.xsd"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="title">context:component-scan</span></span><br><span class="line">          <span class="attribute">base-package</span>=<span class="value">"com.springinactin.springido1"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>###定义一个配置类<br>使用@Configuration注解的Java类，等价于XML配置中的<beans>元素。<br>@Configuration注解会告诉Spring，这个类将包含一个或多个Spring Bean的定义。</beans></p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">@Configuration</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">Class</span> <span class="title">SpringIdo1Config</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Bean declaration methods go here</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="定义一个配置类">定义一个配置类</h3><p>使用@Configuration注解的Java类，等价于XML配置中的<beans>元素。<br>@Configuration注解会告诉Spring，这个类将包含一个或多个Spring Bean的定义。</beans></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="annotation">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> Class SpringIdo1Config &#123;</span><br><span class="line">    <span class="comment">// Bean declaration methods go here</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </context:annotation-config>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/14/2015-07-14-spring-003-config/" data-id="cicvw21nq000329fykpnge77y" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/14/2015-07-14-spring-003-config/" data-id="cicvwcfql00057nfy6zdb4otu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -242,7 +239,7 @@ JavaBeans PropertyEditors
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          database
+          Database
         
       </div>
     </a>
@@ -265,14 +262,28 @@ JavaBeans PropertyEditors
     
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/">gradle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/servlet/">servlet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">3</span></li></ul>
+    </div>
+  </div>
+
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/servlet/" style="font-size: 15px;">servlet</a> <a href="/tags/spring/" style="font-size: 20px;">spring</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -292,7 +303,7 @@ JavaBeans PropertyEditors
           </li>
         
           <li>
-            <a href="/2015/07/29/2015-07-29-spring-004-database/">database</a>
+            <a href="/2015/07/29/2015-07-29-spring-004-database/">Database</a>
           </li>
         
           <li>

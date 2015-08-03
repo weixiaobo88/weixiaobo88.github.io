@@ -65,54 +65,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-2015-07-09-gradle" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/07/09/2015-07-09-gradle/" class="article-date">
-  <time datetime="2015-07-09T10:08:50.000Z" itemprop="datePublished">2015-07-09</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/09/2015-07-09-gradle/">Gradle运行机制</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="http://igorpopov.io/2014/05/01/understanding-gradle/" target="_blank" rel="external">http://igorpopov.io/2014/05/01/understanding-gradle/</a><br><a href="https://github.com/davenkin/gradle-learning" target="_blank" rel="external">https://github.com/davenkin/gradle-learning</a></p>
-<p>##Gradle运行机制<br>Gradle四个部分<br>每个project有多个task, task有多个property</p>
-<p>project<br>task<br>property<br>sourcesets</p>
-<p>两个sourcesets:<br>main:<br>     src/main/java 全目录结构<br>     src/main/resource<br>test: src/test</p>
-<p>sourcesets包含两个<br>一个资源文件<br>一个配置文件</p>
-<p>Task Dependency</p>
-<p>dependencies {<br>  compile 编译源代码时需要的<br>  testCompile 比如junit<br>  runtime 比如servlet，对编译没有影响，在web容器启动后才需要<br>  testRuntime<br>}</p>
-<p>src/main/java<br>src/main/resource</p>
-<p>task mkdir &lt;&lt; {<br>     file(“./src/main/java”).mkdirs();<br>     file(“./src/main/resource”).mkdirs();<br>}</p>
-<p>Ant maven gradle区别<br>ant: 构建操作小的低级的封装，无法感知到war和第三方的依赖；没有指定的目录结构<br>     target: copy,compile,jar<br>maven:<br>     目录结构规范化了，src/main/java<br>     引入了dependency<br>     内建项目的周期管理，扩展性不好<br>gradle:<br>     maven基础上，task之间有依赖关系，</p>
-<p>##Gradle中“compile”和“runtime”区别</p>
-<p>##Gradle中”plugin”如何工作</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/09/2015-07-09-gradle/" data-id="cicvw21o1000a29fy7gdc5mr7" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-2015-07-09-deploy" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/07/09/2015-07-09-deploy/" class="article-date">
@@ -135,11 +87,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#部署</p>
-<p>部署描述符 Deployment Descriptor简称为DD，也就是所说的web.xml文件</p>
-<p>##为什么要有war<br>Web应用的目录结构要求很严，各个内容只能放在它该放的地方，移动起来就非常不方便。⋅⋅<br>所以人们就会把这个目录结构归档为WAR文件（Web ARchive）。⋅⋅</p>
-<p>##有哪些资源需要部署</p>
-<ul>
+        <p>部署描述符 Deployment Descriptor简称为DD，也就是所说的web.xml文件</p>
+<h2 id="为什么要有war">为什么要有war</h2><p>Web应用的目录结构要求很严，各个内容只能放在它该放的地方，移动起来就非常不方便。⋅⋅<br>所以人们就会把这个目录结构归档为WAR文件（Web ARchive）。⋅⋅</p>
+<h2 id="有哪些资源需要部署">有哪些资源需要部署</h2><ul>
 <li>静态资源（图片等）</li>
 <li>JSP页面</li>
 <li>Servlet类、Java其他类</li>
@@ -147,11 +97,9 @@
 <li>web.xml部署描述文件</li>
 <li>其他</li>
 </ul>
-<p>##Web应用目录结构（部署资源的目录结构，放在Tomcat下）</p>
-<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">tomcat</span><br><span class="line"><span class="string">|_webapps</span></span><br><span class="line">    <span class="string">|_project-name</span></span><br><span class="line">        <span class="string">|_META-INF 应用部署为WAR时，唯一的新东西就是META-INF目录</span></span><br><span class="line">            <span class="string">|_MANIFEST.MF 指定库的依赖性</span></span><br><span class="line">        <span class="string">|_WEB-INF</span></span><br><span class="line">            <span class="string">|_classes</span></span><br><span class="line">                <span class="string">|_com.tw classes下面的包结构和开发环境中使用的结构完全一致</span></span><br><span class="line">                    <span class="string">|_core</span></span><br><span class="line">                    <span class="string">|_web</span></span><br><span class="line">            <span class="string">|_lib</span></span><br><span class="line">            <span class="string">|_web.xml(必须放在WEB-INF中)</span></span><br><span class="line">    <span class="string">|_form.html</span></span><br><span class="line">    <span class="string">|_result.jsp</span></span><br></pre></td></tr></table></figure>
-<p>##静态内容如何访问<br>部署静态HTML和JSP的时候，可以选择是否允许外部直接访问。直接访问指的是用户在浏览器中输入URL得到相应的资源。<br>只要把文件放在WEB-INF下就能避免直接访问，或者部署为WAR文件的时候放在META-INF下面。<br><strong>如果用户请求WEB-INF或META-INF下的文件，会得到404错误</strong></p>
-<p>##容器在哪里找Web请求的东西，用户如何请求Web应用里的东西</p>
-<p>###Servlet映射<br>“Hello”主要用于开发，用户不会知道这个名字。<br>“物理目录结构”和“虚拟目录结构”<br>用户访问：<a href="http://localhost:8080/web/hello" target="_blank" rel="external">http://localhost:8080/web/hello</a><br>虚拟目录结构webapps/web/hello</p>
+<h2 id="Web应用目录结构（部署资源的目录结构，放在Tomcat下）">Web应用目录结构（部署资源的目录结构，放在Tomcat下）</h2><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">tomcat</span><br><span class="line"><span class="string">|_webapps</span></span><br><span class="line">    <span class="string">|_project-name</span></span><br><span class="line">        <span class="string">|_META-INF 应用部署为WAR时，唯一的新东西就是META-INF目录</span></span><br><span class="line">            <span class="string">|_MANIFEST.MF 指定库的依赖性</span></span><br><span class="line">        <span class="string">|_WEB-INF</span></span><br><span class="line">            <span class="string">|_classes</span></span><br><span class="line">                <span class="string">|_com.tw classes下面的包结构和开发环境中使用的结构完全一致</span></span><br><span class="line">                    <span class="string">|_core</span></span><br><span class="line">                    <span class="string">|_web</span></span><br><span class="line">            <span class="string">|_lib</span></span><br><span class="line">            <span class="string">|_web.xml(必须放在WEB-INF中)</span></span><br><span class="line">    <span class="string">|_form.html</span></span><br><span class="line">    <span class="string">|_result.jsp</span></span><br></pre></td></tr></table></figure>
+<h2 id="静态内容如何访问">静态内容如何访问</h2><p>部署静态HTML和JSP的时候，可以选择是否允许外部直接访问。直接访问指的是用户在浏览器中输入URL得到相应的资源。<br>只要把文件放在WEB-INF下就能避免直接访问，或者部署为WAR文件的时候放在META-INF下面。<br><strong>如果用户请求WEB-INF或META-INF下的文件，会得到404错误</strong></p>
+<h2 id="容器在哪里找Web请求的东西，用户如何请求Web应用里的东西">容器在哪里找Web请求的东西，用户如何请求Web应用里的东西</h2><h3 id="Servlet映射">Servlet映射</h3><p>“Hello”主要用于开发，用户不会知道这个名字。<br>“物理目录结构”和“虚拟目录结构”<br>用户访问：<a href="http://localhost:8080/web/hello" target="_blank" rel="external">http://localhost:8080/web/hello</a><br>虚拟目录结构webapps/web/hello</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">servlet</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">servlet-name</span>&gt;</span>Hello<span class="tag">&lt;/<span class="title">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">servlet-class</span>&gt;</span>com.tw.web.HelloServlet<span class="tag">&lt;/<span class="title">servlet-class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">servlet</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">servlet-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">servlet-name</span>&gt;</span>Hello<span class="tag">&lt;/<span class="title">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">url-pattern</span>&gt;</span>/hello<span class="tag">&lt;/<span class="title">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>三种<url-pattern>，容器会顺序查找匹配，并选择最具体的匹配。</url-pattern></p>
 <ul>
@@ -159,23 +107,22 @@
 <li>目录匹配</li>
 <li>扩展名匹配</li>
 </ul>
-<p>##DD中的配置</p>
-<p>###配置默认页面</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;welcome-<span class="keyword">file</span>-<span class="keyword">list</span>&gt;</span><br><span class="line">    &lt;welcome-<span class="keyword">file</span>&gt;<span class="built_in">index</span>.html&lt;/welcome-<span class="keyword">file</span>&gt;</span><br><span class="line">    &lt;welcome-<span class="keyword">file</span>&gt;default.jsp&lt;/welcome-<span class="keyword">file</span>&gt;</span><br><span class="line">&lt;/welcome-<span class="keyword">file</span>-<span class="keyword">list</span>&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="DD中的配置">DD中的配置</h2><h3 id="配置默认页面">配置默认页面</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">welcome-file-list</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">welcome-file</span>&gt;</span>index.html<span class="tag">&lt;/<span class="title">welcome-file</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">welcome-file</span>&gt;</span>default.jsp<span class="tag">&lt;/<span class="title">welcome-file</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">welcome-file-list</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p><welcome-file>中的元素不能以斜线开头或结束</welcome-file></p>
 <p>同样的，也可以声明错误页面，并根据异常或HTTP状态码来声明错误页面。</p>
-<p>###配置servlet初始化</p>
-<p>Servlet会在每个请求到来时初始化，经历类加载、实例化和初始化（建立一个ServletContext、调用监听者等等），然后容器才能正常工作：分配线程，调用servlet的service方法。</p>
+<h3 id="配置servlet初始化">配置servlet初始化</h3><p>Servlet会在每个请求到来时初始化，经历类加载、实例化和初始化（建立一个ServletContext、调用监听者等等），然后容器才能正常工作：分配线程，调用servlet的service方法。</p>
 <p>如果希望在部署或服务器重启时加载servlet，而不是等到第一个请求到来时加载，可以做DD中使用<load-on-startup>元素。当这个元素的值为非零时，容器就会在部署或服务器重启时初始化Servlet。这个值的设置也可以控制加载顺序。</load-on-startup></p>
-<p>##JSP页面 &amp; JSP文档<br>正常的JSP是一个页面，如果采用了XML语法来写，就成了一个JSP文档。</p>
-<p>##参考资料<br>《Head First Servlet JSP》</p>
+<h2 id="JSP页面_&amp;_JSP文档">JSP页面 &amp; JSP文档</h2><p>正常的JSP是一个页面，如果采用了XML语法来写，就成了一个JSP文档。</p>
+<h2 id="参考资料">参考资料</h2><p>《Head First Servlet JSP》</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/09/2015-07-09-deploy/" data-id="cicvw21o3000b29fy2l7j7kee" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/09/2015-07-09-deploy/" data-id="cicvwcfqw000d7nfy96elkfco" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+
     </footer>
   </div>
   
@@ -205,27 +152,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#Spring 概况</p>
-<p>I will learn:<br>-  Use Inversion of Control (IoC) and Dependency Injection (DI)</p>
+        <p>I will learn:<br>-  Use Inversion of Control (IoC) and Dependency Injection (DI)</p>
 <ul>
 <li>Use aspect-oriented programming (AOP) techniques with Spring and learn why they’re important<br>-   Build Spring-based web applications using Spring MVC and WebSocket<br>-   Utilize the new Java 8 lambda syntax</li>
 <li>Work with scripting languages like Groovy to provide enhanced functionality for your applications</li>
 </ul>
-<p>##什么是Spring</p>
-<p>Spring是开发Java应用的轻量级框架，有两点：</p>
+<h2 id="什么是Spring">什么是Spring</h2><p>Spring是开发Java应用的轻量级框架，有两点：</p>
 <ul>
 <li>使用Spring可以开发任意的Java应用，比如stand-alone的，web的，企业级的。Apache Struts只能用来开发web应用。</li>
 <li>轻量级不是说类的数量，而是指“最小影响”，要享受Spring core带来的好处，只需要对代码做非常少的改变。</li>
 </ul>
-<p>###Spring的设计理念</p>
-<p>在Java EE的应用开发中，支持POJO和使用JavaBean的开发方式，使应用面向接口开发，充分支持OO（面向对象）的设计方式。</p>
-<blockquote>
-<p>什么是POJO？<br>POJO：Plain Ordinary Java Object 简单的Java对象，通指没有使用Entity Beans的普通Java对象，可以理解为简单的实体类。<br>其中有一些属性及其getter setter方法的类，没有业务逻辑，有时可以作为Value Object或Data Transform Object来使用。</p>
-</blockquote>
-<p>###Spring架构图</p>
-<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="label">Spring</span>      Spring事务处理                        Spring应用</span><br><span class="line"><span class="label">AO</span>          Spring JDBC/ORM    Spring MVC    Spring远端调用及其他支持</span><br><span class="line">P           Spring IoC模块（<span class="keyword">Bean </span>Factory、应用上下文、各种支持实现）</span><br></pre></td></tr></table></figure>
-<p>##了解历史</p>
-<ul>
+<h3 id="Spring的设计理念">Spring的设计理念</h3><p>在Java EE的应用开发中，支持POJO和使用JavaBean的开发方式，使应用面向接口开发，充分支持OO（面向对象）的设计方式。</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt; 什么是POJO？</span><br><span class="line">POJO：Plain Ordinary Java <span class="built_in">Object</span> 简单的Java对象，通指没有使用Entity Beans的普通Java对象，可以理解为简单的实体类。</span><br><span class="line">其中有一些属性及其getter setter方法的类，没有业务逻辑，有时可以作为Value <span class="built_in">Object</span>或Data Transform <span class="built_in">Object</span>来使用。</span><br></pre></td></tr></table></figure>
+<h3 id="Spring架构图">Spring架构图</h3><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="label">Spring</span>      Spring事务处理                        Spring应用</span><br><span class="line"><span class="label">AO</span>          Spring JDBC/ORM    Spring MVC    Spring远端调用及其他支持</span><br><span class="line">P           Spring IoC模块（<span class="keyword">Bean </span>Factory、应用上下文、各种支持实现）</span><br></pre></td></tr></table></figure>
+<h2 id="了解历史">了解历史</h2><ul>
 <li>Spring 0.9，第一个发布版本</li>
 <li>Spring 1.x，Spring Core、Spring Context、Spring DAO、Spring ORM、Spring AOP、Spring Web、Spring Web MVC</li>
 <li>Spring 2.x，XML configuration、bean scopes、annotation、JPA、JMS、JDBC、form tag、Portlet MVC、dynamic language support、JMX、TaskExecutor</li>
@@ -235,33 +175,27 @@
 <li>Spring 3.2.x，Servlet 3-basesd asyn request、new Spring MVC test、@ControllerAdvice, @MatrixVariable、RestTemplate &amp; @RequestBody、Jackson JSON 2、Tiles 3、@RequestBody or an @RequestPart argument、exclude URL patterns、@DateTimeFormat、Concurrency refinements、Gradle-based build system、to github、Java SE 7 / OpenJDK 7</li>
 <li>Spring 4.0，<a href="http://spring.io/guides" target="_blank" rel="external">guides</a>、Java 8、Groovy、WebSocket,SocketJS,STOMP</li>
 </ul>
-<p>##Spring的核心——IoC<br>Spring框架的核心基于一个原则：IoC（Inversion of Control）。控制反转IoC是组件依赖创建和管理外部化的一种技术。</p>
+<h2 id="Spring的核心——IoC">Spring的核心——IoC</h2><p>Spring框架的核心基于一个原则：IoC（Inversion of Control）。控制反转IoC是组件依赖创建和管理外部化的一种技术。</p>
 <p>例子：类Foo依赖于类Bar的一个实例，传统做法会在Foo里面创建或者从工厂类中拿到一个Bar的实例。使用IoC的做法，在运行时，Bar的实例会传给Foo来使用。</p>
 <p>这种行为也被Martin Fowler称为依赖注入。</p>
 <p>Spring中依赖注入的实现基于Java的两个核心概念：</p>
 <ul>
 <li><p>JavaBeans（Chapter3）</p>
-<blockquote>
-<p>当你把Spring作为依赖注入的提供者时，你可以通过不同的方式来定义依赖的配置，比如XML文件、Java配置类、annotation、Groovy Bean定义方法。<br>JavaBeans（POJOs）为创建可配置的Java资源提供了一种标准的机制，比如构造函数、setter方法。<br>Spring管理的资源都是bean。</p>
-</blockquote>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; 当你把Spring作为依赖注入的提供者时，你可以通过不同的方式来定义依赖的配置，比如XML文件、Java配置类、annotation、Groovy <span class="keyword">Bean定义方法。</span><br><span class="line"></span><span class="label">JavaBeans</span>（POJOs）为创建可配置的Java资源提供了一种标准的机制，比如构造函数、setter方法。</span><br><span class="line"><span class="label">Spring</span>管理的资源都是<span class="keyword">bean。</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>接口</p>
-<blockquote>
-<p>接口和DI相互受益，基于接口的编程有时候会变的很复杂，使用DI，可以降低复杂度。</p>
-</blockquote>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; 接口和<span class="keyword">DI</span>相互受益，基于接口的编程有时候会变的很复杂，使用<span class="keyword">DI</span>，可以降低复杂度。</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>在DI的世界里，Spring更像一个容器，而不是框架。为应用里面的类还有依赖提供所需的实例。</p>
-<p>###DI带来的好处：</p>
-<ul>
+<h3 id="DI带来的好处：">DI带来的好处：</h3><ul>
 <li>减少胶水代码</li>
 <li>简化配置</li>
 <li>在独立的一个库中管理通用依赖的能力</li>
 <li>提高可测试性</li>
 <li>孕育好的设计</li>
 </ul>
-<p>##Spring的其他feature</p>
-<ul>
+<h2 id="Spring的其他feature">Spring的其他feature</h2><ul>
 <li>Support for Java 8</li>
 <li>AOP in Spring</li>
 <li>Spring Expression Language</li>
@@ -273,74 +207,16 @@
 <li>MVC in the Web Tier</li>
 <li>WebSocket Support</li>
 </ul>
-<p>##参考资料<br>《Pro Spring 4 Edition》</p>
+<h2 id="参考资料">参考资料</h2><p>《Pro Spring 4 Edition》</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/08/2015-07-08-spring-001/" data-id="cicvw21o4000c29fyrtuivg1w" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/08/2015-07-08-spring-001/" data-id="cicvwcfqx000e7nfyiqvlvcg2" class="article-share-link">Share</a>
       
       
-    </footer>
-  </div>
-  
-</article>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li></ul>
 
-
-  
-    <article id="post-2015-06-26-nodejs-01" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/06/26/2015-06-26-nodejs-01/" class="article-date">
-  <time datetime="2015-06-26T05:55:54.000Z" itemprop="datePublished">2015-06-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/06/26/2015-06-26-nodejs-01/">跟着Howard学习Node.js 01 —— 创建自己的npm包</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>我一直倡导Learning by Asking Questions，所以学习之前我也会先好奇一下：<br>npm包是什么东西<br>npm包是干嘛用的，为什么要创建<br>npm包怎么创建，复杂吗，包括几个步骤<br>这个过程还会遇到哪些我从来没接触的问题</p>
-<p>##果果<br>在学习课程之后，我们能获得什么？<br>直接点：一个可以打招呼加调侃的npm包，说的形象点就是当你运行greet指令时，你将会得到：<br>（前面的$符号表示是命令行的一条指令。这条指令下面的内容是命令行执行指令之后的输出）<br>$greet yourname<br>hello yourname<br>$greet yourname –drunk<br>hello yourname, you look sexy today</p>
-<p>间接点：你会回答诸如如何创建一个npm包之类的问题。</p>
-<p>##开始种树</p>
-<p>###一个npm包意味着什么？<br>一个npm包意味着在安装后可以直接通过命令调用，比如<br>$npm install -g mocha<br>这样全局都可以使用mocha的命令来运行指令。<br>那么创建自己的npm包也是一样，通过安装之后就可以直接运行指令。</p>
-<p>npm package也称为module，它由两部分组成：</p>
-<ul>
-<li>package.json</li>
-<li>yourcode.js</li>
-</ul>
-<p>###为什么要创建npm包<br>为了学习…..虽然勉强，也抵挡不了好奇，就是好奇怎么地。<br>来点冠冕堂皇的理由吧，为了复用代码，大家把相对独立的功能做出来，然后其他人都可以复用了。</p>
-<p>###怎么创建啊，步骤呢，步骤呢？</p>
-<ul>
-<li><p>先找个地儿，今后就靠这个地了<br>$mkdir greet &amp;&amp; cd greet</p>
-</li>
-<li><p>找到地盘之后，记得树个牌子，这是“俺家的”标志。<br>$npm init<br>这个命令之后，你就有一个package.json（）</p>
-</li>
-</ul>
-<p>##你可以不知道<br>npm是个什么东西？<br>当人们说npm的时候，通常可能说的是这三种东西之一：</p>
-<ul>
-<li>website, <a href="https://www.npmjs.com/" target="_blank" rel="external">https://www.npmjs.com/</a></li>
-<li>all registry packages</li>
-<li>npm client</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/06/26/2015-06-26-nodejs-01/" data-id="cicvw21o5000d29fyj04u3htg" class="article-share-link">Share</a>
-      
-      
     </footer>
   </div>
   
@@ -379,9 +255,69 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/06/26/2013-12-31-whats-jekyll/" data-id="cicvw21n1000029fygrbw22n1" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/06/26/2013-12-31-whats-jekyll/" data-id="cicvwcfpt00007nfyzz1kl7bf" class="article-share-link">Share</a>
       
       
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2015-06-26-nodejs-01" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/06/26/2015-06-26-nodejs-01/" class="article-date">
+  <time datetime="2015-06-25T16:00:00.000Z" itemprop="datePublished">2015-06-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/06/26/2015-06-26-nodejs-01/">跟着Howard学习Node.js 01 —— 创建自己的npm包</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>我一直倡导Learning by Asking Questions，所以学习之前我也会先好奇一下：<br>npm包是什么东西<br>npm包是干嘛用的，为什么要创建<br>npm包怎么创建，复杂吗，包括几个步骤<br>这个过程还会遇到哪些我从来没接触的问题</p>
+<h2 id="果果">果果</h2><p>在学习课程之后，我们能获得什么？<br>直接点：一个可以打招呼加调侃的npm包，说的形象点就是当你运行greet指令时，你将会得到：<br>（前面的$符号表示是命令行的一条指令。这条指令下面的内容是命令行执行指令之后的输出）<br>$greet yourname<br>hello yourname<br>$greet yourname –drunk<br>hello yourname, you look sexy today</p>
+<p>间接点：你会回答诸如如何创建一个npm包之类的问题。</p>
+<h2 id="开始种树">开始种树</h2><h3 id="一个npm包意味着什么？">一个npm包意味着什么？</h3><p>一个npm包意味着在安装后可以直接通过命令调用，比如<br>$npm install -g mocha<br>这样全局都可以使用mocha的命令来运行指令。<br>那么创建自己的npm包也是一样，通过安装之后就可以直接运行指令。</p>
+<p>npm package也称为module，它由两部分组成：</p>
+<ul>
+<li>package.json</li>
+<li>yourcode.js</li>
+</ul>
+<h3 id="为什么要创建npm包">为什么要创建npm包</h3><p>为了学习…..虽然勉强，也抵挡不了好奇，就是好奇怎么地。<br>来点冠冕堂皇的理由吧，为了复用代码，大家把相对独立的功能做出来，然后其他人都可以复用了。</p>
+<h3 id="怎么创建啊，步骤呢，步骤呢？">怎么创建啊，步骤呢，步骤呢？</h3><ul>
+<li><p>先找个地儿，今后就靠这个地了<br>$mkdir greet &amp;&amp; cd greet</p>
+</li>
+<li><p>找到地盘之后，记得树个牌子，这是“俺家的”标志。<br>$npm init<br>这个命令之后，你就有一个package.json（）</p>
+</li>
+</ul>
+<h2 id="你可以不知道">你可以不知道</h2><p>npm是个什么东西？<br>当人们说npm的时候，通常可能说的是这三种东西之一：</p>
+<ul>
+<li>website, <a href="https://www.npmjs.com/" target="_blank" rel="external">https://www.npmjs.com/</a></li>
+<li>all registry packages</li>
+<li>npm client</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://weixiaobo88.github.io/2015/06/26/2015-06-26-nodejs-01/" data-id="cicvwcfqy000f7nfyak6iw5vc" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li></ul>
+
     </footer>
   </div>
   
@@ -401,14 +337,28 @@
     
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/">gradle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/servlet/">servlet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">3</span></li></ul>
+    </div>
+  </div>
+
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/servlet/" style="font-size: 15px;">servlet</a> <a href="/tags/spring/" style="font-size: 20px;">spring</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -428,7 +378,7 @@
           </li>
         
           <li>
-            <a href="/2015/07/29/2015-07-29-spring-004-database/">database</a>
+            <a href="/2015/07/29/2015-07-29-spring-004-database/">Database</a>
           </li>
         
           <li>

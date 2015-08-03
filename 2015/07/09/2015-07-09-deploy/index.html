@@ -5,43 +5,37 @@
   
   <title>部署 | weixiaobo88.github.io</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="#部署
-部署描述符 Deployment Descriptor简称为DD，也就是所说的web.xml文件
-##为什么要有warWeb应用的目录结构要求很严，各个内容只能放在它该放的地方，移动起来就非常不方便。⋅⋅所以人们就会把这个目录结构归档为WAR文件（Web ARchive）。⋅⋅
-##有哪些资源需要部署
-
+  <meta name="description" content="部署描述符 Deployment Descriptor简称为DD，也就是所说的web.xml文件
+为什么要有warWeb应用的目录结构要求很严，各个内容只能放在它该放的地方，移动起来就非常不方便。⋅⋅所以人们就会把这个目录结构归档为WAR文件（Web ARchive）。⋅⋅
+有哪些资源需要部署
 静态资源（图片等）
 JSP页面
 Servlet类、Java其他类
 jar文件
-web.">
+web.xml部署描述文件">
 <meta property="og:type" content="article">
 <meta property="og:title" content="部署">
 <meta property="og:url" content="http://weixiaobo88.github.io/2015/07/09/2015-07-09-deploy/index.html">
 <meta property="og:site_name" content="weixiaobo88.github.io">
-<meta property="og:description" content="#部署
-部署描述符 Deployment Descriptor简称为DD，也就是所说的web.xml文件
-##为什么要有warWeb应用的目录结构要求很严，各个内容只能放在它该放的地方，移动起来就非常不方便。⋅⋅所以人们就会把这个目录结构归档为WAR文件（Web ARchive）。⋅⋅
-##有哪些资源需要部署
-
+<meta property="og:description" content="部署描述符 Deployment Descriptor简称为DD，也就是所说的web.xml文件
+为什么要有warWeb应用的目录结构要求很严，各个内容只能放在它该放的地方，移动起来就非常不方便。⋅⋅所以人们就会把这个目录结构归档为WAR文件（Web ARchive）。⋅⋅
+有哪些资源需要部署
 静态资源（图片等）
 JSP页面
 Servlet类、Java其他类
 jar文件
-web.">
-<meta property="og:updated_time" content="2015-08-03T10:13:13.000Z">
+web.xml部署描述文件">
+<meta property="og:updated_time" content="2015-08-03T12:41:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="部署">
-<meta name="twitter:description" content="#部署
-部署描述符 Deployment Descriptor简称为DD，也就是所说的web.xml文件
-##为什么要有warWeb应用的目录结构要求很严，各个内容只能放在它该放的地方，移动起来就非常不方便。⋅⋅所以人们就会把这个目录结构归档为WAR文件（Web ARchive）。⋅⋅
-##有哪些资源需要部署
-
+<meta name="twitter:description" content="部署描述符 Deployment Descriptor简称为DD，也就是所说的web.xml文件
+为什么要有warWeb应用的目录结构要求很严，各个内容只能放在它该放的地方，移动起来就非常不方便。⋅⋅所以人们就会把这个目录结构归档为WAR文件（Web ARchive）。⋅⋅
+有哪些资源需要部署
 静态资源（图片等）
 JSP页面
 Servlet类、Java其他类
 jar文件
-web.">
+web.xml部署描述文件">
   
     <link rel="alternative" href="/atom.xml" title="weixiaobo88.github.io" type="application/atom+xml">
   
@@ -113,11 +107,9 @@ web.">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#部署</p>
-<p>部署描述符 Deployment Descriptor简称为DD，也就是所说的web.xml文件</p>
-<p>##为什么要有war<br>Web应用的目录结构要求很严，各个内容只能放在它该放的地方，移动起来就非常不方便。⋅⋅<br>所以人们就会把这个目录结构归档为WAR文件（Web ARchive）。⋅⋅</p>
-<p>##有哪些资源需要部署</p>
-<ul>
+        <p>部署描述符 Deployment Descriptor简称为DD，也就是所说的web.xml文件</p>
+<h2 id="为什么要有war">为什么要有war</h2><p>Web应用的目录结构要求很严，各个内容只能放在它该放的地方，移动起来就非常不方便。⋅⋅<br>所以人们就会把这个目录结构归档为WAR文件（Web ARchive）。⋅⋅</p>
+<h2 id="有哪些资源需要部署">有哪些资源需要部署</h2><ul>
 <li>静态资源（图片等）</li>
 <li>JSP页面</li>
 <li>Servlet类、Java其他类</li>
@@ -125,11 +117,9 @@ web.">
 <li>web.xml部署描述文件</li>
 <li>其他</li>
 </ul>
-<p>##Web应用目录结构（部署资源的目录结构，放在Tomcat下）</p>
-<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">tomcat</span><br><span class="line"><span class="string">|_webapps</span></span><br><span class="line">    <span class="string">|_project-name</span></span><br><span class="line">        <span class="string">|_META-INF 应用部署为WAR时，唯一的新东西就是META-INF目录</span></span><br><span class="line">            <span class="string">|_MANIFEST.MF 指定库的依赖性</span></span><br><span class="line">        <span class="string">|_WEB-INF</span></span><br><span class="line">            <span class="string">|_classes</span></span><br><span class="line">                <span class="string">|_com.tw classes下面的包结构和开发环境中使用的结构完全一致</span></span><br><span class="line">                    <span class="string">|_core</span></span><br><span class="line">                    <span class="string">|_web</span></span><br><span class="line">            <span class="string">|_lib</span></span><br><span class="line">            <span class="string">|_web.xml(必须放在WEB-INF中)</span></span><br><span class="line">    <span class="string">|_form.html</span></span><br><span class="line">    <span class="string">|_result.jsp</span></span><br></pre></td></tr></table></figure>
-<p>##静态内容如何访问<br>部署静态HTML和JSP的时候，可以选择是否允许外部直接访问。直接访问指的是用户在浏览器中输入URL得到相应的资源。<br>只要把文件放在WEB-INF下就能避免直接访问，或者部署为WAR文件的时候放在META-INF下面。<br><strong>如果用户请求WEB-INF或META-INF下的文件，会得到404错误</strong></p>
-<p>##容器在哪里找Web请求的东西，用户如何请求Web应用里的东西</p>
-<p>###Servlet映射<br>“Hello”主要用于开发，用户不会知道这个名字。<br>“物理目录结构”和“虚拟目录结构”<br>用户访问：<a href="http://localhost:8080/web/hello" target="_blank" rel="external">http://localhost:8080/web/hello</a><br>虚拟目录结构webapps/web/hello</p>
+<h2 id="Web应用目录结构（部署资源的目录结构，放在Tomcat下）">Web应用目录结构（部署资源的目录结构，放在Tomcat下）</h2><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">tomcat</span><br><span class="line"><span class="string">|_webapps</span></span><br><span class="line">    <span class="string">|_project-name</span></span><br><span class="line">        <span class="string">|_META-INF 应用部署为WAR时，唯一的新东西就是META-INF目录</span></span><br><span class="line">            <span class="string">|_MANIFEST.MF 指定库的依赖性</span></span><br><span class="line">        <span class="string">|_WEB-INF</span></span><br><span class="line">            <span class="string">|_classes</span></span><br><span class="line">                <span class="string">|_com.tw classes下面的包结构和开发环境中使用的结构完全一致</span></span><br><span class="line">                    <span class="string">|_core</span></span><br><span class="line">                    <span class="string">|_web</span></span><br><span class="line">            <span class="string">|_lib</span></span><br><span class="line">            <span class="string">|_web.xml(必须放在WEB-INF中)</span></span><br><span class="line">    <span class="string">|_form.html</span></span><br><span class="line">    <span class="string">|_result.jsp</span></span><br></pre></td></tr></table></figure>
+<h2 id="静态内容如何访问">静态内容如何访问</h2><p>部署静态HTML和JSP的时候，可以选择是否允许外部直接访问。直接访问指的是用户在浏览器中输入URL得到相应的资源。<br>只要把文件放在WEB-INF下就能避免直接访问，或者部署为WAR文件的时候放在META-INF下面。<br><strong>如果用户请求WEB-INF或META-INF下的文件，会得到404错误</strong></p>
+<h2 id="容器在哪里找Web请求的东西，用户如何请求Web应用里的东西">容器在哪里找Web请求的东西，用户如何请求Web应用里的东西</h2><h3 id="Servlet映射">Servlet映射</h3><p>“Hello”主要用于开发，用户不会知道这个名字。<br>“物理目录结构”和“虚拟目录结构”<br>用户访问：<a href="http://localhost:8080/web/hello" target="_blank" rel="external">http://localhost:8080/web/hello</a><br>虚拟目录结构webapps/web/hello</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">servlet</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">servlet-name</span>&gt;</span>Hello<span class="tag">&lt;/<span class="title">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">servlet-class</span>&gt;</span>com.tw.web.HelloServlet<span class="tag">&lt;/<span class="title">servlet-class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">servlet</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">servlet-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">servlet-name</span>&gt;</span>Hello<span class="tag">&lt;/<span class="title">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">url-pattern</span>&gt;</span>/hello<span class="tag">&lt;/<span class="title">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>三种<url-pattern>，容器会顺序查找匹配，并选择最具体的匹配。</url-pattern></p>
 <ul>
@@ -137,23 +127,22 @@ web.">
 <li>目录匹配</li>
 <li>扩展名匹配</li>
 </ul>
-<p>##DD中的配置</p>
-<p>###配置默认页面</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;welcome-<span class="keyword">file</span>-<span class="keyword">list</span>&gt;</span><br><span class="line">    &lt;welcome-<span class="keyword">file</span>&gt;<span class="built_in">index</span>.html&lt;/welcome-<span class="keyword">file</span>&gt;</span><br><span class="line">    &lt;welcome-<span class="keyword">file</span>&gt;default.jsp&lt;/welcome-<span class="keyword">file</span>&gt;</span><br><span class="line">&lt;/welcome-<span class="keyword">file</span>-<span class="keyword">list</span>&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="DD中的配置">DD中的配置</h2><h3 id="配置默认页面">配置默认页面</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">welcome-file-list</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">welcome-file</span>&gt;</span>index.html<span class="tag">&lt;/<span class="title">welcome-file</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">welcome-file</span>&gt;</span>default.jsp<span class="tag">&lt;/<span class="title">welcome-file</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">welcome-file-list</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p><welcome-file>中的元素不能以斜线开头或结束</welcome-file></p>
 <p>同样的，也可以声明错误页面，并根据异常或HTTP状态码来声明错误页面。</p>
-<p>###配置servlet初始化</p>
-<p>Servlet会在每个请求到来时初始化，经历类加载、实例化和初始化（建立一个ServletContext、调用监听者等等），然后容器才能正常工作：分配线程，调用servlet的service方法。</p>
+<h3 id="配置servlet初始化">配置servlet初始化</h3><p>Servlet会在每个请求到来时初始化，经历类加载、实例化和初始化（建立一个ServletContext、调用监听者等等），然后容器才能正常工作：分配线程，调用servlet的service方法。</p>
 <p>如果希望在部署或服务器重启时加载servlet，而不是等到第一个请求到来时加载，可以做DD中使用<load-on-startup>元素。当这个元素的值为非零时，容器就会在部署或服务器重启时初始化Servlet。这个值的设置也可以控制加载顺序。</load-on-startup></p>
-<p>##JSP页面 &amp; JSP文档<br>正常的JSP是一个页面，如果采用了XML语法来写，就成了一个JSP文档。</p>
-<p>##参考资料<br>《Head First Servlet JSP》</p>
+<h2 id="JSP页面_&amp;_JSP文档">JSP页面 &amp; JSP文档</h2><p>正常的JSP是一个页面，如果采用了XML语法来写，就成了一个JSP文档。</p>
+<h2 id="参考资料">参考资料</h2><p>《Head First Servlet JSP》</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/09/2015-07-09-deploy/" data-id="cicvw21o3000b29fy2l7j7kee" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/09/2015-07-09-deploy/" data-id="cicvwcfqw000d7nfy96elkfco" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+
     </footer>
   </div>
   
@@ -187,14 +176,28 @@ web.">
     
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/">gradle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/servlet/">servlet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">3</span></li></ul>
+    </div>
+  </div>
+
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/servlet/" style="font-size: 15px;">servlet</a> <a href="/tags/spring/" style="font-size: 20px;">spring</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -214,7 +217,7 @@ web.">
           </li>
         
           <li>
-            <a href="/2015/07/29/2015-07-29-spring-004-database/">database</a>
+            <a href="/2015/07/29/2015-07-29-spring-004-database/">Database</a>
           </li>
         
           <li>

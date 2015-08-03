@@ -68,7 +68,7 @@
     <article id="post-2015-03-19-webfont" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/08/03/2015-03-19-webfont/" class="article-date">
-  <time datetime="2015-08-03T10:20:50.000Z" itemprop="datePublished">2015-08-03</time>
+  <time datetime="2015-08-03T12:42:03.000Z" itemprop="datePublished">2015-08-03</time>
 </a>
     
   </div>
@@ -107,8 +107,7 @@
 <li>然后该怎么使用呢？既然webfont也是一种font，就按照font来用就好了，一般来说相关的在线网站都会介绍使用方法。<br>比如<a href="https://www.zybuluo.com/cherishpeace/note/46809" target="_blank" rel="external">这里有一个介绍</a></li>
 </ul>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">p</span> <span class="rules">&#123; <span class="rule"><span class="attribute">font-family</span>:<span class="value"> <span class="string">'MyWebFont'</span>, Arial, sans-serif</span></span>; &#125;</span></span><br></pre></td></tr></table></figure>
-<p>##Reference</p>
-<ul>
+<h2 id="Reference">Reference</h2><ul>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face" target="_blank" rel="external">@font-face</a></li>
 <li><a href="http://gejiawen.github.io/2015/03/04/CSS/WebFont%E4%B8%8E%E9%A1%B5%E9%9D%A2ICON%E5%9B%BE%E6%A0%87%E7%A0%94%E7%A9%B6/" target="_blank" rel="external">WebFont与页面ICON图标研究</a></li>
 </ul>
@@ -131,7 +130,7 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/08/03/2015-03-19-webfont/" data-id="cicvw21o6000e29fyydidqz79" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/08/03/2015-03-19-webfont/" data-id="cicvwcfr0000g7nfy6tonb74x" class="article-share-link">Share</a>
       
       
     </footer>
@@ -176,7 +175,7 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/08/03/hello-world/" data-id="cicvw21nn000129fys7ox3nit" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/08/03/hello-world/" data-id="cicvwcfqb00017nfy9i8zc0fi" class="article-share-link">Share</a>
       
       
     </footer>
@@ -200,7 +199,7 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/29/2015-07-29-spring-004-database/">database</a>
+      <a class="article-title" href="/2015/07/29/2015-07-29-spring-004-database/">Database</a>
     </h1>
   
 
@@ -208,28 +207,22 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#Database </p>
-<p>##Spring 4 Data Access</p>
-<p>许多开发人员将应用程序中的持久化对象称为仓库（repository），有时候也将其称为数据访问对象 DAO （Data access object）。<br>DAO提供了数据读取和写入到数据库中的一种方式。</p>
-<p>###设计数据访问层的好处</p>
-<ul>
+        <h2 id="Spring_4_Data_Access">Spring 4 Data Access</h2><p>许多开发人员将应用程序中的持久化对象称为仓库（repository），有时候也将其称为数据访问对象 DAO （Data access object）。<br>DAO提供了数据读取和写入到数据库中的一种方式。</p>
+<h3 id="设计数据访问层的好处">设计数据访问层的好处</h3><ul>
 <li>使得服务对象易于测试，因为它们不再与特定的数据访问实现绑定在一起。可以为这些数据访问接口创建mock实现，可以让你无需连接数据库就能测试服务对象，这会显示提升单元测试的效率并排除因数据不一致所造成的测试失败。</li>
 <li>数据访问层是以持久化技术无关的方式来进行访问的。持久化方式的选择对于DAO，只有相关的数据访问方法通过接口来进行发布。这可以实现灵活的设计并使得切换持久化框架对应用程序其他部分带来的影响最小。</li>
 </ul>
-<p>###可能导致抛出 SQLException 的常见问题</p>
-<ul>
+<h3 id="可能导致抛出_SQLException_的常见问题">可能导致抛出 SQLException 的常见问题</h3><ul>
 <li>应用程序无法连接数据库</li>
 <li>要执行的查询语法有语法错误</li>
 <li>查询中所使用的表或列不存在</li>
 <li>视图插入或更新的数据违反了数据库的完整性约束</li>
 </ul>
-<p>###捕获的时候面临的两个问题</p>
-<ul>
+<h3 id="捕获的时候面临的两个问题">捕获的时候面临的两个问题</h3><ul>
 <li>JDBC 的 SQLException 是通用异常，而且不会提示异常类型。</li>
 <li>一些持久化框架提供了相对丰富的异常体现，比如 Hibernate，但是 Hibernate 的异常是其本身特有的，这种持久化机制不能独立于数据访问层。</li>
 </ul>
-<p>###Spring JDBC</p>
-<p>Spring JDBC 解决了上述两个问题， 它提供了多种类型，都继承自 DataAccessException，是一个非检查型异常。</p>
+<h3 id="Spring_JDBC">Spring JDBC</h3><p>Spring JDBC 解决了上述两个问题， 它提供了多种类型，都继承自 DataAccessException，是一个非检查型异常。</p>
 <p>为了使用 Spring 的数据访问异常，需要使用 Spring 提供的数据访问模板。</p>
 <p>Spring 将数据访问过程中固定的和可变的部分明确划分为两个不同的类：</p>
 <ul>
@@ -237,14 +230,16 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
 <li>回调，处理自定义的数据访问代码，应用程序相关的数据访问（创建语句、绑定参数以及整理结果集）在回调的实现中处理</li>
 </ul>
 <p>不同的持久化平台有不同的模板，JDBC 对于 JdbcTemplate，Hibernate 对应 HibernateTemplate。</p>
-<p>##参考资料<br>《Spring in Action》</p>
+<h2 id="参考资料">参考资料</h2><p>《Spring in Action》</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/29/2015-07-29-spring-004-database/" data-id="cicvw21np000229fy49bjoh7t" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/29/2015-07-29-spring-004-database/" data-id="cicvwcfqi00027nfy3j3jeaea" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li></ul>
+
     </footer>
   </div>
   
@@ -274,8 +269,7 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#开始学习Spring </p>
-<p>##Spring 4 Configuration<br>Spring中核心IoC功能的补充：</p>
+        <h1 id="开始学习Spring">开始学习Spring</h1><h2 id="Spring_4_Configuration">Spring 4 Configuration</h2><p>Spring中核心IoC功能的补充：</p>
 <ul>
 <li>管理bean的生命周期</li>
 <li>使bean能够“Spring aware”</li>
@@ -285,10 +279,10 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
 <li>进阶配置</li>
 <li>使用Groovy配置</li>
 </ul>
-<p>##参考资料<br>《Pro Spring 4 Edition》</p>
-<p>#《Spring in Action》<br>如何创建容器 -》 有了容器，如何装配Bean -》知道装配Bean，如果Bean很多，XML文件就很复杂 -》如何减少XML的配置</p>
-<p>##Spring 应用上下文</p>
-<ul>
+<h2 id="参考资料">参考资料</h2><p>《Pro Spring 4 Edition》</p>
+<hr>
+<h2 id="《Spring_in_Action》">《Spring in Action》</h2><p>如何创建容器 -》 有了容器，如何装配Bean -》知道装配Bean，如果Bean很多，XML文件就很复杂 -》如何减少XML的配置</p>
+<h2 id="Spring_应用上下文">Spring 应用上下文</h2><ul>
 <li>Spring 容器是什么，有什么用</li>
 <li>如何创建 Spring 容器</li>
 </ul>
@@ -308,12 +302,11 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
 </ul>
 <p>在Spring应用中，Spring容器会创建相互协作的组件之间的关联。负责创建对象、装配（Wiring）对象、配置对象，管理对象的整个生命周期。</p>
 <pre><code>创建应用组件之间协作的行为通常称为装配。在Spring中装配Bean最常见的方式是使用<span class="built_in">XML</span>文件。
-</code></pre><p>##Bean的实例化<br>在Spring中，默认情况下，所有的bean都是单例。ApplicationContext.getBean()总是返回同一个实例。</p>
-<p>###Bean 的作用域<br>如果需要每次请求时都获得唯一的Bean实例，可以通过配置Bean的作用域 scope属性。<br>Spring有关单例的概念限于Spring上下文的范围内，不像真正的单例，在每个类加载器中保证只有一个实例。</p>
-<p>###Bean 的生命周期<br>初始化和销毁，可以配置 init-method 和 destory-method，虽然Spring API也提供相应的接口，但会与其产生耦合。</p>
+</code></pre><h2 id="Bean的实例化">Bean的实例化</h2><p>在Spring中，默认情况下，所有的bean都是单例。ApplicationContext.getBean()总是返回同一个实例。</p>
+<h3 id="Bean_的作用域">Bean 的作用域</h3><p>如果需要每次请求时都获得唯一的Bean实例，可以通过配置Bean的作用域 scope属性。<br>Spring有关单例的概念限于Spring上下文的范围内，不像真正的单例，在每个类加载器中保证只有一个实例。</p>
+<h3 id="Bean_的生命周期">Bean 的生命周期</h3><p>初始化和销毁，可以配置 init-method 和 destory-method，虽然Spring API也提供相应的接口，但会与其产生耦合。</p>
 <p>在Java中singleton包含两个概念：单个实例的对象，单例模式。前者用singleton表示，后者用Singleton表示。<br>可以通过配置文件中的配置来修改“单例”的属性。<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">package com.apress.prospring4.ch3;&#10;public class Singleton &#123;&#10;    private static Singleton instance;&#10;    static &#123;&#10;        instance = new Singleton();&#10;&#125;&#10;    public static Singleton getInstance() &#123;&#10;        return instance;&#10;&#125; &#125;</span><br></pre></td></tr></table></figure></p>
-<p>##为Bean的属性和构造器参数装配多种类型的值</p>
-<ul>
+<h2 id="为Bean的属性和构造器参数装配多种类型的值">为Bean的属性和构造器参数装配多种类型的值</h2><ul>
 <li>简单属性值，使用value属性</li>
 <li>引用其他Bean的属性，使用ref属性</li>
 <li>Bean的属性是复数，比如集合，使用list set map props属性<ul>
@@ -321,14 +314,14 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
 </ul>
 </li>
 </ul>
-<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;bean id=<span class="string">"hank"</span></span><br><span class="line">            class=<span class="string">"com.springinaction.springido1.OneManBand"</span>&gt;</span><br><span class="line">    &lt;property name=<span class="string">"instruments"</span>&gt;</span><br><span class="line">        &lt;list&gt;</span><br><span class="line">            &lt;<span class="keyword">ref</span> bean=<span class="string">"guitar"</span> /&gt;</span><br><span class="line">            &lt;<span class="keyword">ref</span> bean=<span class="string">"cymbal"</span> /&gt;</span><br><span class="line">            &lt;<span class="keyword">ref</span> bean=<span class="string">"harmonica"</span> /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
-<p>##疑问？<br>从《Spring in Action》中可以看到注入Bean属性实则就是setter方法注入，这种方式在setter方法上有@Autowired注解。那在属性上直接写@Autowired又是什么注入方式呢。</p>
-<p>##如何减少XML的配置数量<br>Spring提供了以下方式：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"hank"</span></span><br><span class="line">            <span class="attribute">class</span>=<span class="value">"com.springinaction.springido1.OneManBand"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"instruments"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">list</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">ref</span> <span class="attribute">bean</span>=<span class="value">"guitar"</span> /&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">ref</span> <span class="attribute">bean</span>=<span class="value">"cymbal"</span> /&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">ref</span> <span class="attribute">bean</span>=<span class="value">"harmonica"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="疑问？">疑问？</h2><p>从《Spring in Action》中可以看到注入Bean属性实则就是setter方法注入，这种方式在setter方法上有@Autowired注解。那在属性上直接写@Autowired又是什么注入方式呢。</p>
+<h2 id="如何减少XML的配置数量">如何减少XML的配置数量</h2><p>Spring提供了以下方式：</p>
 <ul>
 <li>自动装配 autowiring，减少甚至消除配置<property> <constructor-arg>元素，让Spring自动识别并装配Bean的依赖关系</constructor-arg></property></li>
 <li>自动检测 autodiscovery，比自动装配更进一步，让Spring自动识别哪些类需要被配置成Spring Bean，减少对<bean>元素的使用。</bean></li>
 </ul>
-<p>###自动装配Autowiring Bean 属性<br>Spring提供了4种自动装配策略：</p>
+<h3 id="自动装配Autowiring_Bean_属性">自动装配Autowiring Bean 属性</h3><p>Spring提供了4种自动装配策略：</p>
 <ul>
 <li>byName，把与Bean的属性具有相同名字的其他Bean自动装配到Bean的对应属性中</li>
 <li>byType，把与Bean的属性具有相同类型的其他Bean自动装配到Bean的对应属性中</li>
@@ -357,7 +350,7 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
 </li>
 <li>JSR-250 的 @Resource 注解</li>
 </ul>
-<p>###自动检测 Bean<br>我们希望使用<context:annotation-config>之后，Spring能对待我们定义的注解，并指导Bean的装配。<br>即使<context:annotation-config>有助于完全消除Spring配置中的<property> <constructor-arg>元素，我们仍需要使用<bean>元素显示定义Bean。</bean></constructor-arg></property></context:annotation-config></context:annotation-config></p>
+<h3 id="自动检测_Bean">自动检测 Bean</h3><p>我们希望使用<context:annotation-config>之后，Spring能对待我们定义的注解，并指导Bean的装配。<br>即使<context:annotation-config>有助于完全消除Spring配置中的<property> <constructor-arg>元素，我们仍需要使用<bean>元素显示定义Bean。</bean></constructor-arg></property></context:annotation-config></context:annotation-config></p>
 <p>在Spring中<context:component-scan>除了完成<context:annotation-config>的工作，还允许Spring自动检测Bean和定义Bean。</context:annotation-config></context:component-scan></p>
 <p>为了配置Spring自动检测，需要使用<context:component-scan>元素来代替<context:annotation-config>元素。</context:annotation-config></context:component-scan></p>
 <h4 id="如何知道哪些类需要注册为Spring_Bean？"><context:component-scan> 如何知道哪些类需要注册为Spring Bean？</context:component-scan></h4><p>默认情况下，<context:component-scan> 查找使用构造型（stereotype）注解所标注的类：</context:component-scan></p>
@@ -372,16 +365,15 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
 <ul>
 <li>过滤组件扫描，比如 <context:include-filter></context:include-filter></li>
 </ul>
-<p>##如果不喜欢XML，可以使用Spring创建基于Java的配置</p>
-<p>仍然需要少量的XML来启用Java配置，在下面代码中，base-package告诉Spring在哪个包中查找使用@Configuration注解所标注的所有类：</p>
+<h2 id="如果不喜欢XML，可以使用Spring创建基于Java的配置">如果不喜欢XML，可以使用Spring创建基于Java的配置</h2><p>仍然需要少量的XML来启用Java配置，在下面代码中，base-package告诉Spring在哪个包中查找使用@Configuration注解所标注的所有类：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="pi">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">beans</span> <span class="attribute">xmlns</span>=<span class="value">"http://www.springframework.org/schema/beans"</span></span><br><span class="line">       <span class="attribute">xmlns:xsi</span>=<span class="value">"http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="line">       <span class="attribute">xmlns:context</span>=<span class="value">"http://www.springframework.org/schema/context"</span></span><br><span class="line">       <span class="attribute">xsi:schemaLocation</span>=<span class="value">"http://www.springframework.org/schema/beans</span><br><span class="line">          http://www.springframework.org/schema/beans/spring-beans.xsd</span><br><span class="line">          http://www.springframework.org/schema/context</span><br><span class="line">          http://www.springframework.org/schema/context/spring-context.xsd"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="title">context:component-scan</span></span><br><span class="line">          <span class="attribute">base-package</span>=<span class="value">"com.springinactin.springido1"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>###定义一个配置类<br>使用@Configuration注解的Java类，等价于XML配置中的<beans>元素。<br>@Configuration注解会告诉Spring，这个类将包含一个或多个Spring Bean的定义。</beans></p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">@Configuration</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">Class</span> <span class="title">SpringIdo1Config</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Bean declaration methods go here</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="定义一个配置类">定义一个配置类</h3><p>使用@Configuration注解的Java类，等价于XML配置中的<beans>元素。<br>@Configuration注解会告诉Spring，这个类将包含一个或多个Spring Bean的定义。</beans></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="annotation">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> Class SpringIdo1Config &#123;</span><br><span class="line">    <span class="comment">// Bean declaration methods go here</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </context:annotation-config>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/14/2015-07-14-spring-003-config/" data-id="cicvw21nq000329fykpnge77y" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/14/2015-07-14-spring-003-config/" data-id="cicvwcfql00057nfy6zdb4otu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -413,12 +405,10 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#开始学习Spring </p>
-<p>##Spring 4 IoC</p>
-<p>Spring 4.0.2 有20个modules，打包成20个jar文件</p>
+        <h2 id="Spring_4_IoC">Spring 4 IoC</h2><p>Spring 4.0.2 有20个modules，打包成20个jar文件</p>
 <p>任何一个有实际意义的应用都是由两个或者更多的类组成，这些类相互之间进行协作来完成特定的业务逻辑。通常，每个对象负责管理与自己相互协作的对象（即它所以来的对象）的引用，这将会导致高度耦合和难以测试的代码。</p>
 <p>通过依赖注入，对象的依赖关系将由负责协调系统中各个对象的第三方组件在创建对象时设定。对象无需自行创建或管理它们的依赖关系——依赖关系将被自动注入到需要它们的对象中去。</p>
-<p>##控制反转<br>一个需要特定依赖的组件，我们称为依赖对象dependent object，或者在IoC中称为目标target。</p>
+<h2 id="控制反转">控制反转</h2><p>一个需要特定依赖的组件，我们称为依赖对象dependent object，或者在IoC中称为目标target。</p>
 <p>通常来讲， IoC有两种类型：</p>
 <ul>
 <li>Dependency Lookup <ul>
@@ -441,7 +431,7 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
 <li>构造函数注入，应用在要使用组件之前就必须要实例化被依赖的组件的情况下。</li>
 <li>setter注入，应用在组件本身对容器暴露自身的依赖关系，并且愿意提供一个默认的依赖关系的情况下。</li>
 </ul>
-<p>##Spring中的IoC<br>在基于Spring的应用中，偏向使用依赖注入而不是查找，但是对于独立对象的访问，怡然需要通过查找来获取合作关系。<br>Spring还不能自动将应用程序组件通过依赖注入连接起来，因此必须通过依赖查找来初始化组件集合。</p>
+<h2 id="Spring中的IoC">Spring中的IoC</h2><p>在基于Spring的应用中，偏向使用依赖注入而不是查找，但是对于独立对象的访问，怡然需要通过查找来获取合作关系。<br>Spring还不能自动将应用程序组件通过依赖注入连接起来，因此必须通过依赖查找来初始化组件集合。</p>
 <p>使用Spring MVC来构建Web应用的时候，反而不会遇到这种麻烦事，Spring此时就像一个粘合剂，很好的粘合了应用的各个部分。</p>
 <p>Spring IoC体现在：</p>
 <ul>
@@ -451,8 +441,7 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
 <li>autowiring</li>
 <li>bean inheritance</li>
 </ul>
-<p>##Spring中的DI</p>
-<p>Spring DI 容器的核心是 BeanFactory 接口</p>
+<h2 id="Spring中的DI">Spring中的DI</h2><p>Spring DI 容器的核心是 BeanFactory 接口</p>
 <p>要做两件事：</p>
 <ul>
 <li>在程序中使用BeanFactory</li>
@@ -460,8 +449,7 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
 </ul>
 <p>在Spring中，ApplicationContext接口是BeanFactory的扩展，ApplicationContext除了提供DI服务之外，还有其他，比如事务、AOP、事件处理等。</p>
 <p>在开发过程中，推荐使用ApplicationContext与Spring进行交互。</p>
-<p>###配置ApplicationContext</p>
-<p>定义beans的方式：</p>
+<h3 id="配置ApplicationContext">配置ApplicationContext</h3><p>定义beans的方式：</p>
 <ul>
 <li>properties</li>
 <li>XML文件<ul>
@@ -474,35 +462,33 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
 </li>
 </ul>
 <p>Spring也支持在同一个ApplicationContext中采用XML文件和annotation的混合配置方式。<br>一种通用的方式是在XML文件中定义应用的基础设施（比如，data source，transaction manager，JMS connection factory，JMX），<br>使用annotation来定义DI配置（注入的bean和bean的依赖）</p>
-<p>####XML文件配置方式<br>需要声明所需要的Spring命名空间beans</p>
-<figure class="highlight"><figcaption><span>app-context-xml.xml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#10;&#60;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&#62;&#10;&#60;beans xmlns=&#34;http://www.springframework.org/schema/beans&#34;&#10;    xmlns:xsi=&#34;http://www.w3.org/2001/XMLSchema-instance&#34;&#10;    xsi:schemaLocation=&#34;http://www.springframework.org/schema/beans&#10;        http://www.springframework.org/schema/beans/spring-beans.xsd&#34;&#62;&#10;    &#60;bean id=&#34;messageProvider&#34;&#10;          class=&#34;com.apress.prospring4.ch3.xml.HelloWorldMessageProvider&#34;/&#62;&#10;&#60;/beans&#62;</span><br></pre></td></tr></table></figure>
-<p>####annotation配置方式</p>
-<p>需要在XML文件中声明tags</p>
-<figure class="highlight"><figcaption><span>app-context-annotation.xml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#10;&#60;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&#62;&#10;&#60;beans xmlns=&#34;http://www.springframework.org/schema/beans&#34;&#10;    xmlns:xsi=&#34;http://www.w3.org/2001/XMLSchema-instance&#34;&#10;    xmlns:context=&#34;http://www.springframework.org/schema/context&#34;&#10;    xsi:schemaLocation=&#34;http://www.springframework.org/schema/beans&#10;        http://www.springframework.org/schema/beans/spring-beans.xsd&#10;        http://www.springframework.org/schema/context&#10;        http://www.springframework.org/schema/context/spring-context.xsd&#34;&#62;&#10;    &#60;context:component-scan base-package=&#34;com.apress.prospring4.ch3.annotation&#34; /&#62;&#10;&#60;/beans&#62;</span><br></pre></td></tr></table></figure>
+<h4 id="XML文件配置方式">XML文件配置方式</h4><p>需要声明所需要的Spring命名空间beans</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">样例 app-context-xml.xml</span><br><span class="line"></span><br><span class="line">    <span class="pi">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">beans</span> <span class="attribute">xmlns</span>=<span class="value">"http://www.springframework.org/schema/beans"</span></span><br><span class="line">        <span class="attribute">xmlns:xsi</span>=<span class="value">"http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="line">        <span class="attribute">xsi:schemaLocation</span>=<span class="value">"http://www.springframework.org/schema/beans</span><br><span class="line">            http://www.springframework.org/schema/beans/spring-beans.xsd"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"messageProvider"</span></span><br><span class="line">              <span class="attribute">class</span>=<span class="value">"com.apress.prospring4.ch3.xml.HelloWorldMessageProvider"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="annotation配置方式">annotation配置方式</h4><p>需要在XML文件中声明tags</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">样例 app-context-annotation.xml</span><br><span class="line"></span><br><span class="line">    <span class="pi">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">beans</span> <span class="attribute">xmlns</span>=<span class="value">"http://www.springframework.org/schema/beans"</span></span><br><span class="line">        <span class="attribute">xmlns:xsi</span>=<span class="value">"http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="line">        <span class="attribute">xmlns:context</span>=<span class="value">"http://www.springframework.org/schema/context"</span></span><br><span class="line">        <span class="attribute">xsi:schemaLocation</span>=<span class="value">"http://www.springframework.org/schema/beans</span><br><span class="line">            http://www.springframework.org/schema/beans/spring-beans.xsd</span><br><span class="line">            http://www.springframework.org/schema/context</span><br><span class="line">            http://www.springframework.org/schema/context/spring-context.xsd"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">context:component-scan</span> <span class="attribute">base-package</span>=<span class="value">"com.apress.prospring4.ch3.annotation"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p><context:component-scan> 标签告诉Spring在所配置的包中扫描注入的beans，这些bean通过注解 @Component, @Controller, @Repository, and @Service， @Autowired and @Inject标明。<br>在<context:component-scan> 标签中可以定义多个packages，使用逗号、分号或空格来分隔开。该标签还可以指定包含或排除某个component。</context:component-scan></context:component-scan></p>
-<p>###使用XML实现Setter注入<br>使用XML来配置Setter注入，需要在<bean>下配置一个<property>的标签，每个<property>表示一个要注入的依赖。</property></property></bean></p>
+<h3 id="使用XML实现Setter注入">使用XML实现Setter注入</h3><p>使用XML来配置Setter注入，需要在<bean>下配置一个<property>的标签，每个<property>表示一个要注入的依赖。</property></property></bean></p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="pi">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">beans</span> <span class="attribute">xmlns</span>=<span class="value">"http://www.springframework.org/schema/beans"</span></span><br><span class="line">       <span class="attribute">xmlns:xsi</span>=<span class="value">"http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="line">       <span class="attribute">xsi:schemaLocation</span>=<span class="value">"http://www.springframework.org/schema/beans</span><br><span class="line">          http://www.springframework.org/schema/beans/spring-beans.xsd"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"messageRenderer"</span></span><br><span class="line">        <span class="attribute">class</span>=<span class="value">"com.apress.prospring4.ch3.xml.StandardOutMessageRenderer"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"messageProvider"</span> <span class="attribute">ref</span>=<span class="value">"messageProvider"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">bean</span>&gt;</span></span><br><span class="line">    或者可以用“p”的命名空间</span><br><span class="line">    <span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"messageRenderer"</span></span><br><span class="line">        <span class="attribute">class</span>=<span class="value">"com.apress.prospring4.ch3.xml.StandardOutMessageRenderer"</span></span><br><span class="line">        <span class="attribute">p:messageProvider-ref</span>=<span class="value">"messageProvider"</span>/&gt;</span></span><br><span class="line">        </span><br><span class="line">    <span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"messageProvider"</span></span><br><span class="line">        <span class="attribute">class</span>=<span class="value">"com.apress.prospring4.ch3.xml.HelloWorldMessageProvider"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>命名空间“p”没有定义在XSD文件中，只存在于Spring core中，所以在schemaLocation属性中没有对于的XSD。</p>
-<p>###使用annotation实现setter注入<br>只需要添加@Autowired</p>
+<h3 id="使用annotation实现setter注入">使用annotation实现setter注入</h3><p>只需要添加@Autowired</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="annotation">@Service</span>(<span class="string">"messageRenderer"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StandardOutMessageRenderer</span> <span class="keyword">implements</span> <span class="title">MessageRenderer</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> MessageProvider messageProvider;</span><br><span class="line">    </span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="annotation">@Autowired</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMessageProvider</span><span class="params">(MessageProvider provider)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.messageProvider = provider;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>在XMl文件中配置了 <context:component-scan> ，在Spring的ApplicationContext初始化的时候，会找到所有的@Autowired的annotation，并注入所需的依赖。</context:component-scan></p>
-<p>###使用XML来配置构造函数注入</p>
-<p>在XML文件中使用<constructor-arg>，同时采用value的属性为构造函数传递参数。如果参数多于一个，可以使用index属性来指定参数的顺序。<br>同时也可以使用命名空间“c”来代替。“c”也是只存在于Spring core中。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="pi">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">beans</span> <span class="attribute">xmlns</span>=<span class="value">"http://www.springframework.org/schema/beans"</span></span><br><span class="line">       <span class="attribute">xmlns:xsi</span>=<span class="value">"http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="line">       <span class="attribute">xsi:schemaLocation</span>=<span class="value">"http://www.springframework.org/schema/beans</span><br><span class="line">          http://www.springframework.org/schema/beans/spring-beans.xsd"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"messageProvider"</span></span><br><span class="line">        <span class="attribute">class</span>=<span class="value">"com.apress.prospring4.ch3.xml.ConfigurableMessageProvider"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">constructor-arg</span> <span class="attribute">value</span>=<span class="value">"Configurable message"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">bean</span>&gt;</span></span><br><span class="line">    或者</span><br><span class="line">    <span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"messageProvider"</span></span><br><span class="line">        <span class="attribute">class</span>=<span class="value">"com.apress.prospring4.ch3.xml.ConfigurableMessageProvider"</span></span><br><span class="line">        <span class="attribute">c:message</span>=<span class="value">"This is a configurable message"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">beans</span>&gt;</span></span><br></pre></td></tr></table></figure></constructor-arg></p>
+<h3 id="使用XML来配置构造函数注入">使用XML来配置构造函数注入</h3><p>在XML文件中使用<constructor-arg>，同时采用value的属性为构造函数传递参数。如果参数多于一个，可以使用index属性来指定参数的顺序。<br>同时也可以使用命名空间“c”来代替。“c”也是只存在于Spring core中。</constructor-arg></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="pi">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">beans</span> <span class="attribute">xmlns</span>=<span class="value">"http://www.springframework.org/schema/beans"</span></span><br><span class="line">       <span class="attribute">xmlns:xsi</span>=<span class="value">"http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="line">       <span class="attribute">xsi:schemaLocation</span>=<span class="value">"http://www.springframework.org/schema/beans</span><br><span class="line">          http://www.springframework.org/schema/beans/spring-beans.xsd"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"messageProvider"</span></span><br><span class="line">        <span class="attribute">class</span>=<span class="value">"com.apress.prospring4.ch3.xml.ConfigurableMessageProvider"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">constructor-arg</span> <span class="attribute">value</span>=<span class="value">"Configurable message"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">bean</span>&gt;</span></span><br><span class="line">    或者</span><br><span class="line">    <span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"messageProvider"</span></span><br><span class="line">        <span class="attribute">class</span>=<span class="value">"com.apress.prospring4.ch3.xml.ConfigurableMessageProvider"</span></span><br><span class="line">        <span class="attribute">c:message</span>=<span class="value">"This is a configurable message"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>如果需要传递的参数是整型的话，需要指明类型：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"constructorConfusion"</span></span><br><span class="line">        <span class="attribute">class</span>=<span class="value">"com.apress.prospring4.ch3.xml.ConstructorConfusion"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">constructor-arg</span> <span class="attribute">type</span>=<span class="value">”int”</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">value</span>&gt;</span>90<span class="tag">&lt;/<span class="title">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">constructor-arg</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>###使用annotation来配置构造函数注入<br>在构造函数上声明@Autowired。</p>
+<h3 id="使用annotation来配置构造函数注入">使用annotation来配置构造函数注入</h3><p>在构造函数上声明@Autowired。</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="pi">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">beans</span> <span class="attribute">xmlns</span>=<span class="value">"http://www.springframework.org/schema/beans"</span></span><br><span class="line">       <span class="attribute">xmlns:xsi</span>=<span class="value">"http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="line">       <span class="attribute">xmlns:context</span>=<span class="value">"http://www.springframework.org/schema/context"</span></span><br><span class="line">       <span class="attribute">xmlns:c</span>=<span class="value">"http://www.springframework.org/schema/c"</span></span><br><span class="line">       <span class="attribute">xsi:schemaLocation</span>=<span class="value">"http://www.springframework.org/schema/beans</span><br><span class="line">          http://www.springframework.org/schema/beans/spring-beans.xsd</span><br><span class="line">          http://www.springframework.org/schema/context</span><br><span class="line">          http://www.springframework.org/schema/context/spring-context.xsd"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="title">context:component-scan</span></span><br><span class="line">          <span class="attribute">base-package</span>=<span class="value">"com.apress.prospring4.ch3.annotation"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"message"</span> <span class="attribute">class</span>=<span class="value">"java.lang.String"</span> <span class="attribute">c:_0</span>=<span class="value">"This is a configurable message"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>###参数注入</p>
-<p>####简单类型的值</p>
-<p>###方法注入</p>
-<p>##参考资料<br>《Pro Spring 4 Edition》</p>
+<h3 id="参数注入">参数注入</h3><h4 id="简单类型的值">简单类型的值</h4><h3 id="方法注入">方法注入</h3><h2 id="参考资料">参考资料</h2><p>《Pro Spring 4 Edition》</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/12/2015-07-12-spring-002-ioc/" data-id="cicvw21nr000429fyqndbucka" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/12/2015-07-12-spring-002-ioc/" data-id="cicvwcfqm00067nfyjbql47sy" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li></ul>
+
     </footer>
   </div>
   
@@ -538,7 +524,7 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/10/2015-07-10-database-01/" data-id="cicvw21nt000529fycx9vwbsv" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/10/2015-07-10-database-01/" data-id="cicvwcfqn00077nfykcf8muhc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -579,7 +565,7 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/10/2015-07-10-backend-frontend-interaction/" data-id="cicvw21nu000629fyd7r1ou5s" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/10/2015-07-10-backend-frontend-interaction/" data-id="cicvwcfqp00087nfysvnrh4jg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -611,11 +597,10 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#Servlet 完成Web请求和响应</p>
-<h2 id="Web_请求和响应的流程">Web 请求和响应的流程</h2><p>用户——》Web 浏览器——URL(所找资源的名字和地址)——》服务器——响应(客户请求的资源)-》用户</p>
-<p>###用户和服务器如何对话<br>要对话，就需要使用相同的语言，这个语言就是HTTP，而且浏览器必须懂HTML。</p>
+        <h2 id="Web_请求和响应的流程">Web 请求和响应的流程</h2><p>用户——》Web 浏览器——URL(所找资源的名字和地址)——》服务器——响应(客户请求的资源)-》用户</p>
+<h3 id="用户和服务器如何对话">用户和服务器如何对话</h3><p>要对话，就需要使用相同的语言，这个语言就是HTTP，而且浏览器必须懂HTML。</p>
 <p>HTTP是Web上用户和服务器之间通信所用的协议。<br>服务器使用HTTP向用户发送HTML。<br>浏览器接收到HTMl之后要创建Web页面，并将页面显示给用户。</p>
-<p>####HTTP是什么<br>HTTP超文本传输协议，是TCP/IP的上层协议，依赖于TCP/IP从一处向另一处完整的发送请求和响应。</p>
+<h4 id="HTTP是什么">HTTP是什么</h4><p>HTTP超文本传输协议，是TCP/IP的上层协议，依赖于TCP/IP从一处向另一处完整的发送请求和响应。</p>
 <p>TCP负责从一个网络节点向另一个网络节点发送的文件能作为一个完整的文件到达目的地，尽管传送过程中可能会分解成小块传输。<br>IP是一个底层协议，负责把数据包路由到目的地。</p>
 <p><strong>HTTP请求流</strong></p>
 <ul>
@@ -636,8 +621,8 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
 </ul>
 <p>在发送这些请求时，会携带信息：HTTP方法、资源路径、参数、协议版本、首部信息</p>
 <p>HTTP响应中的MIME类型告诉浏览器要接收的数据是什么类型。</p>
-<p>####HTML是什么<br>HTTP的响应可以包含HTML，浏览器根据HTTP首部信息来处理HTML页面</p>
-<p>###URL是什么<br><a href="http://weixiaobo88.github.io:80/web/hello.html">http://weixiaobo88.github.io:80/web/hello.html</a></p>
+<h4 id="HTML是什么">HTML是什么</h4><p>HTTP的响应可以包含HTML，浏览器根据HTTP首部信息来处理HTML页面</p>
+<h3 id="URL是什么">URL是什么</h3><p><a href="http://weixiaobo88.github.io:80/web/hello.html">http://weixiaobo88.github.io:80/web/hello.html</a></p>
 <ul>
 <li>“http://” 协议，告诉服务器通信协议</li>
 <li>“weixiaobo88.github.io” 服务器名，这个名字会映射到一个唯一的IP地址</li>
@@ -645,10 +630,9 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
 <li>/web 所请求资源在服务器上的路径</li>
 <li>/hello.html 资源，所请求内容的名字</li>
 </ul>
-<p>####TCP端口是什么<br>端口并不是一个可以插入物理设备的位置，只表示服务器应用的“逻辑”数而已，用来标识服务器硬件上一个特定的软件程序。<br>服务器上有65536个端口，端口号范围为“0~65535”，其中0~1023为保留端口，由知名服务使用，比如80端口。</p>
-<p>##一个简单的Apache网站的目录结构<br>Apache是一个留下的开源Web服务器。<br>Apache<em>home<br>|</em> htdocs (Apache服务器中Web应用的根目录)<br>    |_index.html<br>    |_app1<br>        |_index.html<br>        |_select…<br>    |_app2<br>        |_index.html<br>        |_select…</p>
-<p>###Web服务器自己不做的两件事</p>
-<ul>
+<h4 id="TCP端口是什么">TCP端口是什么</h4><p>端口并不是一个可以插入物理设备的位置，只表示服务器应用的“逻辑”数而已，用来标识服务器硬件上一个特定的软件程序。<br>服务器上有65536个端口，端口号范围为“0~65535”，其中0~1023为保留端口，由知名服务使用，比如80端口。</p>
+<h2 id="一个简单的Apache网站的目录结构">一个简单的Apache网站的目录结构</h2><p>Apache是一个留下的开源Web服务器。<br>Apache<em>home<br>|</em> htdocs (Apache服务器中Web应用的根目录)<br>    |_index.html<br>    |_app1<br>        |_index.html<br>        |_select…<br>    |_app2<br>        |_index.html<br>        |_select…</p>
+<h3 id="Web服务器自己不做的两件事">Web服务器自己不做的两件事</h3><ul>
 <li>动态内容，比如请求实时的日期</li>
 <li>在服务器上保存上数据，比如提交表单</li>
 </ul>
@@ -659,20 +643,9 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
 <li>Web服务器应用</li>
 <li>辅助应用（Servlet和CGI在Web服务器中都扮演着辅助应用的角色）</li>
 </ul>
-<blockquote>
-<p>什么是容器<br>Servlet没有main()方法，它们受控于另外一个Java应用，就是容器。 Tomcat就是这样的容器。<br>Web服务器应用（如Apache）得到一个指向servlet的请求时，服务器会把这个请求交给部署该servlet的容器，由容器向servlet提供HTTP请求和响应，调用servlet的doGet()或doPost()的方法。</p>
-</blockquote>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;什么是容器</span><br><span class="line">Servlet没有<span class="function"><span class="title">main</span><span class="params">()</span></span>方法，它们受控于另外一个Java应用，就是容器。 Tomcat就是这样的容器。</span><br><span class="line">Web服务器应用（如Apache）得到一个指向servlet的请求时，服务器会把这个请求交给部署该servlet的容器，由容器向servlet提供HTTP请求和响应，调用servlet的<span class="function"><span class="title">doGet</span><span class="params">()</span></span>或<span class="function"><span class="title">doPost</span><span class="params">()</span></span>的方法。</span><br></pre></td></tr></table></figure>
 <p>Servlet容器又称为Servlet引擎，它是Java Web服务器（例如：Apache Tomcat）的一部分，用来提供动态网页的服务。<br>我们知道，Servlet没有main方法，它是不能独立运行的。它必须被部署到Servlet容器中，由容器来实例化和调用Servlet中的方法。因此，Servlet容器的作用是在Servlet的生命周期内包容和管理Servlet。</p>
-<blockquote>
-<p>容器能提供什么</p>
-<ul>
-<li>通信支持，轻松地让servlet与Web服务器对话，不用建立ServerSocket、监听某个端口、创建流等。不必但系Web服务和自己的Web代码直接的PAI。只专注于servlet中实现的业务逻辑。</li>
-<li>生命周期管理，容器控制servlet的生与死，负责价值类、实例化和初始化servlet、调用servlet方法，以及垃圾回收等</li>
-<li>多线程支持，容器会为每个servlet请求创建一个新的Java线程</li>
-<li>声明方式实现安全，使用XML部署描述文件来配置安全性</li>
-<li>JSP支持，容器将JSP代码翻译成Java</li>
-</ul>
-</blockquote>
+<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;容器能提供什么</span><br><span class="line">-<span class="ruby"> 通信支持，轻松地让servlet与<span class="constant">Web</span>服务器对话，不用建立<span class="constant">ServerSocket</span>、监听某个端口、创建流等。不必但系<span class="constant">Web</span>服务和自己的<span class="constant">Web</span>代码直接的<span class="constant">PAI</span>。只专注于servlet中实现的业务逻辑。</span><br><span class="line"></span>-<span class="ruby"> 生命周期管理，容器控制servlet的生与死，负责价值类、实例化和初始化servlet、调用servlet方法，以及垃圾回收等</span><br><span class="line"></span>-<span class="ruby"> 多线程支持，容器会为每个servlet请求创建一个新的<span class="constant">Java</span>线程</span><br><span class="line"></span>-<span class="ruby"> 声明方式实现安全，使用<span class="constant">XML</span>部署描述文件来配置安全性</span><br><span class="line"></span>-<span class="ruby"> <span class="constant">JSP</span>支持，容器将<span class="constant">JSP</span>代码翻译成<span class="constant">Java</span></span></span><br></pre></td></tr></table></figure>
 <p>容器怎么把servlet映射到URL？<br>一个servlet有3个名字：</p>
 <ul>
 <li>客户知道的URL名</li>
@@ -684,20 +657,21 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
 <li>把URL映射到servlet</li>
 <li>定制Web应用的其他方面，比如安全角色、错误页面、初始化配置信息等</li>
 </ul>
-<p>##历史纠结</p>
-<ul>
+<h2 id="历史纠结">历史纠结</h2><ul>
 <li>Servlet中输出文本 -》Servlet中输出HTML，也就是将HTML放在Java中 -》JSP出现，将Java放在HTML中 </li>
 <li>MVC，业务逻辑与表示分离</li>
 </ul>
-<p>##参考资料<br>《Head First Servlet JSP》</p>
+<h2 id="参考资料">参考资料</h2><p>《Head First Servlet JSP》</p>
 <p>》5 属性和监听 P152</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/09/2015-07-09-servlet-002/" data-id="cicvw21nw000729fy4uvaut5t" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/09/2015-07-09-servlet-002/" data-id="cicvwcfqq00097nfy61m79j40" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/servlet/">servlet</a></li></ul>
+
     </footer>
   </div>
   
@@ -727,26 +701,25 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#Servlet 中文乱码问题</p>
-<p>##Servlet中的request和response</p>
-<p>服务器调用Servlet的时候会同时创建一个request和一个response对象。</p>
+        <h2 id="Servlet中的request和response">Servlet中的request和response</h2><p>服务器调用Servlet的时候会同时创建一个request和一个response对象。</p>
 <ul>
 <li>request用来存储客户端发送的请求</li>
 <li>response用来存储服务器返回的数据</li>
 </ul>
-<p>##Servlet中处理字符编码问题</p>
-<p>Servlet会把字符编码存储在response里，然后输出到浏览器中。所以这个问题可以从两个方面入手：</p>
+<h2 id="Servlet中处理字符编码问题">Servlet中处理字符编码问题</h2><p>Servlet会把字符编码存储在response里，然后输出到浏览器中。所以这个问题可以从两个方面入手：</p>
 <ul>
 <li>Servlet的字符编码</li>
 </ul>
-<figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.setCharacterEncoding<span class="params">(<span class="string">"UTF-8"</span>)</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.setCharacterEncoding(<span class="string">"UTF-8"</span>);</span><br></pre></td></tr></table></figure>
 <ul>
 <li>浏览器的字符编码</li>
 </ul>
-<figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.setHeader<span class="params">(<span class="string">"Content-type"</span>, <span class="string">"text/html;charset=UTF-8"</span>)</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.setHeader(<span class="string">"Content-type"</span>, <span class="string">"text/html;charset=UTF-8"</span>);</span><br></pre></td></tr></table></figure>
 <p>但是有时候字符编码的这两条都设置了，浏览器中输出的为什么还是乱码呢？</p>
-<p>有一个原因可能是你设置编码的代码在你声明的PrintWriter对象之后。<br><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//会有中文乱码问题</span></span><br><span class="line">PrinterWriter out = response.getWriter<span class="params">()</span>;</span><br><span class="line">response.setCharacterEncoding<span class="params">(<span class="string">"UTF-8"</span>)</span>;</span><br></pre></td></tr></table></figure></p>
-<p>当然解决办法也很简单，把设置编码的代码调整到声明PrintWriter之前（使用ServletOutputStream则不受限制）。<br>另外setContentType 和 setCharacterEncoding两方法中设定characterEncoding的方法对服务器效果一致，不需要反复调用。<br><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//中文乱码问题解决</span></span><br><span class="line">response.setCharacterEncoding<span class="params">(<span class="string">"UTF-8"</span>)</span>;</span><br><span class="line">PrinterWriter out = response.getWriter<span class="params">()</span>;</span><br></pre></td></tr></table></figure></p>
+<p>有一个原因可能是你设置编码的代码在你声明的PrintWriter对象之后。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//会有中文乱码问题</span></span><br><span class="line">PrinterWriter out = response.getWriter();</span><br><span class="line">response.setCharacterEncoding(<span class="string">"UTF-8"</span>);</span><br></pre></td></tr></table></figure>
+<p>当然解决办法也很简单，把设置编码的代码调整到声明PrintWriter之前（使用ServletOutputStream则不受限制）。<br>另外setContentType 和 setCharacterEncoding两方法中设定characterEncoding的方法对服务器效果一致，不需要反复调用。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//中文乱码问题解决</span></span><br><span class="line">response.setCharacterEncoding(<span class="string">"UTF-8"</span>);</span><br><span class="line">PrinterWriter out = response.getWriter();</span><br></pre></td></tr></table></figure>
 <p>那PrintWriter是什么？<br>PrintWriter是字符流，它不能和ServletOutputStream字节流同时使用，同时使用会抛异常。</p>
 <blockquote>
 <pre><code>PrintWriter <span class="function"><span class="title">getWriter</span><span class="params">()</span></span> throws IOException 
@@ -755,14 +728,16 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
 
 <span class="type">If</span> the response's character encoding has <span class="keyword">not</span> been specified <span class="keyword">as</span> described <span class="keyword">in</span> getCharacterEncoding (i.e., the <span class="keyword">method</span> just returns the default value <span class="type">ISO</span>-<span class="number">8859</span>-<span class="number">1</span>), getWriter updates it to <span class="type">ISO</span>-<span class="number">8859</span>-<span class="number">1</span>. 
 </code></pre><p>以上的意思是说PrinterWriter使用的字符编码是从getCharacterEncoding()来的。<br>就是讲，在返回一个PrintWriter对象的时候，character encoding就已经确定了，就已经设置好了字符集了。<br>什么时候设置的呢？<br>setCharacterEncoding()中设置的，从其中可以发现，如果已经调用了getWriter，那么set方法无效。</p>
-<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">setCharacterEncoding</span><span class="params">(String charset)</span> </span>&#123;    </span><br><span class="line">   </span><br><span class="line">    <span class="keyword">if</span> (isCommitted())    </span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">        </span><br><span class="line">    <span class="comment">// Ignore any call from an included servlet    </span></span><br><span class="line">    <span class="keyword">if</span> (included)    </span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">        </span><br><span class="line">    <span class="comment">// Ignore any call made after the getWriter has been invoked    </span></span><br><span class="line">    <span class="comment">// The default should be used    </span></span><br><span class="line">    <span class="keyword">if</span> (usingWriter)    </span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">   </span><br><span class="line">    coyoteResponse.setCharacterEncoding(charset);    </span><br><span class="line">    isCharacterEncodingSet = <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCharacterEncoding</span><span class="params">(String charset)</span> </span>&#123;    </span><br><span class="line">   </span><br><span class="line">    <span class="keyword">if</span> (isCommitted())    </span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">        </span><br><span class="line">    <span class="comment">// Ignore any call from an included servlet    </span></span><br><span class="line">    <span class="keyword">if</span> (included)    </span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">        </span><br><span class="line">    <span class="comment">// Ignore any call made after the getWriter has been invoked    </span></span><br><span class="line">    <span class="comment">// The default should be used    </span></span><br><span class="line">    <span class="keyword">if</span> (usingWriter)    </span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">   </span><br><span class="line">    coyoteResponse.setCharacterEncoding(charset);    </span><br><span class="line">    isCharacterEncodingSet = <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/09/2015-07-09-servlet-001/" data-id="cicvw21ny000829fyeh9a8763" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/09/2015-07-09-servlet-001/" data-id="cicvwcfqs000a7nfyz0a32jum" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/servlet/">servlet</a></li></ul>
+
     </footer>
   </div>
   
@@ -770,9 +745,9 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
 
 
   
-    <article id="post-2015-07-09-servelt" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2015-07-09-gradle" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2015/07/09/2015-07-09-servelt/" class="article-date">
+    <a href="/2015/07/09/2015-07-09-gradle/" class="article-date">
   <time datetime="2015-07-09T10:08:50.000Z" itemprop="datePublished">2015-07-09</time>
 </a>
     
@@ -784,7 +759,7 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/09/2015-07-09-servelt/">Servlet</a>
+      <a class="article-title" href="/2015/07/09/2015-07-09-gradle/">Gradle运行机制</a>
     </h1>
   
 
@@ -792,42 +767,25 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#Servlet</p>
-<p>##Servlet中的request和response</p>
-<p>服务器调用Servlet的时候会同时创建一个request和一个response对象。</p>
-<ul>
-<li>request用来存储客户端发送的请求</li>
-<li>response用来存储服务器返回的数据</li>
-</ul>
-<p>##Servlet中处理字符编码问题</p>
-<p>Servlet会把字符编码存储在response里，然后输出到浏览器中。所以这个问题可以从两个方面入手：</p>
-<ul>
-<li>Servlet的字符编码</li>
-</ul>
-<figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.setCharacterEncoding<span class="params">(<span class="string">"UTF-8"</span>)</span>;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>浏览器的字符编码</li>
-</ul>
-<figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.setHeader<span class="params">(<span class="string">"Content-type"</span>, <span class="string">"text/html;charset=UTF-8"</span>)</span>;</span><br></pre></td></tr></table></figure>
-<p>但是有时候字符编码的这两条都设置了，浏览器中输出的为什么还是乱码呢？</p>
-<p>有一个原因可能是你设置编码的代码在你声明的PrintWriter对象之后。<br><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//会有中文乱码问题</span></span><br><span class="line">PrinterWriter out = response.getWriter<span class="params">()</span>;</span><br><span class="line">response.setCharacterEncoding<span class="params">(<span class="string">"UTF-8"</span>)</span>;</span><br></pre></td></tr></table></figure></p>
-<p>当然解决办法也很简单，把设置编码的代码调整到声明PrintWriter之前（使用ServletOutputStream则不受限制）。<br>另外setContentType 和 setCharacterEncoding两方法中设定characterEncoding的方法对服务器效果一致，不需要反复调用。<br><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//中文乱码问题解决</span></span><br><span class="line">response.setCharacterEncoding<span class="params">(<span class="string">"UTF-8"</span>)</span>;</span><br><span class="line">PrinterWriter out = response.getWriter<span class="params">()</span>;</span><br></pre></td></tr></table></figure></p>
-<p>那PrintWriter是什么？<br>PrintWriter是字符流，它不能和ServletOutputStream字节流同时使用，同时使用会抛异常。</p>
-<blockquote>
-<pre><code>PrintWriter <span class="function"><span class="title">getWriter</span><span class="params">()</span></span> throws IOException 
-</code></pre></blockquote>
-<pre><code><span class="type">Returns</span> a <span class="type">PrintWriter</span> <span class="keyword">object</span> that can send character text to the client. <span class="type">The</span> <span class="type">PrintWriter</span> uses the character encoding returned by getCharacterEncoding(). 
-
-<span class="type">If</span> the response's character encoding has <span class="keyword">not</span> been specified <span class="keyword">as</span> described <span class="keyword">in</span> getCharacterEncoding (i.e., the <span class="keyword">method</span> just returns the default value <span class="type">ISO</span>-<span class="number">8859</span>-<span class="number">1</span>), getWriter updates it to <span class="type">ISO</span>-<span class="number">8859</span>-<span class="number">1</span>. 
-</code></pre><p>以上的意思是说PrinterWriter使用的字符编码是从getCharacterEncoding()来的。<br>就是讲，在返回一个PrintWriter对象的时候，character encoding就已经确定了，就已经设置好了字符集了。<br>什么时候设置的呢？<br>setCharacterEncoding()中设置的，从其中可以发现，如果已经调用了getWriter，那么set方法无效。</p>
-<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">setCharacterEncoding</span><span class="params">(String charset)</span> </span>&#123;    </span><br><span class="line">   </span><br><span class="line">    <span class="keyword">if</span> (isCommitted())    </span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">        </span><br><span class="line">    <span class="comment">// Ignore any call from an included servlet    </span></span><br><span class="line">    <span class="keyword">if</span> (included)    </span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">        </span><br><span class="line">    <span class="comment">// Ignore any call made after the getWriter has been invoked    </span></span><br><span class="line">    <span class="comment">// The default should be used    </span></span><br><span class="line">    <span class="keyword">if</span> (usingWriter)    </span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">   </span><br><span class="line">    coyoteResponse.setCharacterEncoding(charset);    </span><br><span class="line">    isCharacterEncodingSet = <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+        <p><a href="http://igorpopov.io/2014/05/01/understanding-gradle/" target="_blank" rel="external">http://igorpopov.io/2014/05/01/understanding-gradle/</a><br><a href="https://github.com/davenkin/gradle-learning" target="_blank" rel="external">https://github.com/davenkin/gradle-learning</a></p>
+<h2 id="Gradle运行机制">Gradle运行机制</h2><p>Gradle四个部分<br>每个project有多个task, task有多个property</p>
+<p>project<br>task<br>property<br>sourcesets</p>
+<p>两个sourcesets:<br>main:<br>     src/main/java 全目录结构<br>     src/main/resource<br>test: src/test</p>
+<p>sourcesets包含两个<br>一个资源文件<br>一个配置文件</p>
+<p>Task Dependency</p>
+<p>dependencies {<br>  compile 编译源代码时需要的<br>  testCompile 比如junit<br>  runtime 比如servlet，对编译没有影响，在web容器启动后才需要<br>  testRuntime<br>}</p>
+<p>src/main/java<br>src/main/resource</p>
+<p>task mkdir &lt;&lt; {<br>     file(“./src/main/java”).mkdirs();<br>     file(“./src/main/resource”).mkdirs();<br>}</p>
+<p>Ant maven gradle区别<br>ant: 构建操作小的低级的封装，无法感知到war和第三方的依赖；没有指定的目录结构<br>     target: copy,compile,jar<br>maven:<br>     目录结构规范化了，src/main/java<br>     引入了dependency<br>     内建项目的周期管理，扩展性不好<br>gradle:<br>     maven基础上，task之间有依赖关系，</p>
+<h2 id="Gradle中“compile”和“runtime”区别">Gradle中“compile”和“runtime”区别</h2><h2 id="Gradle中”plugin”如何工作">Gradle中”plugin”如何工作</h2>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/09/2015-07-09-servelt/" data-id="cicvw21nz000929fy7jo49lrt" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/09/2015-07-09-gradle/" data-id="cicvwcfqv000c7nfyxoisqdma" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gradle/">gradle</a></li></ul>
+
     </footer>
   </div>
   
@@ -847,14 +805,28 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
     
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/">gradle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/servlet/">servlet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">3</span></li></ul>
+    </div>
+  </div>
+
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/servlet/" style="font-size: 15px;">servlet</a> <a href="/tags/spring/" style="font-size: 20px;">spring</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -874,7 +846,7 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
           </li>
         
           <li>
-            <a href="/2015/07/29/2015-07-29-spring-004-database/">database</a>
+            <a href="/2015/07/29/2015-07-29-spring-004-database/">Database</a>
           </li>
         
           <li>

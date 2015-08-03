@@ -6,7 +6,7 @@
   <title>Gradle运行机制 | weixiaobo88.github.io</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="http://igorpopov.io/2014/05/01/understanding-gradle/https://github.com/davenkin/gradle-learning
-##Gradle运行机制Gradle四个部分每个project有多个task, task有多个property
+Gradle运行机制Gradle四个部分每个project有多个task, task有多个property
 projecttaskpropertysourcesets
 两个sourcesets:main:">
 <meta property="og:type" content="article">
@@ -14,14 +14,14 @@ projecttaskpropertysourcesets
 <meta property="og:url" content="http://weixiaobo88.github.io/2015/07/09/2015-07-09-gradle/index.html">
 <meta property="og:site_name" content="weixiaobo88.github.io">
 <meta property="og:description" content="http://igorpopov.io/2014/05/01/understanding-gradle/https://github.com/davenkin/gradle-learning
-##Gradle运行机制Gradle四个部分每个project有多个task, task有多个property
+Gradle运行机制Gradle四个部分每个project有多个task, task有多个property
 projecttaskpropertysourcesets
 两个sourcesets:main:">
-<meta property="og:updated_time" content="2015-08-03T10:13:13.000Z">
+<meta property="og:updated_time" content="2015-08-03T12:41:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gradle运行机制">
 <meta name="twitter:description" content="http://igorpopov.io/2014/05/01/understanding-gradle/https://github.com/davenkin/gradle-learning
-##Gradle运行机制Gradle四个部分每个project有多个task, task有多个property
+Gradle运行机制Gradle四个部分每个project有多个task, task有多个property
 projecttaskpropertysourcesets
 两个sourcesets:main:">
   
@@ -96,7 +96,7 @@ projecttaskpropertysourcesets
     <div class="article-entry" itemprop="articleBody">
       
         <p><a href="http://igorpopov.io/2014/05/01/understanding-gradle/" target="_blank" rel="external">http://igorpopov.io/2014/05/01/understanding-gradle/</a><br><a href="https://github.com/davenkin/gradle-learning" target="_blank" rel="external">https://github.com/davenkin/gradle-learning</a></p>
-<p>##Gradle运行机制<br>Gradle四个部分<br>每个project有多个task, task有多个property</p>
+<h2 id="Gradle运行机制">Gradle运行机制</h2><p>Gradle四个部分<br>每个project有多个task, task有多个property</p>
 <p>project<br>task<br>property<br>sourcesets</p>
 <p>两个sourcesets:<br>main:<br>     src/main/java 全目录结构<br>     src/main/resource<br>test: src/test</p>
 <p>sourcesets包含两个<br>一个资源文件<br>一个配置文件</p>
@@ -105,26 +105,26 @@ projecttaskpropertysourcesets
 <p>src/main/java<br>src/main/resource</p>
 <p>task mkdir &lt;&lt; {<br>     file(“./src/main/java”).mkdirs();<br>     file(“./src/main/resource”).mkdirs();<br>}</p>
 <p>Ant maven gradle区别<br>ant: 构建操作小的低级的封装，无法感知到war和第三方的依赖；没有指定的目录结构<br>     target: copy,compile,jar<br>maven:<br>     目录结构规范化了，src/main/java<br>     引入了dependency<br>     内建项目的周期管理，扩展性不好<br>gradle:<br>     maven基础上，task之间有依赖关系，</p>
-<p>##Gradle中“compile”和“runtime”区别</p>
-<p>##Gradle中”plugin”如何工作</p>
-
+<h2 id="Gradle中“compile”和“runtime”区别">Gradle中“compile”和“runtime”区别</h2><h2 id="Gradle中”plugin”如何工作">Gradle中”plugin”如何工作</h2>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/09/2015-07-09-gradle/" data-id="cicvw21o1000a29fy7gdc5mr7" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/09/2015-07-09-gradle/" data-id="cicvwcfqv000c7nfyxoisqdma" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gradle/">gradle</a></li></ul>
+
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
-    <a href="/2015/07/09/2015-07-09-servelt/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/07/09/2015-07-09-servlet-001/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          Servlet
+          Servlet 中文乱码问题
         
       </div>
     </a>
@@ -147,14 +147,28 @@ projecttaskpropertysourcesets
     
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/">gradle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/servlet/">servlet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">3</span></li></ul>
+    </div>
+  </div>
+
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/servlet/" style="font-size: 15px;">servlet</a> <a href="/tags/spring/" style="font-size: 20px;">spring</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -174,7 +188,7 @@ projecttaskpropertysourcesets
           </li>
         
           <li>
-            <a href="/2015/07/29/2015-07-29-spring-004-database/">database</a>
+            <a href="/2015/07/29/2015-07-29-spring-004-database/">Database</a>
           </li>
         
           <li>
