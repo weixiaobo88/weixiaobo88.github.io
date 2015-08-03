@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>开始学习Spring | weixiaobo88.github.io</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="#开始学习Spring 
+##Spring 4 ConfigurationSpring中核心IoC功能的补充：
+
+管理bean的生命周期
+使bean能够“Spring aware”
+使用FactoryBeans
+JavaBeans PropertyEditors
+使用Java类来配置
+进阶配置
+使用Groovy配置
+
+##参考资料《Pro Spring 4 Edition》
+#《Spring in">
+<meta property="og:type" content="article">
+<meta property="og:title" content="开始学习Spring">
+<meta property="og:url" content="http://weixiaobo88.github.io/2015/07/14/2015-07-14-spring-003-config/index.html">
+<meta property="og:site_name" content="weixiaobo88.github.io">
+<meta property="og:description" content="#开始学习Spring 
+##Spring 4 ConfigurationSpring中核心IoC功能的补充：
+
+管理bean的生命周期
+使bean能够“Spring aware”
+使用FactoryBeans
+JavaBeans PropertyEditors
+使用Java类来配置
+进阶配置
+使用Groovy配置
+
+##参考资料《Pro Spring 4 Edition》
+#《Spring in">
+<meta property="og:updated_time" content="2015-08-03T10:13:13.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="开始学习Spring">
+<meta name="twitter:description" content="#开始学习Spring 
+##Spring 4 ConfigurationSpring中核心IoC功能的补充：
+
+管理bean的生命周期
+使bean能够“Spring aware”
+使用FactoryBeans
+JavaBeans PropertyEditors
+使用Java类来配置
+进阶配置
+使用Groovy配置
+
+##参考资料《Pro Spring 4 Edition》
+#《Spring in">
+  
+    <link rel="alternative" href="/atom.xml" title="weixiaobo88.github.io" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">weixiaobo88.github.io</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Just do it !</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://weixiaobo88.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2015-07-14-spring-003-config" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/07/14/2015-07-14-spring-003-config/" class="article-date">
+  <time datetime="2015-07-14T10:08:50.000Z" itemprop="datePublished">2015-07-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      开始学习Spring
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#开始学习Spring </p>
+<p>##Spring 4 Configuration<br>Spring中核心IoC功能的补充：</p>
+<ul>
+<li>管理bean的生命周期</li>
+<li>使bean能够“Spring aware”</li>
+<li>使用FactoryBeans</li>
+<li>JavaBeans PropertyEditors</li>
+<li>使用Java类来配置</li>
+<li>进阶配置</li>
+<li>使用Groovy配置</li>
+</ul>
+<p>##参考资料<br>《Pro Spring 4 Edition》</p>
+<p>#《Spring in Action》<br>如何创建容器 -》 有了容器，如何装配Bean -》知道装配Bean，如果Bean很多，XML文件就很复杂 -》如何减少XML的配置</p>
+<p>##Spring 应用上下文</p>
+<ul>
+<li>Spring 容器是什么，有什么用</li>
+<li>如何创建 Spring 容器</li>
+</ul>
+<p>Spring容器是Spring框架的核心，Spring自带了几种容器实现，可以归为两类：</p>
+<ul>
+<li>BeanFactory是最简单的容器，提供基础的依赖注入和Bean装配服务</li>
+<li>ApplicationContext 应用上下文（用的更多）<ul>
+<li>Spring通过应用上下文（Application Context）装载Bean的定义并把它们组装起来。Spring应用上下文全权负责对象的创建和组装。Spring自带了几种应用上下文的实现，它们之间主要的区别仅仅是如何加载它们的配置。用的最多的是3种：<ul>
+<li>ClassPathXmlApplicationContext，从类路径下的XML配置文件中加载上下文定义，把应用上下文文件当做类资源</li>
+<li>FileSystemXmlApplicationContext，读取文件系统中的XML配置文件并加载上下文定义</li>
+<li>XmlWebApplicationContext，读取Web应用下的XML配置文件并装载上下文定义</li>
+</ul>
+</li>
+<li>通过现有的应用上下文引用，你可以调用应用上下文的getBean()方法从Spring容器中获取Bean。</li>
+</ul>
+</li>
+</ul>
+<p>在Spring应用中，Spring容器会创建相互协作的组件之间的关联。负责创建对象、装配（Wiring）对象、配置对象，管理对象的整个生命周期。</p>
+<pre><code>创建应用组件之间协作的行为通常称为装配。在Spring中装配Bean最常见的方式是使用<span class="built_in">XML</span>文件。
+</code></pre><p>##Bean的实例化<br>在Spring中，默认情况下，所有的bean都是单例。ApplicationContext.getBean()总是返回同一个实例。</p>
+<p>###Bean 的作用域<br>如果需要每次请求时都获得唯一的Bean实例，可以通过配置Bean的作用域 scope属性。<br>Spring有关单例的概念限于Spring上下文的范围内，不像真正的单例，在每个类加载器中保证只有一个实例。</p>
+<p>###Bean 的生命周期<br>初始化和销毁，可以配置 init-method 和 destory-method，虽然Spring API也提供相应的接口，但会与其产生耦合。</p>
+<p>在Java中singleton包含两个概念：单个实例的对象，单例模式。前者用singleton表示，后者用Singleton表示。<br>可以通过配置文件中的配置来修改“单例”的属性。<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">package com.apress.prospring4.ch3;&#10;public class Singleton &#123;&#10;    private static Singleton instance;&#10;    static &#123;&#10;        instance = new Singleton();&#10;&#125;&#10;    public static Singleton getInstance() &#123;&#10;        return instance;&#10;&#125; &#125;</span><br></pre></td></tr></table></figure></p>
+<p>##为Bean的属性和构造器参数装配多种类型的值</p>
+<ul>
+<li>简单属性值，使用value属性</li>
+<li>引用其他Bean的属性，使用ref属性</li>
+<li>Bean的属性是复数，比如集合，使用list set map props属性<ul>
+<li></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;bean id=<span class="string">"hank"</span></span><br><span class="line">            class=<span class="string">"com.springinaction.springido1.OneManBand"</span>&gt;</span><br><span class="line">    &lt;property name=<span class="string">"instruments"</span>&gt;</span><br><span class="line">        &lt;list&gt;</span><br><span class="line">            &lt;<span class="keyword">ref</span> bean=<span class="string">"guitar"</span> /&gt;</span><br><span class="line">            &lt;<span class="keyword">ref</span> bean=<span class="string">"cymbal"</span> /&gt;</span><br><span class="line">            &lt;<span class="keyword">ref</span> bean=<span class="string">"harmonica"</span> /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+<p>##疑问？<br>从《Spring in Action》中可以看到注入Bean属性实则就是setter方法注入，这种方式在setter方法上有@Autowired注解。那在属性上直接写@Autowired又是什么注入方式呢。</p>
+<p>##如何减少XML的配置数量<br>Spring提供了以下方式：</p>
+<ul>
+<li>自动装配 autowiring，减少甚至消除配置<property> <constructor-arg>元素，让Spring自动识别并装配Bean的依赖关系</constructor-arg></property></li>
+<li>自动检测 autodiscovery，比自动装配更进一步，让Spring自动识别哪些类需要被配置成Spring Bean，减少对<bean>元素的使用。</bean></li>
+</ul>
+<p>###自动装配Autowiring Bean 属性<br>Spring提供了4种自动装配策略：</p>
+<ul>
+<li>byName，把与Bean的属性具有相同名字的其他Bean自动装配到Bean的对应属性中</li>
+<li>byType，把与Bean的属性具有相同类型的其他Bean自动装配到Bean的对应属性中</li>
+<li>constructor，把与Bean的构造器入参具有相同类型的其他Bean自动装配到Bean构造器的对应入参中</li>
+<li>autodetect，首先尝试使用constructor进行自动装配，如果失败，再尝试使用byType进行自动装配</li>
+</ul>
+<h4 id="使用注解自动装配Bean_属性">使用注解自动装配Bean 属性</h4><p>Spring容器默认禁用注解装配，所以在使用基于注解的自动装配前，我们需要在Spring配置中启用它。最简单的启用方式是使用：</p>
+<context:annotation-config>
+
+<p>这会告诉Spring我们打算使用基于注解的自动装配。</p>
+<p>Spring 3 支持几种不同的用于自动装配的注解：</p>
+<ul>
+<li>Spring自带的 @Autowired 注解，这种方式下如果没有Bean可以装配到@Autowired所标注的属性或参数中，或者有多个Bean的时候，都会得到“NoSuchBeanDefinitionException”的异常<ul>
+<li>可以标注Setter方法</li>
+<li>可以标注构造器</li>
+<li>可以标注属性，并删除setter方法</li>
+</ul>
+</li>
+<li>JSR-330 的 @Inject 注解<ul>
+<li>为了统一各种依赖注入框架的编程模型，JCP（Java Community Process）发布了Java依赖注入规范，JCP将其称为JSR-330，更常见的叫法是 at inject，该规范为Java带来了通用依赖注入模型。</li>
+<li>@Inject 注解是JSR-330的核心部件，几乎可以完全替换Spring的 @Autowired 注解。</li>
+<li>和 @Autowired 一样，@Inject 可以用来自动装配属性、方法和构造器</li>
+<li>不一样的是，@Inject 没有 required 属性。因此 @Inject 注解所标注的依赖关系必须存在，如果不存在，则会抛出异常。</li>
+<li>@Inject 可以注入一个provider</li>
+</ul>
+</li>
+<li>JSR-250 的 @Resource 注解</li>
+</ul>
+<p>###自动检测 Bean<br>我们希望使用<context:annotation-config>之后，Spring能对待我们定义的注解，并指导Bean的装配。<br>即使<context:annotation-config>有助于完全消除Spring配置中的<property> <constructor-arg>元素，我们仍需要使用<bean>元素显示定义Bean。</bean></constructor-arg></property></context:annotation-config></context:annotation-config></p>
+<p>在Spring中<context:component-scan>除了完成<context:annotation-config>的工作，还允许Spring自动检测Bean和定义Bean。</context:annotation-config></context:component-scan></p>
+<p>为了配置Spring自动检测，需要使用<context:component-scan>元素来代替<context:annotation-config>元素。</context:annotation-config></context:component-scan></p>
+<h4 id="如何知道哪些类需要注册为Spring_Bean？"><context:component-scan> 如何知道哪些类需要注册为Spring Bean？</context:component-scan></h4><p>默认情况下，<context:component-scan> 查找使用构造型（stereotype）注解所标注的类：</context:component-scan></p>
+<ul>
+<li>@Component，通用的构造型注解，标识该类为Spring组件</li>
+<li>@Controller，标识将该类定义为Spring MVC Controller</li>
+<li>@Repository，标识将该类定义为数据仓库</li>
+<li>@Service，标识将该类定义为服务</li>
+<li>使用 @Component 标注的任意自定义注解</li>
+</ul>
+<p>当使用 <context:component-scan> 时，基于注解地自动检测只是一种扫描策略，还有其他扫描策略。</context:component-scan></p>
+<ul>
+<li>过滤组件扫描，比如 <context:include-filter></context:include-filter></li>
+</ul>
+<p>##如果不喜欢XML，可以使用Spring创建基于Java的配置</p>
+<p>仍然需要少量的XML来启用Java配置，在下面代码中，base-package告诉Spring在哪个包中查找使用@Configuration注解所标注的所有类：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="pi">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">beans</span> <span class="attribute">xmlns</span>=<span class="value">"http://www.springframework.org/schema/beans"</span></span><br><span class="line">       <span class="attribute">xmlns:xsi</span>=<span class="value">"http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="line">       <span class="attribute">xmlns:context</span>=<span class="value">"http://www.springframework.org/schema/context"</span></span><br><span class="line">       <span class="attribute">xsi:schemaLocation</span>=<span class="value">"http://www.springframework.org/schema/beans</span><br><span class="line">          http://www.springframework.org/schema/beans/spring-beans.xsd</span><br><span class="line">          http://www.springframework.org/schema/context</span><br><span class="line">          http://www.springframework.org/schema/context/spring-context.xsd"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="title">context:component-scan</span></span><br><span class="line">          <span class="attribute">base-package</span>=<span class="value">"com.springinactin.springido1"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>###定义一个配置类<br>使用@Configuration注解的Java类，等价于XML配置中的<beans>元素。<br>@Configuration注解会告诉Spring，这个类将包含一个或多个Spring Bean的定义。</beans></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">@Configuration</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">Class</span> <span class="title">SpringIdo1Config</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Bean declaration methods go here</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</context:annotation-config>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://weixiaobo88.github.io/2015/07/14/2015-07-14-spring-003-config/" data-id="cicvs3ymy0003fjqf8yfq4gm4" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/07/29/2015-07-29-spring-004-database/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          database
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/07/12/2015-07-12-spring-002-ioc/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">开始学习Spring</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  
+    
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/08/03/2015-03-19-webfont/">学习web fonts</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/03/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2015/07/29/2015-07-29-spring-004-database/">database</a>
+          </li>
+        
+          <li>
+            <a href="/2015/07/14/2015-07-14-spring-003-config/">开始学习Spring</a>
+          </li>
+        
+          <li>
+            <a href="/2015/07/12/2015-07-12-spring-002-ioc/">开始学习Spring</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 Linne<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>
