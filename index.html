@@ -65,10 +65,164 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-2013-12-31-whats-jekyll" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/08/03/2013-12-31-whats-jekyll/" class="article-date">
+  <time datetime="2015-08-03T14:32:12.000Z" itemprop="datePublished">2015-08-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/03/2013-12-31-whats-jekyll/">What&#39;s Jekyll?</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://jekyllrb.com" target="_blank" rel="external">Jekyll</a> is a static site generator, an open-source tool for creating simple yet powerful websites of all shapes and sizes. From <a href="https://github.com/jekyll/jekyll/blob/master/README.markdown" target="_blank" rel="external">the project’s readme</a>:</p>
+<blockquote>
+<p>Jekyll is a simple, blog aware, static site generator. It takes a template directory […] and spits out a complete, static website suitable for serving with Apache or your favorite web server. This is also the engine behind GitHub Pages, which you can use to host your project’s page or blog right here from GitHub.</p>
+</blockquote>
+<p>It’s an immensely useful tool. Find out more by <a href="https://github.com/jekyll/jekyll" target="_blank" rel="external">visiting the project on GitHub</a>.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://weixiaobo88.github.io/2015/08/03/2013-12-31-whats-jekyll/" data-id="cicw11nve0000djfy34axx3m7" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-jspm" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/08/03/jspm/" class="article-date">
+  <time datetime="2015-08-03T13:50:33.000Z" itemprop="datePublished">2015-08-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/03/jspm/">jspm</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>文章参考 <a href="https://github.com/jspm/jspm-cli/wiki/Getting-Started" target="_blank" rel="external">https://github.com/jspm/jspm-cli/wiki/Getting-Started</a></p>
+<h2 id="jspm_是什么">jspm 是什么</h2><ul>
+<li>jspm 是一个 SystemJS 通用模块加载器的包管理器，建立在动态 ES6 的模块加载器</li>
+<li>可以平行的加载任意 Registry（比如 npm 和 github ）中的任意形式（ES6，AMD，CommonJS）的模块</li>
+<li>对于开发环境来说，可以在浏览器中以独立的文件的形式加载模块， 并把 ES6 和插件编译好。</li>
+<li>对于生产环境（开发环境也是这样）来说，可以优化成一个 bundle 或者 分层的 bundles 或者一个通过一条命令自运行的bundle</li>
+</ul>
+<h2 id="用_jspm_之前的准备">用 jspm 之前的准备</h2><ol>
+<li>安装 CLI</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> npm <span class="operator"><span class="keyword">install</span> jspm -<span class="keyword">g</span></span><br><span class="line"><span class="string">``</span><span class="string">` </span><br><span class="line"></span><br><span class="line">2. 初始化项目</span></span></span><br></pre></td></tr></table></figure>
+<p> cd my-project<br> jspm init<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">初始化之后项目的目录结构为</span><br><span class="line"></span><br><span class="line">`</span><br></pre></td></tr></table></figure></p>
+<p>  my-project<br>    |<strong>config.js<br>    |</strong>package.json<br>    |__jspm_packages<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span>. 安装任意的包，来源可以是 jspm Registry 或者 Github 或者 npm</span><br><span class="line"></span><br><span class="line">所有的安装都会保存在 package.json 中，你只需要使用 ‘jspm <span class="keyword">install</span>’ 就可以安装其中的包。</span><br><span class="line">```</span><br><span class="line">  jspm <span class="keyword">install</span> npm:lodash-node</span><br><span class="line">  jspm <span class="keyword">install</span> github:components/jquery</span><br><span class="line">  jspm <span class="keyword">install</span> jquery</span><br><span class="line">  jspm <span class="keyword">install</span> myname=npm:underscore</span><br><span class="line">```</span><br><span class="line"></span><br><span class="line"><span class="comment">## 怎么用</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### 简单的例子</span></span><br><span class="line"></span><br><span class="line"><span class="number">1</span>. 例子中需要在安装一下<span class="number">4</span>个包</span><br><span class="line">```</span><br><span class="line">    jspm <span class="keyword">install</span> npm:lodash-node</span><br><span class="line">    jspm <span class="keyword">install</span> github:components/jquery</span><br><span class="line">    jspm <span class="keyword">install</span> jquery</span><br><span class="line">    jspm <span class="keyword">install</span> myname=npm:underscore</span><br><span class="line">```</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">2</span>. 例子的文件目录结构</span><br></pre></td></tr></table></figure></p>
+<pre><code>my-project
+  <span class="string">|__config.js</span>
+  <span class="string">|__package.json</span>
+  <span class="string">|__jspm_packages</span>
+  <span class="string">|__lib</span>
+      <span class="string">|__bootstrap.js</span>
+      <span class="string">|__main.js</span>
+  <span class="string">|__index.html</span>
+</code></pre><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">`<span class="javascript"></span>``<span class="javascript">JavaScript</span><br><span class="line">    lib/bootstrap.js</span><br><span class="line">  </span><br><span class="line">    <span class="keyword">import</span> _ <span class="keyword">from</span> <span class="string">'lodash-node/modern/lang/isEqual'</span>;</span><br><span class="line">    <span class="keyword">import</span> $ from <span class="string">'jquery'</span>;</span><br><span class="line">    <span class="keyword">import</span> underscore <span class="keyword">from</span> <span class="string">'myname'</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">bootstrap</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"Hello Linne"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span>``<span class="javascript"></span>`</span><br><span class="line"></span><br><span class="line">`<span class="javascript"></span>``<span class="javascript"></span>`JavaScript</span><br><span class="line">    lib/main.js</span><br><span class="line">  </span><br><span class="line">    import &#123;bootstrap&#125; from <span class="string">'./bootstrap'</span>;</span><br><span class="line">    bootstrap();</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">index.html</span><br><span class="line"></span><br><span class="line">  <span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"en"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"UTF-8"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">title</span>&gt;</span><span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">  <span class="tag">&lt;<span class="title">h1</span>&gt;</span>Hello, Linne O(∩_∩)O~<span class="tag">&lt;/<span class="title">h1</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"jspm_packages/system.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"config.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="actionscript"></span><br><span class="line">      System.<span class="keyword">import</span>(<span class="string">'lib/main'</span>);</span><br><span class="line">  </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在浏览器中打开 index.html，可以看到 console 中有输出。</p>
+<ol>
+<li>Bundle for production</li>
+</ol>
+<p>执行下面命令<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jspm bundle lib/main <span class="comment">--inject</span></span><br></pre></td></tr></table></figure></p>
+<p>或下面命令<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">jspm</span> <span class="keyword">bundle-sfx </span>lib/main</span><br></pre></td></tr></table></figure></p>
+<p>然后在 <strong>index.html</strong> 中就可以只引用一个js文件</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">index.html</span><br><span class="line"></span><br><span class="line">  <span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"en"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"UTF-8"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">title</span>&gt;</span><span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">  <span class="tag">&lt;<span class="title">h1</span>&gt;</span>Hello, Linne O(∩_∩)O~<span class="tag">&lt;/<span class="title">h1</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"build.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://weixiaobo88.github.io/2015/08/03/jspm/" data-id="cicw11nvw0001djfyszsh3w4d" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jspm/">jspm</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/08/03/hello-world/" class="article-date">
+  <time datetime="2015-08-03T13:18:36.000Z" itemprop="datePublished">2015-08-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/03/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://weixiaobo88.github.io/2015/08/03/hello-world/" data-id="cicw11nvz0004djfykmyb0cl3" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-2015-03-19-webfont" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/08/03/2015-03-19-webfont/" class="article-date">
-  <time datetime="2015-08-03T12:42:03.000Z" itemprop="datePublished">2015-08-03</time>
+  <time datetime="2015-08-03T13:18:36.000Z" itemprop="datePublished">2015-08-03</time>
 </a>
     
   </div>
@@ -130,88 +284,7 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/08/03/2015-03-19-webfont/" data-id="cicvxlcul000rxbfywyhndrex" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-test" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/08/03/test/" class="article-date">
-  <time datetime="2015-08-03T10:50:33.000Z" itemprop="datePublished">2015-08-03</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/03/test/">test</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/08/03/test/" data-id="cicvxlctp0001xbfy9x57b8ae" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/08/03/hello-world/" class="article-date">
-  <time datetime="2015-08-03T09:10:52.000Z" itemprop="datePublished">2015-08-03</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/03/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/08/03/hello-world/" data-id="cicvxlctu0002xbfy9jqdv5e1" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/08/03/2015-03-19-webfont/" data-id="cicw11nwi000tdjfyolkb2s6j" class="article-share-link">Share</a>
       
       
     </footer>
@@ -271,7 +344,7 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/29/2015-07-29-spring-004-database/" data-id="cicvxlctw0003xbfym1kkh8bw" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/29/2015-07-29-spring-004-database/" data-id="cicw11nw00005djfy55qzy6pf" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li></ul>
@@ -409,7 +482,7 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/14/2015-07-14-spring-003-config/" data-id="cicvxlcty0006xbfytbmso8ii" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/14/2015-07-14-spring-003-config/" data-id="cicw11nw20008djfyhcjpocz2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -520,49 +593,11 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/12/2015-07-12-spring-002-ioc/" data-id="cicvxlcu00007xbfyy40ik91b" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/12/2015-07-12-spring-002-ioc/" data-id="cicw11nw30009djfyq9jvtbxa" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li></ul>
 
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-2015-07-10-database-01" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/07/10/2015-07-10-database-01/" class="article-date">
-  <time datetime="2015-07-10T10:08:50.000Z" itemprop="datePublished">2015-07-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/10/2015-07-10-database-01/">数据库</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>数据库<br>实体<br>实体之间的关系</p>
-<p>修改数据库表的字段类型，如果已有的数据类型不同，会怎么样</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/10/2015-07-10-database-01/" data-id="cicvxlcu70009xbfy7zf8g6qv" class="article-share-link">Share</a>
-      
-      
     </footer>
   </div>
   
@@ -601,7 +636,45 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/10/2015-07-10-backend-frontend-interaction/" data-id="cicvxlcu9000axbfymvkyiuhv" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/10/2015-07-10-backend-frontend-interaction/" data-id="cicw11nw6000cdjfyjmnydgg0" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2015-07-10-database-01" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/07/10/2015-07-10-database-01/" class="article-date">
+  <time datetime="2015-07-10T10:08:50.000Z" itemprop="datePublished">2015-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/07/10/2015-07-10-database-01/">数据库</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>数据库<br>实体<br>实体之间的关系</p>
+<p>修改数据库表的字段类型，如果已有的数据类型不同，会怎么样</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://weixiaobo88.github.io/2015/07/10/2015-07-10-database-01/" data-id="cicw11nw5000bdjfy3ylu18ph" class="article-share-link">Share</a>
       
       
     </footer>
@@ -703,73 +776,7 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/09/2015-07-09-servlet-002/" data-id="cicvxlcua000bxbfywx5bylel" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/servlet/">servlet</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-2015-07-09-servlet-001" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/07/09/2015-07-09-servlet-001/" class="article-date">
-  <time datetime="2015-07-09T10:08:50.000Z" itemprop="datePublished">2015-07-09</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/09/2015-07-09-servlet-001/">Servlet 中文乱码问题</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Servlet中的request和response">Servlet中的request和response</h2><p>服务器调用Servlet的时候会同时创建一个request和一个response对象。</p>
-<ul>
-<li>request用来存储客户端发送的请求</li>
-<li>response用来存储服务器返回的数据</li>
-</ul>
-<h2 id="Servlet中处理字符编码问题">Servlet中处理字符编码问题</h2><p>Servlet会把字符编码存储在response里，然后输出到浏览器中。所以这个问题可以从两个方面入手：</p>
-<ul>
-<li>Servlet的字符编码</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.setCharacterEncoding(<span class="string">"UTF-8"</span>);</span><br></pre></td></tr></table></figure>
-<ul>
-<li>浏览器的字符编码</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.setHeader(<span class="string">"Content-type"</span>, <span class="string">"text/html;charset=UTF-8"</span>);</span><br></pre></td></tr></table></figure>
-<p>但是有时候字符编码的这两条都设置了，浏览器中输出的为什么还是乱码呢？</p>
-<p>有一个原因可能是你设置编码的代码在你声明的PrintWriter对象之后。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//会有中文乱码问题</span></span><br><span class="line">PrinterWriter out = response.getWriter();</span><br><span class="line">response.setCharacterEncoding(<span class="string">"UTF-8"</span>);</span><br></pre></td></tr></table></figure>
-<p>当然解决办法也很简单，把设置编码的代码调整到声明PrintWriter之前（使用ServletOutputStream则不受限制）。<br>另外setContentType 和 setCharacterEncoding两方法中设定characterEncoding的方法对服务器效果一致，不需要反复调用。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//中文乱码问题解决</span></span><br><span class="line">response.setCharacterEncoding(<span class="string">"UTF-8"</span>);</span><br><span class="line">PrinterWriter out = response.getWriter();</span><br></pre></td></tr></table></figure>
-<p>那PrintWriter是什么？<br>PrintWriter是字符流，它不能和ServletOutputStream字节流同时使用，同时使用会抛异常。</p>
-<blockquote>
-<pre><code>PrintWriter <span class="function"><span class="title">getWriter</span><span class="params">()</span></span> throws IOException 
-</code></pre></blockquote>
-<pre><code><span class="type">Returns</span> a <span class="type">PrintWriter</span> <span class="keyword">object</span> that can send character text to the client. <span class="type">The</span> <span class="type">PrintWriter</span> uses the character encoding returned by getCharacterEncoding(). 
-
-<span class="type">If</span> the response's character encoding has <span class="keyword">not</span> been specified <span class="keyword">as</span> described <span class="keyword">in</span> getCharacterEncoding (i.e., the <span class="keyword">method</span> just returns the default value <span class="type">ISO</span>-<span class="number">8859</span>-<span class="number">1</span>), getWriter updates it to <span class="type">ISO</span>-<span class="number">8859</span>-<span class="number">1</span>. 
-</code></pre><p>以上的意思是说PrinterWriter使用的字符编码是从getCharacterEncoding()来的。<br>就是讲，在返回一个PrintWriter对象的时候，character encoding就已经确定了，就已经设置好了字符集了。<br>什么时候设置的呢？<br>setCharacterEncoding()中设置的，从其中可以发现，如果已经调用了getWriter，那么set方法无效。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCharacterEncoding</span><span class="params">(String charset)</span> </span>&#123;    </span><br><span class="line">   </span><br><span class="line">    <span class="keyword">if</span> (isCommitted())    </span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">        </span><br><span class="line">    <span class="comment">// Ignore any call from an included servlet    </span></span><br><span class="line">    <span class="keyword">if</span> (included)    </span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">        </span><br><span class="line">    <span class="comment">// Ignore any call made after the getWriter has been invoked    </span></span><br><span class="line">    <span class="comment">// The default should be used    </span></span><br><span class="line">    <span class="keyword">if</span> (usingWriter)    </span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">   </span><br><span class="line">    coyoteResponse.setCharacterEncoding(charset);    </span><br><span class="line">    isCharacterEncodingSet = <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/09/2015-07-09-servlet-001/" data-id="cicvxlcuc000exbfytg9pas6r" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/09/2015-07-09-servlet-002/" data-id="cicw11nw8000ddjfy6hl6d1s0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/servlet/">servlet</a></li></ul>
@@ -796,7 +803,7 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/">gradle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/servlet/">servlet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">3</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/">gradle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jspm/">jspm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/servlet/">servlet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -805,7 +812,7 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/servlet/" style="font-size: 15px;">servlet</a> <a href="/tags/spring/" style="font-size: 20px;">spring</a>
+      <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/jspm/" style="font-size: 10px;">jspm</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/servlet/" style="font-size: 15px;">servlet</a> <a href="/tags/spring/" style="font-size: 20px;">spring</a>
     </div>
   </div>
 
@@ -814,7 +821,7 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -826,11 +833,11 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
       <ul>
         
           <li>
-            <a href="/2015/08/03/2015-03-19-webfont/">学习web fonts</a>
+            <a href="/2015/08/03/2013-12-31-whats-jekyll/">What&#39;s Jekyll?</a>
           </li>
         
           <li>
-            <a href="/2015/08/03/test/">test</a>
+            <a href="/2015/08/03/jspm/">jspm</a>
           </li>
         
           <li>
@@ -838,11 +845,11 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
           </li>
         
           <li>
-            <a href="/2015/07/29/2015-07-29-spring-004-database/">Database</a>
+            <a href="/2015/08/03/2015-03-19-webfont/">学习web fonts</a>
           </li>
         
           <li>
-            <a href="/2015/07/14/2015-07-14-spring-003-config/">开始学习Spring</a>
+            <a href="/2015/07/29/2015-07-29-spring-004-database/">Database</a>
           </li>
         
       </ul>
