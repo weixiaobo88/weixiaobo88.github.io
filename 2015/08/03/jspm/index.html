@@ -6,27 +6,27 @@
   <title>modular programming - jspm | weixiaobo88.github.io</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="文章参考 https://github.com/jspm/jspm-cli/wiki/Getting-Started
+文中例子的地址 https://github.com/weixiaobo88/practiceMakesPerfect/tree/master/jspmDemo
 jspm 是什么
 jspm 是一个 SystemJS 通用模块加载器的包管理器，建立在动态 ES6 的模块加载器
-可以平行的加载任意 Registry（比如 npm 和 github ）中的任意形式（ES6，AMD，CommonJS 和全局脚本）的模块
-对于开发环境来说，可以在浏览">
+可以平">
 <meta property="og:type" content="article">
 <meta property="og:title" content="modular programming - jspm">
 <meta property="og:url" content="http://weixiaobo88.github.io/2015/08/03/jspm/index.html">
 <meta property="og:site_name" content="weixiaobo88.github.io">
 <meta property="og:description" content="文章参考 https://github.com/jspm/jspm-cli/wiki/Getting-Started
+文中例子的地址 https://github.com/weixiaobo88/practiceMakesPerfect/tree/master/jspmDemo
 jspm 是什么
 jspm 是一个 SystemJS 通用模块加载器的包管理器，建立在动态 ES6 的模块加载器
-可以平行的加载任意 Registry（比如 npm 和 github ）中的任意形式（ES6，AMD，CommonJS 和全局脚本）的模块
-对于开发环境来说，可以在浏览">
-<meta property="og:updated_time" content="2015-08-04T07:14:16.000Z">
+可以平">
+<meta property="og:updated_time" content="2015-08-04T13:22:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="modular programming - jspm">
 <meta name="twitter:description" content="文章参考 https://github.com/jspm/jspm-cli/wiki/Getting-Started
+文中例子的地址 https://github.com/weixiaobo88/practiceMakesPerfect/tree/master/jspmDemo
 jspm 是什么
 jspm 是一个 SystemJS 通用模块加载器的包管理器，建立在动态 ES6 的模块加载器
-可以平行的加载任意 Registry（比如 npm 和 github ）中的任意形式（ES6，AMD，CommonJS 和全局脚本）的模块
-对于开发环境来说，可以在浏览">
+可以平">
   
     <link rel="alternative" href="/atom.xml" title="weixiaobo88.github.io" type="application/atom+xml">
   
@@ -99,6 +99,7 @@ jspm 是一个 SystemJS 通用模块加载器的包管理器，建立在动态 E
     <div class="article-entry" itemprop="articleBody">
       
         <p>文章参考 <a href="https://github.com/jspm/jspm-cli/wiki/Getting-Started" target="_blank" rel="external">https://github.com/jspm/jspm-cli/wiki/Getting-Started</a></p>
+<p>文中例子的地址 <a href="https://github.com/weixiaobo88/practiceMakesPerfect/tree/master/jspmDemo" target="_blank" rel="external">https://github.com/weixiaobo88/practiceMakesPerfect/tree/master/jspmDemo</a></p>
 <h2 id="jspm_是什么">jspm 是什么</h2><ul>
 <li>jspm 是一个 SystemJS 通用模块加载器的包管理器，建立在动态 ES6 的模块加载器</li>
 <li>可以平行的加载任意 Registry（比如 npm 和 github ）中的任意形式（ES6，AMD，CommonJS 和全局脚本）的模块</li>
@@ -118,7 +119,7 @@ jspm 是一个 SystemJS 通用模块加载器的包管理器，建立在动态 E
 <li><p>初始化项目</p>
  <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd <span class="keyword">my</span>-project</span><br><span class="line">jspm init</span><br></pre></td></tr></table></figure>
 <p> 初始化之后项目的目录结构为</p>
- <figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">my-project</span><br><span class="line">  <span class="string">|__config.js</span></span><br><span class="line">  <span class="string">|__package.json</span></span><br><span class="line">  <span class="string">|__jspm_packages</span></span><br></pre></td></tr></table></figure>
+ <figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">my-project</span><br><span class="line"><span class="string">|__config.js</span></span><br><span class="line"><span class="string">|__package.json</span></span><br><span class="line"><span class="string">|__jspm_packages</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>安装任意的包，来源可以是 jspm Registry 或者 Github 或者 npm</p>
 <p> 所有的安装都会保存在 package.json 中，你只需要使用 ‘jspm install’ 就可以安装其中的包。</p>
@@ -135,7 +136,7 @@ jspm 是一个 SystemJS 通用模块加载器的包管理器，建立在动态 E
 </ol>
 <pre><code>lib/bootstrap.js
 
-    <span class="comment"><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> _ <span class="keyword">from</span> <span class="string">'lodash-node/modern/lang/isEqual'</span>;</span><br><span class="line"><span class="keyword">import</span> $ from <span class="string">'jquery'</span>;</span><br><span class="line"><span class="keyword">import</span> underscore <span class="keyword">from</span> <span class="string">'myname'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">bootstrap</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"Hello Linne"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></span>
+    <span class="comment"><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> _ <span class="keyword">from</span> <span class="string">'lodash-node/modern/lang/isEqual'</span>;</span><br><span class="line"><span class="keyword">import</span> $ from <span class="string">'jquery'</span>;</span><br><span class="line"><span class="keyword">import</span> underscore <span class="keyword">from</span> <span class="string">'myname'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">bootstrap</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">"Hello Linne"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></span>
 
 
 lib/main.js 文件
@@ -145,7 +146,7 @@ lib/main.js 文件
 
 index.html 文件
 
-    <span class="comment"><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">           </span><br><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">title</span>&gt;</span><span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">h1</span>&gt;</span>Hello, Linne O(∩_∩)O~<span class="tag">&lt;/<span class="title">h1</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"jspm_packages/system.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"config.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="actionscript"></span><br><span class="line">    System.<span class="keyword">import</span>(<span class="string">'lib/main'</span>);</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure></span>
+    <span class="comment"><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">   </span><br><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">title</span>&gt;</span><span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">h1</span>&gt;</span>Hello, Linne O(∩_∩)O~<span class="tag">&lt;/<span class="title">h1</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"jspm_packages/system.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"config.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="actionscript"></span><br><span class="line">    System.<span class="keyword">import</span>(<span class="string">'lib/main'</span>);</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure></span>
 
 
 在浏览器中打开 index.html，可以看到 console 中有输出。
@@ -153,17 +154,21 @@ index.html 文件
 <li><p>Bundle for production</p>
 <p> 执行下面命令</p>
  <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jspm bundle lib/main <span class="comment">--inject</span></span><br></pre></td></tr></table></figure>
-<p> 或下面命令</p>
- <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">jspm</span> <span class="keyword">bundle-sfx </span>lib/main</span><br></pre></td></tr></table></figure>
-<p> 然后在 <strong>index.html</strong> 中就可以只引用一个js文件</p>
 </li>
 </ol>
-<pre><code><span class="comment"><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">title</span>&gt;</span><span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">h1</span>&gt;</span>Hello, Linne O(∩_∩)O~<span class="tag">&lt;/<span class="title">h1</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"build.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure></span>
+<pre><code>或下面命令
+
+<span class="comment"><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">jspm</span> <span class="keyword">bundle-sfx </span>lib/main</span><br></pre></td></tr></table></figure></span>
+
+
+然后在 **index.html** 中就可以只引用一个js文件
+
+<span class="comment"><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">title</span>&gt;</span><span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">h1</span>&gt;</span>Hello, Linne O(∩_∩)O~<span class="tag">&lt;/<span class="title">h1</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"build.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure></span>
 </code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/08/03/jspm/" data-id="cicx2wvjh0008fdqf4dj3r175" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/08/03/jspm/" data-id="cicxdlr3000080bfysfu4fodh" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/modular-programming/">modular programming</a></li></ul>
