@@ -1,6 +1,6 @@
-title: jspm
+title: modular programming - jspm
 date: 2015-08-03 21:50:33
-tags: jspm
+tags: modular programming
 ---
 
 文章参考 https://github.com/jspm/jspm-cli/wiki/Getting-Started
@@ -8,10 +8,19 @@ tags: jspm
 ## jspm 是什么
 
 - jspm 是一个 SystemJS 通用模块加载器的包管理器，建立在动态 ES6 的模块加载器
-- 可以平行的加载任意 Registry（比如 npm 和 github ）中的任意形式（ES6，AMD，CommonJS）的模块
+- 可以平行的加载任意 Registry（比如 npm 和 github ）中的任意形式（ES6，AMD，CommonJS 和全局脚本）的模块
 - 对于开发环境来说，可以在浏览器中以独立的文件的形式加载模块， 并把 ES6 和插件编译好。
 - 对于生产环境（开发环境也是这样）来说，可以优化成一个 bundle 或者 分层的 bundles 或者一个通过一条命令自运行的bundle
  
+System.js 是通用动态模块加载 - 用于在浏览器和 NodeJS 中加载 ES6 模块，AMD，CommonJS 和全局脚本。
+
+## 在项目中使用 jspm 需要 3 个步骤（前提是已经安装配置好）
+
+1. 写 node 程序 或者 模块
+2. 用 jspm 编译成 bundle.js
+3. 在 HTML 页面中加载 bundle.js
+
+
 ## 用 jspm 之前的准备 
 
 1. 安装 CLI
