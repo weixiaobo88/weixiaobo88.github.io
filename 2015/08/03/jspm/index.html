@@ -3,30 +3,30 @@
 <head>
   <meta charset="utf-8">
   
-  <title>jspm | weixiaobo88.github.io</title>
+  <title>modular programming - jspm | weixiaobo88.github.io</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="文章参考 https://github.com/jspm/jspm-cli/wiki/Getting-Started
 jspm 是什么
 jspm 是一个 SystemJS 通用模块加载器的包管理器，建立在动态 ES6 的模块加载器
-可以平行的加载任意 Registry（比如 npm 和 github ）中的任意形式（ES6，AMD，CommonJS）的模块
-对于开发环境来说，可以在浏览器中以独立的">
+可以平行的加载任意 Registry（比如 npm 和 github ）中的任意形式（ES6，AMD，CommonJS 和全局脚本）的模块
+对于开发环境来说，可以在浏览">
 <meta property="og:type" content="article">
-<meta property="og:title" content="jspm">
+<meta property="og:title" content="modular programming - jspm">
 <meta property="og:url" content="http://weixiaobo88.github.io/2015/08/03/jspm/index.html">
 <meta property="og:site_name" content="weixiaobo88.github.io">
 <meta property="og:description" content="文章参考 https://github.com/jspm/jspm-cli/wiki/Getting-Started
 jspm 是什么
 jspm 是一个 SystemJS 通用模块加载器的包管理器，建立在动态 ES6 的模块加载器
-可以平行的加载任意 Registry（比如 npm 和 github ）中的任意形式（ES6，AMD，CommonJS）的模块
-对于开发环境来说，可以在浏览器中以独立的">
-<meta property="og:updated_time" content="2015-08-03T15:13:03.000Z">
+可以平行的加载任意 Registry（比如 npm 和 github ）中的任意形式（ES6，AMD，CommonJS 和全局脚本）的模块
+对于开发环境来说，可以在浏览">
+<meta property="og:updated_time" content="2015-08-04T07:14:16.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="jspm">
+<meta name="twitter:title" content="modular programming - jspm">
 <meta name="twitter:description" content="文章参考 https://github.com/jspm/jspm-cli/wiki/Getting-Started
 jspm 是什么
 jspm 是一个 SystemJS 通用模块加载器的包管理器，建立在动态 ES6 的模块加载器
-可以平行的加载任意 Registry（比如 npm 和 github ）中的任意形式（ES6，AMD，CommonJS）的模块
-对于开发环境来说，可以在浏览器中以独立的">
+可以平行的加载任意 Registry（比如 npm 和 github ）中的任意形式（ES6，AMD，CommonJS 和全局脚本）的模块
+对于开发环境来说，可以在浏览">
   
     <link rel="alternative" href="/atom.xml" title="weixiaobo88.github.io" type="application/atom+xml">
   
@@ -90,7 +90,7 @@ jspm 是一个 SystemJS 通用模块加载器的包管理器，建立在动态 E
         
   
     <h1 class="article-title" itemprop="name">
-      jspm
+      modular programming - jspm
     </h1>
   
 
@@ -101,10 +101,16 @@ jspm 是一个 SystemJS 通用模块加载器的包管理器，建立在动态 E
         <p>文章参考 <a href="https://github.com/jspm/jspm-cli/wiki/Getting-Started" target="_blank" rel="external">https://github.com/jspm/jspm-cli/wiki/Getting-Started</a></p>
 <h2 id="jspm_是什么">jspm 是什么</h2><ul>
 <li>jspm 是一个 SystemJS 通用模块加载器的包管理器，建立在动态 ES6 的模块加载器</li>
-<li>可以平行的加载任意 Registry（比如 npm 和 github ）中的任意形式（ES6，AMD，CommonJS）的模块</li>
+<li>可以平行的加载任意 Registry（比如 npm 和 github ）中的任意形式（ES6，AMD，CommonJS 和全局脚本）的模块</li>
 <li>对于开发环境来说，可以在浏览器中以独立的文件的形式加载模块， 并把 ES6 和插件编译好。</li>
 <li>对于生产环境（开发环境也是这样）来说，可以优化成一个 bundle 或者 分层的 bundles 或者一个通过一条命令自运行的bundle</li>
 </ul>
+<p>System.js 是通用动态模块加载 - 用于在浏览器和 NodeJS 中加载 ES6 模块，AMD，CommonJS 和全局脚本。</p>
+<h2 id="在项目中使用_jspm_需要_3_个步骤（前提是已经安装配置好）">在项目中使用 jspm 需要 3 个步骤（前提是已经安装配置好）</h2><ol>
+<li>写 node 程序 或者 模块</li>
+<li>用 jspm 编译成 bundle.js</li>
+<li>在 HTML 页面中加载 bundle.js</li>
+</ol>
 <h2 id="用_jspm_之前的准备">用 jspm 之前的准备</h2><ol>
 <li><p>安装 CLI</p>
  <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="operator"><span class="keyword">install</span> jspm -<span class="keyword">g</span></span></span><br></pre></td></tr></table></figure>
@@ -157,10 +163,10 @@ index.html 文件
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/08/03/jspm/" data-id="cicw23z910001jvfynbzrdwn1" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/08/03/jspm/" data-id="cicx2wvjh0008fdqf4dj3r175" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jspm/">jspm</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/modular-programming/">modular programming</a></li></ul>
 
     </footer>
   </div>
@@ -168,10 +174,19 @@ index.html 文件
     
 <nav id="article-nav">
   
+    <a href="/2015/08/04/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Hello World
+        
+      </div>
+    </a>
   
-    <a href="/2015/08/03/2015-03-19-webfont/" id="article-nav-older" class="article-nav-link-wrap">
+  
+    <a href="/2015/07/29/2015-07-29-spring-004-database/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">学习web fonts</div>
+      <div class="article-nav-title">Database</div>
     </a>
   
 </nav>
@@ -189,7 +204,7 @@ index.html 文件
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/">gradle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jspm/">jspm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/servlet/">servlet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">3</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/">gradle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/modular-programming/">modular programming</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/servlet/">servlet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -198,7 +213,7 @@ index.html 文件
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/jspm/" style="font-size: 10px;">jspm</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/servlet/" style="font-size: 15px;">servlet</a> <a href="/tags/spring/" style="font-size: 20px;">spring</a>
+      <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/modular-programming/" style="font-size: 20px;">modular programming</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/servlet/" style="font-size: 13.33px;">servlet</a> <a href="/tags/spring/" style="font-size: 16.67px;">spring</a>
     </div>
   </div>
 
@@ -207,7 +222,7 @@ index.html 文件
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -219,23 +234,23 @@ index.html 文件
       <ul>
         
           <li>
-            <a href="/2015/08/03/jspm/">jspm</a>
+            <a href="/2015/08/04/modular-programming-03/">模块化编程 Modular Programming 03 —— require.js 的用法</a>
           </li>
         
           <li>
-            <a href="/2015/08/03/2015-03-19-webfont/">学习web fonts</a>
+            <a href="/2015/08/04/modular-programming-02/">模块化编程 Modular Programming 02 —— AMD 规范</a>
           </li>
         
           <li>
-            <a href="/2015/08/03/hello-world/">Hello World</a>
+            <a href="/2015/08/04/modular-programming-01/">模块化编程 Modular Programming 01 —— 模块的写法</a>
           </li>
         
           <li>
-            <a href="/2015/07/29/2015-07-29-spring-004-database/">Database</a>
+            <a href="/2015/08/04/2015-03-19-webfont/">学习web fonts</a>
           </li>
         
           <li>
-            <a href="/2015/07/14/2015-07-14-spring-003-config/">开始学习Spring</a>
+            <a href="/2015/08/04/hello-world/">Hello World</a>
           </li>
         
       </ul>

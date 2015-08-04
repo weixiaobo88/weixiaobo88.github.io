@@ -3,21 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>数据库 | weixiaobo88.github.io</title>
+  <title>模块化编程 Modular Programming 03 —— require.js 的用法 | weixiaobo88.github.io</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="数据库实体实体之间的关系
-修改数据库表的字段类型，如果已有的数据类型不同，会怎么样">
+  <meta name="description" content="为什么要用 require.js最早的时候，所有Javascript代码都写在一个文件里面，只要加载这一个文件就够了。后来，代码越来越多，一个文件不够了，必须分成多个文件，依次加载。
+123456&amp;lt;script src=&quot;1.js&quot;&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;script src=&quot;2.js&quot;&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;script src=&quot;3.js&quot;&amp;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数据库">
-<meta property="og:url" content="http://weixiaobo88.github.io/2015/07/10/2015-07-10-database-01/index.html">
+<meta property="og:title" content="模块化编程 Modular Programming 03 —— require.js 的用法">
+<meta property="og:url" content="http://weixiaobo88.github.io/2015/08/04/modular-programming-03/index.html">
 <meta property="og:site_name" content="weixiaobo88.github.io">
-<meta property="og:description" content="数据库实体实体之间的关系
-修改数据库表的字段类型，如果已有的数据类型不同，会怎么样">
-<meta property="og:updated_time" content="2015-08-03T10:13:13.000Z">
+<meta property="og:description" content="为什么要用 require.js最早的时候，所有Javascript代码都写在一个文件里面，只要加载这一个文件就够了。后来，代码越来越多，一个文件不够了，必须分成多个文件，依次加载。
+123456&amp;lt;script src=&quot;1.js&quot;&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;script src=&quot;2.js&quot;&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;script src=&quot;3.js&quot;&amp;">
+<meta property="og:updated_time" content="2015-08-04T07:14:16.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="数据库">
-<meta name="twitter:description" content="数据库实体实体之间的关系
-修改数据库表的字段类型，如果已有的数据类型不同，会怎么样">
+<meta name="twitter:title" content="模块化编程 Modular Programming 03 —— require.js 的用法">
+<meta name="twitter:description" content="为什么要用 require.js最早的时候，所有Javascript代码都写在一个文件里面，只要加载这一个文件就够了。后来，代码越来越多，一个文件不够了，必须分成多个文件，依次加载。
+123456&amp;lt;script src=&quot;1.js&quot;&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;script src=&quot;2.js&quot;&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;script src=&quot;3.js&quot;&amp;">
   
     <link rel="alternative" href="/atom.xml" title="weixiaobo88.github.io" type="application/atom+xml">
   
@@ -67,10 +67,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-2015-07-10-database-01" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-modular-programming-03" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2015/07/10/2015-07-10-database-01/" class="article-date">
-  <time datetime="2015-07-10T10:08:50.000Z" itemprop="datePublished">2015-07-10</time>
+    <a href="/2015/08/04/modular-programming-03/" class="article-date">
+  <time datetime="2015-08-04T06:33:11.000Z" itemprop="datePublished">2015-08-04</time>
 </a>
     
   </div>
@@ -81,7 +81,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      数据库
+      模块化编程 Modular Programming 03 —— require.js 的用法
     </h1>
   
 
@@ -89,34 +89,33 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>数据库<br>实体<br>实体之间的关系</p>
-<p>修改数据库表的字段类型，如果已有的数据类型不同，会怎么样</p>
-
+        <h2 id="为什么要用_require-js">为什么要用 require.js</h2><p>最早的时候，所有Javascript代码都写在一个文件里面，只要加载这一个文件就够了。后来，代码越来越多，一个文件不够了，必须分成多个文件，依次加载。</p>
+<pre><code><span class="comment"><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"1.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"2.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"3.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"4.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"5.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"6.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure></span>
+</code></pre><p>这样的写法的缺点：</p>
+<pre><code>-<span class="ruby"> 加载文件过多，网页失去响应的时间就会越长
+</span>-<span class="ruby"> 由于js文件之间存在依赖关系，因此必须严格保证加载顺序（比如上例的<span class="number">1</span>.js要在<span class="number">2</span>.js的前面），依赖性最大的模块一定要放到最后加载，当依赖关系很复杂的时候，代码的编写和维护都会变得困难</span>
+</code></pre><p>require.js的诞生，就是为了解决这两个问题：</p>
+<pre><code>-<span class="ruby"> 实现js文件的异步加载，避免网页失去响应；
+</span>-<span class="ruby"> 管理模块之间的依赖性，便于代码的编写和维护。</span>
+</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/10/2015-07-10-database-01/" data-id="cicx2wvjo000hfdqfxq5zk2n3" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/08/04/modular-programming-03/" data-id="cicx2wvjb0001fdqf8ryqcl00" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/modular-programming/">modular programming</a></li></ul>
+
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
-    <a href="/2015/07/12/2015-07-12-spring-002-ioc/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          开始学习Spring
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/07/10/2015-07-10-backend-frontend-interaction/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2015/08/04/modular-programming-02/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">后台数据传到前台有几种方式</div>
+      <div class="article-nav-title">模块化编程 Modular Programming 02 —— AMD 规范</div>
     </a>
   
 </nav>

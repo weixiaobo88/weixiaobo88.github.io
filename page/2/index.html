@@ -65,6 +65,217 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-2015-07-10-backend-frontend-interaction" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/07/10/2015-07-10-backend-frontend-interaction/" class="article-date">
+  <time datetime="2015-07-10T10:08:50.000Z" itemprop="datePublished">2015-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/07/10/2015-07-10-backend-frontend-interaction/">后台数据传到前台有几种方式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#后台数据传到前台有几种方式</p>
+<ul>
+<li>Servlet + JSP</li>
+<li>MVC</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://weixiaobo88.github.io/2015/07/10/2015-07-10-backend-frontend-interaction/" data-id="cicx2wvjq000ifdqf4gypakod" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2015-07-09-servlet-002" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/07/09/2015-07-09-servlet-002/" class="article-date">
+  <time datetime="2015-07-09T10:08:50.000Z" itemprop="datePublished">2015-07-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/07/09/2015-07-09-servlet-002/">Servlet 完成Web请求和响应</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Web_请求和响应的流程">Web 请求和响应的流程</h2><p>用户——》Web 浏览器——URL(所找资源的名字和地址)——》服务器——响应(客户请求的资源)-》用户</p>
+<h3 id="用户和服务器如何对话">用户和服务器如何对话</h3><p>要对话，就需要使用相同的语言，这个语言就是HTTP，而且浏览器必须懂HTML。</p>
+<p>HTTP是Web上用户和服务器之间通信所用的协议。<br>服务器使用HTTP向用户发送HTML。<br>浏览器接收到HTMl之后要创建Web页面，并将页面显示给用户。</p>
+<h4 id="HTTP是什么">HTTP是什么</h4><p>HTTP超文本传输协议，是TCP/IP的上层协议，依赖于TCP/IP从一处向另一处完整的发送请求和响应。</p>
+<p>TCP负责从一个网络节点向另一个网络节点发送的文件能作为一个完整的文件到达目的地，尽管传送过程中可能会分解成小块传输。<br>IP是一个底层协议，负责把数据包路由到目的地。</p>
+<p><strong>HTTP请求流</strong></p>
+<ul>
+<li>HTTP方法（要完成的动作，Get/Post/Update/Delete）</li>
+<li>URL（要访问的页面）</li>
+<li>表单参数</li>
+</ul>
+<p><strong>HTTP响应流</strong></p>
+<ul>
+<li>状态码（请求是否成功）</li>
+<li>内容类型（文本、HTML、图片等）</li>
+<li>内容（具体的文本、HTML等）</li>
+</ul>
+<p><strong>HTTP方法</strong></p>
+<ul>
+<li>GET（幂等）    </li>
+<li>POST（非幂等）</li>
+</ul>
+<p>在发送这些请求时，会携带信息：HTTP方法、资源路径、参数、协议版本、首部信息</p>
+<p>HTTP响应中的MIME类型告诉浏览器要接收的数据是什么类型。</p>
+<h4 id="HTML是什么">HTML是什么</h4><p>HTTP的响应可以包含HTML，浏览器根据HTTP首部信息来处理HTML页面</p>
+<h3 id="URL是什么">URL是什么</h3><p><a href="http://weixiaobo88.github.io:80/web/hello.html">http://weixiaobo88.github.io:80/web/hello.html</a></p>
+<ul>
+<li>“http://” 协议，告诉服务器通信协议</li>
+<li>“weixiaobo88.github.io” 服务器名，这个名字会映射到一个唯一的IP地址</li>
+<li>:80 端口，默认端口是80</li>
+<li>/web 所请求资源在服务器上的路径</li>
+<li>/hello.html 资源，所请求内容的名字</li>
+</ul>
+<h4 id="TCP端口是什么">TCP端口是什么</h4><p>端口并不是一个可以插入物理设备的位置，只表示服务器应用的“逻辑”数而已，用来标识服务器硬件上一个特定的软件程序。<br>服务器上有65536个端口，端口号范围为“0~65535”，其中0~1023为保留端口，由知名服务使用，比如80端口。</p>
+<h2 id="一个简单的Apache网站的目录结构">一个简单的Apache网站的目录结构</h2><p>Apache是一个留下的开源Web服务器。<br>Apache<em>home<br>|</em> htdocs (Apache服务器中Web应用的根目录)<br>    |_index.html<br>    |_app1<br>        |_index.html<br>        |_select…<br>    |_app2<br>        |_index.html<br>        |_select…</p>
+<h3 id="Web服务器自己不做的两件事">Web服务器自己不做的两件事</h3><ul>
+<li>动态内容，比如请求实时的日期</li>
+<li>在服务器上保存上数据，比如提交表单</li>
+</ul>
+<p>那谁来做呢，CGI来做，CGI代表公共网关接口，即Common Gateway Interface。</p>
+<p>主要是三者之间的关系：</p>
+<ul>
+<li>Web服务器主机</li>
+<li>Web服务器应用</li>
+<li>辅助应用（Servlet和CGI在Web服务器中都扮演着辅助应用的角色）</li>
+</ul>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;什么是容器</span><br><span class="line">Servlet没有<span class="function"><span class="title">main</span><span class="params">()</span></span>方法，它们受控于另外一个Java应用，就是容器。 Tomcat就是这样的容器。</span><br><span class="line">Web服务器应用（如Apache）得到一个指向servlet的请求时，服务器会把这个请求交给部署该servlet的容器，由容器向servlet提供HTTP请求和响应，调用servlet的<span class="function"><span class="title">doGet</span><span class="params">()</span></span>或<span class="function"><span class="title">doPost</span><span class="params">()</span></span>的方法。</span><br></pre></td></tr></table></figure>
+<p>Servlet容器又称为Servlet引擎，它是Java Web服务器（例如：Apache Tomcat）的一部分，用来提供动态网页的服务。<br>我们知道，Servlet没有main方法，它是不能独立运行的。它必须被部署到Servlet容器中，由容器来实例化和调用Servlet中的方法。因此，Servlet容器的作用是在Servlet的生命周期内包容和管理Servlet。</p>
+<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;容器能提供什么</span><br><span class="line">-<span class="ruby"> 通信支持，轻松地让servlet与<span class="constant">Web</span>服务器对话，不用建立<span class="constant">ServerSocket</span>、监听某个端口、创建流等。不必但系<span class="constant">Web</span>服务和自己的<span class="constant">Web</span>代码直接的<span class="constant">PAI</span>。只专注于servlet中实现的业务逻辑。</span><br><span class="line"></span>-<span class="ruby"> 生命周期管理，容器控制servlet的生与死，负责价值类、实例化和初始化servlet、调用servlet方法，以及垃圾回收等</span><br><span class="line"></span>-<span class="ruby"> 多线程支持，容器会为每个servlet请求创建一个新的<span class="constant">Java</span>线程</span><br><span class="line"></span>-<span class="ruby"> 声明方式实现安全，使用<span class="constant">XML</span>部署描述文件来配置安全性</span><br><span class="line"></span>-<span class="ruby"> <span class="constant">JSP</span>支持，容器将<span class="constant">JSP</span>代码翻译成<span class="constant">Java</span></span></span><br></pre></td></tr></table></figure>
+<p>容器怎么把servlet映射到URL？<br>一个servlet有3个名字：</p>
+<ul>
+<li>客户知道的URL名</li>
+<li>部署人员知道的秘密内部名</li>
+<li>实际的文件名</li>
+</ul>
+<p>部署描述文件(DD)的作用：</p>
+<ul>
+<li>把URL映射到servlet</li>
+<li>定制Web应用的其他方面，比如安全角色、错误页面、初始化配置信息等</li>
+</ul>
+<h2 id="历史纠结">历史纠结</h2><ul>
+<li>Servlet中输出文本 -》Servlet中输出HTML，也就是将HTML放在Java中 -》JSP出现，将Java放在HTML中 </li>
+<li>MVC，业务逻辑与表示分离</li>
+</ul>
+<h2 id="参考资料">参考资料</h2><p>《Head First Servlet JSP》</p>
+<p>》5 属性和监听 P152</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://weixiaobo88.github.io/2015/07/09/2015-07-09-servlet-002/" data-id="cicx2wvjr000jfdqf8jzkuv0b" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/servlet/">servlet</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2015-07-09-servlet-001" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/07/09/2015-07-09-servlet-001/" class="article-date">
+  <time datetime="2015-07-09T10:08:50.000Z" itemprop="datePublished">2015-07-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/07/09/2015-07-09-servlet-001/">Servlet 中文乱码问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Servlet中的request和response">Servlet中的request和response</h2><p>服务器调用Servlet的时候会同时创建一个request和一个response对象。</p>
+<ul>
+<li>request用来存储客户端发送的请求</li>
+<li>response用来存储服务器返回的数据</li>
+</ul>
+<h2 id="Servlet中处理字符编码问题">Servlet中处理字符编码问题</h2><p>Servlet会把字符编码存储在response里，然后输出到浏览器中。所以这个问题可以从两个方面入手：</p>
+<ul>
+<li>Servlet的字符编码</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.setCharacterEncoding(<span class="string">"UTF-8"</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>浏览器的字符编码</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.setHeader(<span class="string">"Content-type"</span>, <span class="string">"text/html;charset=UTF-8"</span>);</span><br></pre></td></tr></table></figure>
+<p>但是有时候字符编码的这两条都设置了，浏览器中输出的为什么还是乱码呢？</p>
+<p>有一个原因可能是你设置编码的代码在你声明的PrintWriter对象之后。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//会有中文乱码问题</span></span><br><span class="line">PrinterWriter out = response.getWriter();</span><br><span class="line">response.setCharacterEncoding(<span class="string">"UTF-8"</span>);</span><br></pre></td></tr></table></figure>
+<p>当然解决办法也很简单，把设置编码的代码调整到声明PrintWriter之前（使用ServletOutputStream则不受限制）。<br>另外setContentType 和 setCharacterEncoding两方法中设定characterEncoding的方法对服务器效果一致，不需要反复调用。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//中文乱码问题解决</span></span><br><span class="line">response.setCharacterEncoding(<span class="string">"UTF-8"</span>);</span><br><span class="line">PrinterWriter out = response.getWriter();</span><br></pre></td></tr></table></figure>
+<p>那PrintWriter是什么？<br>PrintWriter是字符流，它不能和ServletOutputStream字节流同时使用，同时使用会抛异常。</p>
+<blockquote>
+<pre><code>PrintWriter <span class="function"><span class="title">getWriter</span><span class="params">()</span></span> throws IOException 
+</code></pre></blockquote>
+<pre><code><span class="type">Returns</span> a <span class="type">PrintWriter</span> <span class="keyword">object</span> that can send character text to the client. <span class="type">The</span> <span class="type">PrintWriter</span> uses the character encoding returned by getCharacterEncoding(). 
+
+<span class="type">If</span> the response's character encoding has <span class="keyword">not</span> been specified <span class="keyword">as</span> described <span class="keyword">in</span> getCharacterEncoding (i.e., the <span class="keyword">method</span> just returns the default value <span class="type">ISO</span>-<span class="number">8859</span>-<span class="number">1</span>), getWriter updates it to <span class="type">ISO</span>-<span class="number">8859</span>-<span class="number">1</span>. 
+</code></pre><p>以上的意思是说PrinterWriter使用的字符编码是从getCharacterEncoding()来的。<br>就是讲，在返回一个PrintWriter对象的时候，character encoding就已经确定了，就已经设置好了字符集了。<br>什么时候设置的呢？<br>setCharacterEncoding()中设置的，从其中可以发现，如果已经调用了getWriter，那么set方法无效。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCharacterEncoding</span><span class="params">(String charset)</span> </span>&#123;    </span><br><span class="line">   </span><br><span class="line">    <span class="keyword">if</span> (isCommitted())    </span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">        </span><br><span class="line">    <span class="comment">// Ignore any call from an included servlet    </span></span><br><span class="line">    <span class="keyword">if</span> (included)    </span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">        </span><br><span class="line">    <span class="comment">// Ignore any call made after the getWriter has been invoked    </span></span><br><span class="line">    <span class="comment">// The default should be used    </span></span><br><span class="line">    <span class="keyword">if</span> (usingWriter)    </span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">   </span><br><span class="line">    coyoteResponse.setCharacterEncoding(charset);    </span><br><span class="line">    isCharacterEncodingSet = <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://weixiaobo88.github.io/2015/07/09/2015-07-09-servlet-001/" data-id="cicx2wvju000mfdqfigvuaz7y" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/servlet/">servlet</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-2015-07-09-gradle" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/07/09/2015-07-09-gradle/" class="article-date">
@@ -101,7 +312,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/09/2015-07-09-gradle/" data-id="cicw23z9j000ijvfycgz0n2iv" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/09/2015-07-09-gradle/" data-id="cicx2wvjv000ofdqftkqthbet" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gradle/">gradle</a></li></ul>
@@ -166,7 +377,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/09/2015-07-09-deploy/" data-id="cicw23z9l000ljvfy130wi8ui" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/09/2015-07-09-deploy/" data-id="cicx2wvjx000rfdqfnx73jzbu" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
@@ -260,7 +471,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/08/2015-07-08-spring-001/" data-id="cicw23z9o000ojvfy9z3i8ew6" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/08/2015-07-08-spring-001/" data-id="cicx2wvjz000ufdqf8v4u9dve" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li></ul>
@@ -320,7 +531,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/06/26/2015-06-26-nodejs-01/" data-id="cicw23z9p000qjvfymcyf01il" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/06/26/2015-06-26-nodejs-01/" data-id="cicx2wvk0000wfdqf2ttypv8e" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li></ul>
@@ -347,7 +558,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/">gradle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jspm/">jspm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/servlet/">servlet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">3</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/">gradle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/modular-programming/">modular programming</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/servlet/">servlet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -356,7 +567,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/jspm/" style="font-size: 10px;">jspm</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/servlet/" style="font-size: 15px;">servlet</a> <a href="/tags/spring/" style="font-size: 20px;">spring</a>
+      <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/modular-programming/" style="font-size: 20px;">modular programming</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/servlet/" style="font-size: 13.33px;">servlet</a> <a href="/tags/spring/" style="font-size: 16.67px;">spring</a>
     </div>
   </div>
 
@@ -365,7 +576,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -377,23 +588,23 @@
       <ul>
         
           <li>
-            <a href="/2015/08/03/jspm/">jspm</a>
+            <a href="/2015/08/04/modular-programming-03/">模块化编程 Modular Programming 03 —— require.js 的用法</a>
           </li>
         
           <li>
-            <a href="/2015/08/03/2015-03-19-webfont/">学习web fonts</a>
+            <a href="/2015/08/04/modular-programming-02/">模块化编程 Modular Programming 02 —— AMD 规范</a>
           </li>
         
           <li>
-            <a href="/2015/08/03/hello-world/">Hello World</a>
+            <a href="/2015/08/04/modular-programming-01/">模块化编程 Modular Programming 01 —— 模块的写法</a>
           </li>
         
           <li>
-            <a href="/2015/07/29/2015-07-29-spring-004-database/">Database</a>
+            <a href="/2015/08/04/2015-03-19-webfont/">学习web fonts</a>
           </li>
         
           <li>
-            <a href="/2015/07/14/2015-07-14-spring-003-config/">开始学习Spring</a>
+            <a href="/2015/08/04/hello-world/">Hello World</a>
           </li>
         
       </ul>
