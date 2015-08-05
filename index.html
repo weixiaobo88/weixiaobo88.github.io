@@ -99,7 +99,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/08/04/modular-programming-03/" data-id="cicxdlr2u00010bfyx38s8dru" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/08/04/modular-programming-03/" data-id="cicy2zj7t0001iiqf1klzzqiy" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/modular-programming/">modular programming</a></li></ul>
@@ -156,7 +156,7 @@ math.add()与math模块加载不是同步的，浏览器不会发生假死。
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/08/04/modular-programming-02/" data-id="cicxdlr2x00040bfys84raxnk" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/08/04/modular-programming-02/" data-id="cicy2zj810004iiqfgwtirsma" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/modular-programming/">modular programming</a></li></ul>
@@ -224,7 +224,7 @@ math.add()与math模块加载不是同步的，浏览器不会发生假死。
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/08/04/modular-programming-01/" data-id="cicxdlr2y00060bfyyfs5cdob" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/08/04/modular-programming-01/" data-id="cicy2zj820006iiqfvznao168" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/modular-programming/">modular programming</a></li></ul>
@@ -301,7 +301,7 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/08/04/2015-03-19-webfont/" data-id="cicxdlr2b00000bfy3sc8oqo9" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/08/04/2015-03-19-webfont/" data-id="cicy2zj7c0000iiqfllnizuki" class="article-share-link">Share</a>
       
       
     </footer>
@@ -346,7 +346,7 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/08/04/hello-world/" data-id="cicxdlr31000a0bfy8j7cflup" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/08/04/hello-world/" data-id="cicy2zj85000aiiqf616do5he" class="article-share-link">Share</a>
       
       
     </footer>
@@ -394,61 +394,47 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
 </ol>
 <h2 id="用_jspm_之前的准备">用 jspm 之前的准备</h2><ol>
 <li><p>安装 CLI</p>
- <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="operator"><span class="keyword">install</span> jspm -<span class="keyword">g</span></span></span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install jspm -g</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>初始化项目</p>
- <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd <span class="keyword">my</span>-project</span><br><span class="line">jspm init</span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> my-project</span><br><span class="line">jspm init</span><br></pre></td></tr></table></figure>
 <p> 初始化之后项目的目录结构为</p>
- <figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">my-project</span><br><span class="line"><span class="string">|__config.js</span></span><br><span class="line"><span class="string">|__package.json</span></span><br><span class="line"><span class="string">|__jspm_packages</span></span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">my-project</span><br><span class="line">|__config.js</span><br><span class="line">|__package.json</span><br><span class="line">|__jspm_packages</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>安装任意的包，来源可以是 jspm Registry 或者 Github 或者 npm</p>
 <p> 所有的安装都会保存在 package.json 中，你只需要使用 ‘jspm install’ 就可以安装其中的包。</p>
- <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">jspm <span class="keyword">install</span> npm:lodash-node</span><br><span class="line">jspm <span class="keyword">install</span> github:components/jquery</span><br><span class="line">jspm <span class="keyword">install</span> jquery</span><br><span class="line">jspm <span class="keyword">install</span> myname=npm:underscore</span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">jspm install npm:lodash-node</span><br><span class="line">jspm install github:components/jquery</span><br><span class="line">jspm install jquery</span><br><span class="line">jspm install myname=npm:underscore</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <h2 id="怎么用">怎么用</h2><h3 id="简单的例子">简单的例子</h3><ol>
 <li><p>例子中需要在安装一下4个包</p>
- <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">jspm <span class="keyword">install</span> npm:lodash-node</span><br><span class="line">jspm <span class="keyword">install</span> github:components/jquery</span><br><span class="line">jspm <span class="keyword">install</span> jquery</span><br><span class="line">jspm <span class="keyword">install</span> myname=npm:underscore</span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">jspm install npm:lodash-node</span><br><span class="line">jspm install github:components/jquery</span><br><span class="line">jspm install jquery</span><br><span class="line">jspm install myname=npm:underscore</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>例子的文件目录结构</p>
- <figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">my-project</span><br><span class="line">  <span class="string">|__config.js</span></span><br><span class="line">  <span class="string">|__package.json</span></span><br><span class="line">  <span class="string">|__jspm_packages</span></span><br><span class="line">  <span class="string">|__lib</span></span><br><span class="line">      <span class="string">|__bootstrap.js</span></span><br><span class="line">      <span class="string">|__main.js</span></span><br><span class="line">  <span class="string">|__index.html</span></span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">my-project</span><br><span class="line">  |__config.js</span><br><span class="line">  |__package.json</span><br><span class="line">  |__jspm_packages</span><br><span class="line">  |__lib</span><br><span class="line">      |__bootstrap.js</span><br><span class="line">      |__main.js</span><br><span class="line">  |__index.html</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<pre><code>lib/bootstrap.js
-
-    <span class="comment"><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> _ <span class="keyword">from</span> <span class="string">'lodash-node/modern/lang/isEqual'</span>;</span><br><span class="line"><span class="keyword">import</span> $ from <span class="string">'jquery'</span>;</span><br><span class="line"><span class="keyword">import</span> underscore <span class="keyword">from</span> <span class="string">'myname'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">bootstrap</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">"Hello Linne"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></span>
-
-
-lib/main.js 文件
-
-    <span class="comment"><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;bootstrap&#125; <span class="keyword">from</span> <span class="string">'./bootstrap'</span>;</span><br><span class="line">bootstrap();</span><br></pre></td></tr></table></figure></span>
-
-
-index.html 文件
-
-    <span class="comment"><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">   </span><br><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">title</span>&gt;</span><span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">h1</span>&gt;</span>Hello, Linne O(∩_∩)O~<span class="tag">&lt;/<span class="title">h1</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"jspm_packages/system.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"config.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="actionscript"></span><br><span class="line">    System.<span class="keyword">import</span>(<span class="string">'lib/main'</span>);</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure></span>
-
-
-在浏览器中打开 index.html，可以看到 console 中有输出。
-</code></pre><ol>
+<p>lib/bootstrap.js</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import _ from <span class="string">'lodash-node/modern/lang/isEqual'</span>;</span><br><span class="line">import $ from <span class="string">'jquery'</span>;</span><br><span class="line">import underscore from <span class="string">'myname'</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> <span class="keyword">function</span> <span class="function"><span class="title">bootstrap</span></span>() &#123;</span><br><span class="line"> console.log(<span class="string">"Hello Linne"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>lib/main.js 文件</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import &#123;bootstrap&#125; from <span class="string">'./bootstrap'</span>;</span><br><span class="line">bootstrap();</span><br></pre></td></tr></table></figure>
+<p>index.html 文件</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;h1&gt;Hello, Linne O(∩_∩)O~&lt;/h1&gt;</span><br><span class="line"></span><br><span class="line">&lt;script src=<span class="string">"jspm_packages/system.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=<span class="string">"config.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    System.import(<span class="string">'lib/main'</span>);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>在浏览器中打开 index.html，可以看到 console 中有输出。</p>
+<ol>
 <li><p>Bundle for production</p>
 <p> 执行下面命令</p>
- <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jspm bundle lib/main <span class="comment">--inject</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jspm bundle lib/main --inject</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<pre><code>或下面命令
-
-<span class="comment"><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">jspm</span> <span class="keyword">bundle-sfx </span>lib/main</span><br></pre></td></tr></table></figure></span>
-
-
-然后在 **index.html** 中就可以只引用一个js文件
-
-<span class="comment"><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">title</span>&gt;</span><span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">h1</span>&gt;</span>Hello, Linne O(∩_∩)O~<span class="tag">&lt;/<span class="title">h1</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"build.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure></span>
-</code></pre>
+<p>  或下面命令</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jspm bundle-sfx lib/main</span><br></pre></td></tr></table></figure>
+<p>  然后在 <strong>index.html</strong> 中就可以只引用一个js文件</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;h1&gt;Hello, Linne O(∩_∩)O~&lt;/h1&gt;</span><br><span class="line"></span><br><span class="line">&lt;script src=<span class="string">"build.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/08/03/jspm/" data-id="cicxdlr3000080bfysfu4fodh" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/08/03/jspm/" data-id="cicy2zj840008iiqft8itz5qb" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/modular-programming/">modular programming</a></li></ul>
@@ -510,7 +496,7 @@ index.html 文件
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/29/2015-07-29-spring-004-database/" data-id="cicxdlr33000b0bfy79gd678x" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/29/2015-07-29-spring-004-database/" data-id="cicy2zj87000biiqfqfw76caf" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li></ul>
@@ -648,7 +634,7 @@ index.html 文件
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/14/2015-07-14-spring-003-config/" data-id="cicxdlr34000e0bfyw80ohi26" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/14/2015-07-14-spring-003-config/" data-id="cicy2zj88000eiiqfmg7l36t1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -759,7 +745,7 @@ index.html 文件
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/12/2015-07-12-spring-002-ioc/" data-id="cicxdlr35000f0bfyf61nmoz8" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/12/2015-07-12-spring-002-ioc/" data-id="cicy2zj8a000fiiqf1rw6chnz" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li></ul>
@@ -799,7 +785,7 @@ index.html 文件
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/10/2015-07-10-database-01/" data-id="cicxdlr36000h0bfywb0gps45" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/10/2015-07-10-database-01/" data-id="cicy2zj8b000hiiqfzcm8r2pe" class="article-share-link">Share</a>
       
       
     </footer>
