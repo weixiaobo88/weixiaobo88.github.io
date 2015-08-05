@@ -27,19 +27,19 @@ System.js 是通用动态模块加载 - 用于在浏览器和 NodeJS 中加载 E
 
 1. 安装 CLI
 
-    ```
+    ``` bash
     npm install jspm -g
     ```
 
 2. 初始化项目
 
-    ````
+    ```` bash
     cd my-project
     jspm init
     ````
     初始化之后项目的目录结构为
 
-    ```
+    ``` bash
     my-project
     |__config.js
     |__package.json
@@ -49,8 +49,8 @@ System.js 是通用动态模块加载 - 用于在浏览器和 NodeJS 中加载 E
 3. 安装任意的包，来源可以是 jspm Registry 或者 Github 或者 npm
 
     所有的安装都会保存在 package.json 中，你只需要使用 ‘jspm install’ 就可以安装其中的包。
-    
-    ````
+     
+    ```` bash
     jspm install npm:lodash-node
     jspm install github:components/jquery
     jspm install jquery
@@ -62,7 +62,7 @@ System.js 是通用动态模块加载 - 用于在浏览器和 NodeJS 中加载 E
 ### 简单的例子
 
 1. 例子中需要在安装一下4个包
-    ```
+    ``` bash
     jspm install npm:lodash-node
     jspm install github:components/jquery
     jspm install jquery
@@ -71,7 +71,7 @@ System.js 是通用动态模块加载 - 用于在浏览器和 NodeJS 中加载 E
 
 2. 例子的文件目录结构
 
-    ````
+    ``` bash
     my-project
       |__config.js
       |__package.json
@@ -80,70 +80,68 @@ System.js 是通用动态模块加载 - 用于在浏览器和 NodeJS 中加载 E
           |__bootstrap.js
           |__main.js
       |__index.html
-    ````
+    ```
     
-    lib/bootstrap.js
+lib/bootstrap.js
     
-        ```
-        import _ from 'lodash-node/modern/lang/isEqual';
-        import $ from 'jquery';
-        import underscore from 'myname';
+  ``` bash
+    import _ from 'lodash-node/modern/lang/isEqual';
+    import $ from 'jquery';
+    import underscore from 'myname';
+    
+    export function bootstrap() {
+     console.log("Hello Linne");
+    }
+  ```
+    
+lib/main.js 文件
         
-        export function bootstrap() {
-         console.log("Hello Linne");
-        }
-        ```
+  ```` bash
+  import {bootstrap} from './bootstrap';
+  bootstrap();
+  ````
     
-    lib/main.js 文件
-        
-        ````
-        import {bootstrap} from './bootstrap';
-        bootstrap();
-        ````
+index.html 文件
     
-    index.html 文件
+  ``` bash       
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
     
-        ```html
-           
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <title></title>
-        </head>
-        <body>
-        
-        <h1>Hello, Linne O(∩_∩)O~</h1>
-        
-        <script src="jspm_packages/system.js"></script>
-        <script src="config.js"></script>
-        <script>
-            System.import('lib/main');
-        </script>
-        </body>
-        </html>
-        ```
+    <h1>Hello, Linne O(∩_∩)O~</h1>
     
-    在浏览器中打开 index.html，可以看到 console 中有输出。
+    <script src="jspm_packages/system.js"></script>
+    <script src="config.js"></script>
+    <script>
+        System.import('lib/main');
+    </script>
+    </body>
+    </html>
+  ```
+    
+在浏览器中打开 index.html，可以看到 console 中有输出。
 
 3. Bundle for production
 
     执行下面命令
     
-    ````
+  ```` bash
     jspm bundle lib/main --inject
-    ````
+  ````
     
-    或下面命令
-    
-    ```
+  或下面命令
+   
+  ``` bash
     jspm bundle-sfx lib/main
-    ```
+  ```
     
-    然后在 **index.html** 中就可以只引用一个js文件
+  然后在 **index.html** 中就可以只引用一个js文件
     
-    ``` html 
-          
+  ``` bash 
         <!DOCTYPE html>
         <html lang="en">
         <head>
@@ -157,4 +155,4 @@ System.js 是通用动态模块加载 - 用于在浏览器和 NodeJS 中加载 E
         <script src="build.js"></script>
         </body>
         </html>
-    ```
+  ```
