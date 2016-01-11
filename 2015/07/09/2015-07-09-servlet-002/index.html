@@ -95,10 +95,10 @@ HTTP是什么HT">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Web_请求和响应的流程">Web 请求和响应的流程</h2><p>用户——》Web 浏览器——URL(所找资源的名字和地址)——》服务器——响应(客户请求的资源)-》用户</p>
-<h3 id="用户和服务器如何对话">用户和服务器如何对话</h3><p>要对话，就需要使用相同的语言，这个语言就是HTTP，而且浏览器必须懂HTML。</p>
+        <h2 id="Web__u8BF7_u6C42_u548C_u54CD_u5E94_u7684_u6D41_u7A0B"><a href="#Web__u8BF7_u6C42_u548C_u54CD_u5E94_u7684_u6D41_u7A0B" class="headerlink" title="Web 请求和响应的流程"></a>Web 请求和响应的流程</h2><p>用户——》Web 浏览器——URL(所找资源的名字和地址)——》服务器——响应(客户请求的资源)-》用户</p>
+<h3 id="u7528_u6237_u548C_u670D_u52A1_u5668_u5982_u4F55_u5BF9_u8BDD"><a href="#u7528_u6237_u548C_u670D_u52A1_u5668_u5982_u4F55_u5BF9_u8BDD" class="headerlink" title="用户和服务器如何对话"></a>用户和服务器如何对话</h3><p>要对话，就需要使用相同的语言，这个语言就是HTTP，而且浏览器必须懂HTML。</p>
 <p>HTTP是Web上用户和服务器之间通信所用的协议。<br>服务器使用HTTP向用户发送HTML。<br>浏览器接收到HTMl之后要创建Web页面，并将页面显示给用户。</p>
-<h4 id="HTTP是什么">HTTP是什么</h4><p>HTTP超文本传输协议，是TCP/IP的上层协议，依赖于TCP/IP从一处向另一处完整的发送请求和响应。</p>
+<h4 id="HTTP_u662F_u4EC0_u4E48"><a href="#HTTP_u662F_u4EC0_u4E48" class="headerlink" title="HTTP是什么"></a>HTTP是什么</h4><p>HTTP超文本传输协议，是TCP/IP的上层协议，依赖于TCP/IP从一处向另一处完整的发送请求和响应。</p>
 <p>TCP负责从一个网络节点向另一个网络节点发送的文件能作为一个完整的文件到达目的地，尽管传送过程中可能会分解成小块传输。<br>IP是一个底层协议，负责把数据包路由到目的地。</p>
 <p><strong>HTTP请求流</strong></p>
 <ul>
@@ -119,8 +119,8 @@ HTTP是什么HT">
 </ul>
 <p>在发送这些请求时，会携带信息：HTTP方法、资源路径、参数、协议版本、首部信息</p>
 <p>HTTP响应中的MIME类型告诉浏览器要接收的数据是什么类型。</p>
-<h4 id="HTML是什么">HTML是什么</h4><p>HTTP的响应可以包含HTML，浏览器根据HTTP首部信息来处理HTML页面</p>
-<h3 id="URL是什么">URL是什么</h3><p><a href="http://weixiaobo88.github.io:80/web/hello.html">http://weixiaobo88.github.io:80/web/hello.html</a></p>
+<h4 id="HTML_u662F_u4EC0_u4E48"><a href="#HTML_u662F_u4EC0_u4E48" class="headerlink" title="HTML是什么"></a>HTML是什么</h4><p>HTTP的响应可以包含HTML，浏览器根据HTTP首部信息来处理HTML页面</p>
+<h3 id="URL_u662F_u4EC0_u4E48"><a href="#URL_u662F_u4EC0_u4E48" class="headerlink" title="URL是什么"></a>URL是什么</h3><p><a href="http://weixiaobo88.github.io:80/web/hello.html">http://weixiaobo88.github.io:80/web/hello.html</a></p>
 <ul>
 <li>“http://” 协议，告诉服务器通信协议</li>
 <li>“weixiaobo88.github.io” 服务器名，这个名字会映射到一个唯一的IP地址</li>
@@ -128,9 +128,9 @@ HTTP是什么HT">
 <li>/web 所请求资源在服务器上的路径</li>
 <li>/hello.html 资源，所请求内容的名字</li>
 </ul>
-<h4 id="TCP端口是什么">TCP端口是什么</h4><p>端口并不是一个可以插入物理设备的位置，只表示服务器应用的“逻辑”数而已，用来标识服务器硬件上一个特定的软件程序。<br>服务器上有65536个端口，端口号范围为“0~65535”，其中0~1023为保留端口，由知名服务使用，比如80端口。</p>
-<h2 id="一个简单的Apache网站的目录结构">一个简单的Apache网站的目录结构</h2><p>Apache是一个留下的开源Web服务器。<br>Apache<em>home<br>|</em> htdocs (Apache服务器中Web应用的根目录)<br>    |_index.html<br>    |_app1<br>        |_index.html<br>        |_select…<br>    |_app2<br>        |_index.html<br>        |_select…</p>
-<h3 id="Web服务器自己不做的两件事">Web服务器自己不做的两件事</h3><ul>
+<h4 id="TCP_u7AEF_u53E3_u662F_u4EC0_u4E48"><a href="#TCP_u7AEF_u53E3_u662F_u4EC0_u4E48" class="headerlink" title="TCP端口是什么"></a>TCP端口是什么</h4><p>端口并不是一个可以插入物理设备的位置，只表示服务器应用的“逻辑”数而已，用来标识服务器硬件上一个特定的软件程序。<br>服务器上有65536个端口，端口号范围为“0~65535”，其中0~1023为保留端口，由知名服务使用，比如80端口。</p>
+<h2 id="u4E00_u4E2A_u7B80_u5355_u7684Apache_u7F51_u7AD9_u7684_u76EE_u5F55_u7ED3_u6784"><a href="#u4E00_u4E2A_u7B80_u5355_u7684Apache_u7F51_u7AD9_u7684_u76EE_u5F55_u7ED3_u6784" class="headerlink" title="一个简单的Apache网站的目录结构"></a>一个简单的Apache网站的目录结构</h2><p>Apache是一个留下的开源Web服务器。<br>Apache<em>home<br>|</em> htdocs (Apache服务器中Web应用的根目录)<br>    |_index.html<br>    |_app1<br>        |_index.html<br>        |_select…<br>    |_app2<br>        |_index.html<br>        |_select…</p>
+<h3 id="Web_u670D_u52A1_u5668_u81EA_u5DF1_u4E0D_u505A_u7684_u4E24_u4EF6_u4E8B"><a href="#Web_u670D_u52A1_u5668_u81EA_u5DF1_u4E0D_u505A_u7684_u4E24_u4EF6_u4E8B" class="headerlink" title="Web服务器自己不做的两件事"></a>Web服务器自己不做的两件事</h3><ul>
 <li>动态内容，比如请求实时的日期</li>
 <li>在服务器上保存上数据，比如提交表单</li>
 </ul>
@@ -155,17 +155,17 @@ HTTP是什么HT">
 <li>把URL映射到servlet</li>
 <li>定制Web应用的其他方面，比如安全角色、错误页面、初始化配置信息等</li>
 </ul>
-<h2 id="历史纠结">历史纠结</h2><ul>
+<h2 id="u5386_u53F2_u7EA0_u7ED3"><a href="#u5386_u53F2_u7EA0_u7ED3" class="headerlink" title="历史纠结"></a>历史纠结</h2><ul>
 <li>Servlet中输出文本 -》Servlet中输出HTML，也就是将HTML放在Java中 -》JSP出现，将Java放在HTML中 </li>
 <li>MVC，业务逻辑与表示分离</li>
 </ul>
-<h2 id="参考资料">参考资料</h2><p>《Head First Servlet JSP》</p>
+<h2 id="u53C2_u8003_u8D44_u6599"><a href="#u53C2_u8003_u8D44_u6599" class="headerlink" title="参考资料"></a>参考资料</h2><p>《Head First Servlet JSP》</p>
 <p>》5 属性和监听 P152</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/09/2015-07-09-servlet-002/" data-id="cicy2zj8e000jiiqf9dlpd8aj" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/09/2015-07-09-servlet-002/" data-id="cij9znhqd000i4vqf4yce139m" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/servlet/">servlet</a></li></ul>
@@ -176,19 +176,19 @@ HTTP是什么HT">
     
 <nav id="article-nav">
   
-    <a href="/2015/07/10/2015-07-10-backend-frontend-interaction/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/07/10/2015-07-10-database-01/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          后台数据传到前台有几种方式
+          数据库
         
       </div>
     </a>
   
   
-    <a href="/2015/07/09/2015-07-09-servlet-001/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2015/07/09/2015-07-09-gradle/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Servlet 中文乱码问题</div>
+      <div class="article-nav-title">Gradle运行机制</div>
     </a>
   
 </nav>
@@ -206,7 +206,7 @@ HTTP是什么HT">
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/">gradle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/modular-programming/">modular programming</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/servlet/">servlet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">3</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/">gradle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-router/">react router</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/servlet/">servlet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring-test/">spring test</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -215,7 +215,7 @@ HTTP是什么HT">
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/modular-programming/" style="font-size: 20px;">modular programming</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/servlet/" style="font-size: 13.33px;">servlet</a> <a href="/tags/spring/" style="font-size: 16.67px;">spring</a>
+      <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/react-router/" style="font-size: 10px;">react router</a> <a href="/tags/servlet/" style="font-size: 15px;">servlet</a> <a href="/tags/spring/" style="font-size: 20px;">spring</a> <a href="/tags/spring-test/" style="font-size: 10px;">spring test</a>
     </div>
   </div>
 
@@ -224,7 +224,7 @@ HTTP是什么HT">
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -236,23 +236,23 @@ HTTP是什么HT">
       <ul>
         
           <li>
-            <a href="/2015/08/04/modular-programming-03/">模块化编程 Modular Programming 03 —— require.js 的用法</a>
+            <a href="/2016/01/11/2013-12-31-whats-jekyll/">What&#39;s Jekyll?</a>
           </li>
         
           <li>
-            <a href="/2015/08/04/modular-programming-02/">模块化编程 Modular Programming 02 —— AMD 规范</a>
+            <a href="/2016/01/11/learn-react-router/">learn-react-router</a>
           </li>
         
           <li>
-            <a href="/2015/08/04/modular-programming-01/">模块化编程 Modular Programming 01 —— 模块的写法</a>
+            <a href="/2015/08/15/learn-jade/">Jade</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/05/testing-in-spring/">Testing in Spring</a>
           </li>
         
           <li>
             <a href="/2015/08/04/2015-03-19-webfont/">学习web fonts</a>
-          </li>
-        
-          <li>
-            <a href="/2015/08/04/hello-world/">Hello World</a>
           </li>
         
       </ul>
@@ -267,7 +267,7 @@ HTTP是什么HT">
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2015 Linne<br>
+      &copy; 2016 Linne<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

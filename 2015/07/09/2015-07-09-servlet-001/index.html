@@ -113,12 +113,12 @@ Servlet的字符编码
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Servlet中的request和response">Servlet中的request和response</h2><p>服务器调用Servlet的时候会同时创建一个request和一个response对象。</p>
+        <h2 id="Servlet_u4E2D_u7684request_u548Cresponse"><a href="#Servlet_u4E2D_u7684request_u548Cresponse" class="headerlink" title="Servlet中的request和response"></a>Servlet中的request和response</h2><p>服务器调用Servlet的时候会同时创建一个request和一个response对象。</p>
 <ul>
 <li>request用来存储客户端发送的请求</li>
 <li>response用来存储服务器返回的数据</li>
 </ul>
-<h2 id="Servlet中处理字符编码问题">Servlet中处理字符编码问题</h2><p>Servlet会把字符编码存储在response里，然后输出到浏览器中。所以这个问题可以从两个方面入手：</p>
+<h2 id="Servlet_u4E2D_u5904_u7406_u5B57_u7B26_u7F16_u7801_u95EE_u9898"><a href="#Servlet_u4E2D_u5904_u7406_u5B57_u7B26_u7F16_u7801_u95EE_u9898" class="headerlink" title="Servlet中处理字符编码问题"></a>Servlet中处理字符编码问题</h2><p>Servlet会把字符编码存储在response里，然后输出到浏览器中。所以这个问题可以从两个方面入手：</p>
 <ul>
 <li>Servlet的字符编码</li>
 </ul>
@@ -134,18 +134,18 @@ Servlet的字符编码
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//中文乱码问题解决</span></span><br><span class="line">response.setCharacterEncoding(<span class="string">"UTF-8"</span>);</span><br><span class="line">PrinterWriter out = response.getWriter();</span><br></pre></td></tr></table></figure>
 <p>那PrintWriter是什么？<br>PrintWriter是字符流，它不能和ServletOutputStream字节流同时使用，同时使用会抛异常。</p>
 <blockquote>
-<pre><code>PrintWriter <span class="function"><span class="title">getWriter</span><span class="params">()</span></span> throws IOException 
+<pre><code>PrintWriter getWriter() throws IOException 
 </code></pre></blockquote>
-<pre><code><span class="type">Returns</span> a <span class="type">PrintWriter</span> <span class="keyword">object</span> that can send character text to the client. <span class="type">The</span> <span class="type">PrintWriter</span> uses the character encoding returned by getCharacterEncoding(). 
+<pre><code>Returns a PrintWriter object that can send character text to the client. The PrintWriter uses the character encoding returned by getCharacterEncoding(). 
 
-<span class="type">If</span> the response's character encoding has <span class="keyword">not</span> been specified <span class="keyword">as</span> described <span class="keyword">in</span> getCharacterEncoding (i.e., the <span class="keyword">method</span> just returns the default value <span class="type">ISO</span>-<span class="number">8859</span>-<span class="number">1</span>), getWriter updates it to <span class="type">ISO</span>-<span class="number">8859</span>-<span class="number">1</span>. 
+If the response&apos;s character encoding has not been specified as described in getCharacterEncoding (i.e., the method just returns the default value ISO-8859-1), getWriter updates it to ISO-8859-1. 
 </code></pre><p>以上的意思是说PrinterWriter使用的字符编码是从getCharacterEncoding()来的。<br>就是讲，在返回一个PrintWriter对象的时候，character encoding就已经确定了，就已经设置好了字符集了。<br>什么时候设置的呢？<br>setCharacterEncoding()中设置的，从其中可以发现，如果已经调用了getWriter，那么set方法无效。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCharacterEncoding</span><span class="params">(String charset)</span> </span>&#123;    </span><br><span class="line">   </span><br><span class="line">    <span class="keyword">if</span> (isCommitted())    </span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">        </span><br><span class="line">    <span class="comment">// Ignore any call from an included servlet    </span></span><br><span class="line">    <span class="keyword">if</span> (included)    </span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">        </span><br><span class="line">    <span class="comment">// Ignore any call made after the getWriter has been invoked    </span></span><br><span class="line">    <span class="comment">// The default should be used    </span></span><br><span class="line">    <span class="keyword">if</span> (usingWriter)    </span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">   </span><br><span class="line">    coyoteResponse.setCharacterEncoding(charset);    </span><br><span class="line">    isCharacterEncodingSet = <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/09/2015-07-09-servlet-001/" data-id="cicy2zj8g000miiqfy7uny5gq" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/09/2015-07-09-servlet-001/" data-id="cij9znhqi000l4vqfrp068wa3" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/servlet/">servlet</a></li></ul>
@@ -156,19 +156,19 @@ Servlet的字符编码
     
 <nav id="article-nav">
   
-    <a href="/2015/07/09/2015-07-09-servlet-002/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/07/09/2015-07-09-deploy/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          Servlet 完成Web请求和响应
+          部署
         
       </div>
     </a>
   
   
-    <a href="/2015/07/09/2015-07-09-gradle/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2015/07/08/2015-07-08-spring-001/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Gradle运行机制</div>
+      <div class="article-nav-title">Spring 概况</div>
     </a>
   
 </nav>
@@ -186,7 +186,7 @@ Servlet的字符编码
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/">gradle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/modular-programming/">modular programming</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/servlet/">servlet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">3</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/">gradle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-router/">react router</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/servlet/">servlet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring-test/">spring test</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -195,7 +195,7 @@ Servlet的字符编码
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/modular-programming/" style="font-size: 20px;">modular programming</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/servlet/" style="font-size: 13.33px;">servlet</a> <a href="/tags/spring/" style="font-size: 16.67px;">spring</a>
+      <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/react-router/" style="font-size: 10px;">react router</a> <a href="/tags/servlet/" style="font-size: 15px;">servlet</a> <a href="/tags/spring/" style="font-size: 20px;">spring</a> <a href="/tags/spring-test/" style="font-size: 10px;">spring test</a>
     </div>
   </div>
 
@@ -204,7 +204,7 @@ Servlet的字符编码
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -216,23 +216,23 @@ Servlet的字符编码
       <ul>
         
           <li>
-            <a href="/2015/08/04/modular-programming-03/">模块化编程 Modular Programming 03 —— require.js 的用法</a>
+            <a href="/2016/01/11/2013-12-31-whats-jekyll/">What&#39;s Jekyll?</a>
           </li>
         
           <li>
-            <a href="/2015/08/04/modular-programming-02/">模块化编程 Modular Programming 02 —— AMD 规范</a>
+            <a href="/2016/01/11/learn-react-router/">learn-react-router</a>
           </li>
         
           <li>
-            <a href="/2015/08/04/modular-programming-01/">模块化编程 Modular Programming 01 —— 模块的写法</a>
+            <a href="/2015/08/15/learn-jade/">Jade</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/05/testing-in-spring/">Testing in Spring</a>
           </li>
         
           <li>
             <a href="/2015/08/04/2015-03-19-webfont/">学习web fonts</a>
-          </li>
-        
-          <li>
-            <a href="/2015/08/04/hello-world/">Hello World</a>
           </li>
         
       </ul>
@@ -247,7 +247,7 @@ Servlet的字符编码
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2015 Linne<br>
+      &copy; 2016 Linne<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
