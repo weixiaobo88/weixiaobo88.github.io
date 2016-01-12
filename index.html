@@ -67,8 +67,8 @@
   
     <article id="post-2013-12-31-whats-jekyll" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/01/11/2013-12-31-whats-jekyll/" class="article-date">
-  <time datetime="2016-01-11T13:11:26.000Z" itemprop="datePublished">2016-01-11</time>
+    <a href="/2016/01/12/2013-12-31-whats-jekyll/" class="article-date">
+  <time datetime="2016-01-12T13:24:51.000Z" itemprop="datePublished">2016-01-12</time>
 </a>
     
   </div>
@@ -79,7 +79,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/11/2013-12-31-whats-jekyll/">What&#39;s Jekyll?</a>
+      <a class="article-title" href="/2016/01/12/2013-12-31-whats-jekyll/">What&#39;s Jekyll?</a>
     </h1>
   
 
@@ -96,7 +96,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2016/01/11/2013-12-31-whats-jekyll/" data-id="cij9znhp900004vqf77vtgqv3" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2016/01/12/2013-12-31-whats-jekyll/" data-id="cijbfkhq80000buqfmjpwh6hb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -106,10 +106,10 @@
 
 
   
-    <article id="post-learn-react-router" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-20160112-React-Bootstrap-Introduction" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/01/11/learn-react-router/" class="article-date">
-  <time datetime="2016-01-11T12:35:47.000Z" itemprop="datePublished">2016-01-11</time>
+    <a href="/2016/01/12/20160112-React-Bootstrap-Introduction/" class="article-date">
+  <time datetime="2016-01-12T12:21:38.000Z" itemprop="datePublished">2016-01-12</time>
 </a>
     
   </div>
@@ -120,7 +120,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/11/learn-react-router/">learn-react-router</a>
+      <a class="article-title" href="/2016/01/12/20160112-React-Bootstrap-Introduction/">React-Bootstrap-Introduction</a>
     </h1>
   
 
@@ -128,26 +128,34 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>参考资料： <a href="https://github.com/rackt/react-router/blob/0.13.x/doc/06%20Mixins/State.md" target="_blank" rel="external">https://github.com/rackt/react-router/blob/0.13.x/doc/06%20Mixins/State.md</a></p>
-<p>翻译： React Router 0.13.x 中的 State</p>
-<p>State 是 components 的一个 mixin, 它需要知道 active params, query 和 routes. 任何拥有动态 segments 的路由处理器都想拥有 State.</p>
-<h2 id="u5B9E_u4F8B_u65B9_u6CD5"><a href="#u5B9E_u4F8B_u65B9_u6CD5" class="headerlink" title="实例方法"></a>实例方法</h2><h3 id="getPath_28_29"><a href="#getPath_28_29" class="headerlink" title="getPath()"></a><code>getPath()</code></h3><p>返回当前 URL 路径, 包含 query 字符串</p>
-<h3 id="getPathname_28_29"><a href="#getPathname_28_29" class="headerlink" title="getPathname()"></a><code>getPathname()</code></h3><p>返回当前 URL 路径, 不包含 query 字符串</p>
-<h3 id="getParams_28_29"><a href="#getParams_28_29" class="headerlink" title="getParams()"></a><code>getParams()</code></h3><p>返回当前活跃的 URL 参数的哈希</p>
-<h3 id="getQuery_28_29"><a href="#getQuery_28_29" class="headerlink" title="getQuery()"></a><code>getQuery()</code></h3><p>返回当前活跃的 query 参数的哈希</p>
-<h3 id="isActive_28routeName_2C_params_2C_query_29"><a href="#isActive_28routeName_2C_params_2C_query_29" class="headerlink" title="isActive(routeName, params, query)"></a><code>isActive(routeName, params, query)</code></h3><p>当一个路由, 参数, query 是活跃的就返回 true, 反之返回 false</p>
-<h3 id="getRoutes_28_29"><a href="#getRoutes_28_29" class="headerlink" title="getRoutes()"></a><code>getRoutes()</code></h3><p>以嵌套的形式返回当前活跃路由的数组</p>
-<h2 id="u793A_u4F8B"><a href="#u793A_u4F8B" class="headerlink" title="示例"></a>示例</h2><p>通常你只想获得参数(params) 和 query:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// route</span></span><br><span class="line">&lt;Route name=<span class="string">"user"</span> path=<span class="string">"user/:name"</span> handler=&#123;User&#125; /&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">// handler</span></span><br><span class="line"><span class="keyword">var</span> User = React.createClass(&#123;</span><br><span class="line"> mixins: [ Router.State ],</span><br><span class="line"></span><br><span class="line"> render: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">   <span class="keyword">var</span> name = <span class="keyword">this</span>.getParams().name;</span><br><span class="line">   <span class="keyword">return</span> (</span><br><span class="line">     <span class="xml"><span class="tag">&lt;<span class="title">div</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="title">h1</span>&gt;</span>&#123;name&#125;<span class="tag">&lt;/<span class="title">h1</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">   )</span>;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>如果你用 bootstrap 并且想得到 Tabs 上 li 标签中活跃的元素:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Link = <span class="built_in">require</span>(<span class="string">'react-router'</span>).Link;</span><br><span class="line"><span class="keyword">var</span> State = <span class="built_in">require</span>(<span class="string">'react-router'</span>).State;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> Tab = React.createClass(&#123;</span><br><span class="line"></span><br><span class="line">  mixins: [ State ],</span><br><span class="line"></span><br><span class="line">  render: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> isActive = <span class="keyword">this</span>.isActive(<span class="keyword">this</span>.props.to, <span class="keyword">this</span>.props.params, <span class="keyword">this</span>.props.query);</span><br><span class="line">    <span class="keyword">var</span> className = isActive ? <span class="string">'active'</span> : <span class="string">''</span>;</span><br><span class="line">    <span class="keyword">var</span> link = (</span><br><span class="line">      <span class="xml"><span class="tag">&lt;<span class="title">Link</span> &#123;<span class="attribute">...this.props</span>&#125; /&gt;</span></span><br><span class="line">    )</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="title">li</span> <span class="attribute">className</span>=<span class="value">&#123;className&#125;</span>&gt;</span>&#123;link&#125;<span class="tag">&lt;/<span class="title">li</span>&gt;</span>;</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// use it just like &lt;Link/&gt;, and you'll get an anchor wrapped in an `li`</span></span><br><span class="line"><span class="comment">// with an automatic `active` class on both.</span></span><br><span class="line">&lt;Tab to=<span class="string">"foo"</span>&gt;Foo&lt;<span class="regexp">/Tab&gt;</span></span><br></pre></td></tr></table></figure>
+        <h1 id="u4ECB_u7ECD__u2014_u2014__u4F7F_u7528React_u91CD_u5EFA_u6700_u53D7_u6B22_u8FCE_u7684_u524D_u7AEF_u6846_u67B6"><a href="#u4ECB_u7ECD__u2014_u2014__u4F7F_u7528React_u91CD_u5EFA_u6700_u53D7_u6B22_u8FCE_u7684_u524D_u7AEF_u6846_u67B6" class="headerlink" title="介绍 —— 使用React重建最受欢迎的前端框架"></a>介绍 —— 使用React重建最受欢迎的前端框架</h1><p>React-Bootstrap 是一个可重用的前端组件库。用 Facebook 的 React.js<br>框架，你能构建一个和 Twitter Bootstrap 类似的库，但是代码会更整洁。</p>
+<p>如果你想要一个小的 button ，button 上显示 “Something”，并能触发 someCallback<br>函数。如果你是在写一个原生的 app，你可能会像下面这样写：</p>
+<figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">button</span>(<span class="keyword">size</span>=SMALL, <span class="keyword">color</span>=GREEN, <span class="keyword">text</span>=<span class="string">"Something"</span>, onClick=someCallback)</span><br></pre></td></tr></table></figure>
+<p>如果用 Twitter Bootstrap，你会写下面的 HTML：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">button</span> <span class="attribute">id</span>=<span class="value">"something-btn"</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">class</span>=<span class="value">"btn btn-success btn-sm"</span>&gt;</span></span><br><span class="line">  Something</span><br><span class="line"><span class="tag">&lt;/<span class="title">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>然后会在 JavaScript 中写一些类似这样的代码：<br><code>$(&#39;#something-btn&#39;).click(someCallback);</code></p>
+<p>从 web 的标准来看，这挺好，只是还有些不好。 React-Bootstrap 可以让你写成这样：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">Button</span> <span class="attribute">bsStyle</span>=<span class="value">"success"</span> <span class="attribute">bsSize</span>=<span class="value">"small"</span> <span class="attribute">onClick</span>=<span class="value">&#123;someCallback&#125;</span>&gt;</span></span><br><span class="line">  Something</span><br><span class="line"><span class="tag">&lt;/<span class="title">Button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>具体的 HTML/CSS<br>实现细节已经进行了抽象，提供给你的接口可以让你像其他编程语言一样来写。</p>
+<h2 id="u4F7F_u7528_React-js__u7684_Bootstrap_API"><a href="#u4F7F_u7528_React-js__u7684_Bootstrap_API" class="headerlink" title="使用 React.js 的 Bootstrap API"></a>使用 React.js 的 Bootstrap API</h2><p>Bootstrap 的代码重复的很多，因为 HTML 和 CSS<br>不支持组件库的抽象。这也是为什么你需要在一个元素 <code>button</code> 中写 三次<code>btn</code>。</p>
+<p>React.js 解决这个问题的方式就是直接写在 JavaScript 中。 React<br>接管了渲染页面的整个任务。你只需要把 JavaScript<br>对象树传给它即可，并且把状态告诉它。</p>
+<p>举例来说，我们想让 React 渲染一个页面，只显示一个 button，并用 Bootstrap CSS<br>来给它加样式：</p>
+<figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var <span class="keyword">button</span> = React.DOM.<span class="keyword">button</span>(&#123;</span><br><span class="line">  className: <span class="string">'btn btn-lg btn-success'</span>,</span><br><span class="line">  children: <span class="string">'Register'</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">React.<span class="keyword">render</span>(<span class="keyword">button</span>, mountNode);</span><br></pre></td></tr></table></figure>
+<p>但是现在在 JavaScript 中，我们可以包裹 HTML/CSS，然后提供一个更好的 API：</p>
+<figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var <span class="keyword">button</span> = ReactBootstrap.Button(&#123;</span><br><span class="line">  bsStyle: <span class="string">'success'</span>,</span><br><span class="line">  bsSize: <span class="string">'large'</span>,</span><br><span class="line">  children: <span class="string">'Register'</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">React.<span class="keyword">render</span>(<span class="keyword">button</span>, mountNode);</span><br></pre></td></tr></table></figure>
+<p>React-Bootstrap 就是类似这样的组件库，你可以很容易的扩展和加强你的功能。</p>
+<h2 id="JSX__u8BED_u6CD5"><a href="#JSX__u8BED_u6CD5" class="headerlink" title="JSX 语法"></a>JSX 语法</h2><p>每个 React 组件就是一个 JavaScript 对象，写成树形结构也会很烦。React 鼓励使用 JSX<br>的语法糖，你可以和像 HTML 的语法一些样来写：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var buttongGroupInstance = (</span><br><span class="line">  <span class="tag">&lt;<span class="title">ButtonGroup</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">DropdownButton</span> <span class="attribute">bsStyle</span>=<span class="value">'success'</span> <span class="attribute">title</span>=<span class="value">'Dropdown'</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">MenuItem</span> <span class="attribute">key</span>=<span class="value">'1'</span>&gt;</span>Dropdown link<span class="tag">&lt;/<span class="title">MenuItem</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">MenuItem</span> <span class="attribute">key</span>=<span class="value">'2'</span>&gt;</span>Dropdown link<span class="tag">&lt;/<span class="title">MenuItem</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">DropdownButton</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">Button</span> <span class="attribute">bsStyle</span>=<span class="value">'info'</span>&gt;</span>Middle<span class="tag">&lt;/<span class="title">Button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">Button</span> <span class="attribute">bsStyle</span>=<span class="value">'info'</span>&gt;</span>Right<span class="tag">&lt;/<span class="title">Button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">ButtonGroup</span>&gt;</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">React.render(buttonGroupInstance, mountNode);</span><br></pre></td></tr></table></figure>
+<p>有些人对 React.js 的第一印象就是混合 JavaScript 和 HTML<br>会让代码看起来很混乱。然而，比较在这个例子中要添加一个 dropdown button 在<br>Bootstrap JavaScript 和 Component 文件中，Component<br>文件需要分成两个，因为你需要在代码中两个地方来实现这个组件：首先必须添加<br>HTML/CSS 元素，然后必须调用 JavaScript 把这两个组件写到一起。</p>
+<p>React-Bootstrap 的组件希望遵循 React.js 的哲理，单独的功能需要放在单独的地方。<br>在 <a href="http://react-bootstrap.github.io/components.html" target="_blank" rel="external">组件页面</a> 查看当前的 React-Bootstrap 库。</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2016/01/11/learn-react-router/" data-id="cij9znhpw00054vqfyj2ztkzd" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2016/01/12/20160112-React-Bootstrap-Introduction/" data-id="cijbfkhqt0003buqf0102t90f" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-router/">react router</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-bootstrap/">react bootstrap</a></li></ul>
 
     </footer>
   </div>
@@ -156,10 +164,10 @@
 
 
   
-    <article id="post-learn-jade" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2015/08/15/learn-jade/" class="article-date">
-  <time datetime="2015-08-15T07:12:51.000Z" itemprop="datePublished">2015-08-15</time>
+    <a href="/2015/08/04/hello-world/" class="article-date">
+  <time datetime="2015-08-04T01:07:34.000Z" itemprop="datePublished">2015-08-04</time>
 </a>
     
   </div>
@@ -170,7 +178,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/15/learn-jade/">Jade</a>
+      <a class="article-title" href="/2015/08/04/hello-world/">Hello World</a>
     </h1>
   
 
@@ -178,108 +186,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/08/15/learn-jade/" data-id="cij9znhpy00084vqfgrsm2px7" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-testing-in-spring" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/08/05/testing-in-spring/" class="article-date">
-  <time datetime="2015-08-05T02:00:41.000Z" itemprop="datePublished">2015-08-05</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/05/testing-in-spring/">Testing in Spring</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="u5355_u5143_u6D4B_u8BD5"><a href="#u5355_u5143_u6D4B_u8BD5" class="headerlink" title="单元测试"></a>单元测试</h2><h3 id="Spring_Framework__u63D0_u4F9B_u7684_Mock_Objects"><a href="#Spring_Framework__u63D0_u4F9B_u7684_Mock_Objects" class="headerlink" title="Spring Framework 提供的 Mock Objects"></a>Spring Framework 提供的 Mock Objects</h3><ul>
-<li>Environment, org.springframework.mock.env package, MockEnvironment and MockPropertySource</li>
-<li>JNDI, org.springframework.mock.jndi, JNDI SPI</li>
-<li>Servlet API, org.springframework.mock.web, 测试 web contexts, controllers, filters<ul>
-<li>Spring MVC and REST Controllers 的集成测试可以参考 <a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/integration-testing.html#spring-mvc-test-framework" target="_blank" rel="external">Spring MVC Test Framework</a></li>
-</ul>
-</li>
-<li>Portlet API</li>
-</ul>
-<h2 id="u96C6_u6210_u6D4B_u8BD5"><a href="#u96C6_u6210_u6D4B_u8BD5" class="headerlink" title="集成测试"></a>集成测试</h2><p>Spring 2.5 以后，在 Spring TestContext Framework 中提供了基于注解的单元测试和集成测试。</p>
-<p>Spring 对于集成测试的支持有以下几个主要目标：</p>
-<ul>
-<li>测试执行过程中管理 Spring IoC 容器缓存</li>
-<li>提供测试夹具（test fixture）实例的依赖注入(Dependency Injection)</li>
-<li>提供集成测试中的事务管理</li>
-<li>提供写集成测试中需要的特定的 Spring 基类</li>
-</ul>
-<h3 id="JDBC__u6D4B_u8BD5"><a href="#JDBC__u6D4B_u8BD5" class="headerlink" title="JDBC 测试"></a>JDBC 测试</h3><p>使用 JdbcTestUtils</p>
-<h3 id="u6CE8_u89E3"><a href="#u6CE8_u89E3" class="headerlink" title="注解"></a>注解</h3><h2 id="Spring_MVC__u6D4B_u8BD5_u6846_u67B6"><a href="#Spring_MVC__u6D4B_u8BD5_u6846_u67B6" class="headerlink" title="Spring MVC 测试框架"></a>Spring MVC 测试框架</h2><p>建立在 spring-test 模块中的 Servlet API mock objects 之上，所以不需要一个运行的 Servlet 容器，它会使用 DispatcherServlet，提供所有的 Spring MVC 的支持，使用 TestContext 框架可以选择性的加载实际的 Spring 配置文件，</p>
-<p>Spring MVC 测试提供了 client-side 的测试，使用 RestTemplate 来测试。Client-side 的测试会 mock 服务器的响应，并不需要一个运行的服务器。</p>
-<h3 id="Server-Side__u670D_u52A1_u5668_u7AEF_u6D4B_u8BD5"><a href="#Server-Side__u670D_u52A1_u5668_u7AEF_u6D4B_u8BD5" class="headerlink" title="Server-Side 服务器端测试"></a>Server-Side 服务器端测试</h3><h4 id="u914D_u7F6E_u9879_Setup_Options"><a href="#u914D_u7F6E_u9879_Setup_Options" class="headerlink" title="配置项 Setup Options"></a>配置项 Setup Options</h4><p>有两种方式来创建 MockMvc的实例</p>
-<ul>
-<li>通过 TestContext 框架来加载 Spring MVC 的配置</li>
-<li>手动创建 controller 的实例，不用加载 Spring 的配置</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">// 通过 TestContext 框架来加载 Spring MVC 的配置</span><br><span class="line">import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;</span><br><span class="line">import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;</span><br><span class="line"></span><br><span class="line">@RunWith(SpringJUnit4ClassRunner.class)</span><br><span class="line">@WebAppConfiguration</span><br><span class="line">@ContextConfiguration(<span class="string">"test-servlet-context.xml"</span>)</span><br><span class="line">public class ExampleTests &#123;</span><br><span class="line"></span><br><span class="line">    @Autowired</span><br><span class="line">    private WebApplicationContext wac;</span><br><span class="line"></span><br><span class="line">    private MockMvc mockMvc;</span><br><span class="line"></span><br><span class="line">    @Before</span><br><span class="line">    public void <span class="function"><span class="title">setup</span></span>() &#123;</span><br><span class="line">        this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Test</span><br><span class="line">    public void getAccount() throws Exception &#123;</span><br><span class="line">        this.mockMvc.perform(get(<span class="string">"/accounts/1"</span>).accept(MediaType.parseMediaType(<span class="string">"application/json;charset=UTF-8"</span>)))</span><br><span class="line">            .andExpect(status().isOk())</span><br><span class="line">            .andExpect(content().contentType(<span class="string">"application/json"</span>))</span><br><span class="line">            .andExpect(jsonPath(<span class="string">"$.name"</span>).value(<span class="string">"Lee"</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// 手动创建 controller 的实例</span><br><span class="line">public class MyWebTests &#123;</span><br><span class="line"></span><br><span class="line">    private MockMvc mockMvc;</span><br><span class="line"></span><br><span class="line">    @Before</span><br><span class="line">    public void <span class="function"><span class="title">setup</span></span>() &#123;</span><br><span class="line">        this.mockMvc = MockMvcBuilders.standaloneSetup(new AccountController()).build();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // ...</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="u9009_u62E9_u54EA_u4E00_u79CD_uFF1F"><a href="#u9009_u62E9_u54EA_u4E00_u79CD_uFF1F" class="headerlink" title="选择哪一种？"></a>选择哪一种？</h5><ul>
-<li>“webAppContextSetup”<ul>
-<li>“webAppContextSetup” 加载实际的 Spring MVC 配置，能够提供一个更完整的集成测试。</li>
-<li>而且 TestContext 框架能够缓存加载的 Spring 配置，保证测试能够快速运行。 </li>
-<li>另外，你还可以通过 Spring 的配置，在 controller 中注入 mock 的 services，这样可以把关注点放在测试 web 层。</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// 使用 Mockito 声明一个 mock 的 service </span><br><span class="line">&lt;bean id=<span class="string">"accountService"</span> class=<span class="string">"org.mockito.Mockito"</span> factory-method=<span class="string">"mock"</span>&gt;</span><br><span class="line">    &lt;constructor-arg value=<span class="string">"org.example.AccountService"</span>/&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">// 在测试中就可以使用这个 mock 的 service</span><br><span class="line">@RunWith(SpringJUnit4ClassRunner.class)</span><br><span class="line">@WebAppConfiguration</span><br><span class="line">@ContextConfiguration(<span class="string">"test-servlet-context.xml"</span>)</span><br><span class="line">public class AccountTests &#123;</span><br><span class="line"></span><br><span class="line">    @Autowired</span><br><span class="line">    private WebApplicationContext wac;</span><br><span class="line"></span><br><span class="line">    private MockMvc mockMvc;</span><br><span class="line"></span><br><span class="line">    @Autowired</span><br><span class="line">    private AccountService accountService;</span><br><span class="line"></span><br><span class="line">    // ...</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>“standaloneSetup” <ul>
-<li>“standaloneSetup” 更像单元测试，每次测一个 controller，controller 可以用 mock 的依赖手动注入，不需要加载 Spring 配置。</li>
-<li>可以很容易的看到是在测是哪一个 controller</li>
-<li>对于写 ad-hoc 测试来验证行为或者 debug 的时候很方便</li>
-<li>要写 “webAppContextSetup” 测试来验证 Spring MVC 配置</li>
-</ul>
-</li>
-</ul>
-<h4 id="u6267_u884C_u8BF7_u6C42_Performing_Requests"><a href="#u6267_u884C_u8BF7_u6C42_Performing_Requests" class="headerlink" title="执行请求 Performing Requests"></a>执行请求 Performing Requests</h4><ul>
-<li>用 HTTP 方法</li>
-<li>用 file upload 请求</li>
-</ul>
-<h4 id="u5B9A_u4E49_Expectations"><a href="#u5B9A_u4E49_Expectations" class="headerlink" title="定义 Expectations"></a>定义 Expectations</h4><p>有两种类型</p>
-<ul>
-<li>验证 response 的属性，比如 response 的 status, headers, content</li>
-<li>验证 Spring MVC 具体的事情，比如哪个 controller 的方法处理了这个请求，是否有 exception 抛出和处理，model 的内容是什么，选择了哪个 view 等。</li>
-</ul>
-<h2 id="u4E0E_u7AEF_u5230_u7AEF_u57FA_u7840_u6D4B_u8BD5_u7684_u533A_u522B"><a href="#u4E0E_u7AEF_u5230_u7AEF_u57FA_u7840_u6D4B_u8BD5_u7684_u533A_u522B" class="headerlink" title="与端到端基础测试的区别"></a>与端到端基础测试的区别</h2><ul>
-<li>blank MockHttpServletRequest</li>
-</ul>
+        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick_Start"><a href="#Quick_Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create_a_new_post"><a href="#Create_a_new_post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run_server"><a href="#Run_server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate_static_files"><a href="#Generate_static_files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy_to_remote_sites"><a href="#Deploy_to_remote_sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/08/05/testing-in-spring/" data-id="cij9znhpo00014vqfyr6pfuc0" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/08/04/hello-world/" data-id="cijbfkhqq0002buqf18ag7f4i" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring-test/">spring test</a></li></ul>
-
     </footer>
   </div>
   
@@ -352,52 +274,7 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/08/04/2015-03-19-webfont/" data-id="cij9znhqv000y4vqfgwwfy2jr" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/08/04/hello-world/" class="article-date">
-  <time datetime="2015-08-04T01:07:34.000Z" itemprop="datePublished">2015-08-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/04/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start"><a href="#Quick_Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create_a_new_post"><a href="#Create_a_new_post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server"><a href="#Run_server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files"><a href="#Generate_static_files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites"><a href="#Deploy_to_remote_sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/08/04/hello-world/" data-id="cij9znhpz00094vqf86m7p578" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/08/04/2015-03-19-webfont/" data-id="cijbfkhrs000ubuqfm1p5yvik" class="article-share-link">Share</a>
       
       
     </footer>
@@ -433,7 +310,7 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/08/03/test/" data-id="cij9znhpu00044vqf9krd473h" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/08/03/test/" data-id="cijbfkhqn0001buqff9q6sz6w" class="article-share-link">Share</a>
       
       
     </footer>
@@ -493,7 +370,7 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/29/2015-07-29-spring-004-database/" data-id="cij9znhq1000a4vqf7y5i4bsc" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/29/2015-07-29-spring-004-database/" data-id="cijbfkhqy0006buqfo99dtp08" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li></ul>
@@ -631,7 +508,7 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/14/2015-07-14-spring-003-config/" data-id="cij9znhq4000d4vqfmo8rmpsw" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/14/2015-07-14-spring-003-config/" data-id="cijbfkhr10009buqfck78vnqc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -742,11 +619,90 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/12/2015-07-12-spring-002-ioc/" data-id="cij9znhq6000e4vqfbhdax7rw" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/12/2015-07-12-spring-002-ioc/" data-id="cijbfkhr3000abuqfurfhqhy3" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li></ul>
 
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2015-07-10-backend-frontend-interaction" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/07/10/2015-07-10-backend-frontend-interaction/" class="article-date">
+  <time datetime="2015-07-10T10:08:50.000Z" itemprop="datePublished">2015-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/07/10/2015-07-10-backend-frontend-interaction/">后台数据传到前台有几种方式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#后台数据传到前台有几种方式</p>
+<ul>
+<li>Servlet + JSP</li>
+<li>MVC</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://weixiaobo88.github.io/2015/07/10/2015-07-10-backend-frontend-interaction/" data-id="cijbfkhr8000dbuqf17ywlo06" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2015-07-10-database-01" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/07/10/2015-07-10-database-01/" class="article-date">
+  <time datetime="2015-07-10T10:08:50.000Z" itemprop="datePublished">2015-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/07/10/2015-07-10-database-01/">数据库</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>数据库<br>实体<br>实体之间的关系</p>
+<p>修改数据库表的字段类型，如果已有的数据类型不同，会怎么样</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://weixiaobo88.github.io/2015/07/10/2015-07-10-database-01/" data-id="cijbfkhr5000cbuqf0z092hs4" class="article-share-link">Share</a>
+      
+      
     </footer>
   </div>
   
@@ -769,7 +725,7 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/">gradle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-router/">react router</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/servlet/">servlet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring-test/">spring test</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/">gradle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-bootstrap/">react bootstrap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/servlet/">servlet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -778,7 +734,7 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/react-router/" style="font-size: 10px;">react router</a> <a href="/tags/servlet/" style="font-size: 15px;">servlet</a> <a href="/tags/spring/" style="font-size: 20px;">spring</a> <a href="/tags/spring-test/" style="font-size: 10px;">spring test</a>
+      <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/react-bootstrap/" style="font-size: 10px;">react bootstrap</a> <a href="/tags/servlet/" style="font-size: 15px;">servlet</a> <a href="/tags/spring/" style="font-size: 20px;">spring</a>
     </div>
   </div>
 
@@ -787,7 +743,7 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -799,23 +755,23 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
       <ul>
         
           <li>
-            <a href="/2016/01/11/2013-12-31-whats-jekyll/">What&#39;s Jekyll?</a>
+            <a href="/2016/01/12/2013-12-31-whats-jekyll/">What&#39;s Jekyll?</a>
           </li>
         
           <li>
-            <a href="/2016/01/11/learn-react-router/">learn-react-router</a>
+            <a href="/2016/01/12/20160112-React-Bootstrap-Introduction/">React-Bootstrap-Introduction</a>
           </li>
         
           <li>
-            <a href="/2015/08/15/learn-jade/">Jade</a>
-          </li>
-        
-          <li>
-            <a href="/2015/08/05/testing-in-spring/">Testing in Spring</a>
+            <a href="/2015/08/04/hello-world/">Hello World</a>
           </li>
         
           <li>
             <a href="/2015/08/04/2015-03-19-webfont/">学习web fonts</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/03/test/">test</a>
           </li>
         
       </ul>
