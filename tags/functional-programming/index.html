@@ -3,27 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Gradle运行机制 | weixiaobo88.github.io</title>
+  <title>Tag: functional-programming | weixiaobo88.github.io</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="http://igorpopov.io/2014/05/01/understanding-gradle/https://github.com/davenkin/gradle-learning
-Gradle运行机制Gradle四个部分每个project有多个task, task有多个property
-projecttaskpropertysourcesets
-两个sourcesets:main:">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Gradle运行机制">
-<meta property="og:url" content="http://weixiaobo88.github.io/2015/07/09/2015-07-09-gradle/index.html">
+  <meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="weixiaobo88.github.io">
+<meta property="og:url" content="http://weixiaobo88.github.io/tags/functional-programming/index.html">
 <meta property="og:site_name" content="weixiaobo88.github.io">
-<meta property="og:description" content="http://igorpopov.io/2014/05/01/understanding-gradle/https://github.com/davenkin/gradle-learning
-Gradle运行机制Gradle四个部分每个project有多个task, task有多个property
-projecttaskpropertysourcesets
-两个sourcesets:main:">
-<meta property="og:updated_time" content="2015-08-03T13:09:47.000Z">
+<meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Gradle运行机制">
-<meta name="twitter:description" content="http://igorpopov.io/2014/05/01/understanding-gradle/https://github.com/davenkin/gradle-learning
-Gradle运行机制Gradle四个部分每个project有多个task, task有多个property
-projecttaskpropertysourcesets
-两个sourcesets:main:">
+<meta name="twitter:title" content="weixiaobo88.github.io">
+<meta name="twitter:description">
   
     <link rel="alternative" href="/atom.xml" title="weixiaobo88.github.io" type="application/atom+xml">
   
@@ -73,73 +63,39 @@ projecttaskpropertysourcesets
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-2015-07-09-gradle" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/07/09/2015-07-09-gradle/" class="article-date">
-  <time datetime="2015-07-09T10:08:50.000Z" itemprop="datePublished">2015-07-09</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+        <section id="main">
   
-    <h1 class="article-title" itemprop="name">
-      Gradle运行机制
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2016" class="archive-year">2016</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2016/01/14/20160114-functional-programming/" class="archive-article-date">
+  <time datetime="2016-01-14T13:09:36.000Z" itemprop="datePublished">Jan 14</time>
+</a>
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2016/01/14/20160114-functional-programming/">Functional Programming</a>
     </h1>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="http://igorpopov.io/2014/05/01/understanding-gradle/" target="_blank" rel="external">http://igorpopov.io/2014/05/01/understanding-gradle/</a><br><a href="https://github.com/davenkin/gradle-learning" target="_blank" rel="external">https://github.com/davenkin/gradle-learning</a></p>
-<h2 id="Gradle_u8FD0_u884C_u673A_u5236"><a href="#Gradle_u8FD0_u884C_u673A_u5236" class="headerlink" title="Gradle运行机制"></a>Gradle运行机制</h2><p>Gradle四个部分<br>每个project有多个task, task有多个property</p>
-<p>project<br>task<br>property<br>sourcesets</p>
-<p>两个sourcesets:<br>main:<br>     src/main/java 全目录结构<br>     src/main/resource<br>test: src/test</p>
-<p>sourcesets包含两个<br>一个资源文件<br>一个配置文件</p>
-<p>Task Dependency</p>
-<p>dependencies {<br>  compile 编译源代码时需要的<br>  testCompile 比如junit<br>  runtime 比如servlet，对编译没有影响，在web容器启动后才需要<br>  testRuntime<br>}</p>
-<p>src/main/java<br>src/main/resource</p>
-<p>task mkdir &lt;&lt; {<br>     file(“./src/main/java”).mkdirs();<br>     file(“./src/main/resource”).mkdirs();<br>}</p>
-<p>Ant maven gradle区别<br>ant: 构建操作小的低级的封装，无法感知到war和第三方的依赖；没有指定的目录结构<br>     target: copy,compile,jar<br>maven:<br>     目录结构规范化了，src/main/java<br>     引入了dependency<br>     内建项目的周期管理，扩展性不好<br>gradle:<br>     maven基础上，task之间有依赖关系，</p>
-<h2 id="Gradle_u4E2D_u201Ccompile_u201D_u548C_u201Cruntime_u201D_u533A_u522B"><a href="#Gradle_u4E2D_u201Ccompile_u201D_u548C_u201Cruntime_u201D_u533A_u522B" class="headerlink" title="Gradle中“compile”和“runtime”区别"></a>Gradle中“compile”和“runtime”区别</h2><h2 id="Gradle_u4E2D_u201Dplugin_u201D_u5982_u4F55_u5DE5_u4F5C"><a href="#Gradle_u4E2D_u201Dplugin_u201D_u5982_u4F55_u5DE5_u4F5C" class="headerlink" title="Gradle中”plugin”如何工作"></a>Gradle中”plugin”如何工作</h2>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/09/2015-07-09-gradle/" data-id="cijjxgfcj000j8oqf4i0x5j64" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gradle/">gradle</a></li></ul>
-
-    </footer>
+    </header>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2015/07/09/2015-07-09-servlet-002/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Servlet 完成Web请求和响应
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2015/07/09/2015-07-09-deploy/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">部署</div>
-    </a>
-  
-</nav>
-
-  
 </article>
-
+  
+  
+    </div></section>
+  
 </section>
         
           <aside id="sidebar">
