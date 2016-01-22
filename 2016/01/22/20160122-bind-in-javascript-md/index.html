@@ -3,45 +3,45 @@
 <head>
   <meta charset="utf-8">
   
-  <title>20160122-bind-in-javascript.md | weixiaobo88.github.io</title>
+  <title>Bind in JavaScript | weixiaobo88.github.io</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="参考 bind MDN
+  <meta name="description" content="参考 Bind MDN
 bind 函数语法fun.bind(thisArg[, arg1[, arg2[, ...]]])
 其中:
 
-fun 是你想绑定到 thisArg 上的方法;
+fun 是;
 bind 是关键字
 thisArg 是你想绑定的 target
 arg1, arg2 … 是绑定到 thisArg 上的 fun 方法的参数
 
-bind 函数是什么bind() 函数创建一个新的函数, 这个新的函数和">
+bind 函数是什么bind() 函数会创建一个新函数（称为绑定函数），新函数与被调函数（绑定函数的目标函数">
 <meta property="og:type" content="article">
-<meta property="og:title" content="20160122-bind-in-javascript.md">
+<meta property="og:title" content="Bind in JavaScript">
 <meta property="og:url" content="http://weixiaobo88.github.io/2016/01/22/20160122-bind-in-javascript-md/index.html">
 <meta property="og:site_name" content="weixiaobo88.github.io">
-<meta property="og:description" content="参考 bind MDN
+<meta property="og:description" content="参考 Bind MDN
 bind 函数语法fun.bind(thisArg[, arg1[, arg2[, ...]]])
 其中:
 
-fun 是你想绑定到 thisArg 上的方法;
+fun 是;
 bind 是关键字
 thisArg 是你想绑定的 target
 arg1, arg2 … 是绑定到 thisArg 上的 fun 方法的参数
 
-bind 函数是什么bind() 函数创建一个新的函数, 这个新的函数和">
-<meta property="og:updated_time" content="2016-01-22T14:41:51.000Z">
+bind 函数是什么bind() 函数会创建一个新函数（称为绑定函数），新函数与被调函数（绑定函数的目标函数">
+<meta property="og:updated_time" content="2016-01-22T15:14:51.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="20160122-bind-in-javascript.md">
-<meta name="twitter:description" content="参考 bind MDN
+<meta name="twitter:title" content="Bind in JavaScript">
+<meta name="twitter:description" content="参考 Bind MDN
 bind 函数语法fun.bind(thisArg[, arg1[, arg2[, ...]]])
 其中:
 
-fun 是你想绑定到 thisArg 上的方法;
+fun 是;
 bind 是关键字
 thisArg 是你想绑定的 target
 arg1, arg2 … 是绑定到 thisArg 上的 fun 方法的参数
 
-bind 函数是什么bind() 函数创建一个新的函数, 这个新的函数和">
+bind 函数是什么bind() 函数会创建一个新函数（称为绑定函数），新函数与被调函数（绑定函数的目标函数">
   
     <link rel="alternative" href="/atom.xml" title="weixiaobo88.github.io" type="application/atom+xml">
   
@@ -105,7 +105,7 @@ bind 函数是什么bind() 函数创建一个新的函数, 这个新的函数和
         
   
     <h1 class="article-title" itemprop="name">
-      20160122-bind-in-javascript.md
+      Bind in JavaScript
     </h1>
   
 
@@ -113,16 +113,16 @@ bind 函数是什么bind() 函数创建一个新的函数, 这个新的函数和
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>参考 <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind" target="_blank" rel="external">bind MDN</a></p>
+        <p>参考 <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind" target="_blank" rel="external">Bind MDN</a></p>
 <h2 id="bind__u51FD_u6570_u8BED_u6CD5"><a href="#bind__u51FD_u6570_u8BED_u6CD5" class="headerlink" title="bind 函数语法"></a>bind 函数语法</h2><p><code>fun.bind(thisArg[, arg1[, arg2[, ...]]])</code></p>
 <p>其中:</p>
 <ul>
-<li>fun 是你想绑定到 thisArg 上的方法;</li>
+<li>fun 是;</li>
 <li>bind 是关键字</li>
 <li>thisArg 是你想绑定的 target</li>
 <li>arg1, arg2 … 是绑定到 thisArg 上的 fun 方法的参数</li>
 </ul>
-<h2 id="bind__u51FD_u6570_u662F_u4EC0_u4E48"><a href="#bind__u51FD_u6570_u662F_u4EC0_u4E48" class="headerlink" title="bind 函数是什么"></a>bind 函数是什么</h2><p>bind() 函数创建一个新的函数, 这个新的函数和被掉函数有相同的函数体, 同时接受预设的参数.<br>当使用 new 操作符来创建时, thisArg 被忽略.</p>
+<h2 id="bind__u51FD_u6570_u662F_u4EC0_u4E48"><a href="#bind__u51FD_u6570_u662F_u4EC0_u4E48" class="headerlink" title="bind 函数是什么"></a>bind 函数是什么</h2><p>bind() 函数会创建一个新函数（称为绑定函数），新函数与被调函数（绑定函数的目标函数）具有相同的函数体。<br>当目标函数被调用时 this 值绑定到 bind() 的第一个参数，该参数不能被重写。<br>绑定函数被调用时，bind() 也接受预设的参数提供给原函数。</p>
 <h2 id="bind__u51FD_u6570_u5728_u4EC0_u4E48_u60C5_u51B5_u4E0B_u7528"><a href="#bind__u51FD_u6570_u5728_u4EC0_u4E48_u60C5_u51B5_u4E0B_u7528" class="headerlink" title="bind 函数在什么情况下用"></a>bind 函数在什么情况下用</h2><ul>
 <li>设定某个函数调用的 this  值</li>
 <li>预设初始参数</li>
@@ -195,7 +195,7 @@ bind 函数是什么bind() 函数创建一个新的函数, 这个新的函数和
       <ul>
         
           <li>
-            <a href="/2016/01/22/20160122-bind-in-javascript-md/">20160122-bind-in-javascript.md</a>
+            <a href="/2016/01/22/20160122-bind-in-javascript-md/">Bind in JavaScript</a>
           </li>
         
           <li>
