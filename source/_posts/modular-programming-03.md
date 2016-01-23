@@ -1,6 +1,8 @@
 title: 模块化编程 Modular Programming 03 —— require.js 的用法
 date: 2015-08-04 14:33:11
-tags: modular programming
+tags: 
+- JavaScript
+- modular programming
 ---
 
 ## 为什么要用 require.js

@@ -1,6 +1,8 @@
 title: 模块化编程 Modular Programming 02 —— AMD 规范
 date: 2015-08-04 12:46:39
-tags: modular programming
+tags: 
+- JavaScript
+- modular programming
 ---
 
 参考资料： http://www.ruanyifeng.com/blog/2012/10/asynchronous_module_definition.html

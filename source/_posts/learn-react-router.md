@@ -1,6 +1,8 @@
 title: learn-react-router
 date: 2016-01-11 20:35:47
-tags: react router
+tags: 
+- react
+- react router
 ---
 
 参考资料： https://github.com/rackt/react-router/blob/0.13.x/doc/06%20Mixins/State.md

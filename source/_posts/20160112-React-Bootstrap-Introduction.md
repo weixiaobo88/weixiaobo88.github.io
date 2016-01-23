@@ -1,6 +1,8 @@
 title: React-Bootstrap-Introduction
 date: 2016-01-12 20:21:38
-tags: react bootstrap
+tags: 
+- react
+- react bootstrap
 ---
 
 # 介绍 —— 使用React重建最受欢迎的前端框架

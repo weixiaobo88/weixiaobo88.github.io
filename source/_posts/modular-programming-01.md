@@ -1,6 +1,8 @@
 title: 模块化编程 Modular Programming 01 —— 模块的写法
 date: 2015-08-04 09:09:19
-tags: modular programming
+tags: 
+- JavaScript
+- modular programming
 ---
 
 参考资料： http://www.ruanyifeng.com/blog/2012/10/javascript_module.html
