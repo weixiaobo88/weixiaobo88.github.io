@@ -29,7 +29,7 @@ thisArg 是你想绑定的 target
 arg1, arg2 … 是绑定到 thisArg 上的 fun 方法的参数
 
 bind 函数是什么bind() 函数会创建一个新函数（称为绑定函数），新函数与被">
-<meta property="og:updated_time" content="2016-01-22T15:25:44.000Z">
+<meta property="og:updated_time" content="2016-01-23T15:25:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Bind in JavaScript">
 <meta name="twitter:description" content="参考Bind MDNStackOverflow 
@@ -123,18 +123,22 @@ bind 函数是什么bind() 函数会创建一个新函数（称为绑定函数�
 <li>arg1, arg2 … 是绑定到 thisArg 上的 fun 方法的参数</li>
 </ul>
 <h2 id="bind__u51FD_u6570_u662F_u4EC0_u4E48"><a href="#bind__u51FD_u6570_u662F_u4EC0_u4E48" class="headerlink" title="bind 函数是什么"></a>bind 函数是什么</h2><p>bind() 函数会创建一个新函数（称为绑定函数），新函数与被调函数（绑定函数的目标函数）具有相同的函数体。<br>当目标函数被调用时 this 值绑定到 bind() 的第一个参数，该参数不能被重写。<br>绑定函数被调用时，bind() 也接受预设的参数提供给原函数。</p>
-<h2 id="bind__u51FD_u6570_u548C_call__u6709_u4EC0_u4E48_u533A_u522B"><a href="#bind__u51FD_u6570_u548C_call__u6709_u4EC0_u4E48_u533A_u522B" class="headerlink" title="bind 函数和 call 有什么区别"></a>bind 函数和 call 有什么区别</h2><p>They all attach this into function (or object) and the difference is in the function invocation (see below).</p>
-<p>call attaches this into function and executes the function immediately:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;  </span><br><span class="line">  name: <span class="string">"James Smith"</span>,</span><br><span class="line">  hello: <span class="function"><span class="keyword">function</span>(<span class="params">thing</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name + <span class="string">" says hello "</span> + thing);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">person.hello.call(person, <span class="string">"world"</span>); <span class="comment">// output: James Smith says hello world</span></span><br></pre></td></tr></table></figure>
-<p>bind attaches this into function and it needs to be invoked separately like this:</p>
+<h2 id="bind__u51FD_u6570_u548C_call__u6709_u4EC0_u4E48_u533A_u522B"><a href="#bind__u51FD_u6570_u548C_call__u6709_u4EC0_u4E48_u533A_u522B" class="headerlink" title="bind 函数和 call 有什么区别"></a>bind 函数和 call 有什么区别</h2><p>bind 函数和 call 都是将 this 绑定到函数或对象上, 不同之处在于函数的调用上.</p>
+<p>call 将 this 绑定到函数上, 并立即执行这个函数.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;  </span><br><span class="line">	name: <span class="string">"James Smith"</span>,</span><br><span class="line">	hello: <span class="function"><span class="keyword">function</span>(<span class="params">thing</span>) </span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="keyword">this</span>.name + <span class="string">" says hello "</span> + thing);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">person.hello.call(person, <span class="string">"world"</span>); <span class="comment">// output: James Smith says hello world</span></span><br></pre></td></tr></table></figure>
+<p>bind 将 this 绑定到函数上, 需要单独调用:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;  </span><br><span class="line">  name: <span class="string">"James Smith"</span>,</span><br><span class="line">  hello: <span class="function"><span class="keyword">function</span>(<span class="params">thing</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name + <span class="string">" says hello "</span> + thing);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> helloFunc = person.hello.bind(person);</span><br><span class="line">helloFunc(<span class="string">"world"</span>);  <span class="comment">// output: James Smith says hello world</span></span><br></pre></td></tr></table></figure>
-<p>or like this:</p>
+<p>或者这样:</p>
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable"><span class="keyword">var</span> helloFunc</span> = person.hello.bind(person, <span class="string">"world"</span>);</span><br><span class="line">helloFunc();  <span class="comment">// output: James Smith says hello world</span></span><br></pre></td></tr></table></figure>
+<h2 id="apply__u548C_call_u5728_u4EC0_u4E48_u60C5_u51B5_u4E0B_u7528"><a href="#apply__u548C_call_u5728_u4EC0_u4E48_u60C5_u51B5_u4E0B_u7528" class="headerlink" title="apply 和 call在什么情况下用"></a>apply 和 call在什么情况下用</h2><p>两种情况:</p>
+<ul>
+<li>借一个函数</li>
+<li>设置 this 的值</li>
+</ul>
 <h2 id="bind__u51FD_u6570_u5728_u4EC0_u4E48_u60C5_u51B5_u4E0B_u7528"><a href="#bind__u51FD_u6570_u5728_u4EC0_u4E48_u60C5_u51B5_u4E0B_u7528" class="headerlink" title="bind 函数在什么情况下用"></a>bind 函数在什么情况下用</h2><ul>
-<li>设定某个函数调用的 this  值</li>
-<li>预设初始参数</li>
-<li>callback 中传递 this</li>
-<li>快捷调用</li>
+<li>借一个函数</li>
+<li>设置 this 的值</li>
+<li>currying 函数</li>
 </ul>
 
       
