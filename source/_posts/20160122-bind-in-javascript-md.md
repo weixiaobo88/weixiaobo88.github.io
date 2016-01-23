@@ -1,11 +1,15 @@
 title: Bind in JavaScript
 date: 2016-01-22 22:19:32
-tags: bind
+tags: 
+- JavaScript 
+- bind
 ---
 
 参考 
 [Bind MDN](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind)
-[StackOverflow](http://stackoverflow.com/questions/15455009/javascript-call-apply-vs-bind) 
+[StackOverflow](http://stackoverflow.com/questions/15455009/javascript-call-apply-vs-bind)
+[blog](http://javascriptissexy.com/javascript-apply-call-and-bind-methods-are-essential-for-javascript-professionals/)
+[gitbook](https://drboolean.gitbooks.io/mostly-adequate-guide/content/) 
 
 ## bind 函数语法
 
@@ -27,22 +31,22 @@ bind() 函数会创建一个新函数（称为绑定函数），新函数与被�
 
 ## bind 函数和 call 有什么区别
 
-They all attach this into function (or object) and the difference is in the function invocation (see below).
+bind 函数和 call 都是将 this 绑定到函数或对象上, 不同之处在于函数的调用上.
 
-call attaches this into function and executes the function immediately:
+call 将 this 绑定到函数上, 并立即执行这个函数.
 
 ```
 var person = {  
-  name: "James Smith",
-  hello: function(thing) {
-    console.log(this.name + " says hello " + thing);
-  }
+	name: "James Smith",
+	hello: function(thing) {
+		console.log(this.name + " says hello " + thing);
+	}
 }
 
 person.hello.call(person, "world"); // output: James Smith says hello world
 ```
 
-bind attaches this into function and it needs to be invoked separately like this:
+bind 将 this 绑定到函数上, 需要单独调用:
 
 ```
 var person = {  
@@ -56,17 +60,24 @@ var helloFunc = person.hello.bind(person);
 helloFunc("world");  // output: James Smith says hello world
 ```
 
-or like this:
+或者这样:
 
 ```    
 var helloFunc = person.hello.bind(person, "world");
 helloFunc();  // output: James Smith says hello world
 ```
 
+## apply 和 call在什么情况下用
+
+两种情况:
+
+- 借一个函数
+- 设置 this 的值
+
+
 ## bind 函数在什么情况下用
 
-- 设定某个函数调用的 this  值
-- 预设初始参数
-- callback 中传递 this
-- 快捷调用
+- 借一个函数
+- 设置 this 的值
+- currying 函数
 
