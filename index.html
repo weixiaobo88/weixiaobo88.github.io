@@ -110,10 +110,15 @@
 <li>设置 this 的值</li>
 </ul>
 <h2 id="bind__u51FD_u6570_u5728_u4EC0_u4E48_u60C5_u51B5_u4E0B_u7528"><a href="#bind__u51FD_u6570_u5728_u4EC0_u4E48_u60C5_u51B5_u4E0B_u7528" class="headerlink" title="bind 函数在什么情况下用"></a>bind 函数在什么情况下用</h2><ul>
-<li>借一个函数</li>
+<li>借一个函数或复制一个函数</li>
 <li>设置 this 的值</li>
-<li>currying 函数</li>
+<li>可以把方法赋值给一个变量, 当函数使用</li>
+<li>currying 函数<ul>
+<li>函数柯里化, 也是偏函数应用, 一个函数会返回一个新的函数, 并预设了一些参数.</li>
 </ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">							name: <span class="string">'li'</span>, </span><br><span class="line">							say: <span class="function"><span class="keyword">function</span>(<span class="params">hello</span>)</span>&#123;</span><br><span class="line">										 <span class="built_in">console</span>.log(<span class="keyword">this</span>.name + <span class="string">' say '</span> + hello)</span><br><span class="line">									 &#125;</span><br><span class="line">							&#125;;</span><br><span class="line">							</span><br><span class="line"><span class="keyword">var</span> cat = &#123;name: <span class="string">'cat'</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> catSay = person.say.bind(cat);</span><br><span class="line">catSay(<span class="string">'miao~'</span>);  <span class="comment">//cat say miao~</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> catSayHi = person.say.bind(cat, <span class="string">'hi'</span>);</span><br><span class="line">catSayHi(); <span class="comment">//cat say hi</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
