@@ -67,6 +67,31 @@ var helloFunc = person.hello.bind(person, "world");
 helloFunc();  // output: James Smith says hello world
 ```
 
+
+## bind 函数在什么情况下用
+
+- 借一个函数或复制一个函数
+- 设置 this 的值
+- 可以把方法赋值给一个变量, 当函数使用
+- currying 函数
+  * 函数柯里化, 也是偏函数应用, 一个函数会返回一个新的函数, 并预设了一些参数.
+
+```javascript
+var person = {
+              name: 'li', 
+              say: function(hello){ 
+                     console.log(this.name + ' say ' + hello)
+                   }
+             }; 							
+var cat = {name: 'cat'};
+var catSay = person.say.bind(cat);
+catSay('miao~');  //cat say miao~
+
+var catSayHi = person.say.bind(cat, 'hi');
+catSayHi(); //cat say hi	    
+```
+
+
 ## apply 和 call在什么情况下用
 
 两种情况:
@@ -74,10 +99,6 @@ helloFunc();  // output: James Smith says hello world
 - 借一个函数
 - 设置 this 的值
 
-
-## bind 函数在什么情况下用
-
-- 借一个函数
-- 设置 this 的值
-- currying 函数
+apply 函数还可以应用于可变参数函数
+ 
 
