@@ -17,7 +17,7 @@ tags:
 
 其中:
  
- - fun 是;
+ - fun 是已存在的函数
  - bind 是关键字
  - thisArg 是你想绑定的 target
  - arg1, arg2 ... 是绑定到 thisArg 上的 fun 方法的参数
@@ -99,6 +99,19 @@ catSayHi(); //cat say hi
 - 借一个函数
 - 设置 this 的值
 
-apply 函数还可以应用于可变参数函数
+### apply 函数还可以应用于可变参数函数
+
+#### 什么是可变参数函数?
+
+Math.max() 就是一个可变参数函数, 你可以传任意多个参数给它.
+
+```
+console.log(Math.max(2, 3, 1, 5, 8));
+```
+
+但是我们不能给 Math.max() 传一个数组作为参数, 但是 apply 可以帮我们做到.
  
+```
+console.log(Math.max.apply(null, [2, 3, 1, 5, 8]));
+```
 
