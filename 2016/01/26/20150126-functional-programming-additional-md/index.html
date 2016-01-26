@@ -3,17 +3,51 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: gradle | weixiaobo88.github.io</title>
+  <title>20150126-functional-programming-additional.md | weixiaobo88.github.io</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="weixiaobo88.github.io">
-<meta property="og:url" content="http://weixiaobo88.github.io/tags/gradle/index.html">
+  <meta name="description" content="Concepts
+pure function
+纯函数是指输入相同, 输出相同的函数, 而且没有任何副作用.副作用指: 改变文件系统, 插入数据到数据库, http调用, 值的改变, 打印, 获取用户输入, 查询DOM, 访问系统状态等. 
+
+
+
+纯函数有什么优势
+Cacheable
+纯函数可以根据输入进行缓存, 这通常叫做memoization
+
+
+Portable / Self-Document">
+<meta property="og:type" content="article">
+<meta property="og:title" content="20150126-functional-programming-additional.md">
+<meta property="og:url" content="http://weixiaobo88.github.io/2016/01/26/20150126-functional-programming-additional-md/index.html">
 <meta property="og:site_name" content="weixiaobo88.github.io">
-<meta property="og:description">
+<meta property="og:description" content="Concepts
+pure function
+纯函数是指输入相同, 输出相同的函数, 而且没有任何副作用.副作用指: 改变文件系统, 插入数据到数据库, http调用, 值的改变, 打印, 获取用户输入, 查询DOM, 访问系统状态等. 
+
+
+
+纯函数有什么优势
+Cacheable
+纯函数可以根据输入进行缓存, 这通常叫做memoization
+
+
+Portable / Self-Document">
+<meta property="og:updated_time" content="2016-01-26T12:38:41.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="weixiaobo88.github.io">
-<meta name="twitter:description">
+<meta name="twitter:title" content="20150126-functional-programming-additional.md">
+<meta name="twitter:description" content="Concepts
+pure function
+纯函数是指输入相同, 输出相同的函数, 而且没有任何副作用.副作用指: 改变文件系统, 插入数据到数据库, http调用, 值的改变, 打印, 获取用户输入, 查询DOM, 访问系统状态等. 
+
+
+
+纯函数有什么优势
+Cacheable
+纯函数可以根据输入进行缓存, 这通常叫做memoization
+
+
+Portable / Self-Document">
   
     <link rel="alternative" href="/atom.xml" title="weixiaobo88.github.io" type="application/atom+xml">
   
@@ -63,39 +97,79 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2015/07/09/2015-07-09-gradle/" class="archive-article-date">
-  <time datetime="2015-07-09T10:08:50.000Z" itemprop="datePublished">Jul 9</time>
+        <section id="main"><article id="post-20150126-functional-programming-additional-md" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/01/26/20150126-functional-programming-additional-md/" class="article-date">
+  <time datetime="2016-01-26T12:09:53.000Z" itemprop="datePublished">2016-01-26</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/07/09/2015-07-09-gradle/">Gradle运行机制</a>
+    <h1 class="article-title" itemprop="name">
+      20150126-functional-programming-additional.md
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Concepts"><a href="#Concepts" class="headerlink" title="Concepts"></a>Concepts</h2><ul>
+<li>pure function<blockquote>
+<p>纯函数是指输入相同, 输出相同的函数, 而且没有任何副作用.<br>副作用指: 改变文件系统, 插入数据到数据库, http调用, 值的改变, 打印, 获取用户输入, 查询DOM, 访问系统状态等. </p>
+</blockquote>
+</li>
+</ul>
+<h2 id="u7EAF_u51FD_u6570_u6709_u4EC0_u4E48_u4F18_u52BF"><a href="#u7EAF_u51FD_u6570_u6709_u4EC0_u4E48_u4F18_u52BF" class="headerlink" title="纯函数有什么优势"></a>纯函数有什么优势</h2><ul>
+<li>Cacheable<blockquote>
+<p>纯函数可以根据输入进行缓存, 这通常叫做memoization</p>
+</blockquote>
+</li>
+<li>Portable / Self-Documenting<blockquote>
+<p>需要依赖的东西会在参数中显示出来, 可移植性比较好 </p>
+</blockquote>
+</li>
+<li>Testable</li>
+<li>Reasonable<blockquote>
+<p>referential transparency</p>
+</blockquote>
+</li>
+<li>Parallel Code</li>
+</ul>
+<h2 id="Object-oriented_languages"><a href="#Object-oriented_languages" class="headerlink" title="Object-oriented languages"></a>Object-oriented languages</h2><blockquote>
+<p>The problem with object-oriented languages is<br>they’ve got all this implicit environment that they carry around with them.<br>You wanted a banana but what you got was a gorilla holding the banana… and the entire jungle    </p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://weixiaobo88.github.io/2016/01/26/20150126-functional-programming-additional-md/" data-id="cijve888p0017czqfj1978384" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/functional-programming/">functional-programming</a></li></ul>
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/01/25/20160125-everyone-is-product-manager-md/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">20160125-everyone-is-product-manager.md</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
+
 </section>
         
           <aside id="sidebar">
