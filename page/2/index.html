@@ -65,6 +65,56 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-learn-react-router" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/01/11/learn-react-router/" class="article-date">
+  <time datetime="2016-01-11T12:35:47.000Z" itemprop="datePublished">2016-01-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/11/learn-react-router/">learn-react-router</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>参考资料： <a href="https://github.com/rackt/react-router/blob/0.13.x/doc/06%20Mixins/State.md" target="_blank" rel="external">https://github.com/rackt/react-router/blob/0.13.x/doc/06%20Mixins/State.md</a></p>
+<p>翻译： React Router 0.13.x 中的 State</p>
+<p>State 是 components 的一个 mixin, 它需要知道 active params, query 和 routes. 任何拥有动态 segments 的路由处理器都想拥有 State.</p>
+<h2 id="u5B9E_u4F8B_u65B9_u6CD5"><a href="#u5B9E_u4F8B_u65B9_u6CD5" class="headerlink" title="实例方法"></a>实例方法</h2><h3 id="getPath_28_29"><a href="#getPath_28_29" class="headerlink" title="getPath()"></a><code>getPath()</code></h3><p>返回当前 URL 路径, 包含 query 字符串</p>
+<h3 id="getPathname_28_29"><a href="#getPathname_28_29" class="headerlink" title="getPathname()"></a><code>getPathname()</code></h3><p>返回当前 URL 路径, 不包含 query 字符串</p>
+<h3 id="getParams_28_29"><a href="#getParams_28_29" class="headerlink" title="getParams()"></a><code>getParams()</code></h3><p>返回当前活跃的 URL 参数的哈希</p>
+<h3 id="getQuery_28_29"><a href="#getQuery_28_29" class="headerlink" title="getQuery()"></a><code>getQuery()</code></h3><p>返回当前活跃的 query 参数的哈希</p>
+<h3 id="isActive_28routeName_2C_params_2C_query_29"><a href="#isActive_28routeName_2C_params_2C_query_29" class="headerlink" title="isActive(routeName, params, query)"></a><code>isActive(routeName, params, query)</code></h3><p>当一个路由, 参数, query 是活跃的就返回 true, 反之返回 false</p>
+<h3 id="getRoutes_28_29"><a href="#getRoutes_28_29" class="headerlink" title="getRoutes()"></a><code>getRoutes()</code></h3><p>以嵌套的形式返回当前活跃路由的数组</p>
+<h2 id="u793A_u4F8B"><a href="#u793A_u4F8B" class="headerlink" title="示例"></a>示例</h2><p>通常你只想获得参数(params) 和 query:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// route</span></span><br><span class="line">&lt;Route name=<span class="string">"user"</span> path=<span class="string">"user/:name"</span> handler=&#123;User&#125; /&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">// handler</span></span><br><span class="line"><span class="keyword">var</span> User = React.createClass(&#123;</span><br><span class="line"> mixins: [ Router.State ],</span><br><span class="line"></span><br><span class="line"> render: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">   <span class="keyword">var</span> name = <span class="keyword">this</span>.getParams().name;</span><br><span class="line">   <span class="keyword">return</span> (</span><br><span class="line">     <span class="xml"><span class="tag">&lt;<span class="title">div</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="title">h1</span>&gt;</span>&#123;name&#125;<span class="tag">&lt;/<span class="title">h1</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">   )</span>;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>如果你用 bootstrap 并且想得到 Tabs 上 li 标签中活跃的元素:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Link = <span class="built_in">require</span>(<span class="string">'react-router'</span>).Link;</span><br><span class="line"><span class="keyword">var</span> State = <span class="built_in">require</span>(<span class="string">'react-router'</span>).State;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> Tab = React.createClass(&#123;</span><br><span class="line"></span><br><span class="line">  mixins: [ State ],</span><br><span class="line"></span><br><span class="line">  render: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> isActive = <span class="keyword">this</span>.isActive(<span class="keyword">this</span>.props.to, <span class="keyword">this</span>.props.params, <span class="keyword">this</span>.props.query);</span><br><span class="line">    <span class="keyword">var</span> className = isActive ? <span class="string">'active'</span> : <span class="string">''</span>;</span><br><span class="line">    <span class="keyword">var</span> link = (</span><br><span class="line">      <span class="xml"><span class="tag">&lt;<span class="title">Link</span> &#123;<span class="attribute">...this.props</span>&#125; /&gt;</span></span><br><span class="line">    )</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="title">li</span> <span class="attribute">className</span>=<span class="value">&#123;className&#125;</span>&gt;</span>&#123;link&#125;<span class="tag">&lt;/<span class="title">li</span>&gt;</span>;</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// use it just like &lt;Link/&gt;, and you'll get an anchor wrapped in an `li`</span></span><br><span class="line"><span class="comment">// with an automatic `active` class on both.</span></span><br><span class="line">&lt;Tab to=<span class="string">"foo"</span>&gt;Foo&lt;<span class="regexp">/Tab&gt;</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://weixiaobo88.github.io/2016/01/11/learn-react-router/" data-id="cijwqsa9f000froqf2ilghynw" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-router/">react router</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-learn-jade" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/08/15/learn-jade/" class="article-date">
@@ -91,7 +141,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/08/15/learn-jade/" data-id="cijwqgdmm000kp6qfa6sounc2" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/08/15/learn-jade/" data-id="cijwqsa9h000kroqfzofgukq1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -184,7 +234,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/08/05/testing-in-spring/" data-id="cijwqgdm60001p6qf2fraoyp2" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/08/05/testing-in-spring/" data-id="cijwqsa940001roqfso1cmk0l" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring-test/">spring test</a></li></ul>
@@ -230,7 +280,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/08/04/modular-programming-03/" data-id="cijwqgdma0004p6qfnh3y5fhb" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/08/04/modular-programming-03/" data-id="cijwqsa990004roqfbmb5sifz" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/modular-programming/">modular programming</a></li></ul>
@@ -287,7 +337,7 @@ math.add()与math模块加载不是同步的，浏览器不会发生假死。
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/08/04/modular-programming-02/" data-id="cijwqgdmf0009p6qfhdedljbr" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/08/04/modular-programming-02/" data-id="cijwqsa9c0009roqfq8cy5gcs" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/modular-programming/">modular programming</a></li></ul>
@@ -355,11 +405,56 @@ math.add()与math模块加载不是同步的，浏览器不会发生假死。
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/08/04/modular-programming-01/" data-id="cijwqgdmi000cp6qf9veueppj" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/08/04/modular-programming-01/" data-id="cijwqsa9d000croqfs8d6t18v" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/modular-programming/">modular programming</a></li></ul>
 
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/08/04/hello-world/" class="article-date">
+  <time datetime="2015-08-04T01:07:34.000Z" itemprop="datePublished">2015-08-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/04/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick_Start"><a href="#Quick_Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create_a_new_post"><a href="#Create_a_new_post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run_server"><a href="#Run_server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate_static_files"><a href="#Generate_static_files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy_to_remote_sites"><a href="#Deploy_to_remote_sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://weixiaobo88.github.io/2015/08/04/hello-world/" data-id="cijwqsa9l000nroqf7k93jtia" class="article-share-link">Share</a>
+      
+      
     </footer>
   </div>
   
@@ -432,52 +527,7 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/08/04/2015-03-19-webfont/" data-id="cijwqgdlt0000p6qf4ltr0icn" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/08/04/hello-world/" class="article-date">
-  <time datetime="2015-08-04T01:07:34.000Z" itemprop="datePublished">2015-08-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/04/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start"><a href="#Quick_Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create_a_new_post"><a href="#Create_a_new_post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server"><a href="#Run_server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files"><a href="#Generate_static_files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites"><a href="#Deploy_to_remote_sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/08/04/hello-world/" data-id="cijwqgdmq000np6qfqgko7644" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/08/04/2015-03-19-webfont/" data-id="cijwqsa8s0000roqf52yvjkp3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -565,7 +615,7 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/08/03/jspm/" data-id="cijwqgdmo000lp6qfmfemo2wi" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/08/03/jspm/" data-id="cijwqsa9i000lroqfi37zsvzh" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/modular-programming/">modular programming</a></li></ul>
@@ -627,147 +677,11 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/29/2015-07-29-spring-004-database/" data-id="cijwqgdnc001ep6qf0bt2bn5e" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/29/2015-07-29-spring-004-database/" data-id="cijwqsaaa001hroqfvwk7xjps" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li></ul>
 
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-2015-07-14-spring-003-config" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/07/14/2015-07-14-spring-003-config/" class="article-date">
-  <time datetime="2015-07-14T10:08:50.000Z" itemprop="datePublished">2015-07-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/14/2015-07-14-spring-003-config/">开始学习Spring</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="u5F00_u59CB_u5B66_u4E60Spring"><a href="#u5F00_u59CB_u5B66_u4E60Spring" class="headerlink" title="开始学习Spring"></a>开始学习Spring</h1><h2 id="Spring_4_Configuration"><a href="#Spring_4_Configuration" class="headerlink" title="Spring 4 Configuration"></a>Spring 4 Configuration</h2><p>Spring中核心IoC功能的补充：</p>
-<ul>
-<li>管理bean的生命周期</li>
-<li>使bean能够“Spring aware”</li>
-<li>使用FactoryBeans</li>
-<li>JavaBeans PropertyEditors</li>
-<li>使用Java类来配置</li>
-<li>进阶配置</li>
-<li>使用Groovy配置</li>
-</ul>
-<h2 id="u53C2_u8003_u8D44_u6599"><a href="#u53C2_u8003_u8D44_u6599" class="headerlink" title="参考资料"></a>参考资料</h2><p>《Pro Spring 4 Edition》</p>
-<hr>
-<h2 id="u300ASpring_in_Action_u300B"><a href="#u300ASpring_in_Action_u300B" class="headerlink" title="《Spring in Action》"></a>《Spring in Action》</h2><p>如何创建容器 -》 有了容器，如何装配Bean -》知道装配Bean，如果Bean很多，XML文件就很复杂 -》如何减少XML的配置</p>
-<h2 id="Spring__u5E94_u7528_u4E0A_u4E0B_u6587"><a href="#Spring__u5E94_u7528_u4E0A_u4E0B_u6587" class="headerlink" title="Spring 应用上下文"></a>Spring 应用上下文</h2><ul>
-<li>Spring 容器是什么，有什么用</li>
-<li>如何创建 Spring 容器</li>
-</ul>
-<p>Spring容器是Spring框架的核心，Spring自带了几种容器实现，可以归为两类：</p>
-<ul>
-<li>BeanFactory是最简单的容器，提供基础的依赖注入和Bean装配服务</li>
-<li>ApplicationContext 应用上下文（用的更多）<ul>
-<li>Spring通过应用上下文（Application Context）装载Bean的定义并把它们组装起来。Spring应用上下文全权负责对象的创建和组装。Spring自带了几种应用上下文的实现，它们之间主要的区别仅仅是如何加载它们的配置。用的最多的是3种：<ul>
-<li>ClassPathXmlApplicationContext，从类路径下的XML配置文件中加载上下文定义，把应用上下文文件当做类资源</li>
-<li>FileSystemXmlApplicationContext，读取文件系统中的XML配置文件并加载上下文定义</li>
-<li>XmlWebApplicationContext，读取Web应用下的XML配置文件并装载上下文定义</li>
-</ul>
-</li>
-<li>通过现有的应用上下文引用，你可以调用应用上下文的getBean()方法从Spring容器中获取Bean。</li>
-</ul>
-</li>
-</ul>
-<p>在Spring应用中，Spring容器会创建相互协作的组件之间的关联。负责创建对象、装配（Wiring）对象、配置对象，管理对象的整个生命周期。</p>
-<pre><code>创建应用组件之间协作的行为通常称为装配。在Spring中装配Bean最常见的方式是使用XML文件。
-</code></pre><h2 id="Bean_u7684_u5B9E_u4F8B_u5316"><a href="#Bean_u7684_u5B9E_u4F8B_u5316" class="headerlink" title="Bean的实例化"></a>Bean的实例化</h2><p>在Spring中，默认情况下，所有的bean都是单例。ApplicationContext.getBean()总是返回同一个实例。</p>
-<h3 id="Bean__u7684_u4F5C_u7528_u57DF"><a href="#Bean__u7684_u4F5C_u7528_u57DF" class="headerlink" title="Bean 的作用域"></a>Bean 的作用域</h3><p>如果需要每次请求时都获得唯一的Bean实例，可以通过配置Bean的作用域 scope属性。<br>Spring有关单例的概念限于Spring上下文的范围内，不像真正的单例，在每个类加载器中保证只有一个实例。</p>
-<h3 id="Bean__u7684_u751F_u547D_u5468_u671F"><a href="#Bean__u7684_u751F_u547D_u5468_u671F" class="headerlink" title="Bean 的生命周期"></a>Bean 的生命周期</h3><p>初始化和销毁，可以配置 init-method 和 destory-method，虽然Spring API也提供相应的接口，但会与其产生耦合。</p>
-<p>在Java中singleton包含两个概念：单个实例的对象，单例模式。前者用singleton表示，后者用Singleton表示。<br>可以通过配置文件中的配置来修改“单例”的属性。<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">package com.apress.prospring4.ch3;&#10;public class Singleton &#123;&#10;    private static Singleton instance;&#10;    static &#123;&#10;        instance = new Singleton();&#10;&#125;&#10;    public static Singleton getInstance() &#123;&#10;        return instance;&#10;&#125; &#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="u4E3ABean_u7684_u5C5E_u6027_u548C_u6784_u9020_u5668_u53C2_u6570_u88C5_u914D_u591A_u79CD_u7C7B_u578B_u7684_u503C"><a href="#u4E3ABean_u7684_u5C5E_u6027_u548C_u6784_u9020_u5668_u53C2_u6570_u88C5_u914D_u591A_u79CD_u7C7B_u578B_u7684_u503C" class="headerlink" title="为Bean的属性和构造器参数装配多种类型的值"></a>为Bean的属性和构造器参数装配多种类型的值</h2><ul>
-<li>简单属性值，使用value属性</li>
-<li>引用其他Bean的属性，使用ref属性</li>
-<li>Bean的属性是复数，比如集合，使用list set map props属性<ul>
-<li></li>
-</ul>
-</li>
-</ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"hank"</span></span><br><span class="line">            <span class="attribute">class</span>=<span class="value">"com.springinaction.springido1.OneManBand"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"instruments"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">list</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">ref</span> <span class="attribute">bean</span>=<span class="value">"guitar"</span> /&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">ref</span> <span class="attribute">bean</span>=<span class="value">"cymbal"</span> /&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">ref</span> <span class="attribute">bean</span>=<span class="value">"harmonica"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="u7591_u95EE_uFF1F"><a href="#u7591_u95EE_uFF1F" class="headerlink" title="疑问？"></a>疑问？</h2><p>从《Spring in Action》中可以看到注入Bean属性实则就是setter方法注入，这种方式在setter方法上有@Autowired注解。那在属性上直接写@Autowired又是什么注入方式呢。</p>
-<h2 id="u5982_u4F55_u51CF_u5C11XML_u7684_u914D_u7F6E_u6570_u91CF"><a href="#u5982_u4F55_u51CF_u5C11XML_u7684_u914D_u7F6E_u6570_u91CF" class="headerlink" title="如何减少XML的配置数量"></a>如何减少XML的配置数量</h2><p>Spring提供了以下方式：</p>
-<ul>
-<li>自动装配 autowiring，减少甚至消除配置<property> <constructor-arg>元素，让Spring自动识别并装配Bean的依赖关系</constructor-arg></property></li>
-<li>自动检测 autodiscovery，比自动装配更进一步，让Spring自动识别哪些类需要被配置成Spring Bean，减少对<bean>元素的使用。</bean></li>
-</ul>
-<h3 id="u81EA_u52A8_u88C5_u914DAutowiring_Bean__u5C5E_u6027"><a href="#u81EA_u52A8_u88C5_u914DAutowiring_Bean__u5C5E_u6027" class="headerlink" title="自动装配Autowiring Bean 属性"></a>自动装配Autowiring Bean 属性</h3><p>Spring提供了4种自动装配策略：</p>
-<ul>
-<li>byName，把与Bean的属性具有相同名字的其他Bean自动装配到Bean的对应属性中</li>
-<li>byType，把与Bean的属性具有相同类型的其他Bean自动装配到Bean的对应属性中</li>
-<li>constructor，把与Bean的构造器入参具有相同类型的其他Bean自动装配到Bean构造器的对应入参中</li>
-<li>autodetect，首先尝试使用constructor进行自动装配，如果失败，再尝试使用byType进行自动装配</li>
-</ul>
-<h4 id="u4F7F_u7528_u6CE8_u89E3_u81EA_u52A8_u88C5_u914DBean__u5C5E_u6027"><a href="#u4F7F_u7528_u6CE8_u89E3_u81EA_u52A8_u88C5_u914DBean__u5C5E_u6027" class="headerlink" title="使用注解自动装配Bean 属性"></a>使用注解自动装配Bean 属性</h4><p>Spring容器默认禁用注解装配，所以在使用基于注解的自动装配前，我们需要在Spring配置中启用它。最简单的启用方式是使用：</p>
-<context:annotation-config>
-
-<p>这会告诉Spring我们打算使用基于注解的自动装配。</p>
-<p>Spring 3 支持几种不同的用于自动装配的注解：</p>
-<ul>
-<li>Spring自带的 @Autowired 注解，这种方式下如果没有Bean可以装配到@Autowired所标注的属性或参数中，或者有多个Bean的时候，都会得到“NoSuchBeanDefinitionException”的异常<ul>
-<li>可以标注Setter方法</li>
-<li>可以标注构造器</li>
-<li>可以标注属性，并删除setter方法</li>
-</ul>
-</li>
-<li>JSR-330 的 @Inject 注解<ul>
-<li>为了统一各种依赖注入框架的编程模型，JCP（Java Community Process）发布了Java依赖注入规范，JCP将其称为JSR-330，更常见的叫法是 at inject，该规范为Java带来了通用依赖注入模型。</li>
-<li>@Inject 注解是JSR-330的核心部件，几乎可以完全替换Spring的 @Autowired 注解。</li>
-<li>和 @Autowired 一样，@Inject 可以用来自动装配属性、方法和构造器</li>
-<li>不一样的是，@Inject 没有 required 属性。因此 @Inject 注解所标注的依赖关系必须存在，如果不存在，则会抛出异常。</li>
-<li>@Inject 可以注入一个provider</li>
-</ul>
-</li>
-<li>JSR-250 的 @Resource 注解</li>
-</ul>
-<h3 id="u81EA_u52A8_u68C0_u6D4B_Bean"><a href="#u81EA_u52A8_u68C0_u6D4B_Bean" class="headerlink" title="自动检测 Bean"></a>自动检测 Bean</h3><p>我们希望使用<context:annotation-config>之后，Spring能对待我们定义的注解，并指导Bean的装配。<br>即使<context:annotation-config>有助于完全消除Spring配置中的<property> <constructor-arg>元素，我们仍需要使用<bean>元素显示定义Bean。</bean></constructor-arg></property></context:annotation-config></context:annotation-config></p>
-<p>在Spring中<context:component-scan>除了完成<context:annotation-config>的工作，还允许Spring自动检测Bean和定义Bean。</context:annotation-config></context:component-scan></p>
-<p>为了配置Spring自动检测，需要使用<context:component-scan>元素来代替<context:annotation-config>元素。</context:annotation-config></context:component-scan></p>
-<h4 id="u5982_u4F55_u77E5_u9053_u54EA_u4E9B_u7C7B_u9700_u8981_u6CE8_u518C_u4E3ASpring_Bean_uFF1F"><a href="#u5982_u4F55_u77E5_u9053_u54EA_u4E9B_u7C7B_u9700_u8981_u6CE8_u518C_u4E3ASpring_Bean_uFF1F" class="headerlink" title="如何知道哪些类需要注册为Spring Bean？"></a><context:component-scan> 如何知道哪些类需要注册为Spring Bean？</context:component-scan></h4><p>默认情况下，<context:component-scan> 查找使用构造型（stereotype）注解所标注的类：</context:component-scan></p>
-<ul>
-<li>@Component，通用的构造型注解，标识该类为Spring组件</li>
-<li>@Controller，标识将该类定义为Spring MVC Controller</li>
-<li>@Repository，标识将该类定义为数据仓库</li>
-<li>@Service，标识将该类定义为服务</li>
-<li>使用 @Component 标注的任意自定义注解</li>
-</ul>
-<p>当使用 <context:component-scan> 时，基于注解地自动检测只是一种扫描策略，还有其他扫描策略。</context:component-scan></p>
-<ul>
-<li>过滤组件扫描，比如 <context:include-filter></context:include-filter></li>
-</ul>
-<h2 id="u5982_u679C_u4E0D_u559C_u6B22XML_uFF0C_u53EF_u4EE5_u4F7F_u7528Spring_u521B_u5EFA_u57FA_u4E8EJava_u7684_u914D_u7F6E"><a href="#u5982_u679C_u4E0D_u559C_u6B22XML_uFF0C_u53EF_u4EE5_u4F7F_u7528Spring_u521B_u5EFA_u57FA_u4E8EJava_u7684_u914D_u7F6E" class="headerlink" title="如果不喜欢XML，可以使用Spring创建基于Java的配置"></a>如果不喜欢XML，可以使用Spring创建基于Java的配置</h2><p>仍然需要少量的XML来启用Java配置，在下面代码中，base-package告诉Spring在哪个包中查找使用@Configuration注解所标注的所有类：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="pi">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">beans</span> <span class="attribute">xmlns</span>=<span class="value">"http://www.springframework.org/schema/beans"</span></span><br><span class="line">       <span class="attribute">xmlns:xsi</span>=<span class="value">"http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="line">       <span class="attribute">xmlns:context</span>=<span class="value">"http://www.springframework.org/schema/context"</span></span><br><span class="line">       <span class="attribute">xsi:schemaLocation</span>=<span class="value">"http://www.springframework.org/schema/beans</span><br><span class="line">          http://www.springframework.org/schema/beans/spring-beans.xsd</span><br><span class="line">          http://www.springframework.org/schema/context</span><br><span class="line">          http://www.springframework.org/schema/context/spring-context.xsd"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="title">context:component-scan</span></span><br><span class="line">          <span class="attribute">base-package</span>=<span class="value">"com.springinactin.springido1"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="u5B9A_u4E49_u4E00_u4E2A_u914D_u7F6E_u7C7B"><a href="#u5B9A_u4E49_u4E00_u4E2A_u914D_u7F6E_u7C7B" class="headerlink" title="定义一个配置类"></a>定义一个配置类</h3><p>使用@Configuration注解的Java类，等价于XML配置中的<beans>元素。<br>@Configuration注解会告诉Spring，这个类将包含一个或多个Spring Bean的定义。</beans></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="annotation">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> Class SpringIdo1Config &#123;</span><br><span class="line">    <span class="comment">// Bean declaration methods go here</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</context:annotation-config>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/14/2015-07-14-spring-003-config/" data-id="cijwqgdnd001hp6qfok9lujne" class="article-share-link">Share</a>
-      
-      
     </footer>
   </div>
   
@@ -790,7 +704,7 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bind/">bind</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/functional-programming/">functional-programming</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/">gradle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/modular-programming/">modular programming</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm-package-json/">npm, package.json</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-bootstrap/">react bootstrap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-router/">react router</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reading-notes/">reading-notes</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/servlet/">servlet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring-test/">spring test</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bind/">bind</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/build/">build</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/functional-programming/">functional-programming</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/">gradle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/modular-programming/">modular programming</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm-package-json/">npm, package.json</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-bootstrap/">react bootstrap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-router/">react router</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reading-notes/">reading-notes</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/servlet/">servlet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring-test/">spring test</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -799,7 +713,7 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/bind/" style="font-size: 10px;">bind</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/functional-programming/" style="font-size: 20px;">functional-programming</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/modular-programming/" style="font-size: 20px;">modular programming</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/npm-package-json/" style="font-size: 10px;">npm, package.json</a> <a href="/tags/react/" style="font-size: 13.33px;">react</a> <a href="/tags/react-bootstrap/" style="font-size: 10px;">react bootstrap</a> <a href="/tags/react-router/" style="font-size: 10px;">react router</a> <a href="/tags/reading-notes/" style="font-size: 10px;">reading-notes</a> <a href="/tags/servlet/" style="font-size: 13.33px;">servlet</a> <a href="/tags/spring/" style="font-size: 16.67px;">spring</a> <a href="/tags/spring-test/" style="font-size: 10px;">spring test</a>
+      <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/bind/" style="font-size: 10px;">bind</a> <a href="/tags/build/" style="font-size: 10px;">build</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/functional-programming/" style="font-size: 20px;">functional-programming</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/modular-programming/" style="font-size: 20px;">modular programming</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/npm-package-json/" style="font-size: 10px;">npm, package.json</a> <a href="/tags/react/" style="font-size: 13.33px;">react</a> <a href="/tags/react-bootstrap/" style="font-size: 10px;">react bootstrap</a> <a href="/tags/react-router/" style="font-size: 10px;">react router</a> <a href="/tags/reading-notes/" style="font-size: 10px;">reading-notes</a> <a href="/tags/servlet/" style="font-size: 13.33px;">servlet</a> <a href="/tags/spring/" style="font-size: 16.67px;">spring</a> <a href="/tags/spring-test/" style="font-size: 10px;">spring test</a>
     </div>
   </div>
 
@@ -808,7 +722,7 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -818,6 +732,10 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/01/27/20160127-webpack-md/">20160127-webpack.md</a>
+          </li>
         
           <li>
             <a href="/2016/01/27/20160127-atomic-css-md/">20160127-atomic-css.md</a>
@@ -833,10 +751,6 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
         
           <li>
             <a href="/2016/01/25/20160125-everyone-is-product-manager-md/">20160125-everyone-is-product-manager.md</a>
-          </li>
-        
-          <li>
-            <a href="/2016/01/22/20160122-bind-in-javascript-md/">Bind in JavaScript</a>
           </li>
         
       </ul>
