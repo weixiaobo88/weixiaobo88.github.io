@@ -127,7 +127,34 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>参考 <a href="http://clubmate.fi/oocss-acss-bem-smacss-what-are-they-what-should-i-use/" target="_blank" rel="external">OOCSS, ACSS, BEM, SMACSS: what are they? What should I use?</a></p>
-<h2 id="u4EC0_u4E48_u662FOOCSS"><a href="#u4EC0_u4E48_u662FOOCSS" class="headerlink" title="什么是OOCSS"></a>什么是OOCSS</h2><h2 id="u4EC0_u4E48_u662FACSS"><a href="#u4EC0_u4E48_u662FACSS" class="headerlink" title="什么是ACSS"></a>什么是ACSS</h2><h2 id="u4EC0_u4E48_u662FBEM"><a href="#u4EC0_u4E48_u662FBEM" class="headerlink" title="什么是BEM"></a>什么是BEM</h2><h2 id="u4EC0_u4E48_u662FSMACSS"><a href="#u4EC0_u4E48_u662FSMACSS" class="headerlink" title="什么是SMACSS"></a>什么是SMACSS</h2><p>适合什么样的项目, 有什么优势劣势</p>
+<h2 id="u4EC0_u4E48_u662FOOCSS"><a href="#u4EC0_u4E48_u662FOOCSS" class="headerlink" title="什么是OOCSS"></a>什么是OOCSS</h2><p>OOCSS 是 Object Oriented CSS</p>
+<ul>
+<li>structure 和  skin 分开: 定义一个 ‘gradient’, 然后在其他地方 extend 这个 gradient</li>
+<li>container 和 content 分开: 不要级联选择器, 直接写在一个class中, 然后引用这个 class</li>
+</ul>
+<p>更多资料:</p>
+<ul>
+<li><a href="http://github.com/stubbornella/oocss/wiki" target="_blank" rel="external">Official OCSS documentation on GitHub</a></li>
+<li><a href="http://coding.smashingmagazine.com/2011/12/12/an-introduction-to-object-oriented-css-oocss" target="_blank" rel="external">Nice read about OCSS in Smashing Magazine</a> </li>
+</ul>
+<h2 id="u4EC0_u4E48_u662FAtomic_Approach"><a href="#u4EC0_u4E48_u662FAtomic_Approach" class="headerlink" title="什么是Atomic Approach"></a>什么是Atomic Approach</h2><p>Atomic Approach, 出自 <a href="http://bradfrost.com/blog/post/atomic-web-design/" target="_blank" rel="external">Atomic Design</a>, 因为文章<a href="http://www.smashingmagazine.com/2013/10/21/challenging-css-best-practices-atomic-approach/" target="_blank" rel="external">Challenging CSS Best Practices</a>而得到普及. </p>
+<p>同时 Atomic Approach 可以用来组织项目的文件, 参考 <a href="http://coding.smashingmagazine.com/2013/08/02/other-interface-atomic-design-sass/" target="_blank" rel="external">The “Other” Interface: Atomic Design With Sass</a></p>
+<p>Atomic Design :</p>
+<ul>
+<li>Atoms</li>
+<li>Molecules</li>
+<li>Organisms</li>
+<li>Templates</li>
+<li>Pages</li>
+</ul>
+<h2 id="u4EC0_u4E48_u662FACSS"><a href="#u4EC0_u4E48_u662FACSS" class="headerlink" title="什么是ACSS"></a>什么是ACSS</h2><p>每个选择器就定义一次, 然后在 markup 里引入对应的 class name</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.large</span> <span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">font-size</span>:<span class="value"> <span class="number">20px</span></span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">'large'</span>&gt;</span> Lorem Ipsum <span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>缺点:</p>
+<ul>
+<li>不能用 media queries, 因为现在样式写在了 markup 上, 不能通过 media queries 来改变</li>
+</ul>
+<h2 id="Atomic_Design_VS_ACSS"><a href="#Atomic_Design_VS_ACSS" class="headerlink" title="Atomic Design VS ACSS"></a>Atomic Design VS ACSS</h2><h2 id="u4EC0_u4E48_u662FBEM"><a href="#u4EC0_u4E48_u662FBEM" class="headerlink" title="什么是BEM"></a>什么是BEM</h2><h2 id="u4EC0_u4E48_u662FSMACSS"><a href="#u4EC0_u4E48_u662FSMACSS" class="headerlink" title="什么是SMACSS"></a>什么是SMACSS</h2><p>适合什么样的项目, 有什么优势劣势</p>
 
       
     </div>
