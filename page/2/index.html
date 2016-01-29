@@ -65,6 +65,64 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-20160112-React-Bootstrap-Introduction" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/01/12/20160112-React-Bootstrap-Introduction/" class="article-date">
+  <time datetime="2016-01-12T12:21:38.000Z" itemprop="datePublished">2016-01-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/12/20160112-React-Bootstrap-Introduction/">React-Bootstrap-Introduction</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="u4ECB_u7ECD__u2014_u2014__u4F7F_u7528React_u91CD_u5EFA_u6700_u53D7_u6B22_u8FCE_u7684_u524D_u7AEF_u6846_u67B6"><a href="#u4ECB_u7ECD__u2014_u2014__u4F7F_u7528React_u91CD_u5EFA_u6700_u53D7_u6B22_u8FCE_u7684_u524D_u7AEF_u6846_u67B6" class="headerlink" title="介绍 —— 使用React重建最受欢迎的前端框架"></a>介绍 —— 使用React重建最受欢迎的前端框架</h1><p>React-Bootstrap 是一个可重用的前端组件库。用 Facebook 的 React.js<br>框架，你能构建一个和 Twitter Bootstrap 类似的库，但是代码会更整洁。</p>
+<p>如果你想要一个小的 button ，button 上显示 “Something”，并能触发 someCallback<br>函数。如果你是在写一个原生的 app，你可能会像下面这样写：</p>
+<figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">button</span>(<span class="keyword">size</span>=SMALL, <span class="keyword">color</span>=GREEN, <span class="keyword">text</span>=<span class="string">"Something"</span>, onClick=someCallback)</span><br></pre></td></tr></table></figure>
+<p>如果用 Twitter Bootstrap，你会写下面的 HTML：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">button</span> <span class="attribute">id</span>=<span class="value">"something-btn"</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">class</span>=<span class="value">"btn btn-success btn-sm"</span>&gt;</span></span><br><span class="line">  Something</span><br><span class="line"><span class="tag">&lt;/<span class="title">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>然后会在 JavaScript 中写一些类似这样的代码：<br><code>$(&#39;#something-btn&#39;).click(someCallback);</code></p>
+<p>从 web 的标准来看，这挺好，只是还有些不好。 React-Bootstrap 可以让你写成这样：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">Button</span> <span class="attribute">bsStyle</span>=<span class="value">"success"</span> <span class="attribute">bsSize</span>=<span class="value">"small"</span> <span class="attribute">onClick</span>=<span class="value">&#123;someCallback&#125;</span>&gt;</span></span><br><span class="line">  Something</span><br><span class="line"><span class="tag">&lt;/<span class="title">Button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>具体的 HTML/CSS<br>实现细节已经进行了抽象，提供给你的接口可以让你像其他编程语言一样来写。</p>
+<h2 id="u4F7F_u7528_React-js__u7684_Bootstrap_API"><a href="#u4F7F_u7528_React-js__u7684_Bootstrap_API" class="headerlink" title="使用 React.js 的 Bootstrap API"></a>使用 React.js 的 Bootstrap API</h2><p>Bootstrap 的代码重复的很多，因为 HTML 和 CSS<br>不支持组件库的抽象。这也是为什么你需要在一个元素 <code>button</code> 中写 三次<code>btn</code>。</p>
+<p>React.js 解决这个问题的方式就是直接写在 JavaScript 中。 React<br>接管了渲染页面的整个任务。你只需要把 JavaScript<br>对象树传给它即可，并且把状态告诉它。</p>
+<p>举例来说，我们想让 React 渲染一个页面，只显示一个 button，并用 Bootstrap CSS<br>来给它加样式：</p>
+<figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var <span class="keyword">button</span> = React.DOM.<span class="keyword">button</span>(&#123;</span><br><span class="line">  className: <span class="string">'btn btn-lg btn-success'</span>,</span><br><span class="line">  children: <span class="string">'Register'</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">React.<span class="keyword">render</span>(<span class="keyword">button</span>, mountNode);</span><br></pre></td></tr></table></figure>
+<p>但是现在在 JavaScript 中，我们可以包裹 HTML/CSS，然后提供一个更好的 API：</p>
+<figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var <span class="keyword">button</span> = ReactBootstrap.Button(&#123;</span><br><span class="line">  bsStyle: <span class="string">'success'</span>,</span><br><span class="line">  bsSize: <span class="string">'large'</span>,</span><br><span class="line">  children: <span class="string">'Register'</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">React.<span class="keyword">render</span>(<span class="keyword">button</span>, mountNode);</span><br></pre></td></tr></table></figure>
+<p>React-Bootstrap 就是类似这样的组件库，你可以很容易的扩展和加强你的功能。</p>
+<h2 id="JSX__u8BED_u6CD5"><a href="#JSX__u8BED_u6CD5" class="headerlink" title="JSX 语法"></a>JSX 语法</h2><p>每个 React 组件就是一个 JavaScript 对象，写成树形结构也会很烦。React 鼓励使用 JSX<br>的语法糖，你可以和像 HTML 的语法一些样来写：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var buttongGroupInstance = (</span><br><span class="line">  <span class="tag">&lt;<span class="title">ButtonGroup</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">DropdownButton</span> <span class="attribute">bsStyle</span>=<span class="value">'success'</span> <span class="attribute">title</span>=<span class="value">'Dropdown'</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">MenuItem</span> <span class="attribute">key</span>=<span class="value">'1'</span>&gt;</span>Dropdown link<span class="tag">&lt;/<span class="title">MenuItem</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">MenuItem</span> <span class="attribute">key</span>=<span class="value">'2'</span>&gt;</span>Dropdown link<span class="tag">&lt;/<span class="title">MenuItem</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">DropdownButton</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">Button</span> <span class="attribute">bsStyle</span>=<span class="value">'info'</span>&gt;</span>Middle<span class="tag">&lt;/<span class="title">Button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">Button</span> <span class="attribute">bsStyle</span>=<span class="value">'info'</span>&gt;</span>Right<span class="tag">&lt;/<span class="title">Button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">ButtonGroup</span>&gt;</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">React.render(buttonGroupInstance, mountNode);</span><br></pre></td></tr></table></figure>
+<p>有些人对 React.js 的第一印象就是混合 JavaScript 和 HTML<br>会让代码看起来很混乱。然而，比较在这个例子中要添加一个 dropdown button 在<br>Bootstrap JavaScript 和 Component 文件中，Component<br>文件需要分成两个，因为你需要在代码中两个地方来实现这个组件：首先必须添加<br>HTML/CSS 元素，然后必须调用 JavaScript 把这两个组件写到一起。</p>
+<p>React-Bootstrap 的组件希望遵循 React.js 的哲理，单独的功能需要放在单独的地方。<br>在 <a href="http://react-bootstrap.github.io/components.html" target="_blank" rel="external">组件页面</a> 查看当前的 React-Bootstrap 库。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://weixiaobo88.github.io/2016/01/12/20160112-React-Bootstrap-Introduction/" data-id="cijzqz8cg001b5pqf3bivuiqh" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-bootstrap/">react bootstrap</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-learn-react-router" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/01/11/learn-react-router/" class="article-date">
@@ -103,7 +161,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2016/01/11/learn-react-router/" data-id="cijwqsa9f000froqf2ilghynw" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2016/01/11/learn-react-router/" data-id="cijzqz8bq000f5pqf6iakkka0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-router/">react router</a></li></ul>
@@ -141,7 +199,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/08/15/learn-jade/" data-id="cijwqsa9h000kroqfzofgukq1" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/08/15/learn-jade/" data-id="cijzqz8bs000k5pqf9lcvdic9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -234,7 +292,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/08/05/testing-in-spring/" data-id="cijwqsa940001roqfso1cmk0l" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/08/05/testing-in-spring/" data-id="cijzqz8bf00015pqf2zxci74x" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring-test/">spring test</a></li></ul>
@@ -280,7 +338,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/08/04/modular-programming-03/" data-id="cijwqsa990004roqfbmb5sifz" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/08/04/modular-programming-03/" data-id="cijzqz8bk00045pqfpdq0yg2a" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/modular-programming/">modular programming</a></li></ul>
@@ -337,7 +395,7 @@ math.add()与math模块加载不是同步的，浏览器不会发生假死。
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/08/04/modular-programming-02/" data-id="cijwqsa9c0009roqfq8cy5gcs" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/08/04/modular-programming-02/" data-id="cijzqz8bn00095pqf9cqupcx5" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/modular-programming/">modular programming</a></li></ul>
@@ -405,56 +463,11 @@ math.add()与math模块加载不是同步的，浏览器不会发生假死。
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/08/04/modular-programming-01/" data-id="cijwqsa9d000croqfs8d6t18v" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/08/04/modular-programming-01/" data-id="cijzqz8bp000c5pqfyavqse9e" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/modular-programming/">modular programming</a></li></ul>
 
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/08/04/hello-world/" class="article-date">
-  <time datetime="2015-08-04T01:07:34.000Z" itemprop="datePublished">2015-08-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/04/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start"><a href="#Quick_Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create_a_new_post"><a href="#Create_a_new_post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server"><a href="#Run_server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files"><a href="#Generate_static_files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites"><a href="#Deploy_to_remote_sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/08/04/hello-world/" data-id="cijwqsa9l000nroqf7k93jtia" class="article-share-link">Share</a>
-      
-      
     </footer>
   </div>
   
@@ -527,7 +540,52 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/08/04/2015-03-19-webfont/" data-id="cijwqsa8s0000roqf52yvjkp3" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/08/04/2015-03-19-webfont/" data-id="cijzqz8b200005pqfwg6rpv4i" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/08/04/hello-world/" class="article-date">
+  <time datetime="2015-08-04T01:07:34.000Z" itemprop="datePublished">2015-08-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/04/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick_Start"><a href="#Quick_Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create_a_new_post"><a href="#Create_a_new_post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run_server"><a href="#Run_server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate_static_files"><a href="#Generate_static_files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy_to_remote_sites"><a href="#Deploy_to_remote_sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://weixiaobo88.github.io/2015/08/04/hello-world/" data-id="cijzqz8bx000n5pqf0uvtkn3s" class="article-share-link">Share</a>
       
       
     </footer>
@@ -615,7 +673,7 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/08/03/jspm/" data-id="cijwqsa9i000lroqfi37zsvzh" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/08/03/jspm/" data-id="cijzqz8bu000l5pqf00d91zpt" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/modular-programming/">modular programming</a></li></ul>
@@ -627,71 +685,9 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
 
 
   
-    <article id="post-2015-07-29-spring-004-database" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/07/29/2015-07-29-spring-004-database/" class="article-date">
-  <time datetime="2015-07-29T10:08:50.000Z" itemprop="datePublished">2015-07-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/29/2015-07-29-spring-004-database/">Database</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Spring_4_Data_Access"><a href="#Spring_4_Data_Access" class="headerlink" title="Spring 4 Data Access"></a>Spring 4 Data Access</h2><p>许多开发人员将应用程序中的持久化对象称为仓库（repository），有时候也将其称为数据访问对象 DAO （Data access object）。<br>DAO提供了数据读取和写入到数据库中的一种方式。</p>
-<h3 id="u8BBE_u8BA1_u6570_u636E_u8BBF_u95EE_u5C42_u7684_u597D_u5904"><a href="#u8BBE_u8BA1_u6570_u636E_u8BBF_u95EE_u5C42_u7684_u597D_u5904" class="headerlink" title="设计数据访问层的好处"></a>设计数据访问层的好处</h3><ul>
-<li>使得服务对象易于测试，因为它们不再与特定的数据访问实现绑定在一起。可以为这些数据访问接口创建mock实现，可以让你无需连接数据库就能测试服务对象，这会显示提升单元测试的效率并排除因数据不一致所造成的测试失败。</li>
-<li>数据访问层是以持久化技术无关的方式来进行访问的。持久化方式的选择对于DAO，只有相关的数据访问方法通过接口来进行发布。这可以实现灵活的设计并使得切换持久化框架对应用程序其他部分带来的影响最小。</li>
-</ul>
-<h3 id="u53EF_u80FD_u5BFC_u81F4_u629B_u51FA_SQLException__u7684_u5E38_u89C1_u95EE_u9898"><a href="#u53EF_u80FD_u5BFC_u81F4_u629B_u51FA_SQLException__u7684_u5E38_u89C1_u95EE_u9898" class="headerlink" title="可能导致抛出 SQLException 的常见问题"></a>可能导致抛出 SQLException 的常见问题</h3><ul>
-<li>应用程序无法连接数据库</li>
-<li>要执行的查询语法有语法错误</li>
-<li>查询中所使用的表或列不存在</li>
-<li>视图插入或更新的数据违反了数据库的完整性约束</li>
-</ul>
-<h3 id="u6355_u83B7_u7684_u65F6_u5019_u9762_u4E34_u7684_u4E24_u4E2A_u95EE_u9898"><a href="#u6355_u83B7_u7684_u65F6_u5019_u9762_u4E34_u7684_u4E24_u4E2A_u95EE_u9898" class="headerlink" title="捕获的时候面临的两个问题"></a>捕获的时候面临的两个问题</h3><ul>
-<li>JDBC 的 SQLException 是通用异常，而且不会提示异常类型。</li>
-<li>一些持久化框架提供了相对丰富的异常体现，比如 Hibernate，但是 Hibernate 的异常是其本身特有的，这种持久化机制不能独立于数据访问层。</li>
-</ul>
-<h3 id="Spring_JDBC"><a href="#Spring_JDBC" class="headerlink" title="Spring JDBC"></a>Spring JDBC</h3><p>Spring JDBC 解决了上述两个问题， 它提供了多种类型，都继承自 DataAccessException，是一个非检查型异常。</p>
-<p>为了使用 Spring 的数据访问异常，需要使用 Spring 提供的数据访问模板。</p>
-<p>Spring 将数据访问过程中固定的和可变的部分明确划分为两个不同的类：</p>
-<ul>
-<li>模板，管理过程中固定的部分，比如事务控制、管理资源、处理异常</li>
-<li>回调，处理自定义的数据访问代码，应用程序相关的数据访问（创建语句、绑定参数以及整理结果集）在回调的实现中处理</li>
-</ul>
-<p>不同的持久化平台有不同的模板，JDBC 对于 JdbcTemplate，Hibernate 对应 HibernateTemplate。</p>
-<h2 id="u53C2_u8003_u8D44_u6599"><a href="#u53C2_u8003_u8D44_u6599" class="headerlink" title="参考资料"></a>参考资料</h2><p>《Spring in Action》</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/29/2015-07-29-spring-004-database/" data-id="cijwqsaaa001hroqfvwk7xjps" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 </section>
@@ -704,7 +700,7 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bind/">bind</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/build/">build</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/functional-programming/">functional-programming</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/">gradle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/modular-programming/">modular programming</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm-package-json/">npm, package.json</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-bootstrap/">react bootstrap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-router/">react router</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reading-notes/">reading-notes</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/servlet/">servlet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring-test/">spring test</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bind/">bind</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/build/">build</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/functional-programming/">functional-programming</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/">gradle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/modular-programming/">modular programming</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm-package-json/">npm, package.json</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-bootstrap/">react bootstrap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-router/">react router</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reading-notes/">reading-notes</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/servlet/">servlet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring-test/">spring test</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -713,7 +709,7 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/bind/" style="font-size: 10px;">bind</a> <a href="/tags/build/" style="font-size: 10px;">build</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/functional-programming/" style="font-size: 20px;">functional-programming</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/modular-programming/" style="font-size: 20px;">modular programming</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/npm-package-json/" style="font-size: 10px;">npm, package.json</a> <a href="/tags/react/" style="font-size: 13.33px;">react</a> <a href="/tags/react-bootstrap/" style="font-size: 10px;">react bootstrap</a> <a href="/tags/react-router/" style="font-size: 10px;">react router</a> <a href="/tags/reading-notes/" style="font-size: 10px;">reading-notes</a> <a href="/tags/servlet/" style="font-size: 13.33px;">servlet</a> <a href="/tags/spring/" style="font-size: 16.67px;">spring</a> <a href="/tags/spring-test/" style="font-size: 10px;">spring test</a>
+      <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/bind/" style="font-size: 10px;">bind</a> <a href="/tags/build/" style="font-size: 10px;">build</a> <a href="/tags/css/" style="font-size: 13.33px;">css</a> <a href="/tags/functional-programming/" style="font-size: 20px;">functional-programming</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/modular-programming/" style="font-size: 20px;">modular programming</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/npm-package-json/" style="font-size: 10px;">npm, package.json</a> <a href="/tags/react/" style="font-size: 13.33px;">react</a> <a href="/tags/react-bootstrap/" style="font-size: 10px;">react bootstrap</a> <a href="/tags/react-router/" style="font-size: 10px;">react router</a> <a href="/tags/reading-notes/" style="font-size: 10px;">reading-notes</a> <a href="/tags/servlet/" style="font-size: 13.33px;">servlet</a> <a href="/tags/spring/" style="font-size: 16.67px;">spring</a> <a href="/tags/spring-test/" style="font-size: 10px;">spring test</a>
     </div>
   </div>
 
@@ -722,7 +718,7 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -732,6 +728,10 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/01/29/20160129-css-design/">20160129-css-design</a>
+          </li>
         
           <li>
             <a href="/2016/01/27/20160127-webpack-md/">20160127-webpack.md</a>
@@ -747,10 +747,6 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
         
           <li>
             <a href="/2016/01/26/20150126-functional-programming-pure-function/">Functional Programming Additional</a>
-          </li>
-        
-          <li>
-            <a href="/2016/01/25/20160125-everyone-is-product-manager-md/">20160125-everyone-is-product-manager.md</a>
           </li>
         
       </ul>

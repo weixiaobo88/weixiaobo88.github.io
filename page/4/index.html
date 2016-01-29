@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: java | weixiaobo88.github.io</title>
+  <title>weixiaobo88.github.io</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
 <meta property="og:type" content="website">
 <meta property="og:title" content="weixiaobo88.github.io">
-<meta property="og:url" content="http://weixiaobo88.github.io/tags/java/index.html">
+<meta property="og:url" content="http://weixiaobo88.github.io/page/4/index.html">
 <meta property="og:site_name" content="weixiaobo88.github.io">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
@@ -65,36 +65,70 @@
       <div class="outer">
         <section id="main">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2015/07/09/2015-07-09-deploy/" class="archive-article-date">
-  <time datetime="2015-07-09T10:08:50.000Z" itemprop="datePublished">Jul 9</time>
+    <article id="post-2015-06-26-nodejs-01" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/06/26/2015-06-26-nodejs-01/" class="article-date">
+  <time datetime="2015-06-25T16:00:00.000Z" itemprop="datePublished">2015-06-26</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/07/09/2015-07-09-deploy/">部署</a>
+      <a class="article-title" href="/2015/06/26/2015-06-26-nodejs-01/">跟着Howard学习Node.js 01 —— 创建自己的npm包</a>
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>我一直倡导Learning by Asking Questions，所以学习之前我也会先好奇一下：<br>npm包是什么东西<br>npm包是干嘛用的，为什么要创建<br>npm包怎么创建，复杂吗，包括几个步骤<br>这个过程还会遇到哪些我从来没接触的问题</p>
+<h2 id="u679C_u679C"><a href="#u679C_u679C" class="headerlink" title="果果"></a>果果</h2><p>在学习课程之后，我们能获得什么？<br>直接点：一个可以打招呼加调侃的npm包，说的形象点就是当你运行greet指令时，你将会得到：<br>（前面的$符号表示是命令行的一条指令。这条指令下面的内容是命令行执行指令之后的输出）<br>$greet yourname<br>hello yourname<br>$greet yourname –drunk<br>hello yourname, you look sexy today</p>
+<p>间接点：你会回答诸如如何创建一个npm包之类的问题。</p>
+<h2 id="u5F00_u59CB_u79CD_u6811"><a href="#u5F00_u59CB_u79CD_u6811" class="headerlink" title="开始种树"></a>开始种树</h2><h3 id="u4E00_u4E2Anpm_u5305_u610F_u5473_u7740_u4EC0_u4E48_uFF1F"><a href="#u4E00_u4E2Anpm_u5305_u610F_u5473_u7740_u4EC0_u4E48_uFF1F" class="headerlink" title="一个npm包意味着什么？"></a>一个npm包意味着什么？</h3><p>一个npm包意味着在安装后可以直接通过命令调用，比如<br>$npm install -g mocha<br>这样全局都可以使用mocha的命令来运行指令。<br>那么创建自己的npm包也是一样，通过安装之后就可以直接运行指令。</p>
+<p>npm package也称为module，它由两部分组成：</p>
+<ul>
+<li>package.json</li>
+<li>yourcode.js</li>
+</ul>
+<h3 id="u4E3A_u4EC0_u4E48_u8981_u521B_u5EFAnpm_u5305"><a href="#u4E3A_u4EC0_u4E48_u8981_u521B_u5EFAnpm_u5305" class="headerlink" title="为什么要创建npm包"></a>为什么要创建npm包</h3><p>为了学习…..虽然勉强，也抵挡不了好奇，就是好奇怎么地。<br>来点冠冕堂皇的理由吧，为了复用代码，大家把相对独立的功能做出来，然后其他人都可以复用了。</p>
+<h3 id="u600E_u4E48_u521B_u5EFA_u554A_uFF0C_u6B65_u9AA4_u5462_uFF0C_u6B65_u9AA4_u5462_uFF1F"><a href="#u600E_u4E48_u521B_u5EFA_u554A_uFF0C_u6B65_u9AA4_u5462_uFF0C_u6B65_u9AA4_u5462_uFF1F" class="headerlink" title="怎么创建啊，步骤呢，步骤呢？"></a>怎么创建啊，步骤呢，步骤呢？</h3><ul>
+<li><p>先找个地儿，今后就靠这个地了<br>$mkdir greet &amp;&amp; cd greet</p>
+</li>
+<li><p>找到地盘之后，记得树个牌子，这是“俺家的”标志。<br>$npm init<br>这个命令之后，你就有一个package.json（）</p>
+</li>
+</ul>
+<h2 id="u4F60_u53EF_u4EE5_u4E0D_u77E5_u9053"><a href="#u4F60_u53EF_u4EE5_u4E0D_u77E5_u9053" class="headerlink" title="你可以不知道"></a>你可以不知道</h2><p>npm是个什么东西？<br>当人们说npm的时候，通常可能说的是这三种东西之一：</p>
+<ul>
+<li>website, <a href="https://www.npmjs.com/" target="_blank" rel="external">https://www.npmjs.com/</a></li>
+<li>all registry packages</li>
+<li>npm client</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://weixiaobo88.github.io/2015/06/26/2015-06-26-nodejs-01/" data-id="cijzqz8d200245pqfdlknvnd9" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li></ul>
+
+    </footer>
   </div>
+  
 </article>
+
+
   
   
-    </div></section>
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+    </nav>
   
 </section>
         

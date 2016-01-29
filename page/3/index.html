@@ -65,6 +65,68 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-2015-07-29-spring-004-database" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/07/29/2015-07-29-spring-004-database/" class="article-date">
+  <time datetime="2015-07-29T10:08:50.000Z" itemprop="datePublished">2015-07-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/07/29/2015-07-29-spring-004-database/">Database</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Spring_4_Data_Access"><a href="#Spring_4_Data_Access" class="headerlink" title="Spring 4 Data Access"></a>Spring 4 Data Access</h2><p>许多开发人员将应用程序中的持久化对象称为仓库（repository），有时候也将其称为数据访问对象 DAO （Data access object）。<br>DAO提供了数据读取和写入到数据库中的一种方式。</p>
+<h3 id="u8BBE_u8BA1_u6570_u636E_u8BBF_u95EE_u5C42_u7684_u597D_u5904"><a href="#u8BBE_u8BA1_u6570_u636E_u8BBF_u95EE_u5C42_u7684_u597D_u5904" class="headerlink" title="设计数据访问层的好处"></a>设计数据访问层的好处</h3><ul>
+<li>使得服务对象易于测试，因为它们不再与特定的数据访问实现绑定在一起。可以为这些数据访问接口创建mock实现，可以让你无需连接数据库就能测试服务对象，这会显示提升单元测试的效率并排除因数据不一致所造成的测试失败。</li>
+<li>数据访问层是以持久化技术无关的方式来进行访问的。持久化方式的选择对于DAO，只有相关的数据访问方法通过接口来进行发布。这可以实现灵活的设计并使得切换持久化框架对应用程序其他部分带来的影响最小。</li>
+</ul>
+<h3 id="u53EF_u80FD_u5BFC_u81F4_u629B_u51FA_SQLException__u7684_u5E38_u89C1_u95EE_u9898"><a href="#u53EF_u80FD_u5BFC_u81F4_u629B_u51FA_SQLException__u7684_u5E38_u89C1_u95EE_u9898" class="headerlink" title="可能导致抛出 SQLException 的常见问题"></a>可能导致抛出 SQLException 的常见问题</h3><ul>
+<li>应用程序无法连接数据库</li>
+<li>要执行的查询语法有语法错误</li>
+<li>查询中所使用的表或列不存在</li>
+<li>视图插入或更新的数据违反了数据库的完整性约束</li>
+</ul>
+<h3 id="u6355_u83B7_u7684_u65F6_u5019_u9762_u4E34_u7684_u4E24_u4E2A_u95EE_u9898"><a href="#u6355_u83B7_u7684_u65F6_u5019_u9762_u4E34_u7684_u4E24_u4E2A_u95EE_u9898" class="headerlink" title="捕获的时候面临的两个问题"></a>捕获的时候面临的两个问题</h3><ul>
+<li>JDBC 的 SQLException 是通用异常，而且不会提示异常类型。</li>
+<li>一些持久化框架提供了相对丰富的异常体现，比如 Hibernate，但是 Hibernate 的异常是其本身特有的，这种持久化机制不能独立于数据访问层。</li>
+</ul>
+<h3 id="Spring_JDBC"><a href="#Spring_JDBC" class="headerlink" title="Spring JDBC"></a>Spring JDBC</h3><p>Spring JDBC 解决了上述两个问题， 它提供了多种类型，都继承自 DataAccessException，是一个非检查型异常。</p>
+<p>为了使用 Spring 的数据访问异常，需要使用 Spring 提供的数据访问模板。</p>
+<p>Spring 将数据访问过程中固定的和可变的部分明确划分为两个不同的类：</p>
+<ul>
+<li>模板，管理过程中固定的部分，比如事务控制、管理资源、处理异常</li>
+<li>回调，处理自定义的数据访问代码，应用程序相关的数据访问（创建语句、绑定参数以及整理结果集）在回调的实现中处理</li>
+</ul>
+<p>不同的持久化平台有不同的模板，JDBC 对于 JdbcTemplate，Hibernate 对应 HibernateTemplate。</p>
+<h2 id="u53C2_u8003_u8D44_u6599"><a href="#u53C2_u8003_u8D44_u6599" class="headerlink" title="参考资料"></a>参考资料</h2><p>《Spring in Action》</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://weixiaobo88.github.io/2015/07/29/2015-07-29-spring-004-database/" data-id="cijzqz8cl001j5pqf5vhv9acb" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-2015-07-14-spring-003-config" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/07/14/2015-07-14-spring-003-config/" class="article-date">
@@ -191,7 +253,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/14/2015-07-14-spring-003-config/" data-id="cijwqsaac001kroqfxufy9akj" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/14/2015-07-14-spring-003-config/" data-id="cijzqz8cm001m5pqfygjvnfqs" class="article-share-link">Share</a>
       
       
     </footer>
@@ -302,7 +364,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/12/2015-07-12-spring-002-ioc/" data-id="cijwqsaad001lroqfo52tlbrf" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/12/2015-07-12-spring-002-ioc/" data-id="cijzqz8co001n5pqfd03h69km" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li></ul>
@@ -342,7 +404,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/10/2015-07-10-database-01/" data-id="cijwqsaaf001nroqf473g2r53" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/10/2015-07-10-database-01/" data-id="cijzqz8cp001p5pqfnnr0plpy" class="article-share-link">Share</a>
       
       
     </footer>
@@ -383,7 +445,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/10/2015-07-10-backend-frontend-interaction/" data-id="cijwqsaag001oroqf6s775iaz" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/10/2015-07-10-backend-frontend-interaction/" data-id="cijzqz8cq001q5pqf26xw6lt2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -485,7 +547,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/09/2015-07-09-servlet-002/" data-id="cijwqsaah001proqfn0z3mma9" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/09/2015-07-09-servlet-002/" data-id="cijzqz8cs001r5pqfaazy84xk" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/servlet/">servlet</a></li></ul>
@@ -551,7 +613,7 @@ If the response&apos;s character encoding has not been specified as described in
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/09/2015-07-09-servlet-001/" data-id="cijwqsaai001sroqf7y2dl2dk" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/09/2015-07-09-servlet-001/" data-id="cijzqz8cv001u5pqfchckezn5" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/servlet/">servlet</a></li></ul>
@@ -599,7 +661,7 @@ If the response&apos;s character encoding has not been specified as described in
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/09/2015-07-09-gradle/" data-id="cijwqsaal001uroqf5rgzbqb5" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/09/2015-07-09-gradle/" data-id="cijzqz8cy001w5pqf8tjprlnv" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gradle/">gradle</a></li></ul>
@@ -664,7 +726,7 @@ If the response&apos;s character encoding has not been specified as described in
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/09/2015-07-09-deploy/" data-id="cijwqsaao001xroqfq9p3f793" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/09/2015-07-09-deploy/" data-id="cijzqz8cz001z5pqfwxhvw65a" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
@@ -758,7 +820,7 @@ If the response&apos;s character encoding has not been specified as described in
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/08/2015-07-08-spring-001/" data-id="cijwqsaaq0020roqf32vagu2a" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/08/2015-07-08-spring-001/" data-id="cijzqz8d100225pqff4eco6xr" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li></ul>
@@ -770,69 +832,9 @@ If the response&apos;s character encoding has not been specified as described in
 
 
   
-    <article id="post-2015-06-26-nodejs-01" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/06/26/2015-06-26-nodejs-01/" class="article-date">
-  <time datetime="2015-06-25T16:00:00.000Z" itemprop="datePublished">2015-06-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/06/26/2015-06-26-nodejs-01/">跟着Howard学习Node.js 01 —— 创建自己的npm包</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>我一直倡导Learning by Asking Questions，所以学习之前我也会先好奇一下：<br>npm包是什么东西<br>npm包是干嘛用的，为什么要创建<br>npm包怎么创建，复杂吗，包括几个步骤<br>这个过程还会遇到哪些我从来没接触的问题</p>
-<h2 id="u679C_u679C"><a href="#u679C_u679C" class="headerlink" title="果果"></a>果果</h2><p>在学习课程之后，我们能获得什么？<br>直接点：一个可以打招呼加调侃的npm包，说的形象点就是当你运行greet指令时，你将会得到：<br>（前面的$符号表示是命令行的一条指令。这条指令下面的内容是命令行执行指令之后的输出）<br>$greet yourname<br>hello yourname<br>$greet yourname –drunk<br>hello yourname, you look sexy today</p>
-<p>间接点：你会回答诸如如何创建一个npm包之类的问题。</p>
-<h2 id="u5F00_u59CB_u79CD_u6811"><a href="#u5F00_u59CB_u79CD_u6811" class="headerlink" title="开始种树"></a>开始种树</h2><h3 id="u4E00_u4E2Anpm_u5305_u610F_u5473_u7740_u4EC0_u4E48_uFF1F"><a href="#u4E00_u4E2Anpm_u5305_u610F_u5473_u7740_u4EC0_u4E48_uFF1F" class="headerlink" title="一个npm包意味着什么？"></a>一个npm包意味着什么？</h3><p>一个npm包意味着在安装后可以直接通过命令调用，比如<br>$npm install -g mocha<br>这样全局都可以使用mocha的命令来运行指令。<br>那么创建自己的npm包也是一样，通过安装之后就可以直接运行指令。</p>
-<p>npm package也称为module，它由两部分组成：</p>
-<ul>
-<li>package.json</li>
-<li>yourcode.js</li>
-</ul>
-<h3 id="u4E3A_u4EC0_u4E48_u8981_u521B_u5EFAnpm_u5305"><a href="#u4E3A_u4EC0_u4E48_u8981_u521B_u5EFAnpm_u5305" class="headerlink" title="为什么要创建npm包"></a>为什么要创建npm包</h3><p>为了学习…..虽然勉强，也抵挡不了好奇，就是好奇怎么地。<br>来点冠冕堂皇的理由吧，为了复用代码，大家把相对独立的功能做出来，然后其他人都可以复用了。</p>
-<h3 id="u600E_u4E48_u521B_u5EFA_u554A_uFF0C_u6B65_u9AA4_u5462_uFF0C_u6B65_u9AA4_u5462_uFF1F"><a href="#u600E_u4E48_u521B_u5EFA_u554A_uFF0C_u6B65_u9AA4_u5462_uFF0C_u6B65_u9AA4_u5462_uFF1F" class="headerlink" title="怎么创建啊，步骤呢，步骤呢？"></a>怎么创建啊，步骤呢，步骤呢？</h3><ul>
-<li><p>先找个地儿，今后就靠这个地了<br>$mkdir greet &amp;&amp; cd greet</p>
-</li>
-<li><p>找到地盘之后，记得树个牌子，这是“俺家的”标志。<br>$npm init<br>这个命令之后，你就有一个package.json（）</p>
-</li>
-</ul>
-<h2 id="u4F60_u53EF_u4EE5_u4E0D_u77E5_u9053"><a href="#u4F60_u53EF_u4EE5_u4E0D_u77E5_u9053" class="headerlink" title="你可以不知道"></a>你可以不知道</h2><p>npm是个什么东西？<br>当人们说npm的时候，通常可能说的是这三种东西之一：</p>
-<ul>
-<li>website, <a href="https://www.npmjs.com/" target="_blank" rel="external">https://www.npmjs.com/</a></li>
-<li>all registry packages</li>
-<li>npm client</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/06/26/2015-06-26-nodejs-01/" data-id="cijwqsaar0022roqfwq4n4ntu" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 </section>
@@ -845,7 +847,7 @@ If the response&apos;s character encoding has not been specified as described in
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bind/">bind</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/build/">build</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/functional-programming/">functional-programming</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/">gradle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/modular-programming/">modular programming</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm-package-json/">npm, package.json</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-bootstrap/">react bootstrap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-router/">react router</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reading-notes/">reading-notes</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/servlet/">servlet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring-test/">spring test</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bind/">bind</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/build/">build</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/functional-programming/">functional-programming</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/">gradle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/modular-programming/">modular programming</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm-package-json/">npm, package.json</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-bootstrap/">react bootstrap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-router/">react router</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reading-notes/">reading-notes</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/servlet/">servlet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring-test/">spring test</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -854,7 +856,7 @@ If the response&apos;s character encoding has not been specified as described in
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/bind/" style="font-size: 10px;">bind</a> <a href="/tags/build/" style="font-size: 10px;">build</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/functional-programming/" style="font-size: 20px;">functional-programming</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/modular-programming/" style="font-size: 20px;">modular programming</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/npm-package-json/" style="font-size: 10px;">npm, package.json</a> <a href="/tags/react/" style="font-size: 13.33px;">react</a> <a href="/tags/react-bootstrap/" style="font-size: 10px;">react bootstrap</a> <a href="/tags/react-router/" style="font-size: 10px;">react router</a> <a href="/tags/reading-notes/" style="font-size: 10px;">reading-notes</a> <a href="/tags/servlet/" style="font-size: 13.33px;">servlet</a> <a href="/tags/spring/" style="font-size: 16.67px;">spring</a> <a href="/tags/spring-test/" style="font-size: 10px;">spring test</a>
+      <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/bind/" style="font-size: 10px;">bind</a> <a href="/tags/build/" style="font-size: 10px;">build</a> <a href="/tags/css/" style="font-size: 13.33px;">css</a> <a href="/tags/functional-programming/" style="font-size: 20px;">functional-programming</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/modular-programming/" style="font-size: 20px;">modular programming</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/npm-package-json/" style="font-size: 10px;">npm, package.json</a> <a href="/tags/react/" style="font-size: 13.33px;">react</a> <a href="/tags/react-bootstrap/" style="font-size: 10px;">react bootstrap</a> <a href="/tags/react-router/" style="font-size: 10px;">react router</a> <a href="/tags/reading-notes/" style="font-size: 10px;">reading-notes</a> <a href="/tags/servlet/" style="font-size: 13.33px;">servlet</a> <a href="/tags/spring/" style="font-size: 16.67px;">spring</a> <a href="/tags/spring-test/" style="font-size: 10px;">spring test</a>
     </div>
   </div>
 
@@ -863,7 +865,7 @@ If the response&apos;s character encoding has not been specified as described in
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -873,6 +875,10 @@ If the response&apos;s character encoding has not been specified as described in
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/01/29/20160129-css-design/">20160129-css-design</a>
+          </li>
         
           <li>
             <a href="/2016/01/27/20160127-webpack-md/">20160127-webpack.md</a>
@@ -888,10 +894,6 @@ If the response&apos;s character encoding has not been specified as described in
         
           <li>
             <a href="/2016/01/26/20150126-functional-programming-pure-function/">Functional Programming Additional</a>
-          </li>
-        
-          <li>
-            <a href="/2016/01/25/20160125-everyone-is-product-manager-md/">20160125-everyone-is-product-manager.md</a>
           </li>
         
       </ul>
