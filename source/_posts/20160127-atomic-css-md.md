@@ -50,14 +50,92 @@ Atomic Design :
 
 - 不能用 media queries, 因为现在样式写在了 markup 上, 不能通过 media queries 来改变
 
+总结: ACSS 适应于大的网站, 对小的网站来说并么有明显的优势.
+
+
+Atomic File Structure
+```
+mkdir -p atomic-structuring/{utilities,quarks,atoms,molecules} 
+```
+
 ## Atomic Design VS ACSS
 
 
 ## 什么是BEM
 
+BEM 是 Block, Element, Modifier, 是给 class 起名字的方式
+
+比如
+```
+/* This is the Block */
+.block {}
+
+/* This is an element, that helps to form the block as a whole */
+.block__element {}
+
+/* This modifies the element or a block*/
+.block--modifier {}
+```
+
+使用的时候应该注意什么:
+
+- 不要级联元素, 比如不要写成`block__element1__element2`, 而是直接写成 `block__element2`
+
+嵌套的 DOM-tree 和 BEM-tree 的区别:
+ 
+DOM-tree
+```
+<ul>
+  <li>
+    <a>
+      <span></span>
+    </a>
+  </li>
+</ul>
+
+.ul {}
+.ul > li {}
+.ul > li > a {}
+.ul > li > a > span {}
+```
+
+BEM-tree
+
+```
+<ul class="menu">
+  <li class="menu__item">
+    <a class="menu__link">
+      <span class="menu__text"></span>
+    </a>
+  </li>
+</ul>
+
+.menu {}
+.menu__item {}
+.menu__link {}
+.menu__text {}
+```
+
+更多资料:
+
+- [The BEM site](http://bem.info/method/definitions/)
+- [An easy to understand article about BEM](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/)
+- [Great SO answer by Igor Zenich](http://stackoverflow.com/a/27900589/976972)
+ 
+
 ## 什么是SMACSS
 
+SMACSS 是 Scalable and Modular Architecture for CSS
+
+更多资料:
+
+- [SMACSS website](http://smacss.com/)
+- [Smashing Mag article Decoupling HTML from CSS](http://coding.smashingmagazine.com/2012/04/20/decoupling-html-from-css)
+
+## 该如何选择
 
 适合什么样的项目, 有什么优势劣势
+
+
 
 
