@@ -19,7 +19,7 @@ container 和 content 分开: 不要级联选择器, 直">
 
 structure 和  skin 分开: 定义一个 ‘gradient’, 然后在其他地方 extend 这个 gradient
 container 和 content 分开: 不要级联选择器, 直">
-<meta property="og:updated_time" content="2016-01-28T11:55:21.000Z">
+<meta property="og:updated_time" content="2016-01-29T13:27:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="20160127-atomic-css.md">
 <meta name="twitter:description" content="参考 OOCSS, ACSS, BEM, SMACSS: what are they? What should I use?
@@ -126,7 +126,31 @@ container 和 content 分开: 不要级联选择器, 直">
 <ul>
 <li>不能用 media queries, 因为现在样式写在了 markup 上, 不能通过 media queries 来改变</li>
 </ul>
-<h2 id="Atomic_Design_VS_ACSS"><a href="#Atomic_Design_VS_ACSS" class="headerlink" title="Atomic Design VS ACSS"></a>Atomic Design VS ACSS</h2><h2 id="u4EC0_u4E48_u662FBEM"><a href="#u4EC0_u4E48_u662FBEM" class="headerlink" title="什么是BEM"></a>什么是BEM</h2><h2 id="u4EC0_u4E48_u662FSMACSS"><a href="#u4EC0_u4E48_u662FSMACSS" class="headerlink" title="什么是SMACSS"></a>什么是SMACSS</h2><p>适合什么样的项目, 有什么优势劣势</p>
+<p>总结: ACSS 适应于大的网站, 对小的网站来说并么有明显的优势.</p>
+<p>Atomic File Structure<br><figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p atomic-structuring/&#123;utilities,quarks,atoms,molecules&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Atomic_Design_VS_ACSS"><a href="#Atomic_Design_VS_ACSS" class="headerlink" title="Atomic Design VS ACSS"></a>Atomic Design VS ACSS</h2><h2 id="u4EC0_u4E48_u662FBEM"><a href="#u4EC0_u4E48_u662FBEM" class="headerlink" title="什么是BEM"></a>什么是BEM</h2><p>BEM 是 Block, Element, Modifier, 是给 class 起名字的方式</p>
+<p>比如<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* This is the Block */</span></span><br><span class="line"><span class="class">.block</span> <span class="rules">&#123;&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* This is an element, that helps to form the block as a whole */</span></span><br><span class="line"><span class="class">.block__element</span> <span class="rules">&#123;&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* This modifies the element or a block*/</span></span><br><span class="line"><span class="class">.block--modifier</span> <span class="rules">&#123;&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>使用的时候应该注意什么:</p>
+<ul>
+<li>不要级联元素, 比如不要写成<code>block__element1__element2</code>, 而是直接写成 <code>block__element2</code></li>
+</ul>
+<p>嵌套的 DOM-tree 和 BEM-tree 的区别:</p>
+<p>DOM-tree<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">a</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">span</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br><span class="line"></span><br><span class="line">.ul &#123;&#125;</span><br><span class="line">.ul &gt; li &#123;&#125;</span><br><span class="line">.ul &gt; li &gt; a &#123;&#125;</span><br><span class="line">.ul &gt; li &gt; a &gt; span &#123;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>BEM-tree</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">ul</span> <span class="attribute">class</span>=<span class="value">"menu"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">li</span> <span class="attribute">class</span>=<span class="value">"menu__item"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">class</span>=<span class="value">"menu__link"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"menu__text"</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br><span class="line"></span><br><span class="line">.menu &#123;&#125;</span><br><span class="line">.menu__item &#123;&#125;</span><br><span class="line">.menu__link &#123;&#125;</span><br><span class="line">.menu__text &#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>更多资料:</p>
+<ul>
+<li><a href="http://bem.info/method/definitions/" target="_blank" rel="external">The BEM site</a></li>
+<li><a href="http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/" target="_blank" rel="external">An easy to understand article about BEM</a></li>
+<li><a href="http://stackoverflow.com/a/27900589/976972" target="_blank" rel="external">Great SO answer by Igor Zenich</a></li>
+</ul>
+<h2 id="u4EC0_u4E48_u662FSMACSS"><a href="#u4EC0_u4E48_u662FSMACSS" class="headerlink" title="什么是SMACSS"></a>什么是SMACSS</h2><p>SMACSS 是 Scalable and Modular Architecture for CSS</p>
+<p>更多资料:</p>
+<ul>
+<li><a href="http://smacss.com/" target="_blank" rel="external">SMACSS website</a></li>
+<li><a href="http://coding.smashingmagazine.com/2012/04/20/decoupling-html-from-css" target="_blank" rel="external">Smashing Mag article Decoupling HTML from CSS</a></li>
+</ul>
+<h2 id="u8BE5_u5982_u4F55_u9009_u62E9"><a href="#u8BE5_u5982_u4F55_u9009_u62E9" class="headerlink" title="该如何选择"></a>该如何选择</h2><p>适合什么样的项目, 有什么优势劣势</p>
 
       
     </div>
