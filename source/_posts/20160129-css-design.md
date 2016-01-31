@@ -10,8 +10,8 @@ tags: css
 - 如何设计 CSS
 - 项目初期有哪些是预先需要敲定的
 
-hack code 以单独文件存在
-scss 写 placeholder 还是 include??
+
+?scss 写 placeholder 还是 include??
 
 基本样式, 包括 网站的颜色, 网站的字体, 网站的字号, 间距, 圆角, 布局
 
@@ -29,11 +29,14 @@ scss 写 placeholder 还是 include??
   * 比如: body, h1-h5, link:active/visited/hover
 - 文件组织结构
   * 按照 feature
+  * browser-specific CSS 以单独文件存在
 - 命名
    * 文件命名
    * class 的命名
    * 不要使用具体的比如颜色来命名 class
-   
+- 编码习惯
+   * DON’T REPEAT YOURSELF, 用逗号将共用的样式 group 起来
+- 上线前压缩   
 
 
 
