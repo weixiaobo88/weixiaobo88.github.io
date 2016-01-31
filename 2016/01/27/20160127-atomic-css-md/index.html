@@ -19,7 +19,7 @@ container 和 content 分开: 不要级联选择器, 直">
 
 structure 和  skin 分开: 定义一个 ‘gradient’, 然后在其他地方 extend 这个 gradient
 container 和 content 分开: 不要级联选择器, 直">
-<meta property="og:updated_time" content="2016-01-29T13:27:40.000Z">
+<meta property="og:updated_time" content="2016-01-31T00:35:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="20160127-atomic-css.md">
 <meta name="twitter:description" content="参考 OOCSS, ACSS, BEM, SMACSS: what are they? What should I use?
@@ -128,6 +128,8 @@ container 和 content 分开: 不要级联选择器, 直">
 </ul>
 <p>总结: ACSS 适应于大的网站, 对小的网站来说并么有明显的优势.</p>
 <p>Atomic File Structure<br><figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p atomic-structuring/&#123;utilities,quarks,atoms,molecules&#125;</span><br></pre></td></tr></table></figure></p>
+<p>###Atomic CSS 可能会遇到的问题</p>
+<p>如果有两个结构的样式相同, 由于原子样式会写在 markup 上, 所以复用性上就差了点.<br>另外, 如果这两个样式都想要换的话, 需要改两个地方, 增加了维护成本.</p>
 <h2 id="Atomic_Design_VS_ACSS"><a href="#Atomic_Design_VS_ACSS" class="headerlink" title="Atomic Design VS ACSS"></a>Atomic Design VS ACSS</h2><h2 id="u4EC0_u4E48_u662FBEM"><a href="#u4EC0_u4E48_u662FBEM" class="headerlink" title="什么是BEM"></a>什么是BEM</h2><p>BEM 是 Block, Element, Modifier, 是给 class 起名字的方式</p>
 <p>比如<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* This is the Block */</span></span><br><span class="line"><span class="class">.block</span> <span class="rules">&#123;&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* This is an element, that helps to form the block as a whole */</span></span><br><span class="line"><span class="class">.block__element</span> <span class="rules">&#123;&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* This modifies the element or a block*/</span></span><br><span class="line"><span class="class">.block--modifier</span> <span class="rules">&#123;&#125;</span></span><br></pre></td></tr></table></figure></p>
 <p>使用的时候应该注意什么:</p>
