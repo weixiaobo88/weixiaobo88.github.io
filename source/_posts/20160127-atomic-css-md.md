@@ -58,7 +58,15 @@ Atomic File Structure
 mkdir -p atomic-structuring/{utilities,quarks,atoms,molecules} 
 ```
 
+
+###Atomic CSS 可能会遇到的问题
+
+如果有两个结构的样式相同, 由于原子样式会写在 markup 上, 所以复用性上就差了点.
+另外, 如果这两个样式都想要换的话, 需要改两个地方, 增加了维护成本.
+
 ## Atomic Design VS ACSS
+
+
 
 
 ## 什么是BEM
@@ -135,6 +143,8 @@ SMACSS 是 Scalable and Modular Architecture for CSS
 ## 该如何选择
 
 适合什么样的项目, 有什么优势劣势
+
+
 
 
 
