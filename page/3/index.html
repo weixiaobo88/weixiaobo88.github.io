@@ -100,7 +100,82 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/08/04/hello-world/" data-id="cik4pfion000nt9qf0uo1mb7l" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/08/04/hello-world/" data-id="cik5enn7j000oyjqfnm8wr4fg" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2015-03-19-webfont" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/08/04/2015-03-19-webfont/" class="article-date">
+  <time datetime="2015-08-04T01:07:34.000Z" itemprop="datePublished">2015-08-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/04/2015-03-19-webfont/">学习web fonts</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>听到别人一直在说web fonts，脑子里大概知道什么，又确切的感觉好像不是很清晰的了解。<br>想尝试搞清楚，于是问了自己几个问题：</p>
+<ul>
+<li><a href="#why">为什么会出现web fonts，它的出现解决了什么问题</a></li>
+<li><a href="#what">什么是web fonts</a></li>
+<li><a href="#how">怎么用web fonts</a></li>
+</ul>
+<p></p><h2 id="why">为什么会出现web fonts，它的出现解决了什么问题</h2><br>在web fonts没有出现以前，网页上正常显示fonts的前提是用户已经安装了相应的字体。<p></p>
+<p></p><h2 id="what">什么是web fonts</h2><br>web fonts是在线字体或者网络字体，是CSS3中的一个模块，可以把自定义的特殊字体嵌入到网页中。<p></p>
+<p></p><h2 id="how">怎么用web fonts</h2><br>既然web fonts是CSS3中的一个模块，那用起来自然就是用CSS实现，两步：<p></p>
+<ul>
+<li>首先用@font-face定义字体</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="at_rule">@<span class="keyword">font-face</span></span><span class="rules">&#123;</span><br><span class="line">	<span class="rule"><span class="attribute">font-family</span>:<span class="value"> <span class="string">'MyWebFont'</span></span></span>;</span><br><span class="line">	<span class="rule"><span class="attribute">src</span>:<span class="value"> <span class="function">url</span>(<span class="string">'WebFont.eot'</span>)</span></span>;</span><br><span class="line">	<span class="rule"><span class="attribute">src</span>:<span class="value"> <span class="function">url</span>(<span class="string">'WebFont.eot?#iefix'</span>) <span class="function">format</span>(<span class="string">'embedded-opentype'</span>),</span><br><span class="line">	     <span class="function">url</span>(<span class="string">'WebFont.woff'</span>) <span class="function">format</span>(<span class="string">'woff'</span>),</span><br><span class="line">	     <span class="function">url</span>(<span class="string">'WebFont.ttf'</span>) <span class="function">format</span>(<span class="string">'truetype'</span>),</span><br><span class="line">	     <span class="function">url</span>(<span class="string">'WebFont.svg#webfont'</span>) <span class="function">format</span>(<span class="string">'svg'</span>)</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<div class="small"><br>那么字体哪里来呢？<br></div>
+
+
+<ul>
+<li>然后该怎么使用呢？既然webfont也是一种font，就按照font来用就好了，一般来说相关的在线网站都会介绍使用方法。<br>比如<a href="https://www.zybuluo.com/cherishpeace/note/46809" target="_blank" rel="external">这里有一个介绍</a></li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">p</span> <span class="rules">&#123; <span class="rule"><span class="attribute">font-family</span>:<span class="value"> <span class="string">'MyWebFont'</span>, Arial, sans-serif</span></span>; &#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face" target="_blank" rel="external">@font-face</a></li>
+<li><a href="http://gejiawen.github.io/2015/03/04/CSS/WebFont%E4%B8%8E%E9%A1%B5%E9%9D%A2ICON%E5%9B%BE%E6%A0%87%E7%A0%94%E7%A9%B6/" target="_blank" rel="external">WebFont与页面ICON图标研究</a></li>
+</ul>
+<!-- icon font
+网页上的小图标称之为页面icon，这些icon基本都是设计师来制作的，起初设计师将网页需要的icon统统丢给dev，然后dev就将这些icon用在网页的不同的地方。
+
+这样有什么问题吗？
+每显示一张图片，都会向服务器发送一次请求，图片越多，请求次数越多，造成延迟的可能性就越大。
+
+于是为了解决这个问题，设计师或者dev就将这些图标按照一定顺序和方式合并在一起，这种方式称为css sprites或者图片精灵。dev怎么用呢，他们就通过写CSS来控制不同图标的background-position属性。
+
+这样又有什么问题吗？
+dev需要匹配每个icon的position属性，而且同一个icon不同尺寸也需要设计师设计多套icon，更可怜的是，如果中间某个icon发生变化，那么多米诺效应就会发生，在那个图标之后的所有图标的CSS代码都有可能修改。
+
+icon font倒是可以或多或少解决这个问题，当然两者并不冲突。
+
+<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-<span class="ruby"> 你可以去免费的网站下载，比如 <span class="symbol">https:</span>/<span class="regexp">/icomoon.io/app</span></span><br><span class="line"></span>-<span class="ruby"> 也可以去收费的网站购买字体使用授权</span><br><span class="line"></span>-<span class="ruby"> 当然还可以自己设计字体</span></span><br></pre></td></tr></table></figure>
+<p>–&gt;</p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://weixiaobo88.github.io/2015/08/04/2015-03-19-webfont/" data-id="cik5enn6j0000yjqf9lslvwpw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -188,7 +263,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/08/03/jspm/" data-id="cik4pfiok000lt9qfvxhcfjfi" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/08/03/jspm/" data-id="cik5enn7g000myjqfqnmhhofl" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/modular-programming/">modular programming</a></li></ul>
@@ -250,7 +325,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/29/2015-07-29-spring-004-database/" data-id="cik4pfipp001pt9qf5gesjns0" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/29/2015-07-29-spring-004-database/" data-id="cik5enn8d001ryjqf6wxy8f8f" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li></ul>
@@ -388,7 +463,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/14/2015-07-14-spring-003-config/" data-id="cik4pfipt001st9qfih444ybt" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/14/2015-07-14-spring-003-config/" data-id="cik5enn8g001uyjqfzr6qgi7b" class="article-share-link">Share</a>
       
       
     </footer>
@@ -499,7 +574,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/12/2015-07-12-spring-002-ioc/" data-id="cik4pfipv001tt9qfv0zeev95" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/12/2015-07-12-spring-002-ioc/" data-id="cik5enn8j001vyjqfokrs384m" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li></ul>
@@ -539,7 +614,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/10/2015-07-10-database-01/" data-id="cik4pfipy001vt9qfg9uxfhli" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/10/2015-07-10-database-01/" data-id="cik5enn8m001xyjqfzgec3vgt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -580,7 +655,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/10/2015-07-10-backend-frontend-interaction/" data-id="cik4pfiq0001wt9qfal8ssxyb" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/10/2015-07-10-backend-frontend-interaction/" data-id="cik5enn8n001yyjqfdztz5q6w" class="article-share-link">Share</a>
       
       
     </footer>
@@ -682,7 +757,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/09/2015-07-09-servlet-002/" data-id="cik4pfiq5001xt9qfnz9guwlm" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/09/2015-07-09-servlet-002/" data-id="cik5enn8p001zyjqfgrytcz7y" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/servlet/">servlet</a></li></ul>
@@ -748,58 +823,10 @@ If the response&apos;s character encoding has not been specified as described in
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/09/2015-07-09-servlet-001/" data-id="cik4pfiq80020t9qfunsy7gb5" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/09/2015-07-09-servlet-001/" data-id="cik5enn8r0022yjqf7idji3bp" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/servlet/">servlet</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-2015-07-09-gradle" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/07/09/2015-07-09-gradle/" class="article-date">
-  <time datetime="2015-07-09T10:08:50.000Z" itemprop="datePublished">2015-07-09</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/09/2015-07-09-gradle/">Gradle运行机制</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="http://igorpopov.io/2014/05/01/understanding-gradle/" target="_blank" rel="external">http://igorpopov.io/2014/05/01/understanding-gradle/</a><br><a href="https://github.com/davenkin/gradle-learning" target="_blank" rel="external">https://github.com/davenkin/gradle-learning</a></p>
-<h2 id="Gradle_u8FD0_u884C_u673A_u5236"><a href="#Gradle_u8FD0_u884C_u673A_u5236" class="headerlink" title="Gradle运行机制"></a>Gradle运行机制</h2><p>Gradle四个部分<br>每个project有多个task, task有多个property</p>
-<p>project<br>task<br>property<br>sourcesets</p>
-<p>两个sourcesets:<br>main:<br>     src/main/java 全目录结构<br>     src/main/resource<br>test: src/test</p>
-<p>sourcesets包含两个<br>一个资源文件<br>一个配置文件</p>
-<p>Task Dependency</p>
-<p>dependencies {<br>  compile 编译源代码时需要的<br>  testCompile 比如junit<br>  runtime 比如servlet，对编译没有影响，在web容器启动后才需要<br>  testRuntime<br>}</p>
-<p>src/main/java<br>src/main/resource</p>
-<p>task mkdir &lt;&lt; {<br>     file(“./src/main/java”).mkdirs();<br>     file(“./src/main/resource”).mkdirs();<br>}</p>
-<p>Ant maven gradle区别<br>ant: 构建操作小的低级的封装，无法感知到war和第三方的依赖；没有指定的目录结构<br>     target: copy,compile,jar<br>maven:<br>     目录结构规范化了，src/main/java<br>     引入了dependency<br>     内建项目的周期管理，扩展性不好<br>gradle:<br>     maven基础上，task之间有依赖关系，</p>
-<h2 id="Gradle_u4E2D_u201Ccompile_u201D_u548C_u201Cruntime_u201D_u533A_u522B"><a href="#Gradle_u4E2D_u201Ccompile_u201D_u548C_u201Cruntime_u201D_u533A_u522B" class="headerlink" title="Gradle中“compile”和“runtime”区别"></a>Gradle中“compile”和“runtime”区别</h2><h2 id="Gradle_u4E2D_u201Dplugin_u201D_u5982_u4F55_u5DE5_u4F5C"><a href="#Gradle_u4E2D_u201Dplugin_u201D_u5982_u4F55_u5DE5_u4F5C" class="headerlink" title="Gradle中”plugin”如何工作"></a>Gradle中”plugin”如何工作</h2>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/09/2015-07-09-gradle/" data-id="cik4pfiqa0022t9qf0eqs3bc9" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gradle/">gradle</a></li></ul>
 
     </footer>
   </div>
@@ -841,7 +868,7 @@ If the response&apos;s character encoding has not been specified as described in
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -851,6 +878,10 @@ If the response&apos;s character encoding has not been specified as described in
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/02/02/20160202-gulp/">20160202-gulp</a>
+          </li>
         
           <li>
             <a href="/2016/02/01/20160201-scrolling-messages/">20160201-scrolling-messages</a>
@@ -866,10 +897,6 @@ If the response&apos;s character encoding has not been specified as described in
         
           <li>
             <a href="/2016/01/27/20160127-webpack-md/">20160127-webpack.md</a>
-          </li>
-        
-          <li>
-            <a href="/2016/01/27/20160127-atomic-css-md/">20160127-atomic-css.md</a>
           </li>
         
       </ul>
