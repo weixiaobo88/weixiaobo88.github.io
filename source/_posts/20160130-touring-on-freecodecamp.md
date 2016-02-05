@@ -9,3 +9,8 @@ http://www.freecodecamp.com/
 
 margin 是一个元素的边框和周围其他元素的距离, 如果 margin 是负数, 那么这个元素会扩大.
 
+
+## Bootstrap
+
+- Fluid 流式布局
+- Grid System
