@@ -7,6 +7,12 @@ http://www.freecodecamp.com/
 
 一个不错的网站, 我只想赶紧通过学习, 有机会能在开源项目上贡献自己的力量.
 
+- HTML
+- CSS
+- jQuery
+- JavaScript
+ 
+
 margin 是一个元素的边框和周围其他元素的距离, 如果 margin 是负数, 那么这个元素会扩大.
 
 
@@ -39,3 +45,12 @@ Font Awesome 是一个 icon 库, 这些 icon 都是矢量图形, 以 `.svg` 为�
 <label><input type="radio">like</label>
 ```
 
+
+## jQuery
+
+```
+$(selector).addClass();
+$(selector).removeClass();
+$(selector).css();
+$(selector).props();
+```
