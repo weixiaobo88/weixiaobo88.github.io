@@ -3,42 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Monad | weixiaobo88.github.io</title>
+  <title>Tag: docker | weixiaobo88.github.io</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="参考: 
-
-图解 Monad
-Monad Wiki
-
-软件的基本结构就是数据+过程
-数据: 数据类型过程: 顺序, 分支, 循环
-值函数: 处理值的函数
-Monad 是什么Monad 是一个描绘了一系列计算步骤的结构, 其中这个结构的 type 定义了如何把操作链起来, 或者把那个 type 的函数嵌套起来表示将一个运算过程，通过函数拆解成互相连接的多个步骤。你只要提供下一步运算所需的函数，整个运">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Monad">
-<meta property="og:url" content="http://weixiaobo88.github.io/2016/01/18/20160118-functional-programming-monad/index.html">
+  <meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="weixiaobo88.github.io">
+<meta property="og:url" content="http://weixiaobo88.github.io/tags/docker/index.html">
 <meta property="og:site_name" content="weixiaobo88.github.io">
-<meta property="og:description" content="参考: 
-
-图解 Monad
-Monad Wiki
-
-软件的基本结构就是数据+过程
-数据: 数据类型过程: 顺序, 分支, 循环
-值函数: 处理值的函数
-Monad 是什么Monad 是一个描绘了一系列计算步骤的结构, 其中这个结构的 type 定义了如何把操作链起来, 或者把那个 type 的函数嵌套起来表示将一个运算过程，通过函数拆解成互相连接的多个步骤。你只要提供下一步运算所需的函数，整个运">
-<meta property="og:updated_time" content="2016-01-19T01:39:43.000Z">
+<meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Monad">
-<meta name="twitter:description" content="参考: 
-
-图解 Monad
-Monad Wiki
-
-软件的基本结构就是数据+过程
-数据: 数据类型过程: 顺序, 分支, 循环
-值函数: 处理值的函数
-Monad 是什么Monad 是一个描绘了一系列计算步骤的结构, 其中这个结构的 type 定义了如何把操作链起来, 或者把那个 type 的函数嵌套起来表示将一个运算过程，通过函数拆解成互相连接的多个步骤。你只要提供下一步运算所需的函数，整个运">
+<meta name="twitter:title" content="weixiaobo88.github.io">
+<meta name="twitter:description">
   
     <link rel="alternative" href="/atom.xml" title="weixiaobo88.github.io" type="application/atom+xml">
   
@@ -88,72 +63,39 @@ Monad 是什么Monad 是一个描绘了一系列计算步骤的结构, 其中这
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-20160118-functional-programming-monad" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/01/18/20160118-functional-programming-monad/" class="article-date">
-  <time datetime="2016-01-18T12:18:14.000Z" itemprop="datePublished">2016-01-18</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+        <section id="main">
   
-    <h1 class="article-title" itemprop="name">
-      Monad
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2016" class="archive-year">2016</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2016/02/09/20160209-docker/" class="archive-article-date">
+  <time datetime="2016-02-09T08:19:12.000Z" itemprop="datePublished">Feb 9</time>
+</a>
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2016/02/09/20160209-docker/">20160209-docker</a>
     </h1>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>参考: </p>
-<ul>
-<li><a href="http://www.ruanyifeng.com/blog/2015/07/monad.html?utm_source=tuicool" target="_blank" rel="external">图解 Monad</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Monad_%28functional_programming%29" target="_blank" rel="external">Monad Wiki</a></li>
-</ul>
-<p>软件的基本结构就是数据+过程</p>
-<p>数据: 数据类型<br>过程: 顺序, 分支, 循环</p>
-<p>值函数: 处理值的函数</p>
-<h2 id="Monad__u662F_u4EC0_u4E48"><a href="#Monad__u662F_u4EC0_u4E48" class="headerlink" title="Monad 是什么"></a>Monad 是什么</h2><p>Monad 是一个描绘了一系列计算步骤的结构, 其中这个结构的 type 定义了如何把操作链起来, 或者把那个 type 的函数嵌套起来<br>表示将一个运算过程，通过函数拆解成互相连接的多个步骤。<br>你只要提供下一步运算所需的函数，整个运算就会自动进行下去。</p>
-<h2 id="u4E3A_u4EC0_u4E48_u4F1A_u6709_Monad_2C__u5B83_u7684_u51FA_u73B0_u89E3_u51B3_u4E86_u4EC0_u4E48_u95EE_u9898"><a href="#u4E3A_u4EC0_u4E48_u4F1A_u6709_Monad_2C__u5B83_u7684_u51FA_u73B0_u89E3_u51B3_u4E86_u4EC0_u4E48_u95EE_u9898" class="headerlink" title="为什么会有 Monad, 它的出现解决了什么问题"></a>为什么会有 Monad, 它的出现解决了什么问题</h2><h2 id="Monad__u6709_u4EC0_u4E48_u7528"><a href="#Monad__u6709_u4EC0_u4E48_u7528" class="headerlink" title="Monad 有什么用"></a>Monad 有什么用</h2><h2 id="Monad__u5982_u4F55_u7528_u8D77_u6765"><a href="#Monad__u5982_u4F55_u7528_u8D77_u6765" class="headerlink" title="Monad 如何用起来"></a>Monad 如何用起来</h2>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2016/01/18/20160118-functional-programming-monad/" data-id="cikf5rzvp001g5pfy85ouxvwr" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/functional-programming/">functional-programming</a></li></ul>
-
-    </footer>
+    </header>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2016/01/21/20160121-npm-package-file-md/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          20160121-npm-package-file.md
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2016/01/14/20160114-functional-programming/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Functional Programming</div>
-    </a>
-  
-</nav>
-
-  
 </article>
-
+  
+  
+    </div></section>
+  
 </section>
         
           <aside id="sidebar">
