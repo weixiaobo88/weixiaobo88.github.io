@@ -65,6 +65,63 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-modular-programming-02" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/08/04/modular-programming-02/" class="article-date">
+  <time datetime="2015-08-04T04:46:39.000Z" itemprop="datePublished">2015-08-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/04/modular-programming-02/">模块化编程 Modular Programming 02 —— AMD 规范</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>参考资料： <a href="http://www.ruanyifeng.com/blog/2012/10/asynchronous_module_definition.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2012/10/asynchronous_module_definition.html</a></p>
+<p>讨论：如何在浏览器环境组织不同的模块、管理模块之间的依赖性</p>
+<h2 id="u4E3A_u4EC0_u4E48_u8981_u6709_u6A21_u5757"><a href="#u4E3A_u4EC0_u4E48_u8981_u6709_u6A21_u5757" class="headerlink" title="为什么要有模块"></a>为什么要有模块</h2><p>因为有了模块，我们就可以更方便地使用别人的代码，想要什么功能，就加载什么模块。</p>
+<p>但是，这样做有一个前提，那就是大家必须以同样的方式编写模块，否则你有你的写法，我有我的写法，岂不是乱了套！</p>
+<p>目前，通行的 JavaScript 模块规范共有两种：CommonJS 和 AMD。我主要介绍 AMD，但是要先从 CommonJS 讲起。</p>
+<h2 id="CommonJS"><a href="#CommonJS" class="headerlink" title="CommonJS"></a>CommonJS</h2><p>2009 年 node.js 项目诞生， JavaScript 也开始用于服务器端编程。在浏览器环境下，没有模块也不是特别大的问题，毕竟网页程序的复杂性有限；但是在服务器端，一定要有模块，与操作系统和其他应用程序互动，否则根本没法编程。 </p>
+<p>node.js 的模块系统就是参照 CommonJS 规范实现的。</p>
+<p>在 CommonJS 中，有一个全局方法 require()，用于加载模块。</p>
+<h3 id="u6D4F_u89C8_u5668_u73AF_u5883"><a href="#u6D4F_u89C8_u5668_u73AF_u5883" class="headerlink" title="浏览器环境"></a>浏览器环境</h3><p>有了服务器端的模块以后，大家就像要客户端模块。而且最好两者能够兼容，一个模块不用修改，在服务器和浏览器都可以运行。</p>
+<p>但是，由于一个重大的局限，使得CommonJS规范不适用于浏览器环境。<br>    <figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt;原因是，在服务器端模块都在本地硬盘，可以同步加载完成，等待时间就是硬盘的读取时间。</span><br><span class="line">但是，对于浏览器，这却是一个大问题，因为模块都放在服务器端，等待时间取决于网速的快慢，可能要等很长时间，浏览器处于<span class="string">"假死"</span>状态。</span><br><span class="line"></span><br><span class="line">var <span class="built_in">math</span> = <span class="built_in">require</span>(<span class="string">'math'</span>);</span><br><span class="line">    　　 <span class="built_in">math</span>.add(<span class="number">2</span>, <span class="number">3</span>);</span><br></pre></td></tr></table></figure></p>
+<p>对于浏览器端来说，只能采用“异步加载”，这也是 AMD 规范诞生的背景。</p>
+<h2 id="AMD"><a href="#AMD" class="headerlink" title="AMD"></a>AMD</h2><p>AMD是”Asynchronous Module Definition”的缩写，意思就是”异步模块定义”。它采用异步方式加载模块，模块的加载不影响它后面语句的运行。所有依赖这个模块的语句，都定义在一个回调函数中，等到加载完成之后，这个回调函数才会运行。</p>
+<p>AMD也采用require()语句加载模块，但是不同于CommonJS，它要求两个参数：<br>    <figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">require</span>([<span class="class"><span class="keyword">module</span>], <span class="title">callback</span>);</span></span><br></pre></td></tr></table></figure></p>
+<pre><code>第一个参数[module]，是一个数组，里面的成员就是要加载的模块；第二个参数callback，则是加载成功之后的回调函数。
+如果将前面的代码改写成AMD形式，就是下面这样：
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>([<span class="string">'math'</span>], <span class="function"><span class="keyword">function</span> <span class="params">(math)</span></span> &#123;</span><br><span class="line">　　　　<span class="built_in">math</span>.add(<span class="number">2</span>, <span class="number">3</span>);</span><br><span class="line">　　&#125;);</span><br></pre></td></tr></table></figure>
+
+math.add()与math模块加载不是同步的，浏览器不会发生假死。
+</code></pre><p>目前，主要有两个JavaScript库实现了AMD规范：require.js和curl.js。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://weixiaobo88.github.io/2015/08/04/modular-programming-02/" data-id="ciks9xh1o0009fqqf867z92ke" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/modular-programming/">modular programming</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-modular-programming-01" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/08/04/modular-programming-01/" class="article-date">
@@ -121,11 +178,56 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/08/04/modular-programming-01/" data-id="cikf5rzut000c5pfy8e7lgn81" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/08/04/modular-programming-01/" data-id="ciks9xh1q000cfqqflsi6wf6o" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/modular-programming/">modular programming</a></li></ul>
 
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/08/04/hello-world/" class="article-date">
+  <time datetime="2015-08-04T01:07:34.000Z" itemprop="datePublished">2015-08-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/04/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick_Start"><a href="#Quick_Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create_a_new_post"><a href="#Create_a_new_post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run_server"><a href="#Run_server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate_static_files"><a href="#Generate_static_files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy_to_remote_sites"><a href="#Deploy_to_remote_sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://weixiaobo88.github.io/2015/08/04/hello-world/" data-id="ciks9xh1y000nfqqfm0md3zjg" class="article-share-link">Share</a>
+      
+      
     </footer>
   </div>
   
@@ -198,52 +300,7 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/08/04/2015-03-19-webfont/" data-id="cikf5rzu300005pfy9zxkgfa5" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/08/04/hello-world/" class="article-date">
-  <time datetime="2015-08-04T01:07:34.000Z" itemprop="datePublished">2015-08-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/04/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start"><a href="#Quick_Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create_a_new_post"><a href="#Create_a_new_post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server"><a href="#Run_server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files"><a href="#Generate_static_files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites"><a href="#Deploy_to_remote_sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/08/04/hello-world/" data-id="cikf5rzv1000n5pfyml00dxt6" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/08/04/2015-03-19-webfont/" data-id="ciks9xh100000fqqfe1q3t1wr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -331,7 +388,7 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/08/03/jspm/" data-id="cikf5rzuz000l5pfy7ymahz3q" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/08/03/jspm/" data-id="ciks9xh1v000lfqqf3s3igem1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/modular-programming/">modular programming</a></li></ul>
@@ -393,7 +450,7 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/29/2015-07-29-spring-004-database/" data-id="cikf5rzvy001t5pfyshjba3f2" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/29/2015-07-29-spring-004-database/" data-id="ciks9xh2y001wfqqfffhv5mf2" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li></ul>
@@ -531,7 +588,7 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/14/2015-07-14-spring-003-config/" data-id="cikf5rzw0001w5pfy4vy6rw7j" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/14/2015-07-14-spring-003-config/" data-id="ciks9xh31001zfqqfcnfi5x6q" class="article-share-link">Share</a>
       
       
     </footer>
@@ -642,7 +699,7 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/12/2015-07-12-spring-002-ioc/" data-id="cikf5rzw4001x5pfyfca2dkb1" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/12/2015-07-12-spring-002-ioc/" data-id="ciks9xh350020fqqfuhh2vpoz" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li></ul>
@@ -682,7 +739,7 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/10/2015-07-10-database-01/" data-id="cikf5rzw7001z5pfyga9ibpa5" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/10/2015-07-10-database-01/" data-id="ciks9xh370022fqqfblwhwdki" class="article-share-link">Share</a>
       
       
     </footer>
@@ -723,113 +780,9 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/10/2015-07-10-backend-frontend-interaction/" data-id="cikf5rzw900205pfyx473qauy" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/10/2015-07-10-backend-frontend-interaction/" data-id="ciks9xh380023fqqff9801jyp" class="article-share-link">Share</a>
       
       
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-2015-07-09-servlet-002" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/07/09/2015-07-09-servlet-002/" class="article-date">
-  <time datetime="2015-07-09T10:08:50.000Z" itemprop="datePublished">2015-07-09</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/09/2015-07-09-servlet-002/">Servlet 完成Web请求和响应</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Web__u8BF7_u6C42_u548C_u54CD_u5E94_u7684_u6D41_u7A0B"><a href="#Web__u8BF7_u6C42_u548C_u54CD_u5E94_u7684_u6D41_u7A0B" class="headerlink" title="Web 请求和响应的流程"></a>Web 请求和响应的流程</h2><p>用户——》Web 浏览器——URL(所找资源的名字和地址)——》服务器——响应(客户请求的资源)-》用户</p>
-<h3 id="u7528_u6237_u548C_u670D_u52A1_u5668_u5982_u4F55_u5BF9_u8BDD"><a href="#u7528_u6237_u548C_u670D_u52A1_u5668_u5982_u4F55_u5BF9_u8BDD" class="headerlink" title="用户和服务器如何对话"></a>用户和服务器如何对话</h3><p>要对话，就需要使用相同的语言，这个语言就是HTTP，而且浏览器必须懂HTML。</p>
-<p>HTTP是Web上用户和服务器之间通信所用的协议。<br>服务器使用HTTP向用户发送HTML。<br>浏览器接收到HTMl之后要创建Web页面，并将页面显示给用户。</p>
-<h4 id="HTTP_u662F_u4EC0_u4E48"><a href="#HTTP_u662F_u4EC0_u4E48" class="headerlink" title="HTTP是什么"></a>HTTP是什么</h4><p>HTTP超文本传输协议，是TCP/IP的上层协议，依赖于TCP/IP从一处向另一处完整的发送请求和响应。</p>
-<p>TCP负责从一个网络节点向另一个网络节点发送的文件能作为一个完整的文件到达目的地，尽管传送过程中可能会分解成小块传输。<br>IP是一个底层协议，负责把数据包路由到目的地。</p>
-<p><strong>HTTP请求流</strong></p>
-<ul>
-<li>HTTP方法（要完成的动作，Get/Post/Update/Delete）</li>
-<li>URL（要访问的页面）</li>
-<li>表单参数</li>
-</ul>
-<p><strong>HTTP响应流</strong></p>
-<ul>
-<li>状态码（请求是否成功）</li>
-<li>内容类型（文本、HTML、图片等）</li>
-<li>内容（具体的文本、HTML等）</li>
-</ul>
-<p><strong>HTTP方法</strong></p>
-<ul>
-<li>GET（幂等）    </li>
-<li>POST（非幂等）</li>
-</ul>
-<p>在发送这些请求时，会携带信息：HTTP方法、资源路径、参数、协议版本、首部信息</p>
-<p>HTTP响应中的MIME类型告诉浏览器要接收的数据是什么类型。</p>
-<h4 id="HTML_u662F_u4EC0_u4E48"><a href="#HTML_u662F_u4EC0_u4E48" class="headerlink" title="HTML是什么"></a>HTML是什么</h4><p>HTTP的响应可以包含HTML，浏览器根据HTTP首部信息来处理HTML页面</p>
-<h3 id="URL_u662F_u4EC0_u4E48"><a href="#URL_u662F_u4EC0_u4E48" class="headerlink" title="URL是什么"></a>URL是什么</h3><p><a href="http://weixiaobo88.github.io:80/web/hello.html">http://weixiaobo88.github.io:80/web/hello.html</a></p>
-<ul>
-<li>“http://” 协议，告诉服务器通信协议</li>
-<li>“weixiaobo88.github.io” 服务器名，这个名字会映射到一个唯一的IP地址</li>
-<li>:80 端口，默认端口是80</li>
-<li>/web 所请求资源在服务器上的路径</li>
-<li>/hello.html 资源，所请求内容的名字</li>
-</ul>
-<h4 id="TCP_u7AEF_u53E3_u662F_u4EC0_u4E48"><a href="#TCP_u7AEF_u53E3_u662F_u4EC0_u4E48" class="headerlink" title="TCP端口是什么"></a>TCP端口是什么</h4><p>端口并不是一个可以插入物理设备的位置，只表示服务器应用的“逻辑”数而已，用来标识服务器硬件上一个特定的软件程序。<br>服务器上有65536个端口，端口号范围为“0~65535”，其中0~1023为保留端口，由知名服务使用，比如80端口。</p>
-<h2 id="u4E00_u4E2A_u7B80_u5355_u7684Apache_u7F51_u7AD9_u7684_u76EE_u5F55_u7ED3_u6784"><a href="#u4E00_u4E2A_u7B80_u5355_u7684Apache_u7F51_u7AD9_u7684_u76EE_u5F55_u7ED3_u6784" class="headerlink" title="一个简单的Apache网站的目录结构"></a>一个简单的Apache网站的目录结构</h2><p>Apache是一个留下的开源Web服务器。<br>Apache<em>home<br>|</em> htdocs (Apache服务器中Web应用的根目录)<br>    |_index.html<br>    |_app1<br>        |_index.html<br>        |_select…<br>    |_app2<br>        |_index.html<br>        |_select…</p>
-<h3 id="Web_u670D_u52A1_u5668_u81EA_u5DF1_u4E0D_u505A_u7684_u4E24_u4EF6_u4E8B"><a href="#Web_u670D_u52A1_u5668_u81EA_u5DF1_u4E0D_u505A_u7684_u4E24_u4EF6_u4E8B" class="headerlink" title="Web服务器自己不做的两件事"></a>Web服务器自己不做的两件事</h3><ul>
-<li>动态内容，比如请求实时的日期</li>
-<li>在服务器上保存上数据，比如提交表单</li>
-</ul>
-<p>那谁来做呢，CGI来做，CGI代表公共网关接口，即Common Gateway Interface。</p>
-<p>主要是三者之间的关系：</p>
-<ul>
-<li>Web服务器主机</li>
-<li>Web服务器应用</li>
-<li>辅助应用（Servlet和CGI在Web服务器中都扮演着辅助应用的角色）</li>
-</ul>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;什么是容器</span><br><span class="line">Servlet没有<span class="function"><span class="title">main</span><span class="params">()</span></span>方法，它们受控于另外一个Java应用，就是容器。 Tomcat就是这样的容器。</span><br><span class="line">Web服务器应用（如Apache）得到一个指向servlet的请求时，服务器会把这个请求交给部署该servlet的容器，由容器向servlet提供HTTP请求和响应，调用servlet的<span class="function"><span class="title">doGet</span><span class="params">()</span></span>或<span class="function"><span class="title">doPost</span><span class="params">()</span></span>的方法。</span><br></pre></td></tr></table></figure>
-<p>Servlet容器又称为Servlet引擎，它是Java Web服务器（例如：Apache Tomcat）的一部分，用来提供动态网页的服务。<br>我们知道，Servlet没有main方法，它是不能独立运行的。它必须被部署到Servlet容器中，由容器来实例化和调用Servlet中的方法。因此，Servlet容器的作用是在Servlet的生命周期内包容和管理Servlet。</p>
-<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;容器能提供什么</span><br><span class="line">-<span class="ruby"> 通信支持，轻松地让servlet与<span class="constant">Web</span>服务器对话，不用建立<span class="constant">ServerSocket</span>、监听某个端口、创建流等。不必但系<span class="constant">Web</span>服务和自己的<span class="constant">Web</span>代码直接的<span class="constant">PAI</span>。只专注于servlet中实现的业务逻辑。</span><br><span class="line"></span>-<span class="ruby"> 生命周期管理，容器控制servlet的生与死，负责价值类、实例化和初始化servlet、调用servlet方法，以及垃圾回收等</span><br><span class="line"></span>-<span class="ruby"> 多线程支持，容器会为每个servlet请求创建一个新的<span class="constant">Java</span>线程</span><br><span class="line"></span>-<span class="ruby"> 声明方式实现安全，使用<span class="constant">XML</span>部署描述文件来配置安全性</span><br><span class="line"></span>-<span class="ruby"> <span class="constant">JSP</span>支持，容器将<span class="constant">JSP</span>代码翻译成<span class="constant">Java</span></span></span><br></pre></td></tr></table></figure>
-<p>容器怎么把servlet映射到URL？<br>一个servlet有3个名字：</p>
-<ul>
-<li>客户知道的URL名</li>
-<li>部署人员知道的秘密内部名</li>
-<li>实际的文件名</li>
-</ul>
-<p>部署描述文件(DD)的作用：</p>
-<ul>
-<li>把URL映射到servlet</li>
-<li>定制Web应用的其他方面，比如安全角色、错误页面、初始化配置信息等</li>
-</ul>
-<h2 id="u5386_u53F2_u7EA0_u7ED3"><a href="#u5386_u53F2_u7EA0_u7ED3" class="headerlink" title="历史纠结"></a>历史纠结</h2><ul>
-<li>Servlet中输出文本 -》Servlet中输出HTML，也就是将HTML放在Java中 -》JSP出现，将Java放在HTML中 </li>
-<li>MVC，业务逻辑与表示分离</li>
-</ul>
-<h2 id="u53C2_u8003_u8D44_u6599"><a href="#u53C2_u8003_u8D44_u6599" class="headerlink" title="参考资料"></a>参考资料</h2><p>《Head First Servlet JSP》</p>
-<p>》5 属性和监听 P152</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/09/2015-07-09-servlet-002/" data-id="cikf5rzwa00215pfyt00iec3m" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/servlet/">servlet</a></li></ul>
-
     </footer>
   </div>
   
@@ -852,7 +805,7 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bind/">bind</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/build/">build</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/functional-programming/">functional-programming</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/">gradle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery/">jquery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/modular-programming/">modular programming</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm-package-json/">npm, package.json</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-bootstrap/">react bootstrap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-router/">react router</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reading-notes/">reading-notes</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/servlet/">servlet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring-test/">spring test</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/touring/">touring</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bind/">bind</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/build/">build</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/education/">education</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/functional-programming/">functional-programming</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/">gradle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery/">jquery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/modular-programming/">modular programming</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm-package-json/">npm, package.json</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-bootstrap/">react bootstrap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-router/">react router</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reading-notes/">reading-notes</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/servlet/">servlet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring-test/">spring test</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/touring/">touring</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -861,7 +814,7 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/bind/" style="font-size: 10px;">bind</a> <a href="/tags/build/" style="font-size: 10px;">build</a> <a href="/tags/css/" style="font-size: 13.33px;">css</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/functional-programming/" style="font-size: 20px;">functional-programming</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/modular-programming/" style="font-size: 20px;">modular programming</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/npm-package-json/" style="font-size: 10px;">npm, package.json</a> <a href="/tags/react/" style="font-size: 13.33px;">react</a> <a href="/tags/react-bootstrap/" style="font-size: 10px;">react bootstrap</a> <a href="/tags/react-router/" style="font-size: 10px;">react router</a> <a href="/tags/reading-notes/" style="font-size: 10px;">reading-notes</a> <a href="/tags/servlet/" style="font-size: 13.33px;">servlet</a> <a href="/tags/spring/" style="font-size: 16.67px;">spring</a> <a href="/tags/spring-test/" style="font-size: 10px;">spring test</a> <a href="/tags/touring/" style="font-size: 10px;">touring</a>
+      <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/bind/" style="font-size: 10px;">bind</a> <a href="/tags/build/" style="font-size: 10px;">build</a> <a href="/tags/css/" style="font-size: 13.33px;">css</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/education/" style="font-size: 10px;">education</a> <a href="/tags/functional-programming/" style="font-size: 20px;">functional-programming</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/modular-programming/" style="font-size: 20px;">modular programming</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/npm-package-json/" style="font-size: 10px;">npm, package.json</a> <a href="/tags/react/" style="font-size: 13.33px;">react</a> <a href="/tags/react-bootstrap/" style="font-size: 10px;">react bootstrap</a> <a href="/tags/react-router/" style="font-size: 10px;">react router</a> <a href="/tags/reading-notes/" style="font-size: 10px;">reading-notes</a> <a href="/tags/servlet/" style="font-size: 13.33px;">servlet</a> <a href="/tags/spring/" style="font-size: 16.67px;">spring</a> <a href="/tags/spring-test/" style="font-size: 10px;">spring test</a> <a href="/tags/touring/" style="font-size: 10px;">touring</a>
     </div>
   </div>
 
@@ -870,7 +823,7 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -880,6 +833,10 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/02/18/20160218-education/">20160218-education</a>
+          </li>
         
           <li>
             <a href="/2016/02/09/20160209-docker/">20160209-docker</a>
@@ -895,10 +852,6 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
         
           <li>
             <a href="/2016/01/30/20160130-touring-on-freecodecamp/">20160130-touring-on-freecodecamp</a>
-          </li>
-        
-          <li>
-            <a href="/2016/01/29/20160129-css-design/">20160129-css-design</a>
           </li>
         
       </ul>
