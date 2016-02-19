@@ -19,7 +19,7 @@ docker 的理念是 build, ship, run
 buildbuild 就是编译打包, 在保证应用能跑起来之前所做的一系列动作.
 常规的 build 存在的问题: 不能打包环境. build 只能跑在特定地方, 比如系统版本, CPU 架构等.
 docker 从某种角度看">
-<meta property="og:updated_time" content="2016-02-12T12:35:56.000Z">
+<meta property="og:updated_time" content="2016-02-19T01:17:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="20160209-docker">
 <meta name="twitter:description" content="docker 的理念docker 是公司 dotCloud 的一个内部项目, 2012 年 3 月正式发布开源版本. 
@@ -106,7 +106,16 @@ docker 从某种角度看">
 <p>docker 的 build 描述文件是 <code>DockerFile</code></p>
 <p>总结, docker 就是打包环境, 让它能到处运行.</p>
 <h2 id="Ship"><a href="#Ship" class="headerlink" title="Ship"></a>Ship</h2><p>docker 不仅可以分发镜像, 也可以分发镜像的描述文件 <code>DockerFile</code>.<br>如果想让测试在你的环境里面去测试和复现 bug，不用提供个头稍微大一些的镜像，给他一个文本文件就好了。</p>
-<h2 id="run"><a href="#run" class="headerlink" title="run"></a>run</h2>
+<h2 id="run"><a href="#run" class="headerlink" title="run"></a>run</h2><p>run anywhere ， 也就是可以运行在任何可以运行 docker 容器的机器上</p>
+<h2 id="docker__u7684_u5E94_u7528_u573A_u666F"><a href="#docker__u7684_u5E94_u7528_u573A_u666F" class="headerlink" title="docker 的应用场景"></a>docker 的应用场景</h2><ul>
+<li>需要重复配置统一的环境</li>
+<li>快速，高效利用当前资源</li>
+<li>需要资源隔离的场景</li>
+<li>需要快速动态的伸缩容量的场景, 比如说大促，开始之前迅速扩容，结束之后迅速销毁</li>
+<li>微服务</li>
+</ul>
+<h2 id="u4F7F_u7528"><a href="#u4F7F_u7528" class="headerlink" title="使用"></a>使用</h2><p>Q 1: 我的笔记本是 mac ，为什么我安装的时候还要装 virtualbox ?<br>Q 2: 原来如此，怪不得第一步先让我 docker-machine 创建一个 vm 来跑 docker，那这个 docker-machine 是干什么的 ？<br>Q 3: 你能解释下 docker run hello-world , 都发生了什么？<br>Q 4: 一个容器终归没什么意思，那么容器之间是怎么通信的？<br>Q 5: 镜像是静态的，那我的代码怎么部署进去？<br>Q 6: 每次启动都要 docker run 一次，有没有更快更方便的方式？<br>Q 7: 据说我们有个 sandbox （淘宝内部的 Node.js 容器平台）项目，能介绍下吗 ？</p>
+
       
     </div>
     <footer class="article-footer">
