@@ -3,17 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: functional-programming | weixiaobo88.github.io</title>
+  <title>20160219-leverage-002 | weixiaobo88.github.io</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="weixiaobo88.github.io">
-<meta property="og:url" content="http://weixiaobo88.github.io/tags/functional-programming/index.html">
+  <meta name="description" content="PIPELINE &amp;amp; TASKING 大法上下文水晶方法, 根据scope 和 complexity 从二维上定位.尽量将 complexity 降低, 这样可以通过多人并发进行.当 scope 很低, complexity 很高的时候, 不太容易多人并发, 人和时间无法转换.
+大多说业务系统都是会计系统. 
+在web系统开发中提高效率的方式:12345678BA UX SeniorDEV">
+<meta property="og:type" content="article">
+<meta property="og:title" content="20160219-leverage-002">
+<meta property="og:url" content="http://weixiaobo88.github.io/2016/02/19/20160219-leverage-002/index.html">
 <meta property="og:site_name" content="weixiaobo88.github.io">
-<meta property="og:description">
+<meta property="og:description" content="PIPELINE &amp;amp; TASKING 大法上下文水晶方法, 根据scope 和 complexity 从二维上定位.尽量将 complexity 降低, 这样可以通过多人并发进行.当 scope 很低, complexity 很高的时候, 不太容易多人并发, 人和时间无法转换.
+大多说业务系统都是会计系统. 
+在web系统开发中提高效率的方式:12345678BA UX SeniorDEV">
+<meta property="og:updated_time" content="2016-02-19T12:45:19.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="weixiaobo88.github.io">
-<meta name="twitter:description">
+<meta name="twitter:title" content="20160219-leverage-002">
+<meta name="twitter:description" content="PIPELINE &amp;amp; TASKING 大法上下文水晶方法, 根据scope 和 complexity 从二维上定位.尽量将 complexity 降低, 这样可以通过多人并发进行.当 scope 很低, complexity 很高的时候, 不太容易多人并发, 人和时间无法转换.
+大多说业务系统都是会计系统. 
+在web系统开发中提高效率的方式:12345678BA UX SeniorDEV">
   
     <link rel="alternative" href="/atom.xml" title="weixiaobo88.github.io" type="application/atom+xml">
   
@@ -63,96 +70,74 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/01/26/20150126-functional-programming-currying-md/" class="archive-article-date">
-  <time datetime="2016-01-26T13:01:17.000Z" itemprop="datePublished">Jan 26</time>
+        <section id="main"><article id="post-20160219-leverage-002" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/02/19/20160219-leverage-002/" class="article-date">
+  <time datetime="2016-02-19T12:24:11.000Z" itemprop="datePublished">2016-02-19</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/01/26/20150126-functional-programming-currying-md/">Functional Programming - Currying</a>
+    <h1 class="article-title" itemprop="name">
+      20160219-leverage-002
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/01/26/20150126-functional-programming-pure-function/" class="archive-article-date">
-  <time datetime="2016-01-26T12:09:53.000Z" itemprop="datePublished">Jan 26</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/01/26/20150126-functional-programming-pure-function/">Functional Programming Additional</a>
-    </h1>
-  
+        <h1 id="PIPELINE__26amp_3B_TASKING__u5927_u6CD5"><a href="#PIPELINE__26amp_3B_TASKING__u5927_u6CD5" class="headerlink" title="PIPELINE &amp; TASKING 大法"></a>PIPELINE &amp; TASKING 大法</h1><h2 id="u4E0A_u4E0B_u6587"><a href="#u4E0A_u4E0B_u6587" class="headerlink" title="上下文"></a>上下文</h2><p>水晶方法, 根据scope 和 complexity 从二维上定位.<br>尽量将 complexity 降低, 这样可以通过多人并发进行.<br>当 scope 很低, complexity 很高的时候, 不太容易多人并发, 人和时间无法转换.</p>
+<p>大多说业务系统都是会计系统. </p>
+<h3 id="u5728web_u7CFB_u7EDF_u5F00_u53D1_u4E2D_u63D0_u9AD8_u6548_u7387_u7684_u65B9_u5F0F_3A"><a href="#u5728web_u7CFB_u7EDF_u5F00_u53D1_u4E2D_u63D0_u9AD8_u6548_u7387_u7684_u65B9_u5F0F_3A" class="headerlink" title="在web系统开发中提高效率的方式:"></a>在web系统开发中提高效率的方式:</h3><figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">BA UX SeniorDEV </span><br><span class="line"></span><br><span class="line">SeniorDEV</span><br><span class="line">-<span class="ruby">&gt;  四色建模 </span><br><span class="line"></span>-<span class="ruby">&gt; 得到<span class="constant">REST</span>-<span class="constant">API</span> </span><br><span class="line"></span>-<span class="ruby">&gt;  - backend</span><br><span class="line"></span>    -<span class="ruby"> <span class="constant">BFF</span><span class="symbol">:</span> backend <span class="keyword">for</span> frontend</span><br><span class="line"></span>    -<span class="ruby"> frontend  ---<span class="constant">UX</span>---<span class="constant">UI</span> <span class="constant">Design</span>----&gt; styleguide  --&gt;开发</span></span><br></pre></td></tr></table></figure>
+<p>个体交互 over 过程和工具:     </p>
+<ul>
+<li>泰勒&lt;科学管理原理&gt;</li>
+</ul>
+<h3 id="senior__u7684_u804C_u8D23"><a href="#senior__u7684_u804C_u8D23" class="headerlink" title="senior 的职责"></a>senior 的职责</h3><ul>
+<li>技术向: 架构, 风险</li>
+<li>团队向: 交互</li>
+</ul>
+<h2 id="TASKING"><a href="#TASKING" class="headerlink" title="TASKING"></a>TASKING</h2><ol>
+<li><p>列出task<br>TASK名字<br>输入: name, 数据结构(可选)<br>输出: name, 数据结构</p>
+</li>
+<li><p>估算时间<br>1个任务的时间不能超过15分钟</p>
+</li>
+<li><p>做<br>做的时候需要记录: spike 的时间, 写测试的时间, 完成实现代码的时间, 测试跑过的时间</p>
+</li>
+</ol>
+<p>通过这样的时间记录来反思自己在哪个环节需要改进和不断练习.</p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/01/18/20160118-functional-programming-monad/" class="archive-article-date">
-  <time datetime="2016-01-18T12:18:14.000Z" itemprop="datePublished">Jan 18</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/01/18/20160118-functional-programming-monad/">Monad</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/01/14/20160114-functional-programming/" class="archive-article-date">
-  <time datetime="2016-01-14T13:09:36.000Z" itemprop="datePublished">Jan 14</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://weixiaobo88.github.io/2016/02/19/20160219-leverage-002/" data-id="ciktoz2ku000o32qfck6jnqvo" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/01/14/20160114-functional-programming/">Functional Programming</a>
-    </h1>
-  
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leverage/">leverage</a></li></ul>
 
-    </header>
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/02/18/20160218-leverage-001/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">20160218-leverage-001</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
+
 </section>
         
           <aside id="sidebar">
