@@ -3,24 +3,36 @@
 <head>
   <meta charset="utf-8">
   
-  <title>20160202-gulp | weixiaobo88.github.io</title>
+  <title>20160204-javascript-listen | weixiaobo88.github.io</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="https://github.com/gulpjs/gulp/blob/master/docs/API.mdhttps://github.com/gulpjs/gulp/tree/master/docs/recipeshttps://github.com/gulpjs/gulp/blob/master/docs/README.md#articles
-如何用 gulp 做代理
-https://git">
+  <meta name="description" content="https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventListener
+最近看 React - Reflux, 有很多 listen 的方法, 甚是不懂.
+翻箱找到 EventListener, 才知道事件处理都和它扯不开.
+回答三个问题即可明白:
+
+EventListener 是什么?
+EventListener 如何来">
 <meta property="og:type" content="article">
-<meta property="og:title" content="20160202-gulp">
-<meta property="og:url" content="http://weixiaobo88.github.io/2016/02/02/20160202-gulp/index.html">
+<meta property="og:title" content="20160204-javascript-listen">
+<meta property="og:url" content="http://weixiaobo88.github.io/2016/02/24/20160204-javascript-listen/index.html">
 <meta property="og:site_name" content="weixiaobo88.github.io">
-<meta property="og:description" content="https://github.com/gulpjs/gulp/blob/master/docs/API.mdhttps://github.com/gulpjs/gulp/tree/master/docs/recipeshttps://github.com/gulpjs/gulp/blob/master/docs/README.md#articles
-如何用 gulp 做代理
-https://git">
-<meta property="og:updated_time" content="2016-02-04T01:30:01.000Z">
+<meta property="og:description" content="https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventListener
+最近看 React - Reflux, 有很多 listen 的方法, 甚是不懂.
+翻箱找到 EventListener, 才知道事件处理都和它扯不开.
+回答三个问题即可明白:
+
+EventListener 是什么?
+EventListener 如何来">
+<meta property="og:updated_time" content="2016-02-24T12:48:34.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="20160202-gulp">
-<meta name="twitter:description" content="https://github.com/gulpjs/gulp/blob/master/docs/API.mdhttps://github.com/gulpjs/gulp/tree/master/docs/recipeshttps://github.com/gulpjs/gulp/blob/master/docs/README.md#articles
-如何用 gulp 做代理
-https://git">
+<meta name="twitter:title" content="20160204-javascript-listen">
+<meta name="twitter:description" content="https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventListener
+最近看 React - Reflux, 有很多 listen 的方法, 甚是不懂.
+翻箱找到 EventListener, 才知道事件处理都和它扯不开.
+回答三个问题即可明白:
+
+EventListener 是什么?
+EventListener 如何来">
   
     <link rel="alternative" href="/atom.xml" title="weixiaobo88.github.io" type="application/atom+xml">
   
@@ -70,10 +82,10 @@ https://git">
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-20160202-gulp" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-20160204-javascript-listen" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/02/02/20160202-gulp/" class="article-date">
-  <time datetime="2016-02-02T01:39:32.000Z" itemprop="datePublished">2016-02-02</time>
+    <a href="/2016/02/24/20160204-javascript-listen/" class="article-date">
+  <time datetime="2016-02-24T12:19:34.000Z" itemprop="datePublished">2016-02-24</time>
 </a>
     
   </div>
@@ -84,7 +96,7 @@ https://git">
         
   
     <h1 class="article-title" itemprop="name">
-      20160202-gulp
+      20160204-javascript-listen
     </h1>
   
 
@@ -92,35 +104,41 @@ https://git">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="https://github.com/gulpjs/gulp/blob/master/docs/API.md" target="_blank" rel="external">https://github.com/gulpjs/gulp/blob/master/docs/API.md</a><br><a href="https://github.com/gulpjs/gulp/tree/master/docs/recipes" target="_blank" rel="external">https://github.com/gulpjs/gulp/tree/master/docs/recipes</a><br><a href="https://github.com/gulpjs/gulp/blob/master/docs/README.md#articles" target="_blank" rel="external">https://github.com/gulpjs/gulp/blob/master/docs/README.md#articles</a></p>
-<p>如何用 gulp 做代理</p>
-<p><a href="https://github.com/andrewrk/node-proxy-middleware" target="_blank" rel="external">https://github.com/andrewrk/node-proxy-middleware</a></p>
+        <p><a href="https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventListener" target="_blank" rel="external">https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventListener</a></p>
+<p>最近看 React - Reflux, 有很多 listen 的方法, 甚是不懂.</p>
+<p>翻箱找到 EventListener, 才知道事件处理都和它扯不开.</p>
+<p>回答三个问题即可明白:</p>
+<ul>
+<li><code>EventListener</code> 是什么?</li>
+<li><code>EventListener</code> 如何来?</li>
+<li><code>EventListener</code> 如何走?</li>
+</ul>
+<p>答案:</p>
+<ul>
+<li>EventListener 是一个处理事件的主要接口方法</li>
+<li>用户通过 <code>AddEventListener</code> 来实现 EventListener 接口并将其注册到 EventTarget 上. </li>
+<li>用户通过 <code>RemoveEventListener</code> 来移除 EventTarget 上的 EventListener</li>
+</ul>
+<p>当 EventListener 上注册的事件发生时, 就会调用 <code>handleEvent</code> 方法.</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2016/02/02/20160202-gulp/" data-id="cil0ugeaf0010reqfm8zphqpn" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2016/02/24/20160204-javascript-listen/" data-id="cil0ugead000wreqfpfclbh8t" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/listen/">listen</a></li></ul>
+
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
-    <a href="/2016/02/09/20160209-docker/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          20160209-docker
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/02/01/20160201-scrolling-messages/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/02/19/20160219-leverage-002/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">20160201-scrolling-messages</div>
+      <div class="article-nav-title">20160219-leverage-002</div>
     </a>
   
 </nav>
