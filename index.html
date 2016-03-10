@@ -65,6 +65,92 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-20160310-react-high-order-components" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/10/20160310-react-high-order-components/" class="article-date">
+  <time datetime="2016-03-10T07:30:47.000Z" itemprop="datePublished">2016-03-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/10/20160310-react-high-order-components/">20160310-react-high-order-components</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>参考<br><a href="http://jamesknelson.com/structuring-react-applications-higher-order-components/" target="_blank" rel="external">http://jamesknelson.com/structuring-react-applications-higher-order-components/</a><br><a href="https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750#.aioi9e57j" target="_blank" rel="external">https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750#.aioi9e57j</a></p>
+<h2 id="u95EE_u9898_u662F_u4EC0_u4E48"><a href="#u95EE_u9898_u662F_u4EC0_u4E48" class="headerlink" title="问题是什么"></a>问题是什么</h2><p>为了复用 React 的组件, 原有组件会改成的很长而难以维护.<br>在 ES6 不再支持 mixins 的情况下, 该如何来解决这个问题?</p>
+<ul>
+<li>给子节点传一些未知的 props</li>
+<li>写很长的 css 名字</li>
+<li>合并在 props 上指定的内部回调</li>
+</ul>
+<h2 id="u89E3_u51B3_u65B9_u6848_u662F_u4EC0_u4E48"><a href="#u89E3_u51B3_u65B9_u6848_u662F_u4EC0_u4E48" class="headerlink" title="解决方案是什么"></a>解决方案是什么</h2><p>解决方案是 Higher-Order components (HOCs).</p>
+<p>HOCs 是在已有的 component 上加一些其他功能的 JavaScript Functions.</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">是否存在已有概念能帮助我理解 Higher-<span class="keyword">Order</span> <span class="title">components</span>?</span><br><span class="line"></span><br><span class="line">是的. </span><br><span class="line"></span><br><span class="line">- React component 可以给你的 app 增加功能, HOCs 可以给你的 component 增加功能.</span><br><span class="line">- HOCs 可以帮你自动生成代码.(在 ruby 中叫做 元编程)</span><br></pre></td></tr></table></figure>
+<h3 id="u770B_u4EE3_u7801"><a href="#u770B_u4EE3_u7801" class="headerlink" title="看代码"></a>看代码</h3><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// See https://www.npmjs.com/package/except</span></span><br><span class="line"><span class="keyword">import</span> except from <span class="symbol">'excep</span>t';</span><br><span class="line"></span><br><span class="line">function passthrough(component) &#123;</span><br><span class="line">    const passthroughProps = <span class="type">Object</span>.keys(component.propTypes);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="class"><span class="keyword">class</span> <span class="keyword"><span class="keyword">extends</span></span> <span class="title">component</span> &#123;</span></span><br><span class="line">        render() &#123;</span><br><span class="line">            <span class="keyword">super</span>.render(except(<span class="keyword">this</span>.props, passthroughProps))</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="HOCs__u5982_u4F55_u5E2E_u52A9_u6211_Structure_app"><a href="#HOCs__u5982_u4F55_u5E2E_u52A9_u6211_Structure_app" class="headerlink" title="HOCs 如何帮助我 Structure app"></a>HOCs 如何帮助我 Structure app</h3><p>HOCs 帮助你的app实现关注点分离.</p>
+<h2 id="u5982_u4F55_u8BBE_u8BA1_u6709_u7528_u7684_HOCs"><a href="#u5982_u4F55_u8BBE_u8BA1_u6709_u7528_u7684_HOCs" class="headerlink" title="如何设计有用的 HOCs"></a>如何设计有用的 HOCs</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://weixiaobo88.github.io/2016/03/10/20160310-react-high-order-components/" data-id="cilm3ulsb000og2qfwop7flbz" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-20160227-react-sourcecode" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/02/27/20160227-react-sourcecode/" class="article-date">
+  <time datetime="2016-02-27T07:41:07.000Z" itemprop="datePublished">2016-02-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/27/20160227-react-sourcecode/">20160227-react-sourcecode</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://weixiaobo88.github.io/2016/02/27/20160227-react-sourcecode/" data-id="cilm3ulsc000qg2qf6xdzobul" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-20160204-javascript-listen" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/02/24/20160204-javascript-listen/" class="article-date">
@@ -107,7 +193,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2016/02/24/20160204-javascript-listen/" data-id="cil0ugead000wreqfpfclbh8t" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2016/02/24/20160204-javascript-listen/" data-id="cilm3ulsk000zg2qfe9g973ba" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/listen/">listen</a></li></ul>
@@ -165,7 +251,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2016/02/19/20160219-leverage-002/" data-id="cil0ugea7000oreqf8ynrv08r" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2016/02/19/20160219-leverage-002/" data-id="cilm3ulse000rg2qfnwjluuy4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leverage/">leverage</a></li></ul>
@@ -246,7 +332,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2016/02/18/20160218-leverage-001/" data-id="cil0ugea9000rreqf5jc772un" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2016/02/18/20160218-leverage-001/" data-id="cilm3ulsf000ug2qfi3rvdaxw" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leverage/">leverage</a></li></ul>
@@ -301,7 +387,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2016/02/09/20160209-docker/" data-id="cil0ugeab000treqfi6yet5ze" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2016/02/09/20160209-docker/" data-id="cilm3ulsi000wg2qfjbtoc3cd" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/">docker</a></li></ul>
@@ -342,7 +428,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2016/02/02/20160202-gulp/" data-id="cil0ugeaf0010reqfm8zphqpn" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2016/02/02/20160202-gulp/" data-id="cilm3ulsm0013g2qfhchwzfuo" class="article-share-link">Share</a>
       
       
     </footer>
@@ -382,7 +468,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2016/02/01/20160201-scrolling-messages/" data-id="cil0ugeai0011reqfv5qmjdzl" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2016/02/01/20160201-scrolling-messages/" data-id="cilm3ulso0014g2qfsf1rufb7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jquery/">jquery</a></li></ul>
@@ -445,7 +531,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2016/01/30/20160130-touring-on-freecodecamp/" data-id="cil0ugeal0014reqfjqurcug2" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2016/01/30/20160130-touring-on-freecodecamp/" data-id="cilm3ulsq0017g2qf4634091q" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/touring/">touring</a></li></ul>
@@ -523,139 +609,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2016/01/29/20160129-css-design/" data-id="cil0ugean0017reqfizr4e4u9" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-20160127-webpack-md" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/01/27/20160127-webpack-md/" class="article-date">
-  <time datetime="2016-01-27T11:18:39.000Z" itemprop="datePublished">2016-01-27</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/27/20160127-webpack-md/">20160127-webpack.md</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Webpack"><a href="#Webpack" class="headerlink" title="Webpack"></a>Webpack</h1><p>项目构建和部署</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2016/01/27/20160127-webpack-md/" data-id="cil0ugeap001areqfm65s1f5d" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/build/">build</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-20160127-atomic-css-md" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/01/27/20160127-atomic-css-md/" class="article-date">
-  <time datetime="2016-01-27T10:24:56.000Z" itemprop="datePublished">2016-01-27</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/27/20160127-atomic-css-md/">20160127-atomic-css.md</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>参考 <a href="http://clubmate.fi/oocss-acss-bem-smacss-what-are-they-what-should-i-use/" target="_blank" rel="external">OOCSS, ACSS, BEM, SMACSS: what are they? What should I use?</a></p>
-<h2 id="u4EC0_u4E48_u662FOOCSS"><a href="#u4EC0_u4E48_u662FOOCSS" class="headerlink" title="什么是OOCSS"></a>什么是OOCSS</h2><p>OOCSS 是 Object Oriented CSS</p>
-<ul>
-<li>structure 和  skin 分开: 定义一个 ‘gradient’, 然后在其他地方 extend 这个 gradient</li>
-<li>container 和 content 分开: 不要级联选择器, 直接写在一个class中, 然后引用这个 class</li>
-</ul>
-<p>更多资料:</p>
-<ul>
-<li><a href="http://github.com/stubbornella/oocss/wiki" target="_blank" rel="external">Official OCSS documentation on GitHub</a></li>
-<li><a href="http://coding.smashingmagazine.com/2011/12/12/an-introduction-to-object-oriented-css-oocss" target="_blank" rel="external">Nice read about OCSS in Smashing Magazine</a> </li>
-</ul>
-<h2 id="u4EC0_u4E48_u662FAtomic_Approach"><a href="#u4EC0_u4E48_u662FAtomic_Approach" class="headerlink" title="什么是Atomic Approach"></a>什么是Atomic Approach</h2><p>Atomic Approach, 出自 <a href="http://bradfrost.com/blog/post/atomic-web-design/" target="_blank" rel="external">Atomic Design</a>, 因为文章<a href="http://www.smashingmagazine.com/2013/10/21/challenging-css-best-practices-atomic-approach/" target="_blank" rel="external">Challenging CSS Best Practices</a>而得到普及. </p>
-<p>同时 Atomic Approach 可以用来组织项目的文件, 参考 <a href="http://coding.smashingmagazine.com/2013/08/02/other-interface-atomic-design-sass/" target="_blank" rel="external">The “Other” Interface: Atomic Design With Sass</a></p>
-<p>Atomic Design :</p>
-<ul>
-<li>Atoms</li>
-<li>Molecules</li>
-<li>Organisms</li>
-<li>Templates</li>
-<li>Pages</li>
-</ul>
-<h2 id="u4EC0_u4E48_u662FACSS"><a href="#u4EC0_u4E48_u662FACSS" class="headerlink" title="什么是ACSS"></a>什么是ACSS</h2><p>每个选择器就定义一次, 然后在 markup 里引入对应的 class name</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.large</span> <span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">font-size</span>:<span class="value"> <span class="number">20px</span></span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">'large'</span>&gt;</span> Lorem Ipsum <span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>缺点:</p>
-<ul>
-<li>不能用 media queries, 因为现在样式写在了 markup 上, 不能通过 media queries 来改变</li>
-</ul>
-<p>总结: ACSS 适应于大的网站, 对小的网站来说并么有明显的优势.</p>
-<p>Atomic File Structure<br><figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p atomic-structuring/&#123;utilities,quarks,atoms,molecules&#125;</span><br></pre></td></tr></table></figure></p>
-<p>###Atomic CSS 可能会遇到的问题</p>
-<p>如果有两个结构的样式相同, 由于原子样式会写在 markup 上, 所以复用性上就差了点.<br>另外, 如果这两个样式都想要换的话, 需要改两个地方, 增加了维护成本.</p>
-<h2 id="Atomic_Design_VS_ACSS"><a href="#Atomic_Design_VS_ACSS" class="headerlink" title="Atomic Design VS ACSS"></a>Atomic Design VS ACSS</h2><h2 id="u4EC0_u4E48_u662FBEM"><a href="#u4EC0_u4E48_u662FBEM" class="headerlink" title="什么是BEM"></a>什么是BEM</h2><p>BEM 是 Block, Element, Modifier, 是给 class 起名字的方式</p>
-<p>比如<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* This is the Block */</span></span><br><span class="line"><span class="class">.block</span> <span class="rules">&#123;&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* This is an element, that helps to form the block as a whole */</span></span><br><span class="line"><span class="class">.block__element</span> <span class="rules">&#123;&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* This modifies the element or a block*/</span></span><br><span class="line"><span class="class">.block--modifier</span> <span class="rules">&#123;&#125;</span></span><br></pre></td></tr></table></figure></p>
-<p>使用的时候应该注意什么:</p>
-<ul>
-<li>不要级联元素, 比如不要写成<code>block__element1__element2</code>, 而是直接写成 <code>block__element2</code></li>
-</ul>
-<p>嵌套的 DOM-tree 和 BEM-tree 的区别:</p>
-<p>DOM-tree<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">a</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">span</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br><span class="line"></span><br><span class="line">.ul &#123;&#125;</span><br><span class="line">.ul &gt; li &#123;&#125;</span><br><span class="line">.ul &gt; li &gt; a &#123;&#125;</span><br><span class="line">.ul &gt; li &gt; a &gt; span &#123;&#125;</span><br></pre></td></tr></table></figure></p>
-<p>BEM-tree</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">ul</span> <span class="attribute">class</span>=<span class="value">"menu"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">li</span> <span class="attribute">class</span>=<span class="value">"menu__item"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">class</span>=<span class="value">"menu__link"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"menu__text"</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br><span class="line"></span><br><span class="line">.menu &#123;&#125;</span><br><span class="line">.menu__item &#123;&#125;</span><br><span class="line">.menu__link &#123;&#125;</span><br><span class="line">.menu__text &#123;&#125;</span><br></pre></td></tr></table></figure>
-<p>更多资料:</p>
-<ul>
-<li><a href="http://bem.info/method/definitions/" target="_blank" rel="external">The BEM site</a></li>
-<li><a href="http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/" target="_blank" rel="external">An easy to understand article about BEM</a></li>
-<li><a href="http://stackoverflow.com/a/27900589/976972" target="_blank" rel="external">Great SO answer by Igor Zenich</a></li>
-</ul>
-<h2 id="u4EC0_u4E48_u662FSMACSS"><a href="#u4EC0_u4E48_u662FSMACSS" class="headerlink" title="什么是SMACSS"></a>什么是SMACSS</h2><p>SMACSS 是 Scalable and Modular Architecture for CSS</p>
-<p>更多资料:</p>
-<ul>
-<li><a href="http://smacss.com/" target="_blank" rel="external">SMACSS website</a></li>
-<li><a href="http://coding.smashingmagazine.com/2012/04/20/decoupling-html-from-css" target="_blank" rel="external">Smashing Mag article Decoupling HTML from CSS</a></li>
-</ul>
-<h2 id="u8BE5_u5982_u4F55_u9009_u62E9"><a href="#u8BE5_u5982_u4F55_u9009_u62E9" class="headerlink" title="该如何选择"></a>该如何选择</h2><p>适合什么样的项目, 有什么优势劣势</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2016/01/27/20160127-atomic-css-md/" data-id="cil0ugeas001dreqf68esxh11" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2016/01/29/20160129-css-design/" data-id="cilm3ulsr001ag2qfh3z2eq5x" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -682,7 +636,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bind/">bind</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/build/">build</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/functional-programming/">functional-programming</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/">gradle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery/">jquery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leverage/">leverage</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/listen/">listen</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/modular-programming/">modular programming</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm-package-json/">npm, package.json</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-bootstrap/">react bootstrap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-router/">react router</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reading-notes/">reading-notes</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/servlet/">servlet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring-test/">spring test</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/touring/">touring</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bind/">bind</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/build/">build</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/functional-programming/">functional-programming</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/">gradle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery/">jquery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leverage/">leverage</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/listen/">listen</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/modular-programming/">modular programming</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm-package-json/">npm, package.json</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-bootstrap/">react bootstrap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-router/">react router</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reading-notes/">reading-notes</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/servlet/">servlet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring-test/">spring test</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/touring/">touring</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -691,7 +645,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/bind/" style="font-size: 10px;">bind</a> <a href="/tags/build/" style="font-size: 10px;">build</a> <a href="/tags/css/" style="font-size: 12.5px;">css</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/functional-programming/" style="font-size: 17.5px;">functional-programming</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/leverage/" style="font-size: 12.5px;">leverage</a> <a href="/tags/listen/" style="font-size: 10px;">listen</a> <a href="/tags/modular-programming/" style="font-size: 17.5px;">modular programming</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/npm-package-json/" style="font-size: 10px;">npm, package.json</a> <a href="/tags/react/" style="font-size: 12.5px;">react</a> <a href="/tags/react-bootstrap/" style="font-size: 10px;">react bootstrap</a> <a href="/tags/react-router/" style="font-size: 10px;">react router</a> <a href="/tags/reading-notes/" style="font-size: 10px;">reading-notes</a> <a href="/tags/servlet/" style="font-size: 12.5px;">servlet</a> <a href="/tags/spring/" style="font-size: 15px;">spring</a> <a href="/tags/spring-test/" style="font-size: 10px;">spring test</a> <a href="/tags/touring/" style="font-size: 10px;">touring</a>
+      <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/bind/" style="font-size: 10px;">bind</a> <a href="/tags/build/" style="font-size: 10px;">build</a> <a href="/tags/css/" style="font-size: 12.5px;">css</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/functional-programming/" style="font-size: 17.5px;">functional-programming</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/leverage/" style="font-size: 12.5px;">leverage</a> <a href="/tags/listen/" style="font-size: 10px;">listen</a> <a href="/tags/modular-programming/" style="font-size: 17.5px;">modular programming</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/npm-package-json/" style="font-size: 10px;">npm, package.json</a> <a href="/tags/react/" style="font-size: 15px;">react</a> <a href="/tags/react-bootstrap/" style="font-size: 10px;">react bootstrap</a> <a href="/tags/react-router/" style="font-size: 10px;">react router</a> <a href="/tags/reading-notes/" style="font-size: 10px;">reading-notes</a> <a href="/tags/servlet/" style="font-size: 12.5px;">servlet</a> <a href="/tags/spring/" style="font-size: 15px;">spring</a> <a href="/tags/spring-test/" style="font-size: 10px;">spring test</a> <a href="/tags/touring/" style="font-size: 10px;">touring</a>
     </div>
   </div>
 
@@ -700,7 +654,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -712,6 +666,14 @@
       <ul>
         
           <li>
+            <a href="/2016/03/10/20160310-react-high-order-components/">20160310-react-high-order-components</a>
+          </li>
+        
+          <li>
+            <a href="/2016/02/27/20160227-react-sourcecode/">20160227-react-sourcecode</a>
+          </li>
+        
+          <li>
             <a href="/2016/02/24/20160204-javascript-listen/">20160204-javascript-listen</a>
           </li>
         
@@ -721,14 +683,6 @@
         
           <li>
             <a href="/2016/02/18/20160218-leverage-001/">20160218-leverage-001</a>
-          </li>
-        
-          <li>
-            <a href="/2016/02/09/20160209-docker/">20160209-docker</a>
-          </li>
-        
-          <li>
-            <a href="/2016/02/02/20160202-gulp/">20160202-gulp</a>
           </li>
         
       </ul>

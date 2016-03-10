@@ -3,17 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2015/7 | weixiaobo88.github.io</title>
+  <title>20160310-react-high-order-components | weixiaobo88.github.io</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="weixiaobo88.github.io">
-<meta property="og:url" content="http://weixiaobo88.github.io/archives/2015/07/index.html">
+  <meta name="description" content="参考http://jamesknelson.com/structuring-react-applications-higher-order-components/https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750#.aioi9e57j
+问题是什么为了复用 Rea">
+<meta property="og:type" content="article">
+<meta property="og:title" content="20160310-react-high-order-components">
+<meta property="og:url" content="http://weixiaobo88.github.io/2016/03/10/20160310-react-high-order-components/index.html">
 <meta property="og:site_name" content="weixiaobo88.github.io">
-<meta property="og:description">
+<meta property="og:description" content="参考http://jamesknelson.com/structuring-react-applications-higher-order-components/https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750#.aioi9e57j
+问题是什么为了复用 Rea">
+<meta property="og:updated_time" content="2016-03-10T09:46:29.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="weixiaobo88.github.io">
-<meta name="twitter:description">
+<meta name="twitter:title" content="20160310-react-high-order-components">
+<meta name="twitter:description" content="参考http://jamesknelson.com/structuring-react-applications-higher-order-components/https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750#.aioi9e57j
+问题是什么为了复用 Rea">
   
     <link rel="alternative" href="/atom.xml" title="weixiaobo88.github.io" type="application/atom+xml">
   
@@ -63,210 +67,66 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2015/07/29/2015-07-29-spring-004-database/" class="archive-article-date">
-  <time datetime="2015-07-29T10:08:50.000Z" itemprop="datePublished">Jul 29</time>
+        <section id="main"><article id="post-20160310-react-high-order-components" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/10/20160310-react-high-order-components/" class="article-date">
+  <time datetime="2016-03-10T07:30:47.000Z" itemprop="datePublished">2016-03-10</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/07/29/2015-07-29-spring-004-database/">Database</a>
+    <h1 class="article-title" itemprop="name">
+      20160310-react-high-order-components
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2015/07/14/2015-07-14-spring-003-config/" class="archive-article-date">
-  <time datetime="2015-07-14T10:08:50.000Z" itemprop="datePublished">Jul 14</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/07/14/2015-07-14-spring-003-config/">开始学习Spring</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2015/07/12/2015-07-12-spring-002-ioc/" class="archive-article-date">
-  <time datetime="2015-07-12T10:08:50.000Z" itemprop="datePublished">Jul 12</time>
-</a>
+        <p>参考<br><a href="http://jamesknelson.com/structuring-react-applications-higher-order-components/" target="_blank" rel="external">http://jamesknelson.com/structuring-react-applications-higher-order-components/</a><br><a href="https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750#.aioi9e57j" target="_blank" rel="external">https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750#.aioi9e57j</a></p>
+<h2 id="u95EE_u9898_u662F_u4EC0_u4E48"><a href="#u95EE_u9898_u662F_u4EC0_u4E48" class="headerlink" title="问题是什么"></a>问题是什么</h2><p>为了复用 React 的组件, 原有组件会改成的很长而难以维护.<br>在 ES6 不再支持 mixins 的情况下, 该如何来解决这个问题?</p>
+<ul>
+<li>给子节点传一些未知的 props</li>
+<li>写很长的 css 名字</li>
+<li>合并在 props 上指定的内部回调</li>
+</ul>
+<h2 id="u89E3_u51B3_u65B9_u6848_u662F_u4EC0_u4E48"><a href="#u89E3_u51B3_u65B9_u6848_u662F_u4EC0_u4E48" class="headerlink" title="解决方案是什么"></a>解决方案是什么</h2><p>解决方案是 Higher-Order components (HOCs).</p>
+<p>HOCs 是在已有的 component 上加一些其他功能的 JavaScript Functions.</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">是否存在已有概念能帮助我理解 Higher-<span class="keyword">Order</span> <span class="title">components</span>?</span><br><span class="line"></span><br><span class="line">是的. </span><br><span class="line"></span><br><span class="line">- React component 可以给你的 app 增加功能, HOCs 可以给你的 component 增加功能.</span><br><span class="line">- HOCs 可以帮你自动生成代码.(在 ruby 中叫做 元编程)</span><br></pre></td></tr></table></figure>
+<h3 id="u770B_u4EE3_u7801"><a href="#u770B_u4EE3_u7801" class="headerlink" title="看代码"></a>看代码</h3><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// See https://www.npmjs.com/package/except</span></span><br><span class="line"><span class="keyword">import</span> except from <span class="symbol">'excep</span>t';</span><br><span class="line"></span><br><span class="line">function passthrough(component) &#123;</span><br><span class="line">    const passthroughProps = <span class="type">Object</span>.keys(component.propTypes);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="class"><span class="keyword">class</span> <span class="keyword"><span class="keyword">extends</span></span> <span class="title">component</span> &#123;</span></span><br><span class="line">        render() &#123;</span><br><span class="line">            <span class="keyword">super</span>.render(except(<span class="keyword">this</span>.props, passthroughProps))</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="HOCs__u5982_u4F55_u5E2E_u52A9_u6211_Structure_app"><a href="#HOCs__u5982_u4F55_u5E2E_u52A9_u6211_Structure_app" class="headerlink" title="HOCs 如何帮助我 Structure app"></a>HOCs 如何帮助我 Structure app</h3><p>HOCs 帮助你的app实现关注点分离.</p>
+<h2 id="u5982_u4F55_u8BBE_u8BA1_u6709_u7528_u7684_HOCs"><a href="#u5982_u4F55_u8BBE_u8BA1_u6709_u7528_u7684_HOCs" class="headerlink" title="如何设计有用的 HOCs"></a>如何设计有用的 HOCs</h2>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/07/12/2015-07-12-spring-002-ioc/">开始学习Spring</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2015/07/10/2015-07-10-database-01/" class="archive-article-date">
-  <time datetime="2015-07-10T10:08:50.000Z" itemprop="datePublished">Jul 10</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://weixiaobo88.github.io/2016/03/10/20160310-react-high-order-components/" data-id="cilm3ulsb000og2qfwop7flbz" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/07/10/2015-07-10-database-01/">数据库</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2015/07/10/2015-07-10-backend-frontend-interaction/" class="archive-article-date">
-  <time datetime="2015-07-10T10:08:50.000Z" itemprop="datePublished">Jul 10</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/07/10/2015-07-10-backend-frontend-interaction/">后台数据传到前台有几种方式</a>
-    </h1>
-  
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
 
-    </header>
+    </footer>
   </div>
-</article>
   
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2015/07/09/2015-07-09-servlet-002/" class="archive-article-date">
-  <time datetime="2015-07-09T10:08:50.000Z" itemprop="datePublished">Jul 9</time>
-</a>
-      
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/07/09/2015-07-09-servlet-002/">Servlet 完成Web请求和响应</a>
-    </h1>
   
+    <a href="/2016/02/27/20160227-react-sourcecode/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">20160227-react-sourcecode</div>
+    </a>
+  
+</nav>
 
-    </header>
-  </div>
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2015/07/09/2015-07-09-servlet-001/" class="archive-article-date">
-  <time datetime="2015-07-09T10:08:50.000Z" itemprop="datePublished">Jul 9</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/07/09/2015-07-09-servlet-001/">Servlet 中文乱码问题</a>
-    </h1>
-  
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2015/07/09/2015-07-09-gradle/" class="archive-article-date">
-  <time datetime="2015-07-09T10:08:50.000Z" itemprop="datePublished">Jul 9</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/07/09/2015-07-09-gradle/">Gradle运行机制</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2015/07/09/2015-07-09-deploy/" class="archive-article-date">
-  <time datetime="2015-07-09T10:08:50.000Z" itemprop="datePublished">Jul 9</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/07/09/2015-07-09-deploy/">部署</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2015/07/08/2015-07-08-spring-001/" class="archive-article-date">
-  <time datetime="2015-07-08T10:08:50.000Z" itemprop="datePublished">Jul 8</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/07/08/2015-07-08-spring-001/">Spring 概况</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 </section>
         
           <aside id="sidebar">

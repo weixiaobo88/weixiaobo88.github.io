@@ -65,6 +65,255 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-2015-07-14-spring-003-config" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/07/14/2015-07-14-spring-003-config/" class="article-date">
+  <time datetime="2015-07-14T10:08:50.000Z" itemprop="datePublished">2015-07-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/07/14/2015-07-14-spring-003-config/">开始学习Spring</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="u5F00_u59CB_u5B66_u4E60Spring"><a href="#u5F00_u59CB_u5B66_u4E60Spring" class="headerlink" title="开始学习Spring"></a>开始学习Spring</h1><h2 id="Spring_4_Configuration"><a href="#Spring_4_Configuration" class="headerlink" title="Spring 4 Configuration"></a>Spring 4 Configuration</h2><p>Spring中核心IoC功能的补充：</p>
+<ul>
+<li>管理bean的生命周期</li>
+<li>使bean能够“Spring aware”</li>
+<li>使用FactoryBeans</li>
+<li>JavaBeans PropertyEditors</li>
+<li>使用Java类来配置</li>
+<li>进阶配置</li>
+<li>使用Groovy配置</li>
+</ul>
+<h2 id="u53C2_u8003_u8D44_u6599"><a href="#u53C2_u8003_u8D44_u6599" class="headerlink" title="参考资料"></a>参考资料</h2><p>《Pro Spring 4 Edition》</p>
+<hr>
+<h2 id="u300ASpring_in_Action_u300B"><a href="#u300ASpring_in_Action_u300B" class="headerlink" title="《Spring in Action》"></a>《Spring in Action》</h2><p>如何创建容器 -》 有了容器，如何装配Bean -》知道装配Bean，如果Bean很多，XML文件就很复杂 -》如何减少XML的配置</p>
+<h2 id="Spring__u5E94_u7528_u4E0A_u4E0B_u6587"><a href="#Spring__u5E94_u7528_u4E0A_u4E0B_u6587" class="headerlink" title="Spring 应用上下文"></a>Spring 应用上下文</h2><ul>
+<li>Spring 容器是什么，有什么用</li>
+<li>如何创建 Spring 容器</li>
+</ul>
+<p>Spring容器是Spring框架的核心，Spring自带了几种容器实现，可以归为两类：</p>
+<ul>
+<li>BeanFactory是最简单的容器，提供基础的依赖注入和Bean装配服务</li>
+<li>ApplicationContext 应用上下文（用的更多）<ul>
+<li>Spring通过应用上下文（Application Context）装载Bean的定义并把它们组装起来。Spring应用上下文全权负责对象的创建和组装。Spring自带了几种应用上下文的实现，它们之间主要的区别仅仅是如何加载它们的配置。用的最多的是3种：<ul>
+<li>ClassPathXmlApplicationContext，从类路径下的XML配置文件中加载上下文定义，把应用上下文文件当做类资源</li>
+<li>FileSystemXmlApplicationContext，读取文件系统中的XML配置文件并加载上下文定义</li>
+<li>XmlWebApplicationContext，读取Web应用下的XML配置文件并装载上下文定义</li>
+</ul>
+</li>
+<li>通过现有的应用上下文引用，你可以调用应用上下文的getBean()方法从Spring容器中获取Bean。</li>
+</ul>
+</li>
+</ul>
+<p>在Spring应用中，Spring容器会创建相互协作的组件之间的关联。负责创建对象、装配（Wiring）对象、配置对象，管理对象的整个生命周期。</p>
+<pre><code>创建应用组件之间协作的行为通常称为装配。在Spring中装配Bean最常见的方式是使用XML文件。
+</code></pre><h2 id="Bean_u7684_u5B9E_u4F8B_u5316"><a href="#Bean_u7684_u5B9E_u4F8B_u5316" class="headerlink" title="Bean的实例化"></a>Bean的实例化</h2><p>在Spring中，默认情况下，所有的bean都是单例。ApplicationContext.getBean()总是返回同一个实例。</p>
+<h3 id="Bean__u7684_u4F5C_u7528_u57DF"><a href="#Bean__u7684_u4F5C_u7528_u57DF" class="headerlink" title="Bean 的作用域"></a>Bean 的作用域</h3><p>如果需要每次请求时都获得唯一的Bean实例，可以通过配置Bean的作用域 scope属性。<br>Spring有关单例的概念限于Spring上下文的范围内，不像真正的单例，在每个类加载器中保证只有一个实例。</p>
+<h3 id="Bean__u7684_u751F_u547D_u5468_u671F"><a href="#Bean__u7684_u751F_u547D_u5468_u671F" class="headerlink" title="Bean 的生命周期"></a>Bean 的生命周期</h3><p>初始化和销毁，可以配置 init-method 和 destory-method，虽然Spring API也提供相应的接口，但会与其产生耦合。</p>
+<p>在Java中singleton包含两个概念：单个实例的对象，单例模式。前者用singleton表示，后者用Singleton表示。<br>可以通过配置文件中的配置来修改“单例”的属性。<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">package com.apress.prospring4.ch3;&#10;public class Singleton &#123;&#10;    private static Singleton instance;&#10;    static &#123;&#10;        instance = new Singleton();&#10;&#125;&#10;    public static Singleton getInstance() &#123;&#10;        return instance;&#10;&#125; &#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="u4E3ABean_u7684_u5C5E_u6027_u548C_u6784_u9020_u5668_u53C2_u6570_u88C5_u914D_u591A_u79CD_u7C7B_u578B_u7684_u503C"><a href="#u4E3ABean_u7684_u5C5E_u6027_u548C_u6784_u9020_u5668_u53C2_u6570_u88C5_u914D_u591A_u79CD_u7C7B_u578B_u7684_u503C" class="headerlink" title="为Bean的属性和构造器参数装配多种类型的值"></a>为Bean的属性和构造器参数装配多种类型的值</h2><ul>
+<li>简单属性值，使用value属性</li>
+<li>引用其他Bean的属性，使用ref属性</li>
+<li>Bean的属性是复数，比如集合，使用list set map props属性<ul>
+<li></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"hank"</span></span><br><span class="line">            <span class="attribute">class</span>=<span class="value">"com.springinaction.springido1.OneManBand"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"instruments"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">list</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">ref</span> <span class="attribute">bean</span>=<span class="value">"guitar"</span> /&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">ref</span> <span class="attribute">bean</span>=<span class="value">"cymbal"</span> /&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">ref</span> <span class="attribute">bean</span>=<span class="value">"harmonica"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="u7591_u95EE_uFF1F"><a href="#u7591_u95EE_uFF1F" class="headerlink" title="疑问？"></a>疑问？</h2><p>从《Spring in Action》中可以看到注入Bean属性实则就是setter方法注入，这种方式在setter方法上有@Autowired注解。那在属性上直接写@Autowired又是什么注入方式呢。</p>
+<h2 id="u5982_u4F55_u51CF_u5C11XML_u7684_u914D_u7F6E_u6570_u91CF"><a href="#u5982_u4F55_u51CF_u5C11XML_u7684_u914D_u7F6E_u6570_u91CF" class="headerlink" title="如何减少XML的配置数量"></a>如何减少XML的配置数量</h2><p>Spring提供了以下方式：</p>
+<ul>
+<li>自动装配 autowiring，减少甚至消除配置<property> <constructor-arg>元素，让Spring自动识别并装配Bean的依赖关系</constructor-arg></property></li>
+<li>自动检测 autodiscovery，比自动装配更进一步，让Spring自动识别哪些类需要被配置成Spring Bean，减少对<bean>元素的使用。</bean></li>
+</ul>
+<h3 id="u81EA_u52A8_u88C5_u914DAutowiring_Bean__u5C5E_u6027"><a href="#u81EA_u52A8_u88C5_u914DAutowiring_Bean__u5C5E_u6027" class="headerlink" title="自动装配Autowiring Bean 属性"></a>自动装配Autowiring Bean 属性</h3><p>Spring提供了4种自动装配策略：</p>
+<ul>
+<li>byName，把与Bean的属性具有相同名字的其他Bean自动装配到Bean的对应属性中</li>
+<li>byType，把与Bean的属性具有相同类型的其他Bean自动装配到Bean的对应属性中</li>
+<li>constructor，把与Bean的构造器入参具有相同类型的其他Bean自动装配到Bean构造器的对应入参中</li>
+<li>autodetect，首先尝试使用constructor进行自动装配，如果失败，再尝试使用byType进行自动装配</li>
+</ul>
+<h4 id="u4F7F_u7528_u6CE8_u89E3_u81EA_u52A8_u88C5_u914DBean__u5C5E_u6027"><a href="#u4F7F_u7528_u6CE8_u89E3_u81EA_u52A8_u88C5_u914DBean__u5C5E_u6027" class="headerlink" title="使用注解自动装配Bean 属性"></a>使用注解自动装配Bean 属性</h4><p>Spring容器默认禁用注解装配，所以在使用基于注解的自动装配前，我们需要在Spring配置中启用它。最简单的启用方式是使用：</p>
+<context:annotation-config>
+
+<p>这会告诉Spring我们打算使用基于注解的自动装配。</p>
+<p>Spring 3 支持几种不同的用于自动装配的注解：</p>
+<ul>
+<li>Spring自带的 @Autowired 注解，这种方式下如果没有Bean可以装配到@Autowired所标注的属性或参数中，或者有多个Bean的时候，都会得到“NoSuchBeanDefinitionException”的异常<ul>
+<li>可以标注Setter方法</li>
+<li>可以标注构造器</li>
+<li>可以标注属性，并删除setter方法</li>
+</ul>
+</li>
+<li>JSR-330 的 @Inject 注解<ul>
+<li>为了统一各种依赖注入框架的编程模型，JCP（Java Community Process）发布了Java依赖注入规范，JCP将其称为JSR-330，更常见的叫法是 at inject，该规范为Java带来了通用依赖注入模型。</li>
+<li>@Inject 注解是JSR-330的核心部件，几乎可以完全替换Spring的 @Autowired 注解。</li>
+<li>和 @Autowired 一样，@Inject 可以用来自动装配属性、方法和构造器</li>
+<li>不一样的是，@Inject 没有 required 属性。因此 @Inject 注解所标注的依赖关系必须存在，如果不存在，则会抛出异常。</li>
+<li>@Inject 可以注入一个provider</li>
+</ul>
+</li>
+<li>JSR-250 的 @Resource 注解</li>
+</ul>
+<h3 id="u81EA_u52A8_u68C0_u6D4B_Bean"><a href="#u81EA_u52A8_u68C0_u6D4B_Bean" class="headerlink" title="自动检测 Bean"></a>自动检测 Bean</h3><p>我们希望使用<context:annotation-config>之后，Spring能对待我们定义的注解，并指导Bean的装配。<br>即使<context:annotation-config>有助于完全消除Spring配置中的<property> <constructor-arg>元素，我们仍需要使用<bean>元素显示定义Bean。</bean></constructor-arg></property></context:annotation-config></context:annotation-config></p>
+<p>在Spring中<context:component-scan>除了完成<context:annotation-config>的工作，还允许Spring自动检测Bean和定义Bean。</context:annotation-config></context:component-scan></p>
+<p>为了配置Spring自动检测，需要使用<context:component-scan>元素来代替<context:annotation-config>元素。</context:annotation-config></context:component-scan></p>
+<h4 id="u5982_u4F55_u77E5_u9053_u54EA_u4E9B_u7C7B_u9700_u8981_u6CE8_u518C_u4E3ASpring_Bean_uFF1F"><a href="#u5982_u4F55_u77E5_u9053_u54EA_u4E9B_u7C7B_u9700_u8981_u6CE8_u518C_u4E3ASpring_Bean_uFF1F" class="headerlink" title="如何知道哪些类需要注册为Spring Bean？"></a><context:component-scan> 如何知道哪些类需要注册为Spring Bean？</context:component-scan></h4><p>默认情况下，<context:component-scan> 查找使用构造型（stereotype）注解所标注的类：</context:component-scan></p>
+<ul>
+<li>@Component，通用的构造型注解，标识该类为Spring组件</li>
+<li>@Controller，标识将该类定义为Spring MVC Controller</li>
+<li>@Repository，标识将该类定义为数据仓库</li>
+<li>@Service，标识将该类定义为服务</li>
+<li>使用 @Component 标注的任意自定义注解</li>
+</ul>
+<p>当使用 <context:component-scan> 时，基于注解地自动检测只是一种扫描策略，还有其他扫描策略。</context:component-scan></p>
+<ul>
+<li>过滤组件扫描，比如 <context:include-filter></context:include-filter></li>
+</ul>
+<h2 id="u5982_u679C_u4E0D_u559C_u6B22XML_uFF0C_u53EF_u4EE5_u4F7F_u7528Spring_u521B_u5EFA_u57FA_u4E8EJava_u7684_u914D_u7F6E"><a href="#u5982_u679C_u4E0D_u559C_u6B22XML_uFF0C_u53EF_u4EE5_u4F7F_u7528Spring_u521B_u5EFA_u57FA_u4E8EJava_u7684_u914D_u7F6E" class="headerlink" title="如果不喜欢XML，可以使用Spring创建基于Java的配置"></a>如果不喜欢XML，可以使用Spring创建基于Java的配置</h2><p>仍然需要少量的XML来启用Java配置，在下面代码中，base-package告诉Spring在哪个包中查找使用@Configuration注解所标注的所有类：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="pi">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">beans</span> <span class="attribute">xmlns</span>=<span class="value">"http://www.springframework.org/schema/beans"</span></span><br><span class="line">       <span class="attribute">xmlns:xsi</span>=<span class="value">"http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="line">       <span class="attribute">xmlns:context</span>=<span class="value">"http://www.springframework.org/schema/context"</span></span><br><span class="line">       <span class="attribute">xsi:schemaLocation</span>=<span class="value">"http://www.springframework.org/schema/beans</span><br><span class="line">          http://www.springframework.org/schema/beans/spring-beans.xsd</span><br><span class="line">          http://www.springframework.org/schema/context</span><br><span class="line">          http://www.springframework.org/schema/context/spring-context.xsd"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="title">context:component-scan</span></span><br><span class="line">          <span class="attribute">base-package</span>=<span class="value">"com.springinactin.springido1"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="u5B9A_u4E49_u4E00_u4E2A_u914D_u7F6E_u7C7B"><a href="#u5B9A_u4E49_u4E00_u4E2A_u914D_u7F6E_u7C7B" class="headerlink" title="定义一个配置类"></a>定义一个配置类</h3><p>使用@Configuration注解的Java类，等价于XML配置中的<beans>元素。<br>@Configuration注解会告诉Spring，这个类将包含一个或多个Spring Bean的定义。</beans></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="annotation">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> Class SpringIdo1Config &#123;</span><br><span class="line">    <span class="comment">// Bean declaration methods go here</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</context:annotation-config>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://weixiaobo88.github.io/2015/07/14/2015-07-14-spring-003-config/" data-id="cilm3ultf0028g2qf8doi5pvr" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2015-07-12-spring-002-ioc" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/07/12/2015-07-12-spring-002-ioc/" class="article-date">
+  <time datetime="2015-07-12T10:08:50.000Z" itemprop="datePublished">2015-07-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/07/12/2015-07-12-spring-002-ioc/">开始学习Spring</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Spring_4_IoC"><a href="#Spring_4_IoC" class="headerlink" title="Spring 4 IoC"></a>Spring 4 IoC</h2><p>Spring 4.0.2 有20个modules，打包成20个jar文件</p>
+<p>任何一个有实际意义的应用都是由两个或者更多的类组成，这些类相互之间进行协作来完成特定的业务逻辑。通常，每个对象负责管理与自己相互协作的对象（即它所以来的对象）的引用，这将会导致高度耦合和难以测试的代码。</p>
+<p>通过依赖注入，对象的依赖关系将由负责协调系统中各个对象的第三方组件在创建对象时设定。对象无需自行创建或管理它们的依赖关系——依赖关系将被自动注入到需要它们的对象中去。</p>
+<h2 id="u63A7_u5236_u53CD_u8F6C"><a href="#u63A7_u5236_u53CD_u8F6C" class="headerlink" title="控制反转"></a>控制反转</h2><p>一个需要特定依赖的组件，我们称为依赖对象dependent object，或者在IoC中称为目标target。</p>
+<p>通常来讲， IoC有两种类型：</p>
+<ul>
+<li>Dependency Lookup <ul>
+<li>Dependency Pull 依赖拖拽，组件之间的依赖关系是根据需要，从一个集中的“仓库”中获取的。</li>
+<li>Contextualized Dependency Lookup (CDL) 上下文配置依赖查找，在当前运行的容器所管理的资源中进行查找。</li>
+</ul>
+</li>
+<li>Dependency Injection <ul>
+<li>Constructor 构造函数依赖注入</li>
+<li>Setter Dependency Injection setter方法依赖注入</li>
+</ul>
+</li>
+</ul>
+<p>依赖注入的真正价值在于把相互协作的对象装配在一起，而不需要这些对象自己负责装配。<br>Spring提倡面向接口编程，面向接口编程与依赖注入协作实现了松散耦合。</p>
+<h3 id="u6CE8_u5165_vs-__u67E5_u627E"><a href="#u6CE8_u5165_vs-__u67E5_u627E" class="headerlink" title="注入 vs. 查找"></a>注入 vs. 查找</h3><ul>
+<li>查找，应用必须依赖于特定容器的特定类或者接口，程序就与特定的容器想耦合，移植性大打折扣</li>
+<li>注入，不用手工配置查找的代码，组件之间的灵活性高，不需要主动调用相应的魔豆，对象都会保存在同一的地方</li>
+</ul>
+<h3 id="setter_u6CE8_u5165_vs-__u6784_u9020_u5668_u6CE8_u5165"><a href="#setter_u6CE8_u5165_vs-__u6784_u9020_u5668_u6CE8_u5165" class="headerlink" title="setter注入 vs. 构造器注入"></a>setter注入 vs. 构造器注入</h3><ul>
+<li>构造函数注入，应用在要使用组件之前就必须要实例化被依赖的组件的情况下。</li>
+<li>setter注入，应用在组件本身对容器暴露自身的依赖关系，并且愿意提供一个默认的依赖关系的情况下。</li>
+</ul>
+<h2 id="Spring_u4E2D_u7684IoC"><a href="#Spring_u4E2D_u7684IoC" class="headerlink" title="Spring中的IoC"></a>Spring中的IoC</h2><p>在基于Spring的应用中，偏向使用依赖注入而不是查找，但是对于独立对象的访问，怡然需要通过查找来获取合作关系。<br>Spring还不能自动将应用程序组件通过依赖注入连接起来，因此必须通过依赖查找来初始化组件集合。</p>
+<p>使用Spring MVC来构建Web应用的时候，反而不会遇到这种麻烦事，Spring此时就像一个粘合剂，很好的粘合了应用的各个部分。</p>
+<p>Spring IoC体现在：</p>
+<ul>
+<li>Setter注入</li>
+<li>Constructor注入</li>
+<li>Method注入</li>
+<li>autowiring</li>
+<li>bean inheritance</li>
+</ul>
+<h2 id="Spring_u4E2D_u7684DI"><a href="#Spring_u4E2D_u7684DI" class="headerlink" title="Spring中的DI"></a>Spring中的DI</h2><p>Spring DI 容器的核心是 BeanFactory 接口</p>
+<p>要做两件事：</p>
+<ul>
+<li>在程序中使用BeanFactory</li>
+<li>配置BeanFactory</li>
+</ul>
+<p>在Spring中，ApplicationContext接口是BeanFactory的扩展，ApplicationContext除了提供DI服务之外，还有其他，比如事务、AOP、事件处理等。</p>
+<p>在开发过程中，推荐使用ApplicationContext与Spring进行交互。</p>
+<h3 id="u914D_u7F6EApplicationContext"><a href="#u914D_u7F6EApplicationContext" class="headerlink" title="配置ApplicationContext"></a>配置ApplicationContext</h3><p>定义beans的方式：</p>
+<ul>
+<li>properties</li>
+<li>XML文件<ul>
+<li>配置文件在Java code之外</li>
+</ul>
+</li>
+<li>Java annotations (始于Spring 2.5)<ul>
+<li>运行开发人员定义和查看DI setup</li>
+</ul>
+</li>
+</ul>
+<p>Spring也支持在同一个ApplicationContext中采用XML文件和annotation的混合配置方式。<br>一种通用的方式是在XML文件中定义应用的基础设施（比如，data source，transaction manager，JMS connection factory，JMX），<br>使用annotation来定义DI配置（注入的bean和bean的依赖）</p>
+<h4 id="XML_u6587_u4EF6_u914D_u7F6E_u65B9_u5F0F"><a href="#XML_u6587_u4EF6_u914D_u7F6E_u65B9_u5F0F" class="headerlink" title="XML文件配置方式"></a>XML文件配置方式</h4><p>需要声明所需要的Spring命名空间beans</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">样例 app-context-xml.xml</span><br><span class="line"></span><br><span class="line">    <span class="pi">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">beans</span> <span class="attribute">xmlns</span>=<span class="value">"http://www.springframework.org/schema/beans"</span></span><br><span class="line">        <span class="attribute">xmlns:xsi</span>=<span class="value">"http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="line">        <span class="attribute">xsi:schemaLocation</span>=<span class="value">"http://www.springframework.org/schema/beans</span><br><span class="line">            http://www.springframework.org/schema/beans/spring-beans.xsd"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"messageProvider"</span></span><br><span class="line">              <span class="attribute">class</span>=<span class="value">"com.apress.prospring4.ch3.xml.HelloWorldMessageProvider"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="annotation_u914D_u7F6E_u65B9_u5F0F"><a href="#annotation_u914D_u7F6E_u65B9_u5F0F" class="headerlink" title="annotation配置方式"></a>annotation配置方式</h4><p>需要在XML文件中声明tags</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">样例 app-context-annotation.xml</span><br><span class="line"></span><br><span class="line">    <span class="pi">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">beans</span> <span class="attribute">xmlns</span>=<span class="value">"http://www.springframework.org/schema/beans"</span></span><br><span class="line">        <span class="attribute">xmlns:xsi</span>=<span class="value">"http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="line">        <span class="attribute">xmlns:context</span>=<span class="value">"http://www.springframework.org/schema/context"</span></span><br><span class="line">        <span class="attribute">xsi:schemaLocation</span>=<span class="value">"http://www.springframework.org/schema/beans</span><br><span class="line">            http://www.springframework.org/schema/beans/spring-beans.xsd</span><br><span class="line">            http://www.springframework.org/schema/context</span><br><span class="line">            http://www.springframework.org/schema/context/spring-context.xsd"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">context:component-scan</span> <span class="attribute">base-package</span>=<span class="value">"com.apress.prospring4.ch3.annotation"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><context:component-scan> 标签告诉Spring在所配置的包中扫描注入的beans，这些bean通过注解 @Component, @Controller, @Repository, and @Service， @Autowired and @Inject标明。<br>在<context:component-scan> 标签中可以定义多个packages，使用逗号、分号或空格来分隔开。该标签还可以指定包含或排除某个component。</context:component-scan></context:component-scan></p>
+<h3 id="u4F7F_u7528XML_u5B9E_u73B0Setter_u6CE8_u5165"><a href="#u4F7F_u7528XML_u5B9E_u73B0Setter_u6CE8_u5165" class="headerlink" title="使用XML实现Setter注入"></a>使用XML实现Setter注入</h3><p>使用XML来配置Setter注入，需要在<bean>下配置一个<property>的标签，每个<property>表示一个要注入的依赖。</property></property></bean></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="pi">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">beans</span> <span class="attribute">xmlns</span>=<span class="value">"http://www.springframework.org/schema/beans"</span></span><br><span class="line">       <span class="attribute">xmlns:xsi</span>=<span class="value">"http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="line">       <span class="attribute">xsi:schemaLocation</span>=<span class="value">"http://www.springframework.org/schema/beans</span><br><span class="line">          http://www.springframework.org/schema/beans/spring-beans.xsd"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"messageRenderer"</span></span><br><span class="line">        <span class="attribute">class</span>=<span class="value">"com.apress.prospring4.ch3.xml.StandardOutMessageRenderer"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"messageProvider"</span> <span class="attribute">ref</span>=<span class="value">"messageProvider"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">bean</span>&gt;</span></span><br><span class="line">    或者可以用“p”的命名空间</span><br><span class="line">    <span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"messageRenderer"</span></span><br><span class="line">        <span class="attribute">class</span>=<span class="value">"com.apress.prospring4.ch3.xml.StandardOutMessageRenderer"</span></span><br><span class="line">        <span class="attribute">p:messageProvider-ref</span>=<span class="value">"messageProvider"</span>/&gt;</span></span><br><span class="line">        </span><br><span class="line">    <span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"messageProvider"</span></span><br><span class="line">        <span class="attribute">class</span>=<span class="value">"com.apress.prospring4.ch3.xml.HelloWorldMessageProvider"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>命名空间“p”没有定义在XSD文件中，只存在于Spring core中，所以在schemaLocation属性中没有对于的XSD。</p>
+<h3 id="u4F7F_u7528annotation_u5B9E_u73B0setter_u6CE8_u5165"><a href="#u4F7F_u7528annotation_u5B9E_u73B0setter_u6CE8_u5165" class="headerlink" title="使用annotation实现setter注入"></a>使用annotation实现setter注入</h3><p>只需要添加@Autowired</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="annotation">@Service</span>(<span class="string">"messageRenderer"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StandardOutMessageRenderer</span> <span class="keyword">implements</span> <span class="title">MessageRenderer</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> MessageProvider messageProvider;</span><br><span class="line">    </span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="annotation">@Autowired</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMessageProvider</span><span class="params">(MessageProvider provider)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.messageProvider = provider;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在XMl文件中配置了 <context:component-scan> ，在Spring的ApplicationContext初始化的时候，会找到所有的@Autowired的annotation，并注入所需的依赖。</context:component-scan></p>
+<h3 id="u4F7F_u7528XML_u6765_u914D_u7F6E_u6784_u9020_u51FD_u6570_u6CE8_u5165"><a href="#u4F7F_u7528XML_u6765_u914D_u7F6E_u6784_u9020_u51FD_u6570_u6CE8_u5165" class="headerlink" title="使用XML来配置构造函数注入"></a>使用XML来配置构造函数注入</h3><p>在XML文件中使用<constructor-arg>，同时采用value的属性为构造函数传递参数。如果参数多于一个，可以使用index属性来指定参数的顺序。<br>同时也可以使用命名空间“c”来代替。“c”也是只存在于Spring core中。</constructor-arg></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="pi">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">beans</span> <span class="attribute">xmlns</span>=<span class="value">"http://www.springframework.org/schema/beans"</span></span><br><span class="line">       <span class="attribute">xmlns:xsi</span>=<span class="value">"http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="line">       <span class="attribute">xsi:schemaLocation</span>=<span class="value">"http://www.springframework.org/schema/beans</span><br><span class="line">          http://www.springframework.org/schema/beans/spring-beans.xsd"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"messageProvider"</span></span><br><span class="line">        <span class="attribute">class</span>=<span class="value">"com.apress.prospring4.ch3.xml.ConfigurableMessageProvider"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">constructor-arg</span> <span class="attribute">value</span>=<span class="value">"Configurable message"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">bean</span>&gt;</span></span><br><span class="line">    或者</span><br><span class="line">    <span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"messageProvider"</span></span><br><span class="line">        <span class="attribute">class</span>=<span class="value">"com.apress.prospring4.ch3.xml.ConfigurableMessageProvider"</span></span><br><span class="line">        <span class="attribute">c:message</span>=<span class="value">"This is a configurable message"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>如果需要传递的参数是整型的话，需要指明类型：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"constructorConfusion"</span></span><br><span class="line">        <span class="attribute">class</span>=<span class="value">"com.apress.prospring4.ch3.xml.ConstructorConfusion"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">constructor-arg</span> <span class="attribute">type</span>=<span class="value">”int”</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">value</span>&gt;</span>90<span class="tag">&lt;/<span class="title">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">constructor-arg</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="u4F7F_u7528annotation_u6765_u914D_u7F6E_u6784_u9020_u51FD_u6570_u6CE8_u5165"><a href="#u4F7F_u7528annotation_u6765_u914D_u7F6E_u6784_u9020_u51FD_u6570_u6CE8_u5165" class="headerlink" title="使用annotation来配置构造函数注入"></a>使用annotation来配置构造函数注入</h3><p>在构造函数上声明@Autowired。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="pi">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">beans</span> <span class="attribute">xmlns</span>=<span class="value">"http://www.springframework.org/schema/beans"</span></span><br><span class="line">       <span class="attribute">xmlns:xsi</span>=<span class="value">"http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="line">       <span class="attribute">xmlns:context</span>=<span class="value">"http://www.springframework.org/schema/context"</span></span><br><span class="line">       <span class="attribute">xmlns:c</span>=<span class="value">"http://www.springframework.org/schema/c"</span></span><br><span class="line">       <span class="attribute">xsi:schemaLocation</span>=<span class="value">"http://www.springframework.org/schema/beans</span><br><span class="line">          http://www.springframework.org/schema/beans/spring-beans.xsd</span><br><span class="line">          http://www.springframework.org/schema/context</span><br><span class="line">          http://www.springframework.org/schema/context/spring-context.xsd"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="title">context:component-scan</span></span><br><span class="line">          <span class="attribute">base-package</span>=<span class="value">"com.apress.prospring4.ch3.annotation"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"message"</span> <span class="attribute">class</span>=<span class="value">"java.lang.String"</span> <span class="attribute">c:_0</span>=<span class="value">"This is a configurable message"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="u53C2_u6570_u6CE8_u5165"><a href="#u53C2_u6570_u6CE8_u5165" class="headerlink" title="参数注入"></a>参数注入</h3><h4 id="u7B80_u5355_u7C7B_u578B_u7684_u503C"><a href="#u7B80_u5355_u7C7B_u578B_u7684_u503C" class="headerlink" title="简单类型的值"></a>简单类型的值</h4><h3 id="u65B9_u6CD5_u6CE8_u5165"><a href="#u65B9_u6CD5_u6CE8_u5165" class="headerlink" title="方法注入"></a>方法注入</h3><h2 id="u53C2_u8003_u8D44_u6599"><a href="#u53C2_u8003_u8D44_u6599" class="headerlink" title="参考资料"></a>参考资料</h2><p>《Pro Spring 4 Edition》</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://weixiaobo88.github.io/2015/07/12/2015-07-12-spring-002-ioc/" data-id="cilm3ultg0029g2qfao3jmczk" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-2015-07-10-database-01" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/07/10/2015-07-10-database-01/" class="article-date">
@@ -93,7 +342,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/10/2015-07-10-database-01/" data-id="cil0ugebj0028reqfatlo6pu4" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/10/2015-07-10-database-01/" data-id="cilm3ultj002bg2qfavotyedz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -134,7 +383,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/10/2015-07-10-backend-frontend-interaction/" data-id="cil0ugebl0029reqfh4qatfz6" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/10/2015-07-10-backend-frontend-interaction/" data-id="cilm3ultl002cg2qfe879rlae" class="article-share-link">Share</a>
       
       
     </footer>
@@ -236,7 +485,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/09/2015-07-09-servlet-002/" data-id="cil0ugebn002areqfchczonx9" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/09/2015-07-09-servlet-002/" data-id="cilm3ultm002dg2qfmt1377s8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/servlet/">servlet</a></li></ul>
@@ -302,7 +551,7 @@ If the response&apos;s character encoding has not been specified as described in
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/09/2015-07-09-servlet-001/" data-id="cil0ugebp002dreqfvorf34zv" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/09/2015-07-09-servlet-001/" data-id="cilm3ultn002gg2qffhllb3z6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/servlet/">servlet</a></li></ul>
@@ -350,7 +599,7 @@ If the response&apos;s character encoding has not been specified as described in
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/09/2015-07-09-gradle/" data-id="cil0ugebr002freqff7w78sxa" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/09/2015-07-09-gradle/" data-id="cilm3ultp002ig2qfld0yxq5r" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gradle/">gradle</a></li></ul>
@@ -415,7 +664,7 @@ If the response&apos;s character encoding has not been specified as described in
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/09/2015-07-09-deploy/" data-id="cil0ugebs002ireqfge0m9rkn" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/09/2015-07-09-deploy/" data-id="cilm3ultr002lg2qfnpvm6pn3" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
@@ -509,7 +758,7 @@ If the response&apos;s character encoding has not been specified as described in
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/08/2015-07-08-spring-001/" data-id="cil0ugebt002lreqfj5m5vbxh" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/07/08/2015-07-08-spring-001/" data-id="cilm3ultt002og2qfkt15ierb" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li></ul>
@@ -569,7 +818,7 @@ If the response&apos;s character encoding has not been specified as described in
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/06/26/2015-06-26-nodejs-01/" data-id="cil0ugebv002nreqfbyx4upf7" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/06/26/2015-06-26-nodejs-01/" data-id="cilm3ultu002qg2qfbm1qpswe" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li></ul>
@@ -596,7 +845,7 @@ If the response&apos;s character encoding has not been specified as described in
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bind/">bind</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/build/">build</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/functional-programming/">functional-programming</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/">gradle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery/">jquery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leverage/">leverage</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/listen/">listen</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/modular-programming/">modular programming</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm-package-json/">npm, package.json</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-bootstrap/">react bootstrap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-router/">react router</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reading-notes/">reading-notes</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/servlet/">servlet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring-test/">spring test</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/touring/">touring</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bind/">bind</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/build/">build</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/functional-programming/">functional-programming</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/">gradle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery/">jquery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leverage/">leverage</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/listen/">listen</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/modular-programming/">modular programming</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm-package-json/">npm, package.json</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-bootstrap/">react bootstrap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-router/">react router</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reading-notes/">reading-notes</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/servlet/">servlet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring-test/">spring test</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/touring/">touring</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -605,7 +854,7 @@ If the response&apos;s character encoding has not been specified as described in
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/bind/" style="font-size: 10px;">bind</a> <a href="/tags/build/" style="font-size: 10px;">build</a> <a href="/tags/css/" style="font-size: 12.5px;">css</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/functional-programming/" style="font-size: 17.5px;">functional-programming</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/leverage/" style="font-size: 12.5px;">leverage</a> <a href="/tags/listen/" style="font-size: 10px;">listen</a> <a href="/tags/modular-programming/" style="font-size: 17.5px;">modular programming</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/npm-package-json/" style="font-size: 10px;">npm, package.json</a> <a href="/tags/react/" style="font-size: 12.5px;">react</a> <a href="/tags/react-bootstrap/" style="font-size: 10px;">react bootstrap</a> <a href="/tags/react-router/" style="font-size: 10px;">react router</a> <a href="/tags/reading-notes/" style="font-size: 10px;">reading-notes</a> <a href="/tags/servlet/" style="font-size: 12.5px;">servlet</a> <a href="/tags/spring/" style="font-size: 15px;">spring</a> <a href="/tags/spring-test/" style="font-size: 10px;">spring test</a> <a href="/tags/touring/" style="font-size: 10px;">touring</a>
+      <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/bind/" style="font-size: 10px;">bind</a> <a href="/tags/build/" style="font-size: 10px;">build</a> <a href="/tags/css/" style="font-size: 12.5px;">css</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/functional-programming/" style="font-size: 17.5px;">functional-programming</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/leverage/" style="font-size: 12.5px;">leverage</a> <a href="/tags/listen/" style="font-size: 10px;">listen</a> <a href="/tags/modular-programming/" style="font-size: 17.5px;">modular programming</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/npm-package-json/" style="font-size: 10px;">npm, package.json</a> <a href="/tags/react/" style="font-size: 15px;">react</a> <a href="/tags/react-bootstrap/" style="font-size: 10px;">react bootstrap</a> <a href="/tags/react-router/" style="font-size: 10px;">react router</a> <a href="/tags/reading-notes/" style="font-size: 10px;">reading-notes</a> <a href="/tags/servlet/" style="font-size: 12.5px;">servlet</a> <a href="/tags/spring/" style="font-size: 15px;">spring</a> <a href="/tags/spring-test/" style="font-size: 10px;">spring test</a> <a href="/tags/touring/" style="font-size: 10px;">touring</a>
     </div>
   </div>
 
@@ -614,7 +863,7 @@ If the response&apos;s character encoding has not been specified as described in
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -626,6 +875,14 @@ If the response&apos;s character encoding has not been specified as described in
       <ul>
         
           <li>
+            <a href="/2016/03/10/20160310-react-high-order-components/">20160310-react-high-order-components</a>
+          </li>
+        
+          <li>
+            <a href="/2016/02/27/20160227-react-sourcecode/">20160227-react-sourcecode</a>
+          </li>
+        
+          <li>
             <a href="/2016/02/24/20160204-javascript-listen/">20160204-javascript-listen</a>
           </li>
         
@@ -635,14 +892,6 @@ If the response&apos;s character encoding has not been specified as described in
         
           <li>
             <a href="/2016/02/18/20160218-leverage-001/">20160218-leverage-001</a>
-          </li>
-        
-          <li>
-            <a href="/2016/02/09/20160209-docker/">20160209-docker</a>
-          </li>
-        
-          <li>
-            <a href="/2016/02/02/20160202-gulp/">20160202-gulp</a>
           </li>
         
       </ul>
