@@ -1,6 +1,10 @@
 title: 20160121-npm-package-file.md
 date: 2016-01-21 21:41:04
-tags: npm, package.json
+tags: 
+
+- npm
+- package.json
+
 ---
 
 ## `package.json`文件
