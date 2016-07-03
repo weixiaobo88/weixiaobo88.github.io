@@ -65,6 +65,377 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-20160703-mobile-web-development" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/07/03/20160703-mobile-web-development/" class="article-date">
+  <time datetime="2016-07-03T14:36:03.000Z" itemprop="datePublished">2016-07-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://weixiaobo88.github.io/2016/07/03/20160703-mobile-web-development/" data-id="ciq6pe253000o9ufy4wc8ezim" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-20160323-immutable" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/23/20160323-immutable/" class="article-date">
+  <time datetime="2016-03-23T09:06:07.000Z" itemprop="datePublished">2016-03-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/23/20160323-immutable/">20160323-immutable</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="immutable__u662F_u4EC0_u4E48_3F"><a href="#immutable__u662F_u4EC0_u4E48_3F" class="headerlink" title="immutable 是什么?"></a>immutable 是什么?</h2><p>immutable data 一旦创建就不能修改, 这能带来什么好处?</p>
+<ul>
+<li>开发更简单</li>
+<li>no defensive copying</li>
+<li>高级的 memoization</li>
+<li>change detection techniques with simple logic</li>
+</ul>
+<h2 id="Immutable-js__u63D0_u4F9B_u4E86_u54EA_u4E9B_u529F_u80FD_3F"><a href="#Immutable-js__u63D0_u4F9B_u4E86_u54EA_u4E9B_u529F_u80FD_3F" class="headerlink" title="Immutable.js 提供了哪些功能?"></a>Immutable.js 提供了哪些功能?</h2><p>Immutable.js 提供了很多持久化不可变的数据结构:</p>
+<ul>
+<li>List</li>
+<li>Stack</li>
+<li>Map</li>
+<li>OrderedMap</li>
+<li>Set</li>
+<li>OrderedSet</li>
+<li>Record</li>
+</ul>
+<p>这些数据结构由于</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://weixiaobo88.github.io/2016/03/23/20160323-immutable/" data-id="ciq6pe255000p9ufyr1m7wd04" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-20160314-commonjs" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/14/20160314-commonjs/" class="article-date">
+  <time datetime="2016-03-14T01:02:33.000Z" itemprop="datePublished">2016-03-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/14/20160314-commonjs/">20160314-commonjs</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>参考 <a href="http://0fps.net/2013/01/22/commonjs-why-and-how/" target="_blank" rel="external">http://0fps.net/2013/01/22/commonjs-why-and-how/</a></p>
+<p>随着 JavaScript 解释器的快速发展, 新的 API 比如 HTML5 和 WebGL 的出现,<br>基于单页面的应用以及 JavaScript 的开发成为趋势, JavaScript 在桌面, 手机等移动端, 甚至是控制台都运行的很好.</p>
+<h2 id="Module_Systems"><a href="#Module_Systems" class="headerlink" title="Module Systems"></a>Module Systems</h2><p>用 JavaScript 固然很好, 但是它的项目规模的伸缩性比较差, 主要原因是它缺乏任何像一致模块化系统的东西. 这给以下实践带来了困难:</p>
+<ul>
+<li>将实现细节隐藏在接口之后</li>
+<li>将大项目分成多个文件</li>
+<li>从库以及代码库中复用功能</li>
+</ul>
+<p>如何解决这些问题:</p>
+<ul>
+<li><p>Ad-Hoc, 使用闭包, 也就是<a href="http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html" target="_blank" rel="external">module design pattern</a></p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> MyModule = (<span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> exports = &#123;&#125;;</span><br><span class="line">  <span class="comment">//Export foo to the outside world</span></span><br><span class="line">  exports.foo = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">   <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//Keep bar private</span></span><br><span class="line">  <span class="keyword">var</span> bar = &#123; <span class="comment">/* ... */</span> &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//Expose interface to outside world</span></span><br><span class="line">  <span class="keyword">return</span> exports;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<ul>
+<li>缓解全局命名空间带来的烦恼</li>
+<li>可以解决第一个问题, 将实现细节隐藏在接口之后</li>
+</ul>
+</li>
+<li><p>上面这个方法没有解决多文件的引用问题</p>
+<ul>
+<li>你可以使用 <code>&lt;script&gt;</code> 标签挨个 import JS 文件 (开发的时候不需要重新build) </li>
+<li>也可以使用静态 build 过程来拼接所有文件 (更少的 HTTP 请求, 工具有 <a href="https://developers.google.com/closure/compiler/" target="_blank" rel="external">Google’s closure compiler</a>)</li>
+</ul>
+<p>这两种方法都无法让你有选择的 import, 并且无法很好的处理外部依赖           </p>
+<p>减少请求的方式, 比如第三方库 jQuery, YUI, THREE.js 等, 但是需要依赖第三方库.</p>
+</li>
+<li><p>CommonJS 模块系统</p>
+</li>
+</ul>
+<p>CommonJS 模块系统可以解决以上这些问题.</p>
+<p><a href="https://egghead.io/series/getting-started-with-redux" target="_blank" rel="external">https://egghead.io/series/getting-started-with-redux</a><br><a href="https://github.com/markerikson/react-redux-links" target="_blank" rel="external">https://github.com/markerikson/react-redux-links</a><br><a href="http://pinggod.com/2016/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E7%9A%84%E5%8D%81%E4%BA%8C%E4%B8%AA%E6%96%B9%E9%9D%A2/" target="_blank" rel="external">http://pinggod.com/2016/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E7%9A%84%E5%8D%81%E4%BA%8C%E4%B8%AA%E6%96%B9%E9%9D%A2/</a><br><a href="http://pinggod.com/2016/Lazy-loading-images-on-the-web/" target="_blank" rel="external">http://pinggod.com/2016/Lazy-loading-images-on-the-web/</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://weixiaobo88.github.io/2016/03/14/20160314-commonjs/" data-id="ciq6pe256000q9ufyka5j2uf8" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/modular-programming/">modular programming</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-20160313-ramada" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/13/20160313-ramada/" class="article-date">
+  <time datetime="2016-03-13T08:15:29.000Z" itemprop="datePublished">2016-03-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/13/20160313-ramada/">20160313-ramada</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://weixiaobo88.github.io/2016/03/13/20160313-ramada/" data-id="ciq6pe25d000x9ufylmkfl0fi" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-20160313-lazy-loading-images" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/13/20160313-lazy-loading-images/" class="article-date">
+  <time datetime="2016-03-13T08:15:19.000Z" itemprop="datePublished">2016-03-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/13/20160313-lazy-loading-images/">20160313-lazy-loading-images</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://pinggod.com/2016/Lazy-loading-images-on-the-web/" target="_blank" rel="external">http://pinggod.com/2016/Lazy-loading-images-on-the-web/</a></p>
+<h2 id="u95EE_u9898_u662F_u4EC0_u4E48"><a href="#u95EE_u9898_u662F_u4EC0_u4E48" class="headerlink" title="问题是什么"></a>问题是什么</h2><p>图片在页面上的占有大小越来越大, 页面性能受到影响。</p>
+<p>相关资料显示, 在 2015 年 5 月, web page 平均大小已经超过 2 MB, 这是 3 年前的 2 倍。</p>
+<h2 id="u5982_u4F55_u89E3_u51B3_u8FD9_u4E2A_u95EE_u9898"><a href="#u5982_u4F55_u89E3_u51B3_u8FD9_u4E2A_u95EE_u9898" class="headerlink" title="如何解决这个问题"></a>如何解决这个问题</h2><p>解决方法: lazy load images</p>
+<h2 id="u5982_u4F55_u6765_u5B9E_u73B0_lazy_load"><a href="#u5982_u4F55_u6765_u5B9E_u73B0_lazy_load" class="headerlink" title="如何来实现 lazy load"></a>如何来实现 lazy load</h2><p>本质上是通过 JavaScript 来判断 viewport 中能看到的图片。</p>
+<ul>
+<li>HTML 文件中的 src 标签上使用 data attribute</li>
+</ul>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="tag">img</span> data-src=<span class="string">"images/Robin.jpg"</span> alt=<span class="string">""</span> /&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>改变 viewport 或者 scroll 看哪些图片会出现或者即将出现</li>
+<li>交换 src 和 data-src 的值</li>
+</ul>
+<h3 id="u4F7F_u7528_PLAIN_JAVASCRIPT__u6765_u5B9E_u73B0"><a href="#u4F7F_u7528_PLAIN_JAVASCRIPT__u6765_u5B9E_u73B0" class="headerlink" title="使用 PLAIN JAVASCRIPT 来实现"></a>使用 PLAIN JAVASCRIPT 来实现</h3><ul>
+<li>先判断元素是不是在 viewport 中</li>
+<li>监听引起 viewport 的事件, <code>DOMContentLoaded</code> <code>load</code> <code>resize</code> <code>scroll</code> </li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isElementInViewport</span> (<span class="params">el</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> rect = el.getBoundingClientRect();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        rect.top &gt;= <span class="number">0</span> &amp;&amp;</span><br><span class="line">        rect.left &gt;= <span class="number">0</span> &amp;&amp;</span><br><span class="line">        rect.bottom &lt;= (<span class="built_in">window</span>.innerHeight || <span class="built_in">document</span>.documentElement.clientHeight) &amp;&amp; <span class="comment">/*or $(window).height() */</span></span><br><span class="line">        rect.right &lt;= (<span class="built_in">window</span>.innerWidth || <span class="built_in">document</span>.documentElement.clientWidth) <span class="comment">/*or $(window).width() */</span></span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//these handlers will be removed once the images have loaded</span></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">"DOMContentLoaded"</span>, lazyLoadImages);</span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">"load"</span>, lazyLoadImages);</span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">"resize"</span>, lazyLoadImages);</span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">"scroll"</span>, lazyLoadImages);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">lazyLoadImages</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> images = <span class="built_in">document</span>.querySelectorAll(<span class="string">"#main-wrapper img[data-src]"</span>),</span><br><span class="line">      item;</span><br><span class="line">  <span class="comment">// load images that have entered the viewport</span></span><br><span class="line">  [].forEach.call(images, <span class="function"><span class="keyword">function</span> (<span class="params">item</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (isElementInViewport(item)) &#123;</span><br><span class="line">      item.setAttribute(<span class="string">"src"</span>,item.getAttribute(<span class="string">"data-src"</span>));</span><br><span class="line">      item.removeAttribute(<span class="string">"data-src"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="comment">// if all the images are loaded, stop calling the handler</span></span><br><span class="line">  <span class="keyword">if</span> (images.length == <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="built_in">window</span>.removeEventListener(<span class="string">"DOMContentLoaded"</span>, lazyLoadImages);</span><br><span class="line">    <span class="built_in">window</span>.removeEventListener(<span class="string">"load"</span>, lazyLoadImages);</span><br><span class="line">    <span class="built_in">window</span>.removeEventListener(<span class="string">"resize"</span>, lazyLoadImages);</span><br><span class="line">    <span class="built_in">window</span>.removeEventListener(<span class="string">"scroll"</span>, lazyLoadImages);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="u4F7F_u7528_JQUERY"><a href="#u4F7F_u7528_JQUERY" class="headerlink" title="使用 JQUERY"></a>使用 JQUERY</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">window</span>).on(<span class="string">'DOMContentLoaded load resize scroll'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;;</span><br><span class="line">  <span class="keyword">var</span> images = $(<span class="string">"#main-wrapper img[data-src]"</span>);</span><br><span class="line">  <span class="comment">// load images that have entered the viewport</span></span><br><span class="line">  $(images).each(<span class="function"><span class="keyword">function</span> (<span class="params">index</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (isElementInViewport(<span class="keyword">this</span>)) &#123;</span><br><span class="line">      $(<span class="keyword">this</span>).attr(<span class="string">"src"</span>,$(<span class="keyword">this</span>).attr(<span class="string">"data-src"</span>));</span><br><span class="line">            $(<span class="keyword">this</span>).removeAttr(<span class="string">"data-src"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="comment">// if all the images are loaded, stop calling the handler</span></span><br><span class="line">  <span class="keyword">if</span> (images.length == <span class="number">0</span>) &#123;</span><br><span class="line">    $(<span class="built_in">window</span>).off(<span class="string">'DOMContentLoaded load resize scroll'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// source: http://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport/7557433#7557433</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isElementInViewport</span> (<span class="params">el</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> rect = el.getBoundingClientRect();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        rect.top &gt;= <span class="number">0</span> &amp;&amp;</span><br><span class="line">        rect.left &gt;= <span class="number">0</span> &amp;&amp;</span><br><span class="line">        rect.bottom &lt;= $(<span class="built_in">window</span>).height() &amp;&amp;</span><br><span class="line">        rect.right &lt;= $(<span class="built_in">window</span>).width()</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="u8FD9_u4E24_u79CD_u89E3_u51B3_u65B9_u6848_u7684_u95EE_u9898"><a href="#u8FD9_u4E24_u79CD_u89E3_u51B3_u65B9_u6848_u7684_u95EE_u9898" class="headerlink" title="这两种解决方案的问题"></a>这两种解决方案的问题</h2><ul>
+<li>成功和错误处理</li>
+<li>responsive images 的 srcset 和 picture</li>
+<li>图片没有全部下周完的处理</li>
+<li>图片出现时的动画或者变化</li>
+</ul>
+<p>有很多库实现了这些:</p>
+<ul>
+<li><a href="http://www.appelsiini.net/projects/lazyload" target="_blank" rel="external">Lazy Load Plugin for jQuery</a></li>
+<li><a href="http://dinbror.dk/blazy/" target="_blank" rel="external">bLazy</a> 不需要 jQuery</li>
+<li><a href="http://luis-almeida.github.io/unveil/" target="_blank" rel="external">Unveil</a> 需要 jQuery</li>
+<li><a href="https://github.com/ressio/lazy-load-xt" target="_blank" rel="external">Lazy Load XT</a></li>
+<li><a href="http://docs.telerik.com/platform/backend-services/javascript/responsive-images/introduction" target="_blank" rel="external">Telerik Platform – Responsive Images Service</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://weixiaobo88.github.io/2016/03/13/20160313-lazy-loading-images/" data-id="ciq6pe25g000z9ufylo2shxa6" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/images/">images</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/lazy-loading/">lazy-loading</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/performance/">performance</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-20160313-performance" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/13/20160313-performance/" class="article-date">
+  <time datetime="2016-03-13T08:14:56.000Z" itemprop="datePublished">2016-03-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/13/20160313-performance/">20160313-performance</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://addyosmani.com/blog/faster-javascript-memoization/" target="_blank" rel="external">https://addyosmani.com/blog/faster-javascript-memoization/</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://weixiaobo88.github.io/2016/03/13/20160313-performance/" data-id="ciq6pe25e000y9ufymjg9zsa4" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-20160313-react-howto" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/13/20160313-react-howto/" class="article-date">
+  <time datetime="2016-03-13T08:03:09.000Z" itemprop="datePublished">2016-03-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/13/20160313-react-howto/">20160313-react-howto</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>参考 </p>
+<ul>
+<li><a href="https://github.com/petehunt/react-howto/blob/master/README-es.md" target="_blank" rel="external">https://github.com/petehunt/react-howto/blob/master/README-es.md</a></li>
+<li><a href="https://github.com/markerikson/react-redux-links" target="_blank" rel="external">https://github.com/markerikson/react-redux-links</a></li>
+</ul>
+<h2 id="React__u751F_u6001_u5708"><a href="#React__u751F_u6001_u5708" class="headerlink" title="React 生态圈"></a>React 生态圈</h2><ul>
+<li>React</li>
+<li>npm</li>
+<li>JavaScript “打包工具”</li>
+<li>ES6</li>
+<li>Routing</li>
+<li>Flux</li>
+</ul>
+<h3 id="u5B66_u4E60_React__u672C_u8EAB"><a href="#u5B66_u4E60_React__u672C_u8EAB" class="headerlink" title="学习 React 本身"></a>学习 React 本身</h3><ul>
+<li><a href="https://facebook.github.io/react/docs/getting-started.html#quick-start-without-npm" target="_blank" rel="external">copy-paste HTML template</a></li>
+<li><a href="https://facebook.github.io/react/docs/tutorial.html" target="_blank" rel="external">the official tutorial</a></li>
+</ul>
+<h3 id="u5B66_u4E60_npm"><a href="#u5B66_u4E60_npm" class="headerlink" title="学习 npm"></a>学习 npm</h3><ul>
+<li><a href="http://0fps.net/2013/01/22/commonjs-why-and-how/" target="_blank" rel="external"><code>CommonJS</code> 对于浏览器的重要性</a> </li>
+<li><a href="http://wiki.commonjs.org/wiki/Introduction" target="_blank" rel="external"><code>CommonJS</code> API 的更多内容, CommonJS Spec Wiki</a></li>
+</ul>
+<h3 id="u5B66_u4E60_JavaScript__u201C_u6253_u5305_u5DE5_u5177_u201D"><a href="#u5B66_u4E60_JavaScript__u201C_u6253_u5305_u5DE5_u5177_u201D" class="headerlink" title="学习 JavaScript “打包工具”"></a>学习 JavaScript “打包工具”</h3><ul>
+<li><a href="https://github.com/petehunt/react-webpack-template" target="_blank" rel="external">plug-and-play template for getting started</a> </li>
+<li><a href="https://github.com/petehunt/webpack-howto" target="_blank" rel="external">how-to guide for webpack</a></li>
+</ul>
+<h3 id="u5B66_u4E60_ES6"><a href="#u5B66_u4E60_ES6" class="headerlink" title="学习 ES6"></a>学习 ES6</h3><h3 id="u5B66_u4E60_u8DEF_u7531__28routing_29"><a href="#u5B66_u4E60_u8DEF_u7531__28routing_29" class="headerlink" title="学习路由 (routing)"></a>学习路由 (routing)</h3><ul>
+<li><a href="https://github.com/rackt/react-router" target="_blank" rel="external">react-router</a></li>
+</ul>
+<h3 id="u5B66_u4E60_u5185_u8054_u6837_u5F0F"><a href="#u5B66_u4E60_u5185_u8054_u6837_u5F0F" class="headerlink" title="学习内联样式"></a>学习内联样式</h3><ul>
+<li><a href="https://www.youtube.com/watch?v=VkTCL6Nqm6Y" target="_blank" rel="external">在 OSCON 上发表过关于这个的演讲</a></li>
+</ul>
+<h3 id="u5B66_u4E60_u670D_u52A1_u5668_u7AEF_u6E32_u67D3"><a href="#u5B66_u4E60_u670D_u52A1_u5668_u7AEF_u6E32_u67D3" class="headerlink" title="学习服务器端渲染"></a>学习服务器端渲染</h3><ul>
+<li>同构 JavaScript</li>
+</ul>
+<h3 id="u5B66_u4E60_Flux"><a href="#u5B66_u4E60_Flux" class="headerlink" title="学习 Flux"></a>学习 Flux</h3><ul>
+<li><a href="http://redux.js.org/" target="_blank" rel="external">Redux</a></li>
+</ul>
+<h3 id="u5B66_u4E60_Immutable-js"><a href="#u5B66_u4E60_Immutable-js" class="headerlink" title="学习 Immutable.js"></a>学习 Immutable.js</h3><ul>
+<li><a href="https://facebook.github.io/immutable-js/" target="_blank" rel="external">Immutable.js</a></li>
+</ul>
+<h3 id="u5B66_u4E60_Relay_2C_Falcor__u7B49"><a href="#u5B66_u4E60_Relay_2C_Falcor__u7B49" class="headerlink" title="学习 Relay, Falcor 等"></a>学习 Relay, Falcor 等</h3><p>这些技术可以帮你减少 AJAX 请求数, 它们仍然是非常前沿的, 所以如果你没有遇到过多 AJAX 请求的问题, 就不需要用到 Relay 或者 Falcor.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://weixiaobo88.github.io/2016/03/13/20160313-react-howto/" data-id="ciq6pe259000t9ufy5v96tk65" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/howto/">howto</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-20160310-react-high-order-components" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/03/10/20160310-react-high-order-components/" class="article-date">
@@ -113,7 +484,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2016/03/10/20160310-react-high-order-components/" data-id="cilm3ulsb000og2qfwop7flbz" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2016/03/10/20160310-react-high-order-components/" data-id="ciq6pe25k00169ufyl6uct8vh" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
@@ -151,7 +522,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2016/02/27/20160227-react-sourcecode/" data-id="cilm3ulsc000qg2qf6xdzobul" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2016/02/27/20160227-react-sourcecode/" data-id="ciq6pe25l00189ufy3879r1vg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -203,7 +574,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2016/02/24/20160204-javascript-listen/" data-id="cilm3ulsk000zg2qfe9g973ba" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2016/02/24/20160204-javascript-listen/" data-id="ciq6pe25t001h9ufy2lti6irh" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/listen/">listen</a></li></ul>
@@ -215,425 +586,9 @@
 
 
   
-    <article id="post-20160219-leverage-002" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/02/19/20160219-leverage-002/" class="article-date">
-  <time datetime="2016-02-19T12:24:11.000Z" itemprop="datePublished">2016-02-19</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/19/20160219-leverage-002/">20160219-leverage-002</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="PIPELINE__26amp_3B_TASKING__u5927_u6CD5"><a href="#PIPELINE__26amp_3B_TASKING__u5927_u6CD5" class="headerlink" title="PIPELINE &amp; TASKING 大法"></a>PIPELINE &amp; TASKING 大法</h1><h2 id="u4E0A_u4E0B_u6587"><a href="#u4E0A_u4E0B_u6587" class="headerlink" title="上下文"></a>上下文</h2><p>水晶方法, 根据scope 和 complexity 从二维上定位.<br>尽量将 complexity 降低, 这样可以通过多人并发进行.<br>当 scope 很低, complexity 很高的时候, 不太容易多人并发, 人和时间无法转换.</p>
-<p>大多说业务系统都是会计系统. </p>
-<h3 id="u5728web_u7CFB_u7EDF_u5F00_u53D1_u4E2D_u63D0_u9AD8_u6548_u7387_u7684_u65B9_u5F0F_3A"><a href="#u5728web_u7CFB_u7EDF_u5F00_u53D1_u4E2D_u63D0_u9AD8_u6548_u7387_u7684_u65B9_u5F0F_3A" class="headerlink" title="在web系统开发中提高效率的方式:"></a>在web系统开发中提高效率的方式:</h3><figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">BA UX SeniorDEV </span><br><span class="line"></span><br><span class="line">SeniorDEV</span><br><span class="line">-<span class="ruby">&gt;  四色建模 </span><br><span class="line"></span>-<span class="ruby">&gt; 得到<span class="constant">REST</span>-<span class="constant">API</span> </span><br><span class="line"></span>-<span class="ruby">&gt;  - backend</span><br><span class="line"></span>    -<span class="ruby"> <span class="constant">BFF</span><span class="symbol">:</span> backend <span class="keyword">for</span> frontend</span><br><span class="line"></span>    -<span class="ruby"> frontend  ---<span class="constant">UX</span>---<span class="constant">UI</span> <span class="constant">Design</span>----&gt; styleguide  --&gt;开发</span></span><br></pre></td></tr></table></figure>
-<p>个体交互 over 过程和工具:     </p>
-<ul>
-<li>泰勒&lt;科学管理原理&gt;</li>
-</ul>
-<h3 id="senior__u7684_u804C_u8D23"><a href="#senior__u7684_u804C_u8D23" class="headerlink" title="senior 的职责"></a>senior 的职责</h3><ul>
-<li>技术向: 架构, 风险</li>
-<li>团队向: 交互</li>
-</ul>
-<h2 id="TASKING"><a href="#TASKING" class="headerlink" title="TASKING"></a>TASKING</h2><ol>
-<li><p>列出task<br>TASK名字<br>输入: name, 数据结构(可选)<br>输出: name, 数据结构</p>
-</li>
-<li><p>估算时间<br>1个任务的时间不能超过15分钟</p>
-</li>
-<li><p>做<br>做的时候需要记录: spike 的时间, 写测试的时间, 完成实现代码的时间, 测试跑过的时间</p>
-</li>
-</ol>
-<p>通过这样的时间记录来反思自己在哪个环节需要改进和不断练习.</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2016/02/19/20160219-leverage-002/" data-id="cilm3ulse000rg2qfnwjluuy4" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leverage/">leverage</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-20160218-leverage-001" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/02/18/20160218-leverage-001/" class="article-date">
-  <time datetime="2016-02-18T12:21:27.000Z" itemprop="datePublished">2016-02-18</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/18/20160218-leverage-001/">20160218-leverage-001</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>光环行动 </p>
-<ul>
-<li><p>人的建模</p>
-</li>
-<li><p>人是一个化学计算机</p>
-<ul>
-<li>例子: 神经病人的大肠内缺乏某种正常人所有的物质</li>
-</ul>
-</li>
-<li>有些词是有毒的, 它们会阻止大脑进行思考<ul>
-<li>例子: 理解力差, 不聪明;</li>
-</ul>
-</li>
-<li>3个阶段 <ul>
-<li>输入: 听读    </li>
-<li>处理<ul>
-<li>视觉: 上下左右, 空间      </li>
-<li>听觉: 声音</li>
-<li>情绪</li>
-<li></li>
-</ul>
-</li>
-<li>输出: 说写</li>
-</ul>
-</li>
-<li>每个阶段都有故障点  <ul>
-<li>出现的问题是多个阶段故障点的综合, 要分析和定位到具体的问题才能针对性的解决</li>
-</ul>
-</li>
-<li>如何提升听说读写能力?<ul>
-<li>富兰克林写作法</li>
-</ul>
-</li>
-<li>带人<ul>
-<li></li>
-<li>资源 </li>
-<li>气氛 </li>
-<li>反馈</li>
-</ul>
-</li>
-<li>story的重要性,每个人都活在自己的story中,要知道对方的story是什么,才能明白他要讲的意思是什么  </li>
-</ul>
-<p>其他:<br>词语: 罗生门<br>书籍: 泰勒&lt;科学管理原理&gt;<br>视频: 超级演说家, TED无神论2.0<br>社群运营, 根据身份\价值观\爱好\感情聚合.</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2016/02/18/20160218-leverage-001/" data-id="cilm3ulsf000ug2qfi3rvdaxw" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leverage/">leverage</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-20160209-docker" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/02/09/20160209-docker/" class="article-date">
-  <time datetime="2016-02-09T08:19:12.000Z" itemprop="datePublished">2016-02-09</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/09/20160209-docker/">20160209-docker</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="docker__u7684_u7406_u5FF5"><a href="#docker__u7684_u7406_u5FF5" class="headerlink" title="docker 的理念"></a>docker 的理念</h2><p>docker 是公司 <code>dotCloud</code> 的一个内部项目, 2012 年 3 月正式发布开源版本. </p>
-<p>docker 的理念是 build, ship, run</p>
-<h3 id="build"><a href="#build" class="headerlink" title="build"></a>build</h3><p>build 就是编译打包, 在保证应用能跑起来之前所做的一系列动作.</p>
-<p>常规的 build 存在的问题: 不能打包环境. build 只能跑在特定地方, 比如系统版本, CPU 架构等.</p>
-<p>docker 从某种角度看类似于 JVM 的角色.</p>
-<p>docker 的 build 描述文件是 <code>DockerFile</code></p>
-<p>总结, docker 就是打包环境, 让它能到处运行.</p>
-<h2 id="Ship"><a href="#Ship" class="headerlink" title="Ship"></a>Ship</h2><p>docker 不仅可以分发镜像, 也可以分发镜像的描述文件 <code>DockerFile</code>.<br>如果想让测试在你的环境里面去测试和复现 bug，不用提供个头稍微大一些的镜像，给他一个文本文件就好了。</p>
-<h2 id="run"><a href="#run" class="headerlink" title="run"></a>run</h2><p>run anywhere ， 也就是可以运行在任何可以运行 docker 容器的机器上</p>
-<h2 id="docker__u7684_u5E94_u7528_u573A_u666F"><a href="#docker__u7684_u5E94_u7528_u573A_u666F" class="headerlink" title="docker 的应用场景"></a>docker 的应用场景</h2><ul>
-<li>需要重复配置统一的环境</li>
-<li>快速，高效利用当前资源</li>
-<li>需要资源隔离的场景</li>
-<li>需要快速动态的伸缩容量的场景, 比如说大促，开始之前迅速扩容，结束之后迅速销毁</li>
-<li>微服务</li>
-</ul>
-<h2 id="u4F7F_u7528"><a href="#u4F7F_u7528" class="headerlink" title="使用"></a>使用</h2><p>Q 1: 我的笔记本是 mac ，为什么我安装的时候还要装 virtualbox ?<br>Q 2: 原来如此，怪不得第一步先让我 docker-machine 创建一个 vm 来跑 docker，那这个 docker-machine 是干什么的 ？<br>Q 3: 你能解释下 docker run hello-world , 都发生了什么？<br>Q 4: 一个容器终归没什么意思，那么容器之间是怎么通信的？<br>Q 5: 镜像是静态的，那我的代码怎么部署进去？<br>Q 6: 每次启动都要 docker run 一次，有没有更快更方便的方式？<br>Q 7: 据说我们有个 sandbox （淘宝内部的 Node.js 容器平台）项目，能介绍下吗 ？</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2016/02/09/20160209-docker/" data-id="cilm3ulsi000wg2qfjbtoc3cd" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/">docker</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-20160202-gulp" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/02/02/20160202-gulp/" class="article-date">
-  <time datetime="2016-02-02T01:39:32.000Z" itemprop="datePublished">2016-02-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/02/20160202-gulp/">20160202-gulp</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://github.com/gulpjs/gulp/blob/master/docs/API.md" target="_blank" rel="external">https://github.com/gulpjs/gulp/blob/master/docs/API.md</a><br><a href="https://github.com/gulpjs/gulp/tree/master/docs/recipes" target="_blank" rel="external">https://github.com/gulpjs/gulp/tree/master/docs/recipes</a><br><a href="https://github.com/gulpjs/gulp/blob/master/docs/README.md#articles" target="_blank" rel="external">https://github.com/gulpjs/gulp/blob/master/docs/README.md#articles</a></p>
-<p>如何用 gulp 做代理</p>
-<p><a href="https://github.com/andrewrk/node-proxy-middleware" target="_blank" rel="external">https://github.com/andrewrk/node-proxy-middleware</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2016/02/02/20160202-gulp/" data-id="cilm3ulsm0013g2qfhchwzfuo" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-20160201-scrolling-messages" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/02/01/20160201-scrolling-messages/" class="article-date">
-  <time datetime="2016-02-01T12:18:28.000Z" itemprop="datePublished">2016-02-01</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/01/20160201-scrolling-messages/">20160201-scrolling-messages</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>做一个滚动新闻</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"scroll_list"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"notice"</span>&gt;</span>最新消息<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">ul</span> <span class="attribute">class</span>=<span class="value">"scroll_list_contents"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">p</span> <span class="attribute">class</span>=<span class="value">"yscrollfont"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span> <span class="attribute">target</span>=<span class="value">"_blank"</span>&gt;</span></span><br><span class="line">            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium</span><br><span class="line">          <span class="tag">&lt;/<span class="title">a</span>&gt;</span> </span><br><span class="line">        <span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">p</span> <span class="attribute">class</span>=<span class="value">"yscrollfont"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span> <span class="attribute">target</span>=<span class="value">"_blank"</span>&gt;</span></span><br><span class="line">            totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo</span><br><span class="line">          <span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">p</span> <span class="attribute">class</span>=<span class="value">"yscrollfont"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span> <span class="attribute">target</span>=<span class="value">"_blank"</span>&gt;</span></span><br><span class="line">            Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit</span><br><span class="line">          <span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">p</span> <span class="attribute">class</span>=<span class="value">"yscrollfont"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span> <span class="attribute">target</span>=<span class="value">"_blank"</span>&gt;</span></span><br><span class="line">            sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt</span><br><span class="line">          <span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">p</span> <span class="attribute">class</span>=<span class="value">"yscrollfont"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span> <span class="attribute">target</span>=<span class="value">"_blank"</span>&gt;</span></span><br><span class="line">            Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet</span><br><span class="line">          <span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(function()&#123;&#10;  setTimeout(function()&#123;&#10;    var itemHeight = 40;&#10;    var marginTop = 0;&#10;    $($(&#34;.scroll_list_contents li &#34;)[0]).clone(true).insertAfter($($(&#34;.scroll_list_contents li &#34;)[$(&#34;.scroll_list_contents li &#34;).length - 1]));&#10;&#10;    function move() &#123;&#10;      marginTop = marginTop - itemHeight;&#10;      if (marginTop &#62;= -($(&#34;.scroll_list_contents li &#34;).length - 2) * itemHeight) &#123;&#10;        $(&#34;.scroll_list_contents &#34;).animate(&#123;&#10;          marginTop: marginTop&#10;        &#125;, 2000);&#10;      &#125; else &#123;&#10;        $(&#34;.scroll_list_contents&#34;).animate(&#123;&#10;          marginTop: marginTop&#10;        &#125;, 2000, function() &#123;&#10;          marginTop = 0;&#10;          $(&#34;.scroll_list_contents&#34;).css(&#123;&#10;            marginTop: 0&#10;          &#125;);&#10;        &#125;);&#10;      &#125;&#10;    &#125;;&#10;&#10;    var t = setInterval(move, 4000);&#10;    $(&#34;.scroll_list_contents &#34;).hover(function() &#123;&#10;        clearInterval(t);&#10;    &#125;, function() &#123;&#10;        t = setInterval(move, 4000);&#10;    &#125;)       &#10;  &#125;,500);&#10;&#125;);</span><br></pre></td></tr></table></figure>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.scroll_list</span> <span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">border-bottom</span>:<span class="value"> <span class="number">1px</span> solid <span class="hexcolor">#DFDFDF</span></span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100%</span></span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">overflow</span>:<span class="value"> hidden</span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="class">.scroll_list</span>,</span><br><span class="line"><span class="class">.scroll_list_contents</span>,</span><br><span class="line"><span class="class">.scroll_list_contents</span> &gt; <span class="tag">li</span></span><br><span class="line"><span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">40px</span></span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="class">.scroll_list_contents</span> <span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">margin-left</span>:<span class="value"> <span class="number">200px</span></span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">margin-top</span>:<span class="value"> -<span class="number">40px</span></span></span>;  </span><br><span class="line">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="class">.notice</span>,</span><br><span class="line"><span class="class">.scroll_list_contents</span>,</span><br><span class="line"><span class="class">.scroll_list_contents</span> &gt; <span class="tag">li</span>,</span><br><span class="line"><span class="class">.yscrollfont</span>,</span><br><span class="line"><span class="class">.yscrolltime</span> <span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">display</span>:<span class="value"> inline-block</span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="class">.notice</span> <span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">200px</span></span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">text-align</span>:<span class="value"> center</span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">display</span>:<span class="value"> inline-block</span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">line-height</span>:<span class="value"> <span class="number">40px</span></span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="class">.scroll_list_contents</span> &gt; <span class="tag">li</span> <span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">line-height</span>:<span class="value"> <span class="number">40px</span></span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">1000px</span></span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="class">.yscrolltime</span> <span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">margin-left</span>:<span class="value"> <span class="number">40px</span></span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2016/02/01/20160201-scrolling-messages/" data-id="cilm3ulso0014g2qfsf1rufb7" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jquery/">jquery</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-20160130-touring-on-freecodecamp" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/01/30/20160130-touring-on-freecodecamp/" class="article-date">
-  <time datetime="2016-01-30T09:09:51.000Z" itemprop="datePublished">2016-01-30</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/30/20160130-touring-on-freecodecamp/">20160130-touring-on-freecodecamp</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="http://www.freecodecamp.com/" target="_blank" rel="external">http://www.freecodecamp.com/</a></p>
-<p>一个不错的网站, 我只想赶紧通过学习, 有机会能在开源项目上贡献自己的力量.</p>
-<ul>
-<li>HTML</li>
-<li>CSS</li>
-<li>jQuery</li>
-<li>JavaScript</li>
-</ul>
-<p>margin 是一个元素的边框和周围其他元素的距离, 如果 margin 是负数, 那么这个元素会扩大.</p>
-<h2 id="Bootstrap"><a href="#Bootstrap" class="headerlink" title="Bootstrap"></a>Bootstrap</h2><ul>
-<li>Fluid 流式布局</li>
-<li>Grid System</li>
-</ul>
-<h2 id="Font_Awesome"><a href="#Font_Awesome" class="headerlink" title="Font Awesome"></a>Font Awesome</h2><p>Font Awesome 是一个 icon 库, 这些 icon 都是矢量图形, 以 <code>.svg</code> 为文件名后缀. 这些 icon 可以像 font 一样使用, 比如用 px 来设定 size.</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="Form"><a href="#Form" class="headerlink" title="Form"></a>Form</h2><p>如何让 radio 的文本可点?</p>
-<p>两种方式:</p>
-<ul>
-<li><p>在 <code>input</code> 上加 id, 在 <code>label</code> 上加 for</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="tag">label</span> <span class="keyword">for</span>=<span class="string">'btn-like'</span>&gt; Like &lt;/label&gt;</span><br><span class="line">&lt;<span class="tag">input</span> type=<span class="string">'radio'</span> id=<span class="string">'btn-like'</span>/&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>将 <code>input</code> 包在 <code>label</code> 中</p>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">label</span>&gt;&lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"radio"</span>&gt;like&lt;/<span class="keyword">label</span>&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="jQuery"><a href="#jQuery" class="headerlink" title="jQuery"></a>jQuery</h2><figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$<span class="comment">(selector)</span>.addClass<span class="comment">()</span>;</span><br><span class="line">$<span class="comment">(selector)</span>.removeClass<span class="comment">()</span>;</span><br><span class="line">$<span class="comment">(selector)</span>.css<span class="comment">()</span>;</span><br><span class="line">$<span class="comment">(selector)</span>.props<span class="comment">()</span>;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2016/01/30/20160130-touring-on-freecodecamp/" data-id="cilm3ulsq0017g2qf4634091q" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/touring/">touring</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-20160129-css-design" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/01/29/20160129-css-design/" class="article-date">
-  <time datetime="2016-01-29T13:36:24.000Z" itemprop="datePublished">2016-01-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/29/20160129-css-design/">20160129-css-design</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>参考<br><a href="http://www.csszengarden.com/" target="_blank" rel="external">csszengarden</a><br><a href="http://www.webdesignerdepot.com/2009/05/10-best-css-practices-to-improve-your-code/" target="_blank" rel="external">10 BEST CSS PRACTICES TO IMPROVE YOUR CODE</a></p>
-<ul>
-<li>如何设计 CSS</li>
-<li>项目初期有哪些是预先需要敲定的</li>
-</ul>
-<p>?scss 写 placeholder 还是 include??</p>
-<p>基本样式, 包括 网站的颜色, 网站的字体, 网站的字号, 间距, 圆角, 布局</p>
-<ul>
-<li>reset 样式 <ul>
-<li>reset styles</li>
-<li>box-sizing: border-box</li>
-</ul>
-</li>
-<li>网站基本设计样式  <ul>
-<li>颜色表, 网站的颜色只能从这个表中选取</li>
-<li>字体表</li>
-<li>字号表</li>
-<li>间距表</li>
-<li>圆角表</li>
-<li>布局表, 几种布局的实现, 比如 two-column</li>
-<li>比如: body, h1-h5, link:active/visited/hover</li>
-</ul>
-</li>
-<li>文件组织结构<ul>
-<li>按照 feature</li>
-<li>browser-specific CSS 以单独文件存在</li>
-</ul>
-</li>
-<li>命名<ul>
-<li>文件命名</li>
-<li>class 的命名</li>
-<li>不要使用具体的比如颜色来命名 class</li>
-</ul>
-</li>
-<li>编码习惯<ul>
-<li>DON’T REPEAT YOURSELF, 用逗号将共用的样式 group 起来</li>
-</ul>
-</li>
-<li>上线前压缩   </li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2016/01/29/20160129-css-design/" data-id="cilm3ulsr001ag2qfh3z2eq5x" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 </section>
@@ -646,7 +601,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bind/">bind</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/build/">build</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/functional-programming/">functional-programming</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/">gradle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery/">jquery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leverage/">leverage</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/listen/">listen</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/modular-programming/">modular programming</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm-package-json/">npm, package.json</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-bootstrap/">react bootstrap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-router/">react router</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reading-notes/">reading-notes</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/servlet/">servlet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring-test/">spring test</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/touring/">touring</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bind/">bind</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/build/">build</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/functional-programming/">functional-programming</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/">gradle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/howto/">howto</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/images/">images</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery/">jquery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lazy-loading/">lazy-loading</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leverage/">leverage</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/listen/">listen</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/modular-programming/">modular programming</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm-package-json/">npm, package.json</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/performance/">performance</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-bootstrap/">react bootstrap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-router/">react router</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reading-notes/">reading-notes</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/servlet/">servlet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring-test/">spring test</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/touring/">touring</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -655,7 +610,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/bind/" style="font-size: 10px;">bind</a> <a href="/tags/build/" style="font-size: 10px;">build</a> <a href="/tags/css/" style="font-size: 12.5px;">css</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/functional-programming/" style="font-size: 17.5px;">functional-programming</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/leverage/" style="font-size: 12.5px;">leverage</a> <a href="/tags/listen/" style="font-size: 10px;">listen</a> <a href="/tags/modular-programming/" style="font-size: 17.5px;">modular programming</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/npm-package-json/" style="font-size: 10px;">npm, package.json</a> <a href="/tags/react/" style="font-size: 15px;">react</a> <a href="/tags/react-bootstrap/" style="font-size: 10px;">react bootstrap</a> <a href="/tags/react-router/" style="font-size: 10px;">react router</a> <a href="/tags/reading-notes/" style="font-size: 10px;">reading-notes</a> <a href="/tags/servlet/" style="font-size: 12.5px;">servlet</a> <a href="/tags/spring/" style="font-size: 15px;">spring</a> <a href="/tags/spring-test/" style="font-size: 10px;">spring test</a> <a href="/tags/touring/" style="font-size: 10px;">touring</a>
+      <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/bind/" style="font-size: 10px;">bind</a> <a href="/tags/build/" style="font-size: 10px;">build</a> <a href="/tags/css/" style="font-size: 12px;">css</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/functional-programming/" style="font-size: 16px;">functional-programming</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/howto/" style="font-size: 10px;">howto</a> <a href="/tags/images/" style="font-size: 10px;">images</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/lazy-loading/" style="font-size: 10px;">lazy-loading</a> <a href="/tags/leverage/" style="font-size: 12px;">leverage</a> <a href="/tags/listen/" style="font-size: 10px;">listen</a> <a href="/tags/modular-programming/" style="font-size: 18px;">modular programming</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/npm-package-json/" style="font-size: 10px;">npm, package.json</a> <a href="/tags/performance/" style="font-size: 10px;">performance</a> <a href="/tags/react/" style="font-size: 16px;">react</a> <a href="/tags/react-bootstrap/" style="font-size: 10px;">react bootstrap</a> <a href="/tags/react-router/" style="font-size: 10px;">react router</a> <a href="/tags/reading-notes/" style="font-size: 10px;">reading-notes</a> <a href="/tags/servlet/" style="font-size: 12px;">servlet</a> <a href="/tags/spring/" style="font-size: 14px;">spring</a> <a href="/tags/spring-test/" style="font-size: 10px;">spring test</a> <a href="/tags/touring/" style="font-size: 10px;">touring</a>
     </div>
   </div>
 
@@ -664,7 +619,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -676,23 +631,23 @@
       <ul>
         
           <li>
-            <a href="/2016/03/10/20160310-react-high-order-components/">20160310-react-high-order-components</a>
+            <a href="/2016/07/03/20160703-mobile-web-development/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2016/02/27/20160227-react-sourcecode/">20160227-react-sourcecode</a>
+            <a href="/2016/03/23/20160323-immutable/">20160323-immutable</a>
           </li>
         
           <li>
-            <a href="/2016/02/24/20160204-javascript-listen/">20160204-javascript-listen</a>
+            <a href="/2016/03/14/20160314-commonjs/">20160314-commonjs</a>
           </li>
         
           <li>
-            <a href="/2016/02/19/20160219-leverage-002/">20160219-leverage-002</a>
+            <a href="/2016/03/13/20160313-ramada/">20160313-ramada</a>
           </li>
         
           <li>
-            <a href="/2016/02/18/20160218-leverage-001/">20160218-leverage-001</a>
+            <a href="/2016/03/13/20160313-lazy-loading-images/">20160313-lazy-loading-images</a>
           </li>
         
       </ul>

@@ -65,6 +65,427 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-20150126-functional-programming-pure-function" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/01/26/20150126-functional-programming-pure-function/" class="article-date">
+  <time datetime="2016-01-26T12:09:53.000Z" itemprop="datePublished">2016-01-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/26/20150126-functional-programming-pure-function/">Functional Programming Additional</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Functional_Programming_-_Pure_Function"><a href="#Functional_Programming_-_Pure_Function" class="headerlink" title="Functional Programming - Pure Function"></a>Functional Programming - Pure Function</h1><h2 id="u6982_u5FF5"><a href="#u6982_u5FF5" class="headerlink" title="概念"></a>概念</h2><figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">纯函数是指输入相同, 输出相同的函数, 而且没有任何副作用.</span><br><span class="line">副作用指: 改变文件系统, 插入数据到数据库, http调用, 值的改变, 打印, 获取用户输入, 查询<span class="variable">DOM</span>, 访问系统状态等.</span><br></pre></td></tr></table></figure>
+<h2 id="u7EAF_u51FD_u6570_u6709_u4EC0_u4E48_u4F18_u52BF"><a href="#u7EAF_u51FD_u6570_u6709_u4EC0_u4E48_u4F18_u52BF" class="headerlink" title="纯函数有什么优势"></a>纯函数有什么优势</h2><ul>
+<li><strong>Cacheable</strong><ul>
+<li>纯函数可以根据输入进行缓存, 这通常叫做memoization</li>
+</ul>
+</li>
+<li><strong>Portable / Self-Documenting</strong><ul>
+<li>需要依赖的东西会在参数中显示出来, 可移植性比较好 </li>
+</ul>
+</li>
+<li><strong>Testable</strong></li>
+<li><strong>Reasonable</strong><ul>
+<li>referential transparency</li>
+</ul>
+</li>
+<li><strong>Parallel Code</strong></li>
+</ul>
+<h2 id="u5176_u4ED6"><a href="#u5176_u4ED6" class="headerlink" title="其他"></a>其他</h2><p>面向对象语言的问题:<br>The problem with object-oriented languages is they’ve got all this implicit environment that they carry around with them.<br>You wanted a banana but what you got was a gorilla holding the banana… and the entire jungle    </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://weixiaobo88.github.io/2016/01/26/20150126-functional-programming-pure-function/" data-id="ciq6pe26n002j9ufy3dkk95wo" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/functional-programming/">functional-programming</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-20160125-everyone-is-product-manager-md" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/01/25/20160125-everyone-is-product-manager-md/" class="article-date">
+  <time datetime="2016-01-25T13:19:28.000Z" itemprop="datePublished">2016-01-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/25/20160125-everyone-is-product-manager-md/">20160125-everyone-is-product-manager.md</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="u4EBA_u4EBA_u90FD_u662F_u4EA7_u54C1_u7ECF_u7406_u8BFB_u4E66_u7B14_u8BB0"><a href="#u4EBA_u4EBA_u90FD_u662F_u4EA7_u54C1_u7ECF_u7406_u8BFB_u4E66_u7B14_u8BB0" class="headerlink" title="人人都是产品经理读书笔记"></a>人人都是产品经理读书笔记</h1><p>马斯洛需求层次理论:</p>
+<ul>
+<li>生理需求</li>
+<li>安全需求</li>
+<li>社交需求</li>
+<li>尊重需求</li>
+<li>自我实现需求</li>
+</ul>
+<p>用户和客户的区别:</p>
+<ul>
+<li>用户一般是终端用户, 直接使用产品的人</li>
+<li>客户一般是??</li>
+<li>用户和客户可能是同一个人, 也可能不是</li>
+</ul>
+<p>persona 的用途之一:</p>
+<ul>
+<li>可以让团队新进人员以及老板等快速融入到产品的设计中</li>
+<li>user journey ??</li>
+</ul>
+<p>挖掘用户表达需求背后的真实需求? 5 why?</p>
+<p>用户提出的需求并不是都要满足, 性价比高的优先做.<br>性价比 = 商业价值 / 实现难度</p>
+<p>在这里还想说, 作为一个产品, 除了性价比之外, 还需要考虑最小可用, 能以最快速度看到产品的原型和核心功能.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://weixiaobo88.github.io/2016/01/25/20160125-everyone-is-product-manager-md/" data-id="ciq6pe26a00209ufy8756vb0r" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/reading-notes/">reading-notes</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-20160122-bind-in-javascript-md" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/01/22/20160122-bind-in-javascript-md/" class="article-date">
+  <time datetime="2016-01-22T14:19:32.000Z" itemprop="datePublished">2016-01-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/22/20160122-bind-in-javascript-md/">Bind in JavaScript</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>参考<br><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind" target="_blank" rel="external">Bind MDN</a><br><a href="http://stackoverflow.com/questions/15455009/javascript-call-apply-vs-bind" target="_blank" rel="external">StackOverflow</a><br><a href="http://javascriptissexy.com/javascript-apply-call-and-bind-methods-are-essential-for-javascript-professionals/" target="_blank" rel="external">blog</a><br><a href="https://drboolean.gitbooks.io/mostly-adequate-guide/content/" target="_blank" rel="external">gitbook</a> </p>
+<h2 id="bind__u51FD_u6570_u8BED_u6CD5"><a href="#bind__u51FD_u6570_u8BED_u6CD5" class="headerlink" title="bind 函数语法"></a>bind 函数语法</h2><p><code>fun.bind(thisArg[, arg1[, arg2[, ...]]])</code></p>
+<p>其中:</p>
+<ul>
+<li>fun 是已存在的函数</li>
+<li>bind 是关键字</li>
+<li>thisArg 是你想绑定的 target</li>
+<li>arg1, arg2 … 是绑定到 thisArg 上的 fun 方法的参数</li>
+</ul>
+<h2 id="bind__u51FD_u6570_u662F_u4EC0_u4E48"><a href="#bind__u51FD_u6570_u662F_u4EC0_u4E48" class="headerlink" title="bind 函数是什么"></a>bind 函数是什么</h2><p>bind() 函数会创建一个新函数（称为绑定函数），新函数与被调函数（绑定函数的目标函数）具有相同的函数体。<br>当目标函数被调用时 this 值绑定到 bind() 的第一个参数，该参数不能被重写。<br>绑定函数被调用时，bind() 也接受预设的参数提供给原函数。</p>
+<h2 id="bind__u51FD_u6570_u548C_call__u6709_u4EC0_u4E48_u533A_u522B"><a href="#bind__u51FD_u6570_u548C_call__u6709_u4EC0_u4E48_u533A_u522B" class="headerlink" title="bind 函数和 call 有什么区别"></a>bind 函数和 call 有什么区别</h2><p>bind 函数和 call 都是将 this 绑定到函数或对象上, 不同之处在于函数的调用上.</p>
+<p>call 将 this 绑定到函数上, 并立即执行这个函数.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;  </span><br><span class="line">	name: <span class="string">"James Smith"</span>,</span><br><span class="line">	hello: <span class="function"><span class="keyword">function</span>(<span class="params">thing</span>) </span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="keyword">this</span>.name + <span class="string">" says hello "</span> + thing);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">person.hello.call(person, <span class="string">"world"</span>); <span class="comment">// output: James Smith says hello world</span></span><br></pre></td></tr></table></figure>
+<p>bind 将 this 绑定到函数上, 需要单独调用:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;  </span><br><span class="line">  name: <span class="string">"James Smith"</span>,</span><br><span class="line">  hello: <span class="function"><span class="keyword">function</span>(<span class="params">thing</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name + <span class="string">" says hello "</span> + thing);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> helloFunc = person.hello.bind(person);</span><br><span class="line">helloFunc(<span class="string">"world"</span>);  <span class="comment">// output: James Smith says hello world</span></span><br></pre></td></tr></table></figure>
+<p>或者这样:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable"><span class="keyword">var</span> helloFunc</span> = person.hello.bind(person, <span class="string">"world"</span>);</span><br><span class="line">helloFunc();  <span class="comment">// output: James Smith says hello world</span></span><br></pre></td></tr></table></figure>
+<h2 id="bind__u51FD_u6570_u5728_u4EC0_u4E48_u60C5_u51B5_u4E0B_u7528"><a href="#bind__u51FD_u6570_u5728_u4EC0_u4E48_u60C5_u51B5_u4E0B_u7528" class="headerlink" title="bind 函数在什么情况下用"></a>bind 函数在什么情况下用</h2><ul>
+<li>借一个函数或复制一个函数</li>
+<li>设置 this 的值</li>
+<li>可以把方法赋值给一个变量, 当函数使用</li>
+<li>currying 函数<ul>
+<li>函数柯里化, 也是偏函数应用, 一个函数会返回一个新的函数, 并预设了一些参数.</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">              name: <span class="string">'li'</span>, </span><br><span class="line">              say: <span class="function"><span class="keyword">function</span>(<span class="params">hello</span>)</span>&#123; </span><br><span class="line">                     <span class="built_in">console</span>.log(<span class="keyword">this</span>.name + <span class="string">' say '</span> + hello)</span><br><span class="line">                   &#125;</span><br><span class="line">             &#125;; 							</span><br><span class="line"><span class="keyword">var</span> cat = &#123;name: <span class="string">'cat'</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> catSay = person.say.bind(cat);</span><br><span class="line">catSay(<span class="string">'miao~'</span>);  <span class="comment">//cat say miao~</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> catSayHi = person.say.bind(cat, <span class="string">'hi'</span>);</span><br><span class="line">catSayHi(); <span class="comment">//cat say hi</span></span><br></pre></td></tr></table></figure>
+<h2 id="apply__u548C_call_u5728_u4EC0_u4E48_u60C5_u51B5_u4E0B_u7528"><a href="#apply__u548C_call_u5728_u4EC0_u4E48_u60C5_u51B5_u4E0B_u7528" class="headerlink" title="apply 和 call在什么情况下用"></a>apply 和 call在什么情况下用</h2><p>两种情况:</p>
+<ul>
+<li>借一个函数</li>
+<li>设置 this 的值</li>
+</ul>
+<h3 id="apply__u51FD_u6570_u8FD8_u53EF_u4EE5_u5E94_u7528_u4E8E_u53EF_u53D8_u53C2_u6570_u51FD_u6570"><a href="#apply__u51FD_u6570_u8FD8_u53EF_u4EE5_u5E94_u7528_u4E8E_u53EF_u53D8_u53C2_u6570_u51FD_u6570" class="headerlink" title="apply 函数还可以应用于可变参数函数"></a>apply 函数还可以应用于可变参数函数</h3><h4 id="u4EC0_u4E48_u662F_u53EF_u53D8_u53C2_u6570_u51FD_u6570_3F"><a href="#u4EC0_u4E48_u662F_u53EF_u53D8_u53C2_u6570_u51FD_u6570_3F" class="headerlink" title="什么是可变参数函数?"></a>什么是可变参数函数?</h4><p>Math.max() 就是一个可变参数函数, 你可以传任意多个参数给它.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.<span class="built_in">log</span>(Math.max(<span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">8</span>));</span><br></pre></td></tr></table></figure>
+<p>但是我们不能给 Math.max() 传一个数组作为参数, 但是 apply 可以帮我们做到.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.<span class="built_in">log</span>(Math.max.apply(null, [<span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">8</span>]));</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://weixiaobo88.github.io/2016/01/22/20160122-bind-in-javascript-md/" data-id="ciq6pe26c00239ufy18lrk916" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bind/">bind</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-20160121-npm-package-file-md" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/01/21/20160121-npm-package-file-md/" class="article-date">
+  <time datetime="2016-01-21T13:41:04.000Z" itemprop="datePublished">2016-01-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/21/20160121-npm-package-file-md/">20160121-npm-package-file.md</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="package-json_u6587_u4EF6"><a href="#package-json_u6587_u4EF6" class="headerlink" title="package.json文件"></a><code>package.json</code>文件</h2><p>这个文件必须是 JSON 文件.</p>
+<h3 id="main_field"><a href="#main_field" class="headerlink" title="main field"></a><code>main</code> field</h3><p><code>main</code>是程序的主要入口点, 是一个 module 的 ID. </p>
+<ul>
+<li>默认情况下是相对于包所在文件夹的根目录.</li>
+<li>也有可能是作为 main script.</li>
+</ul>
+<p>举个例子, 如果你的包名为 <code>foo</code>, 当用户安装这个包之后, 可以使用 <code>require(&#39;foo&#39;)</code>.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://weixiaobo88.github.io/2016/01/21/20160121-npm-package-file-md/" data-id="ciq6pe26d00279ufy78yolhy6" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npm-package-json/">npm, package.json</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-20160118-functional-programming-monad" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/01/18/20160118-functional-programming-monad/" class="article-date">
+  <time datetime="2016-01-18T12:18:14.000Z" itemprop="datePublished">2016-01-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/18/20160118-functional-programming-monad/">Monad</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>参考: </p>
+<ul>
+<li><a href="http://www.ruanyifeng.com/blog/2015/07/monad.html?utm_source=tuicool" target="_blank" rel="external">图解 Monad</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Monad_%28functional_programming%29" target="_blank" rel="external">Monad Wiki</a></li>
+</ul>
+<p>软件的基本结构就是数据+过程</p>
+<p>数据: 数据类型<br>过程: 顺序, 分支, 循环</p>
+<p>值函数: 处理值的函数</p>
+<h2 id="Monad__u662F_u4EC0_u4E48"><a href="#Monad__u662F_u4EC0_u4E48" class="headerlink" title="Monad 是什么"></a>Monad 是什么</h2><p>Monad 是一个描绘了一系列计算步骤的结构, 其中这个结构的 type 定义了如何把操作链起来, 或者把那个 type 的函数嵌套起来<br>表示将一个运算过程，通过函数拆解成互相连接的多个步骤。<br>你只要提供下一步运算所需的函数，整个运算就会自动进行下去。</p>
+<h2 id="u4E3A_u4EC0_u4E48_u4F1A_u6709_Monad_2C__u5B83_u7684_u51FA_u73B0_u89E3_u51B3_u4E86_u4EC0_u4E48_u95EE_u9898"><a href="#u4E3A_u4EC0_u4E48_u4F1A_u6709_Monad_2C__u5B83_u7684_u51FA_u73B0_u89E3_u51B3_u4E86_u4EC0_u4E48_u95EE_u9898" class="headerlink" title="为什么会有 Monad, 它的出现解决了什么问题"></a>为什么会有 Monad, 它的出现解决了什么问题</h2><h2 id="Monad__u6709_u4EC0_u4E48_u7528"><a href="#Monad__u6709_u4EC0_u4E48_u7528" class="headerlink" title="Monad 有什么用"></a>Monad 有什么用</h2><h2 id="Monad__u5982_u4F55_u7528_u8D77_u6765"><a href="#Monad__u5982_u4F55_u7528_u8D77_u6765" class="headerlink" title="Monad 如何用起来"></a>Monad 如何用起来</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://weixiaobo88.github.io/2016/01/18/20160118-functional-programming-monad/" data-id="ciq6pe26f002a9ufy9b7vlwas" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/functional-programming/">functional-programming</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-20160114-functional-programming" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/01/14/20160114-functional-programming/" class="article-date">
+  <time datetime="2016-01-14T13:09:36.000Z" itemprop="datePublished">2016-01-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/14/20160114-functional-programming/">Functional Programming</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>参考: <a href="http://www.ruanyifeng.com/blog/2012/04/functional_programming.html" target="_blank" rel="external">函数式编程初探</a></p>
+<h2 id="u4EC0_u4E48_u662F_u51FD_u6570_u5F0F_u7F16_u7A0B"><a href="#u4EC0_u4E48_u662F_u51FD_u6570_u5F0F_u7F16_u7A0B" class="headerlink" title="什么是函数式编程"></a>什么是函数式编程</h2><p>函数式编程是一种”编程范式”, 属于”结构化编程”的一种, 主要思想是把运算过程写成一系列嵌套的函数调用.</p>
+<h2 id="u51FD_u6570_u5F0F_u7F16_u7A0B_u6709_u4EC0_u4E48_u7279_u70B9"><a href="#u51FD_u6570_u5F0F_u7F16_u7A0B_u6709_u4EC0_u4E48_u7279_u70B9" class="headerlink" title="函数式编程有什么特点"></a>函数式编程有什么特点</h2><p>五个特点:</p>
+<ul>
+<li>函数是”第一等公民”<ul>
+<li>可以赋值给其他变量</li>
+<li>可以作为参数</li>
+<li>可以作为返回值</li>
+</ul>
+</li>
+<li>只用”表达式”，不用”语句”<ul>
+<li>表达式就是一个运算过程, 总有返回值</li>
+<li>语句是执行某种操作, 没有返回值</li>
+</ul>
+</li>
+<li>没有”副作用”<ul>
+<li>所谓”副作用”, 指的是函数内部与外部互动（最典型的情况，就是修改全局变量的值）, 产生运算以外的其他结果。</li>
+<li>函数式编程不会修改外部变量的值</li>
+</ul>
+</li>
+<li>不修改状态<ul>
+<li>只返回新的值, 不修改系统变量</li>
+</ul>
+</li>
+<li>引用透明<ul>
+<li>函数运行只依赖于参数, 只要参数相同, 返回值总是相同</li>
+</ul>
+</li>
+</ul>
+<h2 id="u51FD_u6570_u5F0F_u7F16_u7A0B_u80FD_u5E26_u6765_u4EC0_u4E48_u597D_u5904"><a href="#u51FD_u6570_u5F0F_u7F16_u7A0B_u80FD_u5E26_u6765_u4EC0_u4E48_u597D_u5904" class="headerlink" title="函数式编程能带来什么好处"></a>函数式编程能带来什么好处</h2><ul>
+<li>代码简洁，开发快速<ul>
+<li>函数式编程大量使用函数, 减少了代码重复</li>
+</ul>
+</li>
+<li>接近自然语言，易于理解</li>
+<li>更方便的代码管理<ul>
+<li>函数式编程只要给定输入参数, 返回的结果必定相同</li>
+<li>因此，每一个函数都可以被看做独立单元, 很有利于进行单元测试和除错, 以及模块化组合</li>
+</ul>
+</li>
+<li>易于”并发编程”</li>
+<li>代码的热升级</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://weixiaobo88.github.io/2016/01/14/20160114-functional-programming/" data-id="ciq6pe26i002d9ufy4b0un0t8" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/functional-programming/">functional-programming</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-20160112-React-Bootstrap-Introduction" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/01/12/20160112-React-Bootstrap-Introduction/" class="article-date">
+  <time datetime="2016-01-12T12:21:38.000Z" itemprop="datePublished">2016-01-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/12/20160112-React-Bootstrap-Introduction/">React-Bootstrap-Introduction</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="u4ECB_u7ECD__u2014_u2014__u4F7F_u7528React_u91CD_u5EFA_u6700_u53D7_u6B22_u8FCE_u7684_u524D_u7AEF_u6846_u67B6"><a href="#u4ECB_u7ECD__u2014_u2014__u4F7F_u7528React_u91CD_u5EFA_u6700_u53D7_u6B22_u8FCE_u7684_u524D_u7AEF_u6846_u67B6" class="headerlink" title="介绍 —— 使用React重建最受欢迎的前端框架"></a>介绍 —— 使用React重建最受欢迎的前端框架</h1><p>React-Bootstrap 是一个可重用的前端组件库。用 Facebook 的 React.js<br>框架，你能构建一个和 Twitter Bootstrap 类似的库，但是代码会更整洁。</p>
+<p>如果你想要一个小的 button ，button 上显示 “Something”，并能触发 someCallback<br>函数。如果你是在写一个原生的 app，你可能会像下面这样写：</p>
+<figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">button</span>(<span class="keyword">size</span>=SMALL, <span class="keyword">color</span>=GREEN, <span class="keyword">text</span>=<span class="string">"Something"</span>, onClick=someCallback)</span><br></pre></td></tr></table></figure>
+<p>如果用 Twitter Bootstrap，你会写下面的 HTML：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">button</span> <span class="attribute">id</span>=<span class="value">"something-btn"</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">class</span>=<span class="value">"btn btn-success btn-sm"</span>&gt;</span></span><br><span class="line">  Something</span><br><span class="line"><span class="tag">&lt;/<span class="title">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>然后会在 JavaScript 中写一些类似这样的代码：<br><code>$(&#39;#something-btn&#39;).click(someCallback);</code></p>
+<p>从 web 的标准来看，这挺好，只是还有些不好。 React-Bootstrap 可以让你写成这样：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">Button</span> <span class="attribute">bsStyle</span>=<span class="value">"success"</span> <span class="attribute">bsSize</span>=<span class="value">"small"</span> <span class="attribute">onClick</span>=<span class="value">&#123;someCallback&#125;</span>&gt;</span></span><br><span class="line">  Something</span><br><span class="line"><span class="tag">&lt;/<span class="title">Button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>具体的 HTML/CSS<br>实现细节已经进行了抽象，提供给你的接口可以让你像其他编程语言一样来写。</p>
+<h2 id="u4F7F_u7528_React-js__u7684_Bootstrap_API"><a href="#u4F7F_u7528_React-js__u7684_Bootstrap_API" class="headerlink" title="使用 React.js 的 Bootstrap API"></a>使用 React.js 的 Bootstrap API</h2><p>Bootstrap 的代码重复的很多，因为 HTML 和 CSS<br>不支持组件库的抽象。这也是为什么你需要在一个元素 <code>button</code> 中写 三次<code>btn</code>。</p>
+<p>React.js 解决这个问题的方式就是直接写在 JavaScript 中。 React<br>接管了渲染页面的整个任务。你只需要把 JavaScript<br>对象树传给它即可，并且把状态告诉它。</p>
+<p>举例来说，我们想让 React 渲染一个页面，只显示一个 button，并用 Bootstrap CSS<br>来给它加样式：</p>
+<figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var <span class="keyword">button</span> = React.DOM.<span class="keyword">button</span>(&#123;</span><br><span class="line">  className: <span class="string">'btn btn-lg btn-success'</span>,</span><br><span class="line">  children: <span class="string">'Register'</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">React.<span class="keyword">render</span>(<span class="keyword">button</span>, mountNode);</span><br></pre></td></tr></table></figure>
+<p>但是现在在 JavaScript 中，我们可以包裹 HTML/CSS，然后提供一个更好的 API：</p>
+<figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var <span class="keyword">button</span> = ReactBootstrap.Button(&#123;</span><br><span class="line">  bsStyle: <span class="string">'success'</span>,</span><br><span class="line">  bsSize: <span class="string">'large'</span>,</span><br><span class="line">  children: <span class="string">'Register'</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">React.<span class="keyword">render</span>(<span class="keyword">button</span>, mountNode);</span><br></pre></td></tr></table></figure>
+<p>React-Bootstrap 就是类似这样的组件库，你可以很容易的扩展和加强你的功能。</p>
+<h2 id="JSX__u8BED_u6CD5"><a href="#JSX__u8BED_u6CD5" class="headerlink" title="JSX 语法"></a>JSX 语法</h2><p>每个 React 组件就是一个 JavaScript 对象，写成树形结构也会很烦。React 鼓励使用 JSX<br>的语法糖，你可以和像 HTML 的语法一些样来写：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var buttongGroupInstance = (</span><br><span class="line">  <span class="tag">&lt;<span class="title">ButtonGroup</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">DropdownButton</span> <span class="attribute">bsStyle</span>=<span class="value">'success'</span> <span class="attribute">title</span>=<span class="value">'Dropdown'</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">MenuItem</span> <span class="attribute">key</span>=<span class="value">'1'</span>&gt;</span>Dropdown link<span class="tag">&lt;/<span class="title">MenuItem</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">MenuItem</span> <span class="attribute">key</span>=<span class="value">'2'</span>&gt;</span>Dropdown link<span class="tag">&lt;/<span class="title">MenuItem</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">DropdownButton</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">Button</span> <span class="attribute">bsStyle</span>=<span class="value">'info'</span>&gt;</span>Middle<span class="tag">&lt;/<span class="title">Button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">Button</span> <span class="attribute">bsStyle</span>=<span class="value">'info'</span>&gt;</span>Right<span class="tag">&lt;/<span class="title">Button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">ButtonGroup</span>&gt;</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">React.render(buttonGroupInstance, mountNode);</span><br></pre></td></tr></table></figure>
+<p>有些人对 React.js 的第一印象就是混合 JavaScript 和 HTML<br>会让代码看起来很混乱。然而，比较在这个例子中要添加一个 dropdown button 在<br>Bootstrap JavaScript 和 Component 文件中，Component<br>文件需要分成两个，因为你需要在代码中两个地方来实现这个组件：首先必须添加<br>HTML/CSS 元素，然后必须调用 JavaScript 把这两个组件写到一起。</p>
+<p>React-Bootstrap 的组件希望遵循 React.js 的哲理，单独的功能需要放在单独的地方。<br>在 <a href="http://react-bootstrap.github.io/components.html" target="_blank" rel="external">组件页面</a> 查看当前的 React-Bootstrap 库。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://weixiaobo88.github.io/2016/01/12/20160112-React-Bootstrap-Introduction/" data-id="ciq6pe26k002f9ufye9orevvl" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-bootstrap/">react bootstrap</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-learn-react-router" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/01/11/learn-react-router/" class="article-date">
@@ -103,7 +524,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2016/01/11/learn-react-router/" data-id="cilm3uls1000fg2qf63om6m0y" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2016/01/11/learn-react-router/" data-id="ciq6pe24u000f9ufynqvaul3k" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-router/">react router</a></li></ul>
@@ -141,7 +562,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/08/15/learn-jade/" data-id="cilm3uls4000kg2qf52y6dbsb" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/08/15/learn-jade/" data-id="ciq6pe24x000k9ufyyq3siwgg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -234,7 +655,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/08/05/testing-in-spring/" data-id="cilm3ulrj0001g2qf2eonz8of" class="article-share-link">Share</a>
+      <a data-url="http://weixiaobo88.github.io/2015/08/05/testing-in-spring/" data-id="ciq6pe24i00019ufykmgv9fo6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring-test/">spring test</a></li></ul>
@@ -246,452 +667,9 @@
 
 
   
-    <article id="post-modular-programming-03" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/08/04/modular-programming-03/" class="article-date">
-  <time datetime="2015-08-04T06:33:11.000Z" itemprop="datePublished">2015-08-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/04/modular-programming-03/">模块化编程 Modular Programming 03 —— require.js 的用法</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="u4E3A_u4EC0_u4E48_u8981_u7528_require-js"><a href="#u4E3A_u4EC0_u4E48_u8981_u7528_require-js" class="headerlink" title="为什么要用 require.js"></a>为什么要用 require.js</h2><p>最早的时候，所有Javascript代码都写在一个文件里面，只要加载这一个文件就够了。后来，代码越来越多，一个文件不够了，必须分成多个文件，依次加载。</p>
-<pre><code><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"1.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"2.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"3.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"4.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"5.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"6.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</code></pre><p>这样的写法的缺点：</p>
-<pre><code>- 加载文件过多，网页失去响应的时间就会越长
-- 由于js文件之间存在依赖关系，因此必须严格保证加载顺序（比如上例的1.js要在2.js的前面），依赖性最大的模块一定要放到最后加载，当依赖关系很复杂的时候，代码的编写和维护都会变得困难
-</code></pre><p>require.js的诞生，就是为了解决这两个问题：</p>
-<pre><code>- 实现js文件的异步加载，避免网页失去响应；
-- 管理模块之间的依赖性，便于代码的编写和维护。
-</code></pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/08/04/modular-programming-03/" data-id="cilm3ulru0004g2qfap6osm5v" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/modular-programming/">modular programming</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-modular-programming-02" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/08/04/modular-programming-02/" class="article-date">
-  <time datetime="2015-08-04T04:46:39.000Z" itemprop="datePublished">2015-08-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/04/modular-programming-02/">模块化编程 Modular Programming 02 —— AMD 规范</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>参考资料： <a href="http://www.ruanyifeng.com/blog/2012/10/asynchronous_module_definition.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2012/10/asynchronous_module_definition.html</a></p>
-<p>讨论：如何在浏览器环境组织不同的模块、管理模块之间的依赖性</p>
-<h2 id="u4E3A_u4EC0_u4E48_u8981_u6709_u6A21_u5757"><a href="#u4E3A_u4EC0_u4E48_u8981_u6709_u6A21_u5757" class="headerlink" title="为什么要有模块"></a>为什么要有模块</h2><p>因为有了模块，我们就可以更方便地使用别人的代码，想要什么功能，就加载什么模块。</p>
-<p>但是，这样做有一个前提，那就是大家必须以同样的方式编写模块，否则你有你的写法，我有我的写法，岂不是乱了套！</p>
-<p>目前，通行的 JavaScript 模块规范共有两种：CommonJS 和 AMD。我主要介绍 AMD，但是要先从 CommonJS 讲起。</p>
-<h2 id="CommonJS"><a href="#CommonJS" class="headerlink" title="CommonJS"></a>CommonJS</h2><p>2009 年 node.js 项目诞生， JavaScript 也开始用于服务器端编程。在浏览器环境下，没有模块也不是特别大的问题，毕竟网页程序的复杂性有限；但是在服务器端，一定要有模块，与操作系统和其他应用程序互动，否则根本没法编程。 </p>
-<p>node.js 的模块系统就是参照 CommonJS 规范实现的。</p>
-<p>在 CommonJS 中，有一个全局方法 require()，用于加载模块。</p>
-<h3 id="u6D4F_u89C8_u5668_u73AF_u5883"><a href="#u6D4F_u89C8_u5668_u73AF_u5883" class="headerlink" title="浏览器环境"></a>浏览器环境</h3><p>有了服务器端的模块以后，大家就像要客户端模块。而且最好两者能够兼容，一个模块不用修改，在服务器和浏览器都可以运行。</p>
-<p>但是，由于一个重大的局限，使得CommonJS规范不适用于浏览器环境。<br>    <figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt;原因是，在服务器端模块都在本地硬盘，可以同步加载完成，等待时间就是硬盘的读取时间。</span><br><span class="line">但是，对于浏览器，这却是一个大问题，因为模块都放在服务器端，等待时间取决于网速的快慢，可能要等很长时间，浏览器处于<span class="string">"假死"</span>状态。</span><br><span class="line"></span><br><span class="line">var <span class="built_in">math</span> = <span class="built_in">require</span>(<span class="string">'math'</span>);</span><br><span class="line">    　　 <span class="built_in">math</span>.add(<span class="number">2</span>, <span class="number">3</span>);</span><br></pre></td></tr></table></figure></p>
-<p>对于浏览器端来说，只能采用“异步加载”，这也是 AMD 规范诞生的背景。</p>
-<h2 id="AMD"><a href="#AMD" class="headerlink" title="AMD"></a>AMD</h2><p>AMD是”Asynchronous Module Definition”的缩写，意思就是”异步模块定义”。它采用异步方式加载模块，模块的加载不影响它后面语句的运行。所有依赖这个模块的语句，都定义在一个回调函数中，等到加载完成之后，这个回调函数才会运行。</p>
-<p>AMD也采用require()语句加载模块，但是不同于CommonJS，它要求两个参数：<br>    <figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">require</span>([<span class="class"><span class="keyword">module</span>], <span class="title">callback</span>);</span></span><br></pre></td></tr></table></figure></p>
-<pre><code>第一个参数[module]，是一个数组，里面的成员就是要加载的模块；第二个参数callback，则是加载成功之后的回调函数。
-如果将前面的代码改写成AMD形式，就是下面这样：
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>([<span class="string">'math'</span>], <span class="function"><span class="keyword">function</span> <span class="params">(math)</span></span> &#123;</span><br><span class="line">　　　　<span class="built_in">math</span>.add(<span class="number">2</span>, <span class="number">3</span>);</span><br><span class="line">　　&#125;);</span><br></pre></td></tr></table></figure>
-
-math.add()与math模块加载不是同步的，浏览器不会发生假死。
-</code></pre><p>目前，主要有两个JavaScript库实现了AMD规范：require.js和curl.js。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/08/04/modular-programming-02/" data-id="cilm3ulrx0009g2qfdewl81dd" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/modular-programming/">modular programming</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-modular-programming-01" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/08/04/modular-programming-01/" class="article-date">
-  <time datetime="2015-08-04T01:09:19.000Z" itemprop="datePublished">2015-08-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/04/modular-programming-01/">模块化编程 Modular Programming 01 —— 模块的写法</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>参考资料： <a href="http://www.ruanyifeng.com/blog/2012/10/javascript_module.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2012/10/javascript_module.html</a></p>
-<p>讨论： JavaScript 中模块的几种写法</p>
-<h2 id="u6A21_u5757_u7684_u5199_u6CD5"><a href="#u6A21_u5757_u7684_u5199_u6CD5" class="headerlink" title="模块的写法"></a>模块的写法</h2><p>介绍 6 种写法</p>
-<ol>
-<li><p>最原始的写法</p>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'This is func1.'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'This is func2.'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p> 上面的函数 func1() 和 func2()，组成一个模块。使用的时候，直接调用就行了。<br> 这种做法的缺点很明显：”污染”了全局变量，无法保证不与其他模块发生变量名冲突，而且模块成员之间看不出直接关系。</p>
-</li>
-<li><p>对象的写法</p>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">    </span><br><span class="line"><span class="keyword">var</span> moduleA = <span class="keyword">new</span> <span class="built_in">Object</span>(&#123;</span><br><span class="line">    _count: <span class="number">0</span>,</span><br><span class="line">    func1: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'This is func1 in moduleA'</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">    func2: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'This is func1 in moduleA'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p> 这样的写法会暴露所有模块成员，内部状态可以被外部改写。</p>
-</li>
-<li><p>立即执行函数（IIFE）的写法</p>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">    </span><br><span class="line"><span class="keyword">var</span> moduleB = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> _count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> func1 = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'This is func1 in moduleB'</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">var</span> func2 = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'This is func2 in moduleB'</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        func1: func1,</span><br><span class="line">        func2: func2</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
-<p> 可以达到不暴露私有成员的目的。</p>
-</li>
-<li><p>放大模式（augmentation）的写法</p>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">    </span><br><span class="line"><span class="keyword">var</span> moduleB = (<span class="function"><span class="keyword">function</span> (<span class="params">module</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">module</span>.func3 = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'This is func3 in moduleB from augmentation.js'</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">module</span>;</span><br><span class="line">&#125;)(moduleB);</span><br></pre></td></tr></table></figure>
-<p> 如果一个模块很大，必须分成几个部分，或者一个模块需要继承另一个模块，这时就有必要采用”放大模式”（augmentation）。</p>
-</li>
-<li><p>宽放大模式（Loose augmentation）的写法</p>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">        </span><br><span class="line">        <span class="keyword">var</span> moduleB = ( <span class="function"><span class="keyword">function</span> (<span class="params">module</span>)</span>&#123;</span><br><span class="line">            <span class="built_in">module</span>.func4 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">'This is func4 in moduleB from looseAugmentation.js'</span>);</span><br><span class="line">            &#125;;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">module</span>;</span><br><span class="line">        &#125;)(<span class="built_in">window</span>.moduleB || &#123;&#125;);</span><br><span class="line"></span><br><span class="line">    <span class="string">``</span><span class="string">`    </span><br><span class="line">    在浏览器环境中，模块的各个部分通常都是从网上获取的，有时无法知道哪个部分会先加载。如果采用augmentation的写法，第一个执行的部分有可能加载一个不存在空对象，这时就要采用"宽放大模式"。</span><br><span class="line"></span><br><span class="line">6. 输入全局变量的写法</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<pre><code>    var moduleC = ( function ($){
-        console.log(&apos;.. This is from globalVariable.js, current url: &apos;, $(location).attr(&apos;href&apos;));
-    })(jQuery);
-
-```    
-这样做除了保证模块的独立性，还使得模块之间的依赖关系变得明显。
-</code></pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/08/04/modular-programming-01/" data-id="cilm3ulrz000cg2qf85gak5jz" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/modular-programming/">modular programming</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/08/04/hello-world/" class="article-date">
-  <time datetime="2015-08-04T01:07:34.000Z" itemprop="datePublished">2015-08-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/04/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start"><a href="#Quick_Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create_a_new_post"><a href="#Create_a_new_post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server"><a href="#Run_server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files"><a href="#Generate_static_files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites"><a href="#Deploy_to_remote_sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/08/04/hello-world/" data-id="cilm3uls8000ng2qfiso9r6pr" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-2015-03-19-webfont" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/08/04/2015-03-19-webfont/" class="article-date">
-  <time datetime="2015-08-04T01:07:34.000Z" itemprop="datePublished">2015-08-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/04/2015-03-19-webfont/">学习web fonts</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>听到别人一直在说web fonts，脑子里大概知道什么，又确切的感觉好像不是很清晰的了解。<br>想尝试搞清楚，于是问了自己几个问题：</p>
-<ul>
-<li><a href="#why">为什么会出现web fonts，它的出现解决了什么问题</a></li>
-<li><a href="#what">什么是web fonts</a></li>
-<li><a href="#how">怎么用web fonts</a></li>
-</ul>
-<p></p><h2 id="why">为什么会出现web fonts，它的出现解决了什么问题</h2><br>在web fonts没有出现以前，网页上正常显示fonts的前提是用户已经安装了相应的字体。<p></p>
-<p></p><h2 id="what">什么是web fonts</h2><br>web fonts是在线字体或者网络字体，是CSS3中的一个模块，可以把自定义的特殊字体嵌入到网页中。<p></p>
-<p></p><h2 id="how">怎么用web fonts</h2><br>既然web fonts是CSS3中的一个模块，那用起来自然就是用CSS实现，两步：<p></p>
-<ul>
-<li>首先用@font-face定义字体</li>
-</ul>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="at_rule">@<span class="keyword">font-face</span></span><span class="rules">&#123;</span><br><span class="line">	<span class="rule"><span class="attribute">font-family</span>:<span class="value"> <span class="string">'MyWebFont'</span></span></span>;</span><br><span class="line">	<span class="rule"><span class="attribute">src</span>:<span class="value"> <span class="function">url</span>(<span class="string">'WebFont.eot'</span>)</span></span>;</span><br><span class="line">	<span class="rule"><span class="attribute">src</span>:<span class="value"> <span class="function">url</span>(<span class="string">'WebFont.eot?#iefix'</span>) <span class="function">format</span>(<span class="string">'embedded-opentype'</span>),</span><br><span class="line">	     <span class="function">url</span>(<span class="string">'WebFont.woff'</span>) <span class="function">format</span>(<span class="string">'woff'</span>),</span><br><span class="line">	     <span class="function">url</span>(<span class="string">'WebFont.ttf'</span>) <span class="function">format</span>(<span class="string">'truetype'</span>),</span><br><span class="line">	     <span class="function">url</span>(<span class="string">'WebFont.svg#webfont'</span>) <span class="function">format</span>(<span class="string">'svg'</span>)</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
-<div class="small"><br>那么字体哪里来呢？<br></div>
-
-
-<ul>
-<li>然后该怎么使用呢？既然webfont也是一种font，就按照font来用就好了，一般来说相关的在线网站都会介绍使用方法。<br>比如<a href="https://www.zybuluo.com/cherishpeace/note/46809" target="_blank" rel="external">这里有一个介绍</a></li>
-</ul>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">p</span> <span class="rules">&#123; <span class="rule"><span class="attribute">font-family</span>:<span class="value"> <span class="string">'MyWebFont'</span>, Arial, sans-serif</span></span>; &#125;</span></span><br></pre></td></tr></table></figure>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face" target="_blank" rel="external">@font-face</a></li>
-<li><a href="http://gejiawen.github.io/2015/03/04/CSS/WebFont%E4%B8%8E%E9%A1%B5%E9%9D%A2ICON%E5%9B%BE%E6%A0%87%E7%A0%94%E7%A9%B6/" target="_blank" rel="external">WebFont与页面ICON图标研究</a></li>
-</ul>
-<!-- icon font
-网页上的小图标称之为页面icon，这些icon基本都是设计师来制作的，起初设计师将网页需要的icon统统丢给dev，然后dev就将这些icon用在网页的不同的地方。
-
-这样有什么问题吗？
-每显示一张图片，都会向服务器发送一次请求，图片越多，请求次数越多，造成延迟的可能性就越大。
-
-于是为了解决这个问题，设计师或者dev就将这些图标按照一定顺序和方式合并在一起，这种方式称为css sprites或者图片精灵。dev怎么用呢，他们就通过写CSS来控制不同图标的background-position属性。
-
-这样又有什么问题吗？
-dev需要匹配每个icon的position属性，而且同一个icon不同尺寸也需要设计师设计多套icon，更可怜的是，如果中间某个icon发生变化，那么多米诺效应就会发生，在那个图标之后的所有图标的CSS代码都有可能修改。
-
-icon font倒是可以或多或少解决这个问题，当然两者并不冲突。
-
-<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-<span class="ruby"> 你可以去免费的网站下载，比如 <span class="symbol">https:</span>/<span class="regexp">/icomoon.io/app</span></span><br><span class="line"></span>-<span class="ruby"> 也可以去收费的网站购买字体使用授权</span><br><span class="line"></span>-<span class="ruby"> 当然还可以自己设计字体</span></span><br></pre></td></tr></table></figure>
-<p>–&gt;</p>
--->
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/08/04/2015-03-19-webfont/" data-id="cilm3ulra0000g2qf2gyaj215" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-jspm" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/08/03/jspm/" class="article-date">
-  <time datetime="2015-08-03T13:50:33.000Z" itemprop="datePublished">2015-08-03</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/03/jspm/">modular programming - jspm</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>文章参考 <a href="https://github.com/jspm/jspm-cli/wiki/Getting-Started" target="_blank" rel="external">https://github.com/jspm/jspm-cli/wiki/Getting-Started</a></p>
-<p>文中例子的地址 <a href="https://github.com/weixiaobo88/practiceMakesPerfect/tree/master/jspmDemo" target="_blank" rel="external">https://github.com/weixiaobo88/practiceMakesPerfect/tree/master/jspmDemo</a></p>
-<h2 id="jspm__u662F_u4EC0_u4E48"><a href="#jspm__u662F_u4EC0_u4E48" class="headerlink" title="jspm 是什么"></a>jspm 是什么</h2><ul>
-<li>jspm 是一个 SystemJS 通用模块加载器的包管理器，建立在动态 ES6 的模块加载器</li>
-<li>可以平行的加载任意 Registry（比如 npm 和 github ）中的任意形式（ES6，AMD，CommonJS 和全局脚本）的模块</li>
-<li>对于开发环境来说，可以在浏览器中以独立的文件的形式加载模块， 并把 ES6 和插件编译好。</li>
-<li>对于生产环境（开发环境也是这样）来说，可以优化成一个 bundle 或者 分层的 bundles 或者一个通过一条命令自运行的bundle</li>
-</ul>
-<p>System.js 是通用动态模块加载 - 用于在浏览器和 NodeJS 中加载 ES6 模块，AMD，CommonJS 和全局脚本。</p>
-<h2 id="u5728_u9879_u76EE_u4E2D_u4F7F_u7528_jspm__u9700_u8981_3__u4E2A_u6B65_u9AA4_uFF08_u524D_u63D0_u662F_u5DF2_u7ECF_u5B89_u88C5_u914D_u7F6E_u597D_uFF09"><a href="#u5728_u9879_u76EE_u4E2D_u4F7F_u7528_jspm__u9700_u8981_3__u4E2A_u6B65_u9AA4_uFF08_u524D_u63D0_u662F_u5DF2_u7ECF_u5B89_u88C5_u914D_u7F6E_u597D_uFF09" class="headerlink" title="在项目中使用 jspm 需要 3 个步骤（前提是已经安装配置好）"></a>在项目中使用 jspm 需要 3 个步骤（前提是已经安装配置好）</h2><ol>
-<li>写 node 程序 或者 模块</li>
-<li>用 jspm 编译成 bundle.js</li>
-<li>在 HTML 页面中加载 bundle.js</li>
-</ol>
-<h2 id="u7528_jspm__u4E4B_u524D_u7684_u51C6_u5907"><a href="#u7528_jspm__u4E4B_u524D_u7684_u51C6_u5907" class="headerlink" title="用 jspm 之前的准备"></a>用 jspm 之前的准备</h2><ol>
-<li><p>安装 CLI</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install jspm -g</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>初始化项目</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> my-project</span><br><span class="line">jspm init</span><br></pre></td></tr></table></figure>
-<p> 初始化之后项目的目录结构为</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">my-project</span><br><span class="line">|__config.js</span><br><span class="line">|__package.json</span><br><span class="line">|__jspm_packages</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装任意的包，来源可以是 jspm Registry 或者 Github 或者 npm</p>
-<p> 所有的安装都会保存在 package.json 中，你只需要使用 ‘jspm install’ 就可以安装其中的包。</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">jspm install npm:lodash-node</span><br><span class="line">jspm install github:components/jquery</span><br><span class="line">jspm install jquery</span><br><span class="line">jspm install myname=npm:underscore</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="u600E_u4E48_u7528"><a href="#u600E_u4E48_u7528" class="headerlink" title="怎么用"></a>怎么用</h2><h3 id="u7B80_u5355_u7684_u4F8B_u5B50"><a href="#u7B80_u5355_u7684_u4F8B_u5B50" class="headerlink" title="简单的例子"></a>简单的例子</h3><ol>
-<li><p>例子中需要在安装一下4个包</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">jspm install npm:lodash-node</span><br><span class="line">jspm install github:components/jquery</span><br><span class="line">jspm install jquery</span><br><span class="line">jspm install myname=npm:underscore</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>例子的文件目录结构</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">my-project</span><br><span class="line">  |__config.js</span><br><span class="line">  |__package.json</span><br><span class="line">  |__jspm_packages</span><br><span class="line">  |__lib</span><br><span class="line">      |__bootstrap.js</span><br><span class="line">      |__main.js</span><br><span class="line">  |__index.html</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>lib/bootstrap.js</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import _ from <span class="string">'lodash-node/modern/lang/isEqual'</span>;</span><br><span class="line">import $ from <span class="string">'jquery'</span>;</span><br><span class="line">import underscore from <span class="string">'myname'</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> <span class="keyword">function</span> <span class="function"><span class="title">bootstrap</span></span>() &#123;</span><br><span class="line"> console.log(<span class="string">"Hello Linne"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>lib/main.js 文件</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import &#123;bootstrap&#125; from <span class="string">'./bootstrap'</span>;</span><br><span class="line">bootstrap();</span><br></pre></td></tr></table></figure>
-<p>index.html 文件</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;h1&gt;Hello, Linne O(∩_∩)O~&lt;/h1&gt;</span><br><span class="line"></span><br><span class="line">&lt;script src=<span class="string">"jspm_packages/system.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=<span class="string">"config.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    System.import(<span class="string">'lib/main'</span>);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<p>在浏览器中打开 index.html，可以看到 console 中有输出。</p>
-<ol>
-<li><p>Bundle for production</p>
-<p> 执行下面命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jspm bundle lib/main --inject</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>  或下面命令</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jspm bundle-sfx lib/main</span><br></pre></td></tr></table></figure>
-<p>  然后在 <strong>index.html</strong> 中就可以只引用一个js文件</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;h1&gt;Hello, Linne O(∩_∩)O~&lt;/h1&gt;</span><br><span class="line"></span><br><span class="line">&lt;script src=<span class="string">"build.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/08/03/jspm/" data-id="cilm3uls6000lg2qfmkzxe72r" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/modular-programming/">modular programming</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-2015-07-29-spring-004-database" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/07/29/2015-07-29-spring-004-database/" class="article-date">
-  <time datetime="2015-07-29T10:08:50.000Z" itemprop="datePublished">2015-07-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/29/2015-07-29-spring-004-database/">Database</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Spring_4_Data_Access"><a href="#Spring_4_Data_Access" class="headerlink" title="Spring 4 Data Access"></a>Spring 4 Data Access</h2><p>许多开发人员将应用程序中的持久化对象称为仓库（repository），有时候也将其称为数据访问对象 DAO （Data access object）。<br>DAO提供了数据读取和写入到数据库中的一种方式。</p>
-<h3 id="u8BBE_u8BA1_u6570_u636E_u8BBF_u95EE_u5C42_u7684_u597D_u5904"><a href="#u8BBE_u8BA1_u6570_u636E_u8BBF_u95EE_u5C42_u7684_u597D_u5904" class="headerlink" title="设计数据访问层的好处"></a>设计数据访问层的好处</h3><ul>
-<li>使得服务对象易于测试，因为它们不再与特定的数据访问实现绑定在一起。可以为这些数据访问接口创建mock实现，可以让你无需连接数据库就能测试服务对象，这会显示提升单元测试的效率并排除因数据不一致所造成的测试失败。</li>
-<li>数据访问层是以持久化技术无关的方式来进行访问的。持久化方式的选择对于DAO，只有相关的数据访问方法通过接口来进行发布。这可以实现灵活的设计并使得切换持久化框架对应用程序其他部分带来的影响最小。</li>
-</ul>
-<h3 id="u53EF_u80FD_u5BFC_u81F4_u629B_u51FA_SQLException__u7684_u5E38_u89C1_u95EE_u9898"><a href="#u53EF_u80FD_u5BFC_u81F4_u629B_u51FA_SQLException__u7684_u5E38_u89C1_u95EE_u9898" class="headerlink" title="可能导致抛出 SQLException 的常见问题"></a>可能导致抛出 SQLException 的常见问题</h3><ul>
-<li>应用程序无法连接数据库</li>
-<li>要执行的查询语法有语法错误</li>
-<li>查询中所使用的表或列不存在</li>
-<li>视图插入或更新的数据违反了数据库的完整性约束</li>
-</ul>
-<h3 id="u6355_u83B7_u7684_u65F6_u5019_u9762_u4E34_u7684_u4E24_u4E2A_u95EE_u9898"><a href="#u6355_u83B7_u7684_u65F6_u5019_u9762_u4E34_u7684_u4E24_u4E2A_u95EE_u9898" class="headerlink" title="捕获的时候面临的两个问题"></a>捕获的时候面临的两个问题</h3><ul>
-<li>JDBC 的 SQLException 是通用异常，而且不会提示异常类型。</li>
-<li>一些持久化框架提供了相对丰富的异常体现，比如 Hibernate，但是 Hibernate 的异常是其本身特有的，这种持久化机制不能独立于数据访问层。</li>
-</ul>
-<h3 id="Spring_JDBC"><a href="#Spring_JDBC" class="headerlink" title="Spring JDBC"></a>Spring JDBC</h3><p>Spring JDBC 解决了上述两个问题， 它提供了多种类型，都继承自 DataAccessException，是一个非检查型异常。</p>
-<p>为了使用 Spring 的数据访问异常，需要使用 Spring 提供的数据访问模板。</p>
-<p>Spring 将数据访问过程中固定的和可变的部分明确划分为两个不同的类：</p>
-<ul>
-<li>模板，管理过程中固定的部分，比如事务控制、管理资源、处理异常</li>
-<li>回调，处理自定义的数据访问代码，应用程序相关的数据访问（创建语句、绑定参数以及整理结果集）在回调的实现中处理</li>
-</ul>
-<p>不同的持久化平台有不同的模板，JDBC 对于 JdbcTemplate，Hibernate 对应 HibernateTemplate。</p>
-<h2 id="u53C2_u8003_u8D44_u6599"><a href="#u53C2_u8003_u8D44_u6599" class="headerlink" title="参考资料"></a>参考资料</h2><p>《Spring in Action》</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://weixiaobo88.github.io/2015/07/29/2015-07-29-spring-004-database/" data-id="cilm3ultd0025g2qfi3p9npk4" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 </section>
@@ -704,7 +682,7 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bind/">bind</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/build/">build</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/functional-programming/">functional-programming</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/">gradle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery/">jquery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leverage/">leverage</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/listen/">listen</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/modular-programming/">modular programming</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm-package-json/">npm, package.json</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-bootstrap/">react bootstrap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-router/">react router</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reading-notes/">reading-notes</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/servlet/">servlet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring-test/">spring test</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/touring/">touring</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bind/">bind</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/build/">build</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/functional-programming/">functional-programming</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/">gradle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/howto/">howto</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/images/">images</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery/">jquery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lazy-loading/">lazy-loading</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leverage/">leverage</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/listen/">listen</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/modular-programming/">modular programming</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm-package-json/">npm, package.json</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/performance/">performance</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-bootstrap/">react bootstrap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-router/">react router</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reading-notes/">reading-notes</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/servlet/">servlet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring-test/">spring test</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/touring/">touring</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -713,7 +691,7 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/bind/" style="font-size: 10px;">bind</a> <a href="/tags/build/" style="font-size: 10px;">build</a> <a href="/tags/css/" style="font-size: 12.5px;">css</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/functional-programming/" style="font-size: 17.5px;">functional-programming</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/leverage/" style="font-size: 12.5px;">leverage</a> <a href="/tags/listen/" style="font-size: 10px;">listen</a> <a href="/tags/modular-programming/" style="font-size: 17.5px;">modular programming</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/npm-package-json/" style="font-size: 10px;">npm, package.json</a> <a href="/tags/react/" style="font-size: 15px;">react</a> <a href="/tags/react-bootstrap/" style="font-size: 10px;">react bootstrap</a> <a href="/tags/react-router/" style="font-size: 10px;">react router</a> <a href="/tags/reading-notes/" style="font-size: 10px;">reading-notes</a> <a href="/tags/servlet/" style="font-size: 12.5px;">servlet</a> <a href="/tags/spring/" style="font-size: 15px;">spring</a> <a href="/tags/spring-test/" style="font-size: 10px;">spring test</a> <a href="/tags/touring/" style="font-size: 10px;">touring</a>
+      <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/bind/" style="font-size: 10px;">bind</a> <a href="/tags/build/" style="font-size: 10px;">build</a> <a href="/tags/css/" style="font-size: 12px;">css</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/functional-programming/" style="font-size: 16px;">functional-programming</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/howto/" style="font-size: 10px;">howto</a> <a href="/tags/images/" style="font-size: 10px;">images</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/lazy-loading/" style="font-size: 10px;">lazy-loading</a> <a href="/tags/leverage/" style="font-size: 12px;">leverage</a> <a href="/tags/listen/" style="font-size: 10px;">listen</a> <a href="/tags/modular-programming/" style="font-size: 18px;">modular programming</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/npm-package-json/" style="font-size: 10px;">npm, package.json</a> <a href="/tags/performance/" style="font-size: 10px;">performance</a> <a href="/tags/react/" style="font-size: 16px;">react</a> <a href="/tags/react-bootstrap/" style="font-size: 10px;">react bootstrap</a> <a href="/tags/react-router/" style="font-size: 10px;">react router</a> <a href="/tags/reading-notes/" style="font-size: 10px;">reading-notes</a> <a href="/tags/servlet/" style="font-size: 12px;">servlet</a> <a href="/tags/spring/" style="font-size: 14px;">spring</a> <a href="/tags/spring-test/" style="font-size: 10px;">spring test</a> <a href="/tags/touring/" style="font-size: 10px;">touring</a>
     </div>
   </div>
 
@@ -722,7 +700,7 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -734,23 +712,23 @@ icon font倒是可以或多或少解决这个问题，当然两者并不冲突�
       <ul>
         
           <li>
-            <a href="/2016/03/10/20160310-react-high-order-components/">20160310-react-high-order-components</a>
+            <a href="/2016/07/03/20160703-mobile-web-development/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2016/02/27/20160227-react-sourcecode/">20160227-react-sourcecode</a>
+            <a href="/2016/03/23/20160323-immutable/">20160323-immutable</a>
           </li>
         
           <li>
-            <a href="/2016/02/24/20160204-javascript-listen/">20160204-javascript-listen</a>
+            <a href="/2016/03/14/20160314-commonjs/">20160314-commonjs</a>
           </li>
         
           <li>
-            <a href="/2016/02/19/20160219-leverage-002/">20160219-leverage-002</a>
+            <a href="/2016/03/13/20160313-ramada/">20160313-ramada</a>
           </li>
         
           <li>
-            <a href="/2016/02/18/20160218-leverage-001/">20160218-leverage-001</a>
+            <a href="/2016/03/13/20160313-lazy-loading-images/">20160313-lazy-loading-images</a>
           </li>
         
       </ul>
